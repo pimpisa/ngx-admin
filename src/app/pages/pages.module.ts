@@ -8,6 +8,7 @@ import { ThemeModule } from '../@theme/theme.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { AdminSiteModule } from './admin-site/admin-site.module';
 import { AdminUsersModule } from './admin-users/admin-users.module';
+import { AdminGroupModule } from './admin-group/admin-group.module';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -22,6 +23,7 @@ const PAGES_COMPONENTS = [
     MiscellaneousModule,
     AdminSiteModule,
     AdminUsersModule,
+    AdminGroupModule,
   ],
   declarations: [
     ...PAGES_COMPONENTS,

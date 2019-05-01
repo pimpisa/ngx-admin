@@ -21,7 +21,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Manage Group',
     icon: 'nb-compose',
-    link: '/pages/dashboard',
+    link: '/pages/admin-group',
     home: true,
   },
   {

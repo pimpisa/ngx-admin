@@ -7,6 +7,8 @@ import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { AdminSiteComponent } from './admin-site/admin-site.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { AdminGroupComponent } from './admin-group/admin-group.component';
+
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
@@ -25,6 +27,10 @@ const routes: Routes = [{
     path: 'admin-users',
     component: AdminUsersComponent,
   }, 
+  {
+    path: 'admin-group',
+    component: AdminGroupComponent,
+  },
   {
     path: 'ui-features',
     loadChildren: './ui-features/ui-features.module#UiFeaturesModule',

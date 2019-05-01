@@ -33,14 +33,14 @@ export class UserService extends UserData {
     { user: this.users.kate, type: this.types.macy },
   ];
   private recentUsers: RecentUsers[]  = [
-    { user: this.users.alan, type: this.types.home, time: this.time.setHours(21, 12)},
-    { user: this.users.eva, type: this.types.home, time: this.time.setHours(17, 45)},
-    { user: this.users.nick, type: this.types.mobile, time: this.time.setHours(5, 29)},
-    { user: this.users.lee, type: this.types.mobile, time: this.time.setHours(11, 24)},
-    { user: this.users.jack, type: this.types.mobile, time: this.time.setHours(10, 45)},
-    { user: this.users.kate, type: this.types.work, time: this.time.setHours(9, 42)},
-    { user: this.users.kate, type: this.types.work, time: this.time.setHours(9, 31)},
-    { user: this.users.jack, type: this.types.mobile, time: this.time.setHours(8, 0)},
+    { user: this.users.alan, type: this.types.dillard, time: this.time.setHours(21, 12)},
+    { user: this.users.eva, type: this.types.group2, time: this.time.setHours(17, 45)},
+    { user: this.users.nick, type: this.types.boscov, time: this.time.setHours(5, 29)},
+    { user: this.users.lee, type: this.types.landT, time: this.time.setHours(11, 24)},
+    { user: this.users.jack, type: this.types.globalCorp, time: this.time.setHours(10, 45)},
+    { user: this.users.kate, type: this.types.macy, time: this.time.setHours(9, 42)},
+    { user: this.users.kate, type: this.types.dillard, time: this.time.setHours(9, 31)},
+    { user: this.users.jack, type: this.types.group2, time: this.time.setHours(8, 0)},
   ];
 
   getUsers(): Observable<any> {
