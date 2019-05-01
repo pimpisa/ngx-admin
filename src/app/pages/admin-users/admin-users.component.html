@@ -1,0 +1,57 @@
+<nb-card>
+    <nb-card-header>
+      Users
+    </nb-card-header>  
+    <nb-card-body>
+        <!--<div class="row">
+            <div class="nebular-calendar col-md-12 col-lg-6 col-xxxl-4">
+                <h2>Selected date: {{ date | date }}</h2>
+                      <nb-calendar [(date)]="date" [boundingMonth]="true"></nb-calendar>
+                    </div>
+                    <div class="nebular-calendar col-md-12 col-lg-6 col-xxxl-4">
+                      <h2>
+                        Selected range: {{ range.start | date }} - {{ range.end | date }}
+                      </h2>
+                      <nb-calendar-range [(range)]="range"></nb-calendar-range>
+                    </div>
+                    <div class="nebular-calendar col-md-12 col-lg-6 col-xxxl-4">
+                      <h2>
+                        Selected date: {{ date2 | date }}
+                      </h2>
+                      <nb-calendar
+                        [(date)]="date2"
+                        [dayCellComponent]="dayCellComponent"
+                      ></nb-calendar>
+                    </div>
+        </div>-->
+        <div class="input-group">
+          <!--Add new user-->  
+          <button class="btn btn-danger input-group-text" (click)="openWindow(contentTemplate)" nbButton>Add new user</button>&nbsp;&nbsp;
+          <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-append">
+                      <button class="btn btn-danger input-group-text">
+                        Search
+                      </button>
+                </span>
+        </div>
+        <br/> <!--If we should use smart table-->
+        <!--<ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+          <nb-actions size="small">
+            <nb-action icon="fa fa-address-card"></nb-action>
+            <nb-action icon="fa fa fa-paper-plane"></nb-action>
+            <nb-action icon="fa fa-pencil-alt"></nb-action>
+          </nb-actions>
+        </ng2-smart-table>-->
+        <div class="contact" *ngFor="let c of contacts">
+            <nb-user [name]="c.user.name" [title]="c.type" size="large"></nb-user>
+            <nb-actions size="small">
+              <nb-action icon="fa fa-address-card"></nb-action>
+              <nb-action icon="fa fa fa-paper-plane"></nb-action>
+              <nb-action icon="fa fa-pencil-alt"></nb-action>
+            </nb-actions>
+        </div>  
+        <br/>   
+        <div class="flush-right"><button type="submit" class="btn btn-primary">Send Message</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Export CSV</button>&nbsp;&nbsp;
+        <button type="submit" class="btn btn-primary">Export Users</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Import Users</button></div>
+    </nb-card-body>
+</nb-card>
