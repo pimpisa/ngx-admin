@@ -26,11 +26,11 @@ export class WindowComponent {
     );
   }
 
-  openWindowForm() {
+  /*openWindowForm() {
     this.windowService.open(WindowFormComponent, { title: `Window` });
-  }
+  }*/
 
-  openWindowWithoutBackdrop() {
+  /*openWindowWithoutBackdrop() {
     this.windowService.open(
       this.disabledEscTemplate,
       {
@@ -39,5 +39,5 @@ export class WindowComponent {
         closeOnEsc: false,
       },
     );
-  }
+  }*/
 }

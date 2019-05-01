@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, TemplateRef, ViewChild, OnDestroy } from '@angular/core';
 import { SmartTableComponent } from '../tables/smart-table/smart-table.component'
 import { LocalDataSource } from 'ng2-smart-table';
 import { SmartTableData } from '../../@core/data/smart-table';
@@ -9,6 +9,7 @@ import { takeWhile } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
 import { NbWindowService} from '@nebular/theme'
 import { WindowFormComponent } from '../modal-overlays/window/window-form/window-form.component';
+import { NbWindowRef } from '@nebular/theme';
 //import { DayCellComponent } from './day-cell/day-cell.component';
 
 @Component({
@@ -17,6 +18,7 @@ import { WindowFormComponent } from '../modal-overlays/window/window-form/window
   templateUrl: './admin-users.component.html',
 })
 export class AdminUsersComponent implements OnDestroy{
+  @ViewChild('disabledEsc', { read: TemplateRef }) disabledEscTemplate: TemplateRef<HTMLElement>;
   private alive = true;
   contacts: any[];
   recent: any[];
@@ -27,11 +29,11 @@ export class AdminUsersComponent implements OnDestroy{
     private themeService: NbThemeService,
     private breakpointService: NbMediaBreakpointsService, 
     private NbWindowService:NbWindowService) {
-    this.breakpoints = this.breakpointService.getBreakpointsMap();
-    this.themeService.onMediaQueryChange()
-    .pipe(takeWhile(() => this.alive))
-    .subscribe(([oldValue, newValue]) => {
-    this.breakpoint = newValue;
+      this.breakpoints = this.breakpointService.getBreakpointsMap();
+      this.themeService.onMediaQueryChange()
+      .pipe(takeWhile(() => this.alive))
+      .subscribe(([oldValue, newValue]) => {
+      this.breakpoint = newValue;
     
   });
   forkJoin(
@@ -51,18 +53,8 @@ export class AdminUsersComponent implements OnDestroy{
         {
           title: 'Window content from template',
           context: {
-            text: 'some text to pass into templatelll',
+            text: 'some text to pass into template',
           },
-        },
-      );
-    }
-
-    openWindowForm() {
-      this.NbWindowService.open(WindowFormComponent, 
-        {
-          title: 'Window',
-          hasBackdrop: true,
-          closeOnEsc: false,       
         },
       );
     }
@@ -82,35 +74,9 @@ export class AdminUsersComponent implements OnDestroy{
             addButtonContent: '<i class="fa fa-address-card"></i>',
             icon: 'fa fa-address-card',
           },
-          /*add: {
-            addButtonContent: '<i class="fa fa-address-card"></i>',
-            createButtonContent: '<i class="nb-checkmark"></i>',
-            cancelButtonContent: '<i class="nb-close"></i>',
-          },
-          edit: {
-            editButtonContent: '<i class="nb-edit"></i>',
-            saveButtonContent: '<i class="nb-checkmark"></i>',
-            cancelButtonContent: '<i class="nb-close"></i>',
-          },
-          delete: {
-            deleteButtonContent: '<i class="nb-trash"></i>',
-            confirmDelete: true,
-          },**/
         },
       };
       source: LocalDataSource = new LocalDataSource();
-    
-      /*constructor(private service: SmartTableData) {
-        const data = this.service.getData();
-        this.source.load(data);
-      }
-      onDeleteConfirm(event): void {
-        if (window.confirm('Are you sure you want to delete?')) {
-          event.confirm.resolve();
-        } else {
-          event.confirm.reject();
-        }
-      }*/
       ngOnDestroy(){
         this.alive =false;
       }
