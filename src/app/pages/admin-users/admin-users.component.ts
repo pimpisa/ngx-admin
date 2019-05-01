@@ -51,7 +51,7 @@ export class AdminUsersComponent implements OnDestroy{
         {
           title: 'Window content from template',
           context: {
-            text: 'some text to pass into template',
+            text: 'some text to pass into templatelll',
           },
         },
       );
