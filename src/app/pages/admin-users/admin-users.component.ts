@@ -3,10 +3,12 @@ import { SmartTableComponent } from '../tables/smart-table/smart-table.component
 import { LocalDataSource } from 'ng2-smart-table';
 import { SmartTableData } from '../../@core/data/smart-table';
 import { NbCalendarRange, NbDateService } from '@nebular/theme';
+/**Import this for the dummy users */
 import { Contacts, RecentUsers, UserData } from '../../@core/data/users';
 import { NbThemeService, NbMediaBreakpoint, NbMediaBreakpointsService } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
+/**Import this for popup-window */
 import { NbWindowService} from '@nebular/theme'
 import { WindowFormComponent } from '../modal-overlays/window/window-form/window-form.component';
 import { NbWindowRef } from '@nebular/theme';
