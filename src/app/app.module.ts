@@ -16,6 +16,7 @@ import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NbActionsModule } from '@nebular/theme';
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -24,7 +25,6 @@ import { NbActionsModule } from '@nebular/theme';
     HttpClientModule,
     AppRoutingModule,
     NbActionsModule,
-
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),

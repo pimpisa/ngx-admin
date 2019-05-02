@@ -8,6 +8,7 @@ import { NotFoundComponent } from './miscellaneous/not-found/not-found.component
 import { AdminSiteComponent } from './admin-site/admin-site.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { AdminGroupComponent } from './admin-group/admin-group.component';
+import { AdminPagesComponent } from './admin-pages/admin-pages.component';
 
 const routes: Routes = [{
   path: '',
@@ -26,6 +27,10 @@ const routes: Routes = [{
   {
     path: 'admin-users',
     component: AdminUsersComponent,
+  }, 
+  {
+    path: 'admin-pages',
+    component: AdminPagesComponent,
   }, 
   {
     path: 'admin-group',

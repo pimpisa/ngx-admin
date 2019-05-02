@@ -27,7 +27,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Manage Pages',
     icon: 'nb-compose',
-    link: '/pages/dashboard',
+    link: '/pages/admin-pages',
     home: true,
   },
   {
