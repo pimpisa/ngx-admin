@@ -3,6 +3,7 @@
 @import '~@nebular/theme/styles/global/breakpoints';
 //@import '../../app/pages/forms/buttons/button-elements/button-elements.component.scss';
 @import '../dashboard/contacts/contacts.component';
+@import '../extra-components/form-inputs/nebular-select/nebular-select.component.scss';
 
 @include nb-install-component() {
   .full-width {
@@ -24,4 +25,7 @@
   .flush-right {
     float: right;
   }
+  nb-select {
+    float: right;
+}
 }

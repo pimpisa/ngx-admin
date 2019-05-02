@@ -1,6 +1,17 @@
 <nb-card>
-    <nb-card-header>
-      Users
+  <nb-card-header>
+    <div class="input-group">
+        <div class="col-6 col-sm-4">Users</div>
+        <div class="col-6 col-sm-4"></div>
+        <div class="col-6 col-sm-4">
+          <nb-select placeholder="All Group" [(selected)]="commonSelectedItem">
+            <nb-option value="1">Group2</nb-option>
+            <nb-option value="2">Boscov's</nb-option>
+            <nb-option value="3">L&T Corporate</nb-option>
+            <nb-option value="4">Global Corporate</nb-option>
+          </nb-select>
+        </div>
+    </div>       
     </nb-card-header>  
     <nb-card-body>
         <!--<div class="row">
