@@ -24,6 +24,21 @@ export class UserService extends UserData {
     macy: 'Macy\'s Corporate 2',
 
   };
+  private pages = {
+    spotlight: 'spotlight',
+    MarchOn: 'March On',
+    buzzWorthy: 'Buzz Worthy',
+    howToVideo: 'How To Video',
+    gameboard: 'Gameboard',
+    pink: 'PINK',
+    marchOnBackUp: 'March On Back Up Stage',
+    deepDive: 'Deep Dive',
+    prevageDeepDive: 'Prevage Deep Dive',
+    retinol: 'Retinol',
+    aha: 'AHA',
+    retinolDeepDive: 'Retinol Deep Dive',
+    rewards: 'Rewards',
+  };
   private contacts: Contacts[] = [
     { user: this.users.nick, type: this.types.dillard },
     { user: this.users.eva, type: this.types.group2 },

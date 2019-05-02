@@ -11,7 +11,6 @@ import { AdminUsersModule } from './admin-users/admin-users.module';
 import { AdminGroupModule } from './admin-group/admin-group.module';
 import { AdminPagesModule } from './admin-pages/admin-pages.module';
 
-
 const PAGES_COMPONENTS = [
   PagesComponent,
 ];
