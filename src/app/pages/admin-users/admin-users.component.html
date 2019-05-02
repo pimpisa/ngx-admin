@@ -2,7 +2,10 @@
   <nb-card-header>
     <div class="input-group">
         <div class="col-6 col-sm-4">Users</div>
-        <div class="col-6 col-sm-4"></div>
+        <div class="col-6 col-sm-4">
+          <!--<h2>Selected range: {{ range.start | date }} - {{ range.end | date }}</h2>
+            <nb-calendar-range [(range)]="range"></nb-calendar-range>-->
+        </div>
         <div class="col-6 col-sm-4">
           <nb-select placeholder="All Group" [(selected)]="commonSelectedItem">
             <nb-option value="1">Group2</nb-option>
