@@ -3,9 +3,12 @@
       Groups
     </nb-card-header>  
     <nb-card-body>
-        <div class="input-group">
-          <!--Add new user-->  
-          <nb-action icon="fas fa-plus-circle"></nb-action>
+        <!--Add new user without button
+        <div class="flush-right" class="input-group">
+          <nb-action icon="fas fa-plus-circle"></nb-action> Add Group
+        </div>-->  
+        <!--Add new user with button--> 
+        <div class="flush-right" class="input-group">
           <button class="btn btn-danger input-group-text" (click)="openWindow(contentTemplate)" nbButton>Add Group</button>&nbsp;&nbsp;
         </div>
         <br/>
