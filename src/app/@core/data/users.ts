@@ -8,6 +8,7 @@ export interface User {
 export interface Contacts {
   user: User;
   type: string;
+  page: string;
 }
 
 export interface RecentUsers extends Contacts {

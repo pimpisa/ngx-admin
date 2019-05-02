@@ -26,7 +26,7 @@ export class UserService extends UserData {
   };
   private pages = {
     spotlight: 'spotlight',
-    MarchOn: 'March On',
+    marchOn: 'March On',
     buzzWorthy: 'Buzz Worthy',
     howToVideo: 'How To Video',
     gameboard: 'Gameboard',
@@ -40,22 +40,20 @@ export class UserService extends UserData {
     rewards: 'Rewards',
   };
   private contacts: Contacts[] = [
-    { user: this.users.nick, type: this.types.dillard },
-    { user: this.users.eva, type: this.types.group2 },
-    { user: this.users.jack, type: this.types.boscov },
-    { user: this.users.lee, type: this.types.landT },
-    { user: this.users.alan, type: this.types.globalCorp },
-    { user: this.users.kate, type: this.types.macy },
+    { user: this.users.nick, type: this.types.dillard, page: this.pages.spotlight },
+    { user: this.users.eva, type: this.types.group2, page: this.pages.marchOn},
+    { user: this.users.jack, type: this.types.boscov, page: this.pages.buzzWorthy },
+    { user: this.users.lee, type: this.types.landT, page: this.pages.howToVideo },
+    { user: this.users.alan, type: this.types.globalCorp, page: this.pages.gameboard },
+    { user: this.users.kate, type: this.types.macy, page: this.pages.pink },
   ];
   private recentUsers: RecentUsers[]  = [
-    { user: this.users.alan, type: this.types.dillard, time: this.time.setHours(21, 12)},
-    { user: this.users.eva, type: this.types.group2, time: this.time.setHours(17, 45)},
-    { user: this.users.nick, type: this.types.boscov, time: this.time.setHours(5, 29)},
-    { user: this.users.lee, type: this.types.landT, time: this.time.setHours(11, 24)},
-    { user: this.users.jack, type: this.types.globalCorp, time: this.time.setHours(10, 45)},
-    { user: this.users.kate, type: this.types.macy, time: this.time.setHours(9, 42)},
-    { user: this.users.kate, type: this.types.dillard, time: this.time.setHours(9, 31)},
-    { user: this.users.jack, type: this.types.group2, time: this.time.setHours(8, 0)},
+    { user: this.users.alan, type: this.types.dillard, time: this.time.setHours(21, 12), page: this.pages.spotlight },
+    { user: this.users.eva, type: this.types.group2, time: this.time.setHours(17, 45), page: this.pages.marchOn },
+    { user: this.users.nick, type: this.types.boscov, time: this.time.setHours(5, 29), page: this.pages.buzzWorthy},
+    { user: this.users.lee, type: this.types.landT, time: this.time.setHours(11, 24), page: this.pages.howToVideo },
+    { user: this.users.jack, type: this.types.globalCorp, time: this.time.setHours(10, 45), page: this.pages.gameboard},
+    { user: this.users.kate, type: this.types.macy, time: this.time.setHours(9, 42), page: this.pages.pink },
   ];
 
   getUsers(): Observable<any> {

@@ -8,7 +8,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Manage Site',
-    icon: 'nb-compose',
+    icon: 'nb-layout-sidebar-left',
     link: '/pages/admin-site',
     home: true,
   },
@@ -20,13 +20,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Manage Group',
-    icon: 'nb-compose',
+    icon: 'nb-person',
     link: '/pages/admin-group',
     home: true,
   },
   {
     title: 'Manage Pages',
-    icon: 'nb-compose',
+    icon: 'nb-grid-a-outline',
     link: '/pages/admin-pages',
     home: true,
   },
