@@ -10,6 +10,8 @@ import { NbWindowService} from '@nebular/theme'
 import { WindowFormComponent } from '../modal-overlays/window/window-form/window-form.component';
 import { NbWindowRef } from '@nebular/theme';
 
+
+
 @Component({
     selector: 'ngx-admin-group',
     styleUrls: ['./admin-group.component.scss'],
@@ -33,6 +35,7 @@ export class AdminGroupComponent{
           this.breakpoint = newValue;
         
       });
+
       forkJoin(
         this.userService.getContacts(),
         this.userService.getRecentUsers(),
