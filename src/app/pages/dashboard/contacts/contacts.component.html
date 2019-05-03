@@ -2,7 +2,7 @@
   <nb-tabset fullWidth>
     <nb-tab tabTitle="Contacts">
       <div class="contact" *ngFor="let c of contacts">
-        <nb-user [picture]="c.user.picture" [name]="c.user.name" [title]="c.type" size="large"></nb-user>
+        <nb-user [name]="c.user.name" [title]="c.type" size="large"></nb-user>
         <nb-actions size="small">
           <nb-action icon="fa fa-address-card"></nb-action>
           <nb-action icon="fa fa fa-paper-plane"></nb-action>
@@ -10,9 +10,9 @@
         </nb-actions>
       </div>
     </nb-tab>
-    <nb-tab tabTitle="Recent">
+    <nb-tab tabTitle="Last Login">
       <div class="contact" *ngFor="let c of recent">
-        <nb-user [picture]="c.user.picture" [name]="c.user.name" [title]="c.type" size="large"></nb-user>
+        <nb-user [name]="c.user.name" [title]="c.type" size="large"></nb-user>
         <span class="time">{{ c.time | date: 'shortTime' }}</span>
       </div>
     </nb-tab>
