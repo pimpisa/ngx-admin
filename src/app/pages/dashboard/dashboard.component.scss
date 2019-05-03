@@ -18,6 +18,19 @@
     padding: 1rem !important;
     background: transparent;
   }
+  .card-headline{
+    padding: 1.25rem;
+    border-bottom-width: 0;
+    border-bottom-style: solid;
+    border-bottom-color: #cdd5dc;
+    border-top-left-radius: 0.17rem;
+    border-top-right-radius: 0.17rem;
+    color: #181818;
+    font-family: Exo;
+    font-size: 1.9rem;
+    font-weight: 600;
+    width:100%;
+  }
   .user-picture {
     height: 3rem;
     width: 3rem;
@@ -66,6 +79,13 @@
   }
   .dark_purple{
     background: #602d91;
+  }
+  h1{
+    color: #181818;
+    font-family: Exo;
+    font-size: 1.9rem;
+    font-weight: 600;
+    text-align:center;
   }
   
   @include media-breakpoint-down(sm) {

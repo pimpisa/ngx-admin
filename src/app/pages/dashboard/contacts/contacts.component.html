@@ -1,9 +1,31 @@
 <div class="row">
     <!--1st column-->
     <div class="col-md-4">
+        <nb-card>
+            <nb-card-header accent="info">Leaderboard</nb-card-header>
+            <nb-card-body>
+              
+            </nb-card-body>
+            <nb-card-footer class="purple"></nb-card-footer>
+        </nb-card>
+    </div>
+    <!--2nd column-->
+    <div class="col-md-4">
+        <nb-card>
+            <nb-card-header accent="info">Push Message</nb-card-header>
+            <nb-card-body>
+              
+            </nb-card-body>
+            <nb-card-footer class="green"></nb-card-footer>
+        </nb-card>
+    </div>
+</div>
+<div class="row">
+    <!--3rd column-->
+    <div class="col-md-6">
         <nb-card [size]="breakpoint.width >= breakpoints.xxxl || breakpoint.width < breakpoints.md ? 'large' : 'xlarge'">
           <nb-tabset fullWidth>
-            <nb-tab tabTitle="Contacts">
+            <nb-tab tabTitle="Top Users">
               <div class="contact" *ngFor="let c of contacts">
                 <nb-user [name]="c.user.name" [title]="c.type" size="large"></nb-user>
                 <nb-actions size="small">
@@ -20,25 +42,6 @@
               </div>
             </nb-tab>
           </nb-tabset>
-        </nb-card>
-    </div>
-    <div class="col-md-4">
-        <nb-card>
-            <nb-card-header accent="info">Leaderboard</nb-card-header>
-            <nb-card-body>
-              
-            </nb-card-body>
-            <nb-card-footer class="purple"></nb-card-footer>
-        </nb-card>
-    </div>
-    
-    <div class="col-md-4">
-        <nb-card>
-            <nb-card-header accent="info">Leaderboard</nb-card-header>
-            <nb-card-body>
-              
-            </nb-card-body>
-            <nb-card-footer class="green"></nb-card-footer>
         </nb-card>
     </div>
 </div>
