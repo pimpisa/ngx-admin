@@ -8,7 +8,57 @@
     border: none;
     padding-bottom: 0;
   }
-
+  nb-card-footer {
+    height: 70px;
+    padding: 0.70rem !important;
+    color: white;
+  }
+  .head {
+    color: white;
+    font-family: Exo;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+  .info {
+    color: white;
+    font-family: Exo;
+    font-size: 1.9rem;
+    font-weight: 500;
+  }
+  .right {
+    width: 50%;
+    display: inline-block;
+    text-align: right;
+  }
+  .left {
+    width: 50%;
+    display: inline-block;
+}
+  .pink{
+    background: #ed1164;
+  }
+  .yellow{
+    background: #ffc60b;
+  }
+  .magenta{
+    background: #b400cf;
+  }
+  .purple{
+    background: #4c0eff;
+  }
+  .green{
+    background: #b2d235;
+  }
+  .blue{
+    background: #118fff;
+  }
+  .dark_green{
+    background: #006a6e;
+  }
+  .dark_purple{
+    background: #602d91;
+  }
+  
   @include media-breakpoint-down(sm) {
     ngx-traffic {
       display: none;
