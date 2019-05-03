@@ -1,5 +1,6 @@
 @import '../../../@theme/styles/themes';
 @import '~@nebular/bootstrap/styles/hero-buttons';
+@import '../dashboard.component.scss';
 
 @include nb-install-component() {
   nb-tabset {
