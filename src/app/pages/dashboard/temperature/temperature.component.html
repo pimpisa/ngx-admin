@@ -37,18 +37,72 @@
     </div>
   <!--2nd card -->
     <div class="col-md-4">
-      <nb-card>
-      <nb-card-header></nb-card-header>
-      <nb-card-body></nb-card-body>
-      <nb-card-footer></nb-card-footer>
-      </nb-card>
+        <nb-card size="large" tabTitle="Temperature">
+            <nb-card-header class="text-center">Surveys<div class="details text-center">Percent of Edgagement</div></nb-card-header>
+              <div class="slider-container">
+                <ngx-temperature-dragger [(value)]="temperature" (power)="temperatureOff = !$event"
+                                         [min]="temperatureData.min" [max]="temperatureData.max" [disableArcColor]="colors.layoutBg"
+                                         [fillColors]="colors.temperature">
+        
+                  <div class="slider-value-container"  [ngClass]="{ 'off': temperatureOff }">
+                      <div class="value">2.5%</div>
+                  </div>
+                </ngx-temperature-dragger>
+              </div>
+              <nb-card-footer>
+                <div class="left">
+                  <div class="head">
+        
+                  </div>
+                  <div class="info">
+                  
+                  </div>
+                </div>
+                <div class="right">
+                    <div class="head">
+          
+                    </div>
+                    <div class="info">
+                    
+                    </div>
+                  </div>
+        
+              </nb-card-footer>
+        </nb-card>
     </div>
   <!--3rd card -->
     <div class="col-md-4">
-      <nb-card>
-      <nb-card-header></nb-card-header>
-      <nb-card-body></nb-card-body>
-      <nb-card-footer></nb-card-footer>
-      </nb-card>
+        <nb-card size="large" tabTitle="Temperature">
+            <nb-card-header class="text-center">Pages<div class="details text-center">Percent of Click</div></nb-card-header>
+              <div class="slider-container">
+                <ngx-temperature-dragger [(value)]="temperature" (power)="temperatureOff = !$event"
+                                         [min]="temperatureData.min" [max]="temperatureData.max" [disableArcColor]="colors.layoutBg"
+                                         [fillColors]="colors.temperature">
+        
+                  <div class="slider-value-container"  [ngClass]="{ 'off': temperatureOff }">
+                      <div class="value">2.4%</div>
+                  </div>
+                </ngx-temperature-dragger>
+              </div>
+              <nb-card-footer>
+                <div class="left">
+                  <div class="head">
+        
+                  </div>
+                  <div class="info">
+                  
+                  </div>
+                </div>
+                <div class="right">
+                    <div class="head">
+          
+                    </div>
+                    <div class="info">
+                    
+                    </div>
+                  </div>
+        
+              </nb-card-footer>
+        </nb-card>
     </div>
   </div>
