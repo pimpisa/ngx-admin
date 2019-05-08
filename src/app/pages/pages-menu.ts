@@ -33,25 +33,25 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Manage Menu',
     icon: 'nb-menu',
-    link: '/pages/dashboard',
+    link: '/pages/admin-menu',
     home: true,
   }, 
   {
     title: 'Manage Resource Center',
     icon: 'nb-compose',
-    link: '/pages/dashboard',
+    link: '/pages/admin-resource-center',
     home: true,
   },
   {
     title: 'Manage Games',
     icon: 'nb-compose',
-    link: '/pages/dashboard',
+    link: '/pages/admin-games',
     home: true,
   },
   {
     title: 'Manage Surveys',
     icon: 'nb-compose',
-    link: '/pages/dashboard',
+    link: '/pages/admin-surveys',
     home: true,
   },
   {

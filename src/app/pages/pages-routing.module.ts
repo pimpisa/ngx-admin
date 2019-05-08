@@ -9,6 +9,10 @@ import { AdminSiteComponent } from './admin-site/admin-site.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { AdminGroupComponent } from './admin-group/admin-group.component';
 import { AdminPagesComponent } from './admin-pages/admin-pages.component';
+import { AdminMenuComponent } from './admin-menu/admin-menu.component';
+import { AdminResourceCenterComponent } from './admin-resource-center/admin-resource-center.component';
+import { AdminGamesComponent } from './admin-games/admin-games.component';
+import { AdminSurveysComponent } from './admin-surveys/admin-surveys.component';
 
 const routes: Routes = [{
   path: '',
@@ -35,6 +39,22 @@ const routes: Routes = [{
   {
     path: 'admin-group',
     component: AdminGroupComponent,
+  },
+  {
+    path: 'admin-menu',
+    component: AdminMenuComponent,
+  },
+  {
+    path: 'admin-resource-center',
+    component: AdminResourceCenterComponent,
+  },
+  {
+    path: 'admin-games',
+    component: AdminGamesComponent,
+  },
+  {
+    path: 'admin-surveys',
+    component: AdminSurveysComponent,
   },
   {
     path: 'ui-features',
