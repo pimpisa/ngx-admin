@@ -19,6 +19,21 @@ import { NbWindowRef } from '@nebular/theme';
   })
 export class AdminPagesComponent{
     private alive = true;
+    pages = [
+        {id: 1, name: 'spotlight'},
+        {id: 2, name: 'March On'},
+        {id: 3, name: 'Buzz Worthy'},
+        {id: 4, name: 'How To Video'},
+        {id: 5, name: 'Gameboard'},
+        {id: 6, name: 'PINK'},
+        {id: 7, name: 'March On Back Up Stage'},
+        {id: 8, name: 'Deep Dive'},
+        {id: 9, name: 'Prevage Deep Dive'},
+        {id: 10, name: 'Retinol'},
+        {id: 11, name: 'AHA'},
+        {id: 12, name: 'Retinol Deep Dive'},
+        {id: 13, name: 'Rewards'}
+    ];
     contacts: any[];
     recent: any[];
     breakpoint: NbMediaBreakpoint;

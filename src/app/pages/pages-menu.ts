@@ -31,6 +31,18 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
+    title: 'Manage Elements',
+    icon: 'nb-keypad',
+    link: '/pages/admin-elements',
+    home: true,
+  }, 
+  {
+    title: 'Manage Review',
+    icon: 'nb-compose',
+    link: '/pages/admin-reviews',
+    home: true,
+  }, 
+  {
     title: 'Manage Menu',
     icon: 'nb-menu',
     link: '/pages/admin-menu',

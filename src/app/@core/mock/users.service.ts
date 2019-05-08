@@ -39,6 +39,7 @@ export class UserService extends UserData {
     retinolDeepDive: 'Retinol Deep Dive',
     rewards: 'Rewards',
   };
+
   private contacts: Contacts[] = [
     { user: this.users.nick, type: this.types.dillard, page: this.pages.spotlight },
     { user: this.users.eva, type: this.types.group2, page: this.pages.marchOn},

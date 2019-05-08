@@ -13,6 +13,8 @@ import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AdminResourceCenterComponent } from './admin-resource-center/admin-resource-center.component';
 import { AdminGamesComponent } from './admin-games/admin-games.component';
 import { AdminSurveysComponent } from './admin-surveys/admin-surveys.component';
+import { AdminElementsComponent } from './admin-elements/admin-elements.component';
+import { AdminReviewsComponent } from './admin-reviews/admin-reviews.component';
 
 const routes: Routes = [{
   path: '',
@@ -47,6 +49,14 @@ const routes: Routes = [{
   {
     path: 'admin-resource-center',
     component: AdminResourceCenterComponent,
+  },
+  {
+    path: 'admin-elements',
+    component: AdminElementsComponent,
+  },
+  {
+    path: 'admin-reviews',
+    component: AdminReviewsComponent,
   },
   {
     path: 'admin-games',

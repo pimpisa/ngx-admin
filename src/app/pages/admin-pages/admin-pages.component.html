@@ -8,9 +8,9 @@
           <button class="btn btn-danger input-group-text" (click)="openWindow(contentTemplate)" nbButton>Add Page</button>&nbsp;&nbsp;
         </div>
         <br/>
-        <div class="contact" *ngFor="let c of contacts">
+        <div class="contact" *ngFor="let c of pages">
             <!-- <nb-user [name]="g.name"></nb-user>-->
-            <nb-user [name]="c.page" size="large"></nb-user>
+            <nb-user [name]="c.name" size="large"></nb-user>
             <nb-actions size="small">
               <nb-action icon="fa fa-address-card"></nb-action>
               <nb-action icon="fa fa fa-paper-plane"></nb-action>
