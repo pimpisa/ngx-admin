@@ -71,5 +71,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'nb-compose',
     link: '/pages/admin-lectures',
     home: true,
+  },
+  {
+    title: 'Manage Classrooms',
+    icon: 'nb-compose',
+    link: '/pages/admin-classrooms',
+    home: true,
   }
 ];

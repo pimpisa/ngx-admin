@@ -1,3 +1,19 @@
-<p>
-  admin-classrooms works!
-</p>
+<nb-card>
+    <nb-card-header>
+      <div class="text-center">First, let's create the room for your lecture</div>
+    </nb-card-header>  
+    <nb-card-body>
+      <div class="col-md-6">
+        <input type="text" nbInput fullWidth fieldSize="large" shape="rectangle" placeholder="Enter room name">
+      </div>
+      <br>
+      <div class="col-md-6">
+        <nb-select placeholder="Select Lecture" status="primary">
+          <nb-option value="1">---Get into the pink!</nb-option>
+        </nb-select>
+      </div>
+      <!--<div class="col-md-6">
+        <input (click)="onClick()" type="button" nbButton shape="rectangle" outline size="medium" class="main-button" value="CONTINUE"/>
+      </div>-->
+    </nb-card-body>
+</nb-card>
