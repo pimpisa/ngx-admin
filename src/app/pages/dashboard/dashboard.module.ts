@@ -23,7 +23,8 @@ import { TrafficChartComponent } from './traffic/traffic-chart.component';
 import { AdminSiteComponent } from './admin-site/admin-site.component';
 import { NbActionsModule } from '@nebular/theme';
 import { ChartsComponent } from './charts/charts.component';
-import { ChartsModule } from './charts/charts.module';
+import { ChartsModule } from '../charts/charts.module';
+
 
 @NgModule({
   imports: [
@@ -51,7 +52,7 @@ import { ChartsModule } from './charts/charts.module';
     TrafficComponent,
     TrafficChartComponent,
     ChartsComponent,
-  
+
   ],
 })
 export class DashboardModule { }
