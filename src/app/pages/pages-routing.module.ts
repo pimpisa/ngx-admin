@@ -15,6 +15,7 @@ import { AdminGamesComponent } from './admin-games/admin-games.component';
 import { AdminSurveysComponent } from './admin-surveys/admin-surveys.component';
 import { AdminElementsComponent } from './admin-elements/admin-elements.component';
 import { AdminReviewsComponent } from './admin-reviews/admin-reviews.component';
+import { AdminLecturesComponent } from './admin-lectures/admin-lectures.component';
 
 const routes: Routes = [{
   path: '',
@@ -65,6 +66,10 @@ const routes: Routes = [{
   {
     path: 'admin-surveys',
     component: AdminSurveysComponent,
+  },
+  {
+    path: 'admin-lectures',
+    component: AdminLecturesComponent,
   },
   {
     path: 'ui-features',
