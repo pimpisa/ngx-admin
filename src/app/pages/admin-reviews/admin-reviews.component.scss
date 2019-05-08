@@ -3,3 +3,16 @@
 @import '~@nebular/theme/styles/global/breakpoints';
 @import '../dashboard/contacts/contacts.component';
 @import '../admin-users/admin-users.component.scss';
+@import '../dashboard/weather/weather.component.scss';
+
+.details {
+    display: flex;
+    justify-content: space-around;
+}
+span {
+    font-size: 1.25rem;
+    font-family: 'Roboto';
+}
+nb-actions.small {
+    float: right;
+}
