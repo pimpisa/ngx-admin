@@ -22,12 +22,15 @@ import { TrafficComponent } from './traffic/traffic.component';
 import { TrafficChartComponent } from './traffic/traffic-chart.component';
 import { AdminSiteComponent } from './admin-site/admin-site.component';
 import { NbActionsModule } from '@nebular/theme';
+import { ChartsComponent } from './charts/charts.component';
+import { ChartsModule } from './charts/charts.module';
 
 @NgModule({
   imports: [
     ThemeModule,
     NgxEchartsModule,
-    NbActionsModule
+    NbActionsModule,
+    ChartsModule,
   ],
   declarations: [
     DashboardComponent,
@@ -47,6 +50,7 @@ import { NbActionsModule } from '@nebular/theme';
     SolarComponent,
     TrafficComponent,
     TrafficChartComponent,
+    ChartsComponent,
   
   ],
 })

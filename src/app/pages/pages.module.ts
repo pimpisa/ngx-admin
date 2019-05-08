@@ -38,6 +38,7 @@ const PAGES_COMPONENTS = [
     AdminUsersModule,
     AdminGroupModule,
     AdminPagesModule,
+  
   ],
   declarations: [
     ...PAGES_COMPONENTS,
@@ -53,6 +54,7 @@ const PAGES_COMPONENTS = [
     AdminWebSessionComponent,
     AdminElementsComponent,
     AdminGameDemosComponent,
+
   ],
 })
 export class PagesModule {

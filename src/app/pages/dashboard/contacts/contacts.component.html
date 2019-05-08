@@ -4,7 +4,7 @@
         <nb-card>
             <nb-card-header accent="info">Leaderboard</nb-card-header>
             <nb-card-body>
-              
+                <ngx-charts></ngx-charts>
             </nb-card-body>
             <nb-card-footer class="purple"></nb-card-footer>
         </nb-card>
@@ -23,7 +23,8 @@
 <div class="row">
     <!--3rd column-->
     <div class="col-md-6">
-        <nb-card [size]="breakpoint.width >= breakpoints.xxxl || breakpoint.width < breakpoints.md ? 'large' : 'xlarge'">
+        <!--<nb-card [size]="breakpoint.width >= breakpoints.xxxl || breakpoint.width < breakpoints.md ? 'large' : 'xlarge'">-->
+        <nb-card>
           <nb-tabset fullWidth>
             <nb-tab tabTitle="Top Users">
               <div class="contact" *ngFor="let c of contacts">
