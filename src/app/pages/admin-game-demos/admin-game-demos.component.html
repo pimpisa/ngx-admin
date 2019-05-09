@@ -18,9 +18,6 @@
       </nb-card-body>
       <nb-card-footer>
         <span>Preview</span>
-        <span [nbPopover]="templateRef"><i class="fas fa-info"></i></span>
-        <ng-template #templateRef>
-            <span>None</span>
-          </ng-template>
+        <span><i nbPopover="None" nbPopoverTrigger="hover" nbPopoverPlacement="top" class="fas fa-info"></i></span>
       </nb-card-footer>
   </nb-card>
