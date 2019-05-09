@@ -17,6 +17,10 @@ import { AdminElementsComponent } from './admin-elements/admin-elements.componen
 import { AdminReviewsComponent } from './admin-reviews/admin-reviews.component';
 import { AdminLecturesComponent } from './admin-lectures/admin-lectures.component';
 import { AdminClassroomsComponent } from './admin-classrooms/admin-classrooms.component';
+import { AdminCampaignComponent } from './admin-campaign/admin-campaign.component';
+import { AdminLanguageComponent } from './admin-language/admin-language.component';
+import { AdminWebSessionComponent } from './admin-web-session/admin-web-session.component';
+import { AdminGameDemosComponent } from './admin-game-demos/admin-game-demos.component';
 
 const routes: Routes = [{
   path: '',
@@ -75,6 +79,22 @@ const routes: Routes = [{
   {
     path: 'admin-classrooms',
     component: AdminClassroomsComponent,
+  },
+  {
+    path: 'admin-campaign',
+    component: AdminCampaignComponent,
+  },
+  {
+    path: 'admin-language',
+    component: AdminLanguageComponent,
+  },
+  {
+    path: 'admin-web-session',
+    component: AdminWebSessionComponent,
+  },
+  {
+    path: 'admin-game-demos',
+    component: AdminGameDemosComponent,
   },
   {
     path: 'ui-features',

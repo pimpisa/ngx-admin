@@ -77,5 +77,29 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'nb-compose',
     link: '/pages/admin-classrooms',
     home: true,
-  }
+  },
+  {
+    title: 'Manage Campaign',
+    icon: 'nb-compose',
+    link: '/pages/admin-campaign',
+    home: true,
+  },
+  {
+    title: 'Manage Language',
+    icon: 'nb-compose',
+    link: '/pages/admin-language',
+    home: true,
+  },
+  {
+    title: 'Manage Web Session',
+    icon: 'nb-compose',
+    link: '/pages/admin-web-session',
+    home: true,
+  },
+  {
+    title: 'Game Demos',
+    icon: 'nb-compose',
+    link: '/pages/admin-game-demos',
+    home: true,
+  }  
 ];
