@@ -1,0 +1,66 @@
+@import '~@nebular/theme/styles/core/mixins';
+
+
+.demo-item {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 20px;
+    width: 44%;
+    max-width: 210px;
+    margin: 10px;
+    background: #fff;
+    box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
+}
+
+:host {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  nb-card {
+    min-width: 18rem;
+  }
+  nb-card.medium-card {
+    display: inline-grid;
+    margin-left:10px;
+    width: 20%;
+    height: 330px;
+    border-radius: 0.6rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
+  }
+  nb-card-header{
+    font-size: 1.4rem;
+    padding: 1rem;
+    height:55px;
+  }
+  nb-card-body {
+    height: 190px;
+    padding: 5px;
+  }
+  nb-card-body img {
+    width: 100%;
+  }
+  nb-card-footer {
+    height: 40px;
+  }
+  i.fas.fa-info {
+    float: right;
+  }
+  /**Popover**/
+  /deep/ nb-card.popover-card {
+  margin-bottom: 0;
+  width: 300px;
+  box-shadow: none;
+}
+
+:host {
+  button.with-margins {
+    @include nb-ltr(margin, 0 0.75rem 2rem 0);
+    @include nb-rtl(margin, 0 0 2rem 0.75rem);
+  }
+
+  /deep/ .btn-outline-secondary {
+    @include nb-ltr(margin, 0 0.5rem 0.5rem 0);
+    @include nb-rtl(margin, 0 0 0.5rem 0.5rem);
+  }
+}

@@ -1,3 +1,26 @@
-<p>
-  admin-game-demos works!
-</p>
+<!--<nb-card *ngFor="let card of cards" [size]="card.size" [status]="card.status">
+    <nb-card-header>
+      <span>Header</span>
+    </nb-card-header>
+    <nb-card-body *ngIf="card.size !== 'tiny'">
+      <span>Body</span>
+    </nb-card-body>
+    <nb-card-footer *ngIf="card.size !== 'tiny'">
+      <span>Footer</span>
+    </nb-card-footer>
+  </nb-card>-->
+  <nb-card *ngFor="let card of demos" [size]="'medium'">
+      <nb-card-header>
+        <span>{{card.title}}</span>
+      </nb-card-header>
+      <nb-card-body>
+        <span><img src="{{card.image}}"></span>
+      </nb-card-body>
+      <nb-card-footer>
+        <span>Preview</span>
+        <span [nbPopover]="templateRef"><i class="fas fa-info"></i></span>
+        <ng-template #templateRef>
+            <span>None</span>
+          </ng-template>
+      </nb-card-footer>
+  </nb-card>
