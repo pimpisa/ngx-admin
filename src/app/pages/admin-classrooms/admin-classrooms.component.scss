@@ -8,18 +8,25 @@
 input {
     text-align:center;
     width:20em;
+    border-radius: 0.6rem;
+}
+input::-webkit-input-placeholder {
+    font-size: 20px;
+    line-height: 3;
 }
 nb-select{
-    margin-bottom: 1rem;
+    margin: 1rem 0;
     width:100% !important;
+    text-align: center;
 
 }
 button{
     text-align: center;
+    display: block; 
+    margin: 0 auto;
 }
 :host{
     display:inline-block;
-    widows: 15rem;
     height: 30rem;
 }
 .col-md-6{
