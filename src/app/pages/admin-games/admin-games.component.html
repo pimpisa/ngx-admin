@@ -1,3 +1,5 @@
-<p>
-  admin-games works!
-</p>
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let show of shows" cdkDrag>{{show}}</div>
+</div>
+  
+This game page works

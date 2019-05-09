@@ -23,6 +23,7 @@ import { AdminWebSessionComponent } from './admin-web-session/admin-web-session.
 import { AdminElementsComponent } from './admin-elements/admin-elements.component';
 import { AdminGameDemosComponent } from './admin-game-demos/admin-game-demos.component';
 
+
 const PAGES_COMPONENTS = [
   PagesComponent,
 ];

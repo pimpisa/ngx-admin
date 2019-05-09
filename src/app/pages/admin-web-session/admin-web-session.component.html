@@ -1,3 +1,14 @@
-<p>
-  admin-web-session works!
-</p>
+<nb-card>
+    <nb-card-header>
+      <div class="text-center">First, let's create the store for Web Session</div>
+    </nb-card-header>  
+    <nb-card-body>
+      <div class="col-md-6 offset-md-3">
+        <input type="text" nbInput fullWidth fieldSize="medium" shape="rectangle" placeholder="Enter store name">
+      </div>
+      <br>
+      <div class="col-md-6 offset-md-3">
+        <input (click)="onClick()" type="button" nbButton shape="rectangle" outline size="medium" class="main-button" value="CONTINUE"/>
+      </div>
+    </nb-card-body>
+</nb-card>

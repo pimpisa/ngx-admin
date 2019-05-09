@@ -8,7 +8,12 @@
     </nb-card-header>
 </nb-card>-->
 <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let movie of movies" cdkDrag>{{movie}}</div>
+    <div class="example-box" *ngFor="let menu of menus" cdkDrag>{{menu}} 
+      <nb-actions size="small">
+        <nb-action icon="fas fa-trash"></nb-action>
+        <nb-action icon="fa fa-pencil-alt"></nb-action>
+      </nb-actions>
+    </div>
 </div>
 <!--<div class="example-container">
     <h2>To do</h2>
