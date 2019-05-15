@@ -3,9 +3,21 @@
 .btn-outline {
     position: relative;
     white-space: nowrap;
+    display: inline-block;
+    width: 17em;
+    margin: 0 .2em;
+    padding: .4em 0;
+}
+.input-rectangle {
+    max-width: 450px;
+    margin: 10% auto;
 }
 .col-6{
     display: block;
     margin-left: auto;
     margin-right: auto
+}
+nb-card {
+    text-align: center;
+    min-height: 80vh;
 }

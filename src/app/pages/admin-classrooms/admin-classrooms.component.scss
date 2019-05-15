@@ -9,6 +9,7 @@ input {
     text-align:center;
     width:20em;
     border-radius: 0.6rem;
+    display:inline-block;
 }
 input::-webkit-input-placeholder {
     font-size: 20px;
@@ -18,11 +19,15 @@ nb-select{
     margin: 1rem 0;
     width:100% !important;
     text-align: center;
-
+    max-width: 450px;
+    display: inline-block !important;
+}
+nb-select.center {
+    float: none !important;
 }
 button{
     text-align: center;
-    display: block; 
+    display: inline-block; 
     margin: 0 auto;
 }
 :host{
@@ -37,4 +42,27 @@ button.btn-primary.bottom {
     padding: 1.25rem 1.5rem;
     text-align: center;
 }
+//Add
+.btn-outline {
+    position: relative;
+    white-space: nowrap;
+    display: inline-block;
+    width: 17em;
+    margin: 0 .2em;
+    padding: .4em 0;
+}
+.input-rectangle {
+    max-width: 450px;
+    margin: 10% auto;
+}
+.col-6{
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+nb-card {
+    text-align: center;
+    min-height: 80vh;
+}
+
 
