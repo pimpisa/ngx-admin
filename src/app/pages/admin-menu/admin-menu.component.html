@@ -10,3 +10,35 @@
     </div>
   </nb-card-body>
 </nb-card>-->
+<nb-card>
+    <nb-card-body>
+      <div class="col-md-6 draggable-container example-custom-placeholder">
+          <h2>Top</h2>
+        
+          <div
+            cdkDropList
+            #todoList="cdkDropList"
+            [cdkDropListData]="todo"
+            [cdkDropListConnectedTo]="[doneList]"
+            class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 draggable-container example-custom-placeholder">
+          <h2>Bottom</h2>
+        
+          <div
+            cdkDropList
+            #doneList="cdkDropList"
+            [cdkDropListData]="done"
+            [cdkDropListConnectedTo]="[todoList]"
+            class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+          </div>
+        </div>
+  </nb-card-body>
+</nb-card>
+  

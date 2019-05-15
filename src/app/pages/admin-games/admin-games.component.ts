@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'ngx-admin-games',
@@ -7,19 +7,37 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
   styleUrls: ['./admin-games.component.scss']
 })
 export class AdminGamesComponent {
-  shows = [
-    'Episode I - The Phantom Menace',
-    'Episode II - Attack of the Clones',
-    'Episode III - Revenge of the Sith',
-    'Episode IV - A New Hope',
-    'Episode V - The Empire Strikes Back',
-    'Episode VI - Return of the Jedi',
-    'Episode VII - The Force Awakens',
-    'Episode VIII - The Last Jedi'
+  /*quiz = [
+    { id: 1, title: 'SPIN GAMES'},
+    { id: 2, title: 'March On'}
+  ];
+  other = [
+    { id: 3, title: 'White Tea'}
+  ];
+  todo = [
+    { id: 1, title: 'SPIN GAMES'},
+    { id: 2, title: 'March On'},
+    { id: 2, title: 'White Tea'}
+  ];*/
+  todo1 = [];
+
+  done1 = [
+    'SPIN GAMES',
+    'March On',
+    'White Tea'
   ];
 
   drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.shows, event.previousIndex, event.currentIndex);
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+                        event.container.data,
+                        event.previousIndex,
+                        event.currentIndex);
+    }
   }
+
+
   
 }

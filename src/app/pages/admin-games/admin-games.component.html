@@ -1,5 +1,32 @@
-<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let show of shows" cdkDrag>{{show}}</div>
-</div>
-  
-This game page works
+<nb-card>
+        <nb-card-body>
+          <div class="col-md-6 draggable-container example-custom-placeholder">
+              <h2>Top</h2>
+            
+              <div
+                cdkDropList
+                #todoList1="cdkDropList"
+                [cdkDropListData]="todo1"
+                [cdkDropListConnectedTo]="[doneList1]"
+                class="example-list"
+                (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of todo1" cdkDrag>{{item}}</div>
+              </div>
+            </div>
+            
+            <div class="col-md-6 draggable-container example-custom-placeholder">
+              <h2>Bottom</h2>
+            
+              <div
+                cdkDropList
+                #doneList1="cdkDropList"
+                [cdkDropListData]="done1"
+                [cdkDropListConnectedTo]="[todoList1]"
+                class="example-list"
+                (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of done1" cdkDrag>{{item}}</div>
+              </div>
+            </div>
+      </nb-card-body>
+    </nb-card>
+      

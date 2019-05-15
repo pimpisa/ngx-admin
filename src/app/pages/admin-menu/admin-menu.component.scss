@@ -4,11 +4,11 @@
 @import '../dashboard/contacts/contacts.component';
 @import '../admin-users/admin-users.component.scss';
 
-.example-container {
+.draggable-container {
     width: 400px;
     max-width: 100%;
     margin: 0 25px 25px 0;
-    display: block;
+    display: inline-block;
   }
   
   .example-list {
@@ -17,7 +17,8 @@
     border-radius: 4px;
     overflow: hidden;
     display: block;
-    width: 40%;
+    width: 100%;
+    min-height: 400px;
   }
   
   .example-box {
@@ -53,6 +54,11 @@
   }
 
   .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .example-custom-placeholder {
+    min-height: 400px;
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
   }
   nb-card {
