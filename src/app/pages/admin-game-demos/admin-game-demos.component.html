@@ -17,7 +17,19 @@
         <span><img src="{{card.image}}"></span>
       </nb-card-body>
       <nb-card-footer>
-        <span>Preview</span>
+        <span (click)="open()">Preview</span>
+        
+          <!--<button (click)="openWindow(contentTemplate)" nbButton>Open window with backdrop</button>-->
         <span><i nbPopover="None" nbPopoverTrigger="hover" nbPopoverPlacement="top" class="fas fa-info"></i></span>
       </nb-card-footer>
   </nb-card>
+  <ng-template #dialog let-data let-ref="dialogRef">
+      <nb-card>
+        <nb-card-header>Template Dialog</nb-card-header>
+        <nb-card-body>{{ data }}</nb-card-body>
+        <nb-card-footer>
+          <button nbButton (click)="ref.close()">Close Dialog</button>
+        </nb-card-footer>
+      </nb-card>
+    </ng-template>
+    

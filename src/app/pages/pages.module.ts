@@ -22,7 +22,7 @@ import { AdminReviewsComponent } from './admin-reviews/admin-reviews.component';
 import { AdminWebSessionComponent } from './admin-web-session/admin-web-session.component';
 import { AdminElementsComponent } from './admin-elements/admin-elements.component';
 import { AdminGameDemosComponent } from './admin-game-demos/admin-game-demos.component';
-
+import { ShowcaseDialogComponent } from './modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -55,6 +55,7 @@ const PAGES_COMPONENTS = [
     AdminWebSessionComponent,
     AdminElementsComponent,
     AdminGameDemosComponent,
+    ShowcaseDialogComponent,
 
   ],
 })
