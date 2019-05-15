@@ -33,7 +33,7 @@
     background: white;
     font-size: 18px;
     margin-bottom: 15px;
-    border-radius: 10px;
+    border-left:solid 3px #849EFE;
   }
   
   .cdk-drag-preview {
@@ -58,5 +58,8 @@
   nb-card {
     min-height: 80vh;
     padding:5rem;
-}
+  } 
+  nb-action {
+    padding:0px;
+  }
   

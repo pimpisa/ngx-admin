@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'ngx-admin-menu',
@@ -14,8 +14,15 @@ export class AdminMenuComponent {
     'Community'
   ];
 
+
+  
+
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.menus, event.previousIndex, event.currentIndex);
   }
+
+  
+  
+  
   
 }
