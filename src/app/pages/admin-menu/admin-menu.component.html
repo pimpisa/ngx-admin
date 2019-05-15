@@ -1,44 +1,12 @@
-<!--<nb-card>
-    <nb-card-header>
-      <nb-card-body>
-          <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-              <div class="example-box" *ngFor="let movie of movies" cdkDrag>{{movie}}</div>
-          </div> 
-      </nb-card-body>
-    </nb-card-header>
-</nb-card>-->
-<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let menu of menus" cdkDrag>{{menu}} 
-      <nb-actions size="small">
+<nb-card>
+  <nb-card-body>
+    <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let menu of menus" cdkDrag>{{menu}} 
+        <nb-actions size="small">
         <nb-action icon="fas fa-trash"></nb-action>
         <nb-action icon="fa fa-pencil-alt"></nb-action>
-      </nb-actions>
+        </nb-actions>
+      </div>
     </div>
-</div>
-<!--<div class="example-container">
-    <h2>To do</h2>
-  
-    <div
-      cdkDropList
-      #todoList="cdkDropList"
-      [cdkDropListData]="todo"
-      [cdkDropListConnectedTo]="[doneList]"
-      class="example-list"
-      (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
-    </div>
-  </div>
-  
-  <div class="example-container">
-    <h2>Done</h2>
-  
-    <div
-      cdkDropList
-      #doneList="cdkDropList"
-      [cdkDropListData]="done"
-      [cdkDropListConnectedTo]="[todoList]"
-      class="example-list"
-      (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
-    </div>
-  </div>-->
+  </nb-card-body>
+</nb-card>

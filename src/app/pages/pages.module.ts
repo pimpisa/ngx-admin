@@ -23,6 +23,7 @@ import { AdminWebSessionComponent } from './admin-web-session/admin-web-session.
 import { AdminElementsComponent } from './admin-elements/admin-elements.component';
 import { AdminGameDemosComponent } from './admin-game-demos/admin-game-demos.component';
 import { ShowcaseDialogComponent } from './modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -39,6 +40,7 @@ const PAGES_COMPONENTS = [
     AdminUsersModule,
     AdminGroupModule,
     AdminPagesModule,
+    DragDropModule
   
   ],
   declarations: [

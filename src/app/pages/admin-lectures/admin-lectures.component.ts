@@ -9,19 +9,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AdminLecturesComponent {
   
-  movies = [
-    '1. How to upgrade to Angular 7',
-    '2. Angular 7 CLI Prompts',
-    '3. Application Performance',
-    '4. Documentation Updates',
-    '5. Dependency Updates',
-    '6. Drag and Drop',
-    '7. Virtual Scrolling',
-    '8. Improved Accessibility of Selects',
-    '9. Partner Launches',
-    '10. Angular Elements'
+  lectures = [
+    { id: 1, title: 'PINK'},
+    { id: 2, title: 'GET INTO THE PINK'},
+    { id: 3, title: 'WHITE TEA'},
+    { id: 4, title: 'AHA'},
+    { id: 5, title: 'RETINOL'}
+    
   ];
   drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.movies, event.previousIndex, event.currentIndex);
+    moveItemInArray(this.lectures, event.previousIndex, event.currentIndex);
   }
 }
