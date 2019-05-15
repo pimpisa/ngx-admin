@@ -1,3 +1,17 @@
-<p>
-  admin-campaign works!
-</p>
+<nb-card>
+  <nb-card-header>
+      <div class="col-6 col-sm-4">Campaign list</div>
+      <div class="col-6 col-sm-4"></div> 
+      <div class="col-6 col-sm-4"><button class="btn btn-danger input-group-text float-right" (click)="openWindow(contentTemplate)" nbButton>Add New Campaign</button></div>
+  </nb-card-header>
+  <nb-card-body>
+    <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let movie of movies" cdkDrag>{{movie}}
+          <nb-actions size="small">
+          <nb-action icon="fas fa-trash"></nb-action>
+          <nb-action icon="fa fa-pencil-alt"></nb-action>
+          </nb-actions>
+      </div>
+    </div>
+</nb-card-body>
+</nb-card>

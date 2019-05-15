@@ -1,3 +1,12 @@
-<p>
-  admin-surveys works!
-</p>
+<nb-card>
+  <nb-card-body>
+    <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let survey of surveys" cdkDrag>{{survey}} 
+        <nb-actions size="small">
+        <nb-action icon="fas fa-trash"></nb-action>
+        <nb-action icon="fa fa-pencil-alt"></nb-action>
+        </nb-actions>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
