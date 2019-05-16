@@ -72,19 +72,19 @@
 </nb-card>
 
 <ng-template #contentTemplate let-data class="col-md-6">
-    <input type="text" nbInput fullWidth placeholder="Name:"><br/>
-    <input type="text" nbInput fullWidth placeholder="Phone:"><br/>
-    <input type="text" nbInput fullWidth placeholder="Email:"><br/>
-    <input type="password" nbInput fullWidth placeholder="Password:"><br/>
+    <input type="text" nbInput fullWidth placeholder="Name:" class="child"><br/>
+    <input type="text" nbInput fullWidth placeholder="Phone:" class="child"><br/>
+    <input type="text" nbInput fullWidth placeholder="Email:" class="child"><br/>
+    <input type="password" nbInput fullWidth placeholder="Password:" class="child"><br/>
     <p>Delivery Method:</p><nb-select placeholder="None" [(selected)]="commonSelectedItem">
                       <nb-option value="1">Email</nb-option>
                       <nb-option value="2">Phone</nb-option>
                       <nb-option value="3">Both</nb-option>
                     </nb-select>
-    <p>User Type:</p>
-    <p>Status:</p>
-    <p>Detail:</p>
-    <button type="submit" class="btn btn-primary">SUBMIT</button>
+    <p class="child">User Type:</p>
+    <p class="child">Status:</p>
+    <p class="child">Detail:</p>
+    <button type="submit" class="btn btn-primary child">SUBMIT</button>
 </ng-template>
 
 <ng-template #disabledEsc>

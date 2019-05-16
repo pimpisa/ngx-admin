@@ -10,8 +10,6 @@ import { NbWindowService} from '@nebular/theme'
 import { WindowFormComponent } from '../modal-overlays/window/window-form/window-form.component';
 import { NbWindowRef } from '@nebular/theme';
 
-
-
 @Component({
     selector: 'ngx-admin-pages',
     styleUrls: ['./admin-pages.component.scss'],
@@ -60,6 +58,18 @@ export class AdminPagesComponent{
           this.contacts = contacts;
           this.recent = recent;
         });
-    }
+      }
+      openWindow(contentTemplate) {
+        this.NbWindowService.open(
+          contentTemplate,
+          {
+            title: '',
+            context: {
+              text: 'some text to pass into template',
+            },
+          },
+        );
+      }
+
 }
 

@@ -28,15 +28,17 @@
   nb-select {
     float: right;
   }
-  .full-screen {
-    width:50% !important;
-  }
   nb-window.full-screen.ng-star-inserted {
     width: 50%;
   }
   .input-rectangle {
-    min-width: 400px;
-    margin: 5px auto;
-    border-left: solid 3px #849EFE !important;
+    border-radius: 0.17rem;
+    margin: 5px !important;
   }
+}
+.child {
+  margin: 10px auto;
+}
+.full-screen {
+  width:50% !important;
 }

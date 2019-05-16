@@ -25,9 +25,11 @@
 
 <!--Modal Add Group-->
 <ng-template #contentTemplate let-data class="col-md-6">
-    <input type="text" nbInput fullWidth placeholder="Name:"><br/>
-    <input type="text" nbInput fullWidth placeholder="Phone:"><br/>
-    <input type="text" nbInput fullWidth placeholder="Email:"><br/>
+    <input type="text" nbInput fullWidth placeholder="Title:"><br/>
+    <input type="textarea" nbInput fullWidth placeholder="Description:"><br/>
+    
+    <button type="submit" class="btn btn-primary">ADD FILTER</button> <!--Add toggle to show Group for filter-->
+    <h3 class="text-warning font-main">Warning: Can not change filter after created.</h3>
     <input type="password" nbInput fullWidth placeholder="Password:"><br/>
     <p>Delivery Method:</p><nb-select placeholder="None" [(selected)]="commonSelectedItem">
                       <nb-option value="1">Email</nb-option>
@@ -37,7 +39,7 @@
     <p>User Type:</p>
     <p>Status:</p>
     <p>Detail:</p>
-    <button type="submit" class="btn btn-primary">SUBMIT</button>
+    <button type="submit" class="btn btn-primary">ADD GROUP</button>
 </ng-template>
 
 <ng-template #disabledEsc>
