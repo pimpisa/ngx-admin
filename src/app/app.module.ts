@@ -15,11 +15,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NbActionsModule } from '@nebular/theme';
-import { FoldernameComponent } from './foldername/foldername.component';
+
 
 
 @NgModule({
-  declarations: [AppComponent, FoldernameComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -29,6 +29,7 @@ import { FoldernameComponent } from './foldername/foldername.component';
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
+
   ],
   bootstrap: [AppComponent],
   providers: [
