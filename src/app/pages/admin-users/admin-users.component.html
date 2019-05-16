@@ -70,3 +70,23 @@
         <button type="submit" class="btn btn-primary">Export Users</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Import Users</button></div>
     </nb-card-body>
 </nb-card>
+
+<ng-template #contentTemplate let-data class="col-md-6">
+    <input type="text" nbInput fullWidth placeholder="Name:"><br/>
+    <input type="text" nbInput fullWidth placeholder="Phone:"><br/>
+    <input type="text" nbInput fullWidth placeholder="Email:"><br/>
+    <input type="password" nbInput fullWidth placeholder="Password:"><br/>
+    <p>Delivery Method:</p><nb-select placeholder="None" [(selected)]="commonSelectedItem">
+                      <nb-option value="1">Email</nb-option>
+                      <nb-option value="2">Phone</nb-option>
+                      <nb-option value="3">Both</nb-option>
+                    </nb-select>
+    <p>User Type:</p>
+    <p>Status:</p>
+    <p>Detail:</p>
+    <button type="submit" class="btn btn-primary">SUBMIT</button>
+</ng-template>
+
+<ng-template #disabledEsc>
+  Disabled close on escape click.
+</ng-template>

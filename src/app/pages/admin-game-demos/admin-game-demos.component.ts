@@ -1,4 +1,4 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
+import { Component, TemplateRef, ViewChild, HostBinding } from '@angular/core';
 import {
   NgxPopoverCardComponent, NgxPopoverFormComponent,
   NgxPopoverTabsComponent,
@@ -6,6 +6,9 @@ import {
 import { NbWindowService } from '@nebular/theme';
 import { NbDialogService } from '@nebular/theme';
 import { ShowcaseDialogComponent } from '../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
+import { DialogNamePromptComponent } from '../modal-overlays/dialog/dialog-name-prompt/dialog-name-prompt.component';
+import { PreviewGameComponent } from './preview-game/preview-game.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'ngx-admin-game-demos',
@@ -13,8 +16,10 @@ import { ShowcaseDialogComponent } from '../modal-overlays/dialog/showcase-dialo
   styleUrls: ['./admin-game-demos.component.scss']
 })
 export class AdminGameDemosComponent {
-  
   names: string[] = [];
+  loseResult: string;
+
+  constructor(private modalService: NgbModal) {}
   demos = [
     { id: 1, title: 'Words With Brands', image: 'assets/images/place_holder_crop.png'},
     { id: 2, title: 'Box Selector', image: 'assets/images/place_holder_crop.png'},
@@ -37,14 +42,26 @@ export class AdminGameDemosComponent {
     { id: 19, title: 'Are u Smarter than...', image: 'https://files.edgagement.com/images/games/icons/gameSmileface.jpg'}
   ];
 
-  constructor(private dialogService: NbDialogService) {}
+  
 
-  open() {
-    this.dialogService.open(ShowcaseDialogComponent, {
-      context: {
-        title: 'This is a title passed to the dialog component',
-      },
-    });
+  openBackDropCustomClass(content) {
+    this.modalService.open(content, {backdropClass: 'light-blue-backdrop'});
+  }
+
+  openWindowCustomClass(content) {
+    this.modalService.open(content, { windowClass: 'dark-modal' });
+  }
+
+  openSm(content) {
+    this.modalService.open(content, { size: 'sm' });
+  }
+
+  openLg(content) {
+    this.modalService.open(content, { size: 'lg' });
+  }
+
+  openVerticallyCentered(content) {
+    this.modalService.open(content, { centered: true });
   }
 
 }

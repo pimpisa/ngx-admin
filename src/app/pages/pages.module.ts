@@ -24,6 +24,8 @@ import { AdminElementsComponent } from './admin-elements/admin-elements.componen
 import { AdminGameDemosComponent } from './admin-game-demos/admin-game-demos.component';
 import { ShowcaseDialogComponent } from './modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { PreviewGameComponent } from './admin-game-demos/preview-game/preview-game.component';
+
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -40,7 +42,7 @@ const PAGES_COMPONENTS = [
     AdminUsersModule,
     AdminGroupModule,
     AdminPagesModule,
-    DragDropModule
+    DragDropModule,
   
   ],
   declarations: [
@@ -58,6 +60,7 @@ const PAGES_COMPONENTS = [
     AdminElementsComponent,
     AdminGameDemosComponent,
     ShowcaseDialogComponent,
+    PreviewGameComponent,
 
   ],
 })

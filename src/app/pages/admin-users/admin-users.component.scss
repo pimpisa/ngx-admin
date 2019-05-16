@@ -27,5 +27,11 @@
   }
   nb-select {
     float: right;
-}
+  }
+  .full-screen {
+    width:50% !important;
+  }
+  nb-window.full-screen.ng-star-inserted {
+    width: 50%;
+  }
 }

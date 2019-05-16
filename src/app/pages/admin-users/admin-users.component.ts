@@ -53,7 +53,7 @@ export class AdminUsersComponent implements OnDestroy{
       this.NbWindowService.open(
         contentTemplate,
         {
-          title: 'Window content from template',
+          title: '',
           context: {
             text: 'some text to pass into template',
           },
