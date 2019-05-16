@@ -42,24 +42,6 @@ export class AdminGameDemosComponent {
     { id: 19, title: 'Are u Smarter than...', image: 'https://files.edgagement.com/images/games/icons/gameSmileface.jpg'}
   ];
 
-  
-
-  openBackDropCustomClass(content) {
-    this.modalService.open(content, {backdropClass: 'light-blue-backdrop'});
-  }
-
-  openWindowCustomClass(content) {
-    this.modalService.open(content, { windowClass: 'dark-modal' });
-  }
-
-  openSm(content) {
-    this.modalService.open(content, { size: 'sm' });
-  }
-
-  openLg(content) {
-    this.modalService.open(content, { size: 'lg' });
-  }
-
   openVerticallyCentered(content) {
     this.modalService.open(content, { centered: true });
   }

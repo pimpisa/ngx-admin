@@ -1,5 +1,5 @@
 
-<!--<nb-card class="card-container transparent">
+<nb-card class="card-container transparent">
   <nb-card-body>
     <nb-card *ngFor="let card of demos" [size]="'medium'">
         <nb-card-header>
@@ -9,7 +9,7 @@
           <span><img src="{{card.image}}"></span>
         </nb-card-body>
         <nb-card-footer>
-          <span (click)="open()">Preview</span>
+          <span (click)="openVerticallyCentered(content)">Preview</span>
           <span><i nbPopover="None" nbPopoverTrigger="hover" nbPopoverPlacement="top" class="fas fa-info"></i></span>
         </nb-card-footer>
     </nb-card>
@@ -24,30 +24,26 @@
       </ng-template>
   </nb-card-body>
 </nb-card>
-<button (click)="openWindow()" nbButton>Open window</button>
 
     <ng-template #contentTemplate let-data>
       <p>Here is the text provided via config: "{{ data.text }}"</p>
-    </ng-template>-->
-
+    </ng-template>
+    <!--Modal Game content here-->
     <ng-template #content let-modal>
       <div class="modal-header">
-        <h4 class="modal-title">Modal title</h4>
+        <p>Progress bar goes here</p><br>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>One fine body&hellip;</p>
+          <h4 class="modal-title">Question</h4><br>
+          <p>How to play</p>
+        <p>Body display here&hellip;</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
       </div>
     </ng-template>
     
-    <button class="btn btn-outline-primary mb-2 mr-2" (click)="openWindowCustomClass(content)">Modal with window custom class</button>
-    <button class="btn btn-outline-primary mb-2 mr-2" (click)="openBackDropCustomClass(content)">Modal with backdrop custom class</button>
-    <button class="btn btn-outline-primary mb-2 mr-2" (click)="openSm(content)">Small modal</button>
-    <button class="btn btn-outline-primary mb-2 mr-2" (click)="openLg(content)">Large modal</button>
-    <button class="btn btn-outline-primary mb-2 mr-2" (click)="openVerticallyCentered(content)">Modal vertically centered</button>
   
