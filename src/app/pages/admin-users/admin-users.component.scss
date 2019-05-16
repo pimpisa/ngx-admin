@@ -39,6 +39,11 @@
 .child {
   margin: 10px auto;
 }
-.full-screen {
-  width:50% !important;
+nb-window.full-screen {
+  width: 40%;
+}
+.date-picker {
+  display: inline-block;
+  min-width: 220px;
+  text-align: center;
 }

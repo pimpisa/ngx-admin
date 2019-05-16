@@ -51,4 +51,16 @@ export class AdminElementsComponent{
       });
   }
 
+  openWindow(contentTemplate) {
+    this.NbWindowService.open(
+      contentTemplate,
+      {
+        title: '',
+        context: {
+          text: 'some text to pass into template',
+        },
+      },
+    );
+  }
+
 }

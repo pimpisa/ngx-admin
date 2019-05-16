@@ -1,14 +1,42 @@
-<div
-    cdkDropList
-    class="example-list"
-    (cdkDropListDropped)="drop($event)"
->
-    <div
-        class="example-box"
-        *ngFor="let lecture of lectures"
-        cdkDrag
-    >
-        {{lecture.title}}
+<nb-card>
+    <nb-card-header>
+        Lecture Catagories
+    </nb-card-header>
+    <nb-card-body>
+    <!--Add new user with button--> 
+    <div class="flush-right" class="input-group">
+        <button class="btn btn-danger input-group-text" (click)="openWindow(contentTemplate)" nbButton>Add Group</button>&nbsp;&nbsp;
     </div>
-</div>
+          <br/>
+     <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let lecture of lectures" cdkDrag>
+            {{lecture.title}}
+        </div>
+        <br/>
+    </div>
+    </nb-card-body>
+</nb-card>
+<!--Modal Add Group-->
+<ng-template #contentTemplate let-data class="col-md-6">
+        <input type="text" nbInput fullWidth placeholder="Title:"><br/>
+        <input type="textarea" nbInput fullWidth placeholder="Description:"><br/>
+        
+        <button type="submit" class="btn btn-primary">ADD FILTER</button> <!--Add toggle to show Group for filter-->
+        <h3 class="text-warning font-main">Warning: Can not change filter after created.</h3>
+        <input type="password" nbInput fullWidth placeholder="Password:"><br/>
+        <p>Delivery Method:</p><nb-select placeholder="None" [(selected)]="commonSelectedItem">
+                          <nb-option value="1">Email</nb-option>
+                          <nb-option value="2">Phone</nb-option>
+                          <nb-option value="3">Both</nb-option>
+                        </nb-select>
+        <p>User Type:</p>
+        <p>Status:</p>
+        <p>Detail:</p>
+        <button type="submit" class="btn btn-primary">ADD GROUP</button>
+</ng-template>
+    
+    <ng-template #disabledEsc>
+      Disabled close on escape click.
+    </ng-template>
+    
 

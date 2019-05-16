@@ -1,3 +1,61 @@
-<p>
-  admin-resource-center works!
-</p>
+<nb-card>
+  <nb-card-header>
+    <div class="flush-right"><button type="submit" class="btn btn-primary">Import Resources</button>&nbsp;&nbsp;
+      <button type="submit" class="btn btn-primary">Export Resources</button>&nbsp;&nbsp;
+    </div>
+  </nb-card-header>
+    <nb-card-body>
+      <div class="col-md-4">
+        <h4>Title</h4>
+        <div class="example-box" (click)="toggle()">
+            March On
+        </div>
+        <div class="example-box" (click)="toggle()">
+            UN Women Charity
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="openWindow(contentTemplate)">Add Main Menu</button>
+      </div>
+      <div class="col-md-8">
+        <h4>March On</h4>
+        <!--March On-->
+        <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)" id="marchOn">
+          <div class="example-box" *ngFor="let resource of marchOn" cdkDrag>{{resource.title}}
+            <nb-actions size="small">
+            <nb-action icon="fas fa-trash"></nb-action>
+            <nb-action icon="fa fa-pencil-alt"></nb-action>
+            </nb-actions>
+          </div>
+        </div>
+        <!--UN Women Charity-->
+        <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)" id="uNWomenCharity">
+            <div class="example-box" *ngFor="let resource of uNWomenCharity" cdkDrag>{{resource.title}}
+              <nb-actions size="small">
+              <nb-action icon="fas fa-trash"></nb-action>
+              <nb-action icon="fa fa-pencil-alt"></nb-action>
+              </nb-actions>
+            </div>
+        </div>
+      </div>
+    </nb-card-body>
+</nb-card>
+<!--Modal Add Page-->
+<ng-template #contentTemplate let-data class="col-md-6">
+    <input type="text" nbInput fullWidth placeholder="Title:" class="child"><br/>
+    <input type="text" nbInput fullWidth placeholder="Path:" class="child"><br/>
+    <p>Permission:</p><nb-select placeholder="None" [(selected)]="commonSelectedItem" class="child">
+                      <nb-option value="1">Guest</nb-option>
+                      <nb-option value="2">Websession</nb-option>
+                      <nb-option value="3">Beauty Advisor</nb-option>
+                      <nb-option value="4">Account Executive</nb-option>
+                      <nb-option value="5">FSD Access</nb-option>
+                      <nb-option value="6">Admin</nb-option> 
+                      <nb-option value="7">Hide</nb-option>
+                      <nb-option value="8">Group</nb-option>
+                    </nb-select>
+     <h3 class="text-primary font-main" class="child">Warning: Can not change filter after created.</h3>
+    <button type="submit" class="btn btn-primary child">SAVE</button>
+</ng-template>
+
+<ng-template #disabledEsc>
+  Disabled close on escape click.
+</ng-template>

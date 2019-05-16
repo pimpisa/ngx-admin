@@ -1,0 +1,12 @@
+@import '../admin-campaign/admin-campaign.component.scss';
+
+.flush-right {
+    float: right;
+}
+.col-md-8, .col-md-4{
+    display:inline-block;
+    float: left;
+}
+nb-card {
+    min-height:80vh;
+}

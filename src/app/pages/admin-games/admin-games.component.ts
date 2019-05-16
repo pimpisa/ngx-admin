@@ -7,24 +7,12 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
   styleUrls: ['./admin-games.component.scss']
 })
 export class AdminGamesComponent {
-  /*quiz = [
+  quiz = [
     { id: 1, title: 'SPIN GAMES'},
     { id: 2, title: 'March On'}
   ];
   other = [
     { id: 3, title: 'White Tea'}
-  ];
-  todo = [
-    { id: 1, title: 'SPIN GAMES'},
-    { id: 2, title: 'March On'},
-    { id: 2, title: 'White Tea'}
-  ];*/
-  todo1 = [];
-
-  done1 = [
-    'SPIN GAMES',
-    'March On',
-    'White Tea'
   ];
 
   drop(event: CdkDragDrop<string[]>) {
