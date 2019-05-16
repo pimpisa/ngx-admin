@@ -35,7 +35,7 @@ export class AdminGroupComponent{
           this.breakpoint = newValue;
         
       });
-
+    
       forkJoin(
         this.userService.getContacts(),
         this.userService.getRecentUsers(),
@@ -45,6 +45,18 @@ export class AdminGroupComponent{
           this.contacts = contacts;
           this.recent = recent;
         });
+    }
+
+    openWindow(contentTemplate) {
+      this.NbWindowService.open(
+        contentTemplate,
+        {
+          title: '',
+          context: {
+            text: 'some text to pass into template',
+          },
+        },
+      );
     }
 }
 
