@@ -4,6 +4,8 @@ import { NbMenuService, NbSidebarService } from '@nebular/theme';
 import { UserData } from '../../../@core/data/users';
 import { AnalyticsService } from '../../../@core/utils';
 import { LayoutService } from '../../../@core/utils';
+import { User } from '../../../interfaces/user';
+
 
 @Component({
   selector: 'ngx-header',

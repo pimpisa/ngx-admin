@@ -16,6 +16,7 @@ import { NbWindowRef } from '@nebular/theme';
 import { UserService } from '../../services/user.service';
 import { User } from '../../interfaces/user';
 
+
 @Component({
   selector: 'ngx-admin-users',
   styleUrls: ['./admin-users.component.scss'],
@@ -29,7 +30,11 @@ export class AdminUsersComponent implements OnInit{
   breakpoint: NbMediaBreakpoint;
   breakpoints: any;
   title = 'app';
-  users: User[];
+  arrCase: object [];
+  users: object [];
+
+
+  //private users: any = [];
 
   constructor(private userService: UserData,
     private themeService: NbThemeService,
@@ -91,8 +96,18 @@ export class AdminUsersComponent implements OnInit{
       source: LocalDataSource = new LocalDataSource();
       
       ngOnInit(){
-        return this.testUserService.getUsers()
-        .subscribe(data => this.users = data);
-      }
+        /*return this.testUserService.getUsers()
+        .subscribe(data => this.users = data);*/
+        return this.testUserService.getAllUsers()
+        .subscribe(data => this.users = [data]);
+
+     }
+      /*ngOnInit(){
+        return this.testUserService.getAllUsers()
+        .subscribe((resp) => {
+          console.log(resp);
+        });
+      }*/
+        
 }
 
