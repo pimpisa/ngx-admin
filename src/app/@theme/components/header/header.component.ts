@@ -5,6 +5,9 @@ import { UserData } from '../../../@core/data/users';
 import { AnalyticsService } from '../../../@core/utils';
 import { LayoutService } from '../../../@core/utils';
 import { User } from '../../../interfaces/user';
+import { UserService } from '../../../services/user.service';
+
+
 
 
 @Component({
@@ -22,14 +25,15 @@ export class HeaderComponent implements OnInit {
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
-              private userService: UserData,
+              //private userService: UserData,
+              private userService: UserService,
               private analyticsService: AnalyticsService,
               private layoutService: LayoutService) {
   }
 
   ngOnInit() {
-    this.userService.getUsers()
-      .subscribe((users: any) => this.user = users.nick);
+    this.userService.getUser()
+      .subscribe((user: any) => this.user = user);
   }
 
   toggleSidebar(): boolean {

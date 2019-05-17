@@ -4,16 +4,47 @@ import { User } from '../interfaces/user';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpHeaders } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  
   apiUrl = 'https://jsonplaceholder.typicode.com/users';
   allUsersApiUrl = 'https://demo.edgagement.com/api/users';
   currentUserApiUrl = 'https://demo.edgagement.com/api/user';
   keyToken = 'blfyjKOdJPCTESy5zbC394VYYxzXnB21';
+
+  private user = new BehaviorSubject<any>({
+    name: ''
+});
+
+private header:Headers = new Headers({
+    'Authorization': 'blfyjKOdJPCTESy5zbC394VYYxzXnB21'
+});
+
+loadUser(): Promise<any> {
+    return new Promise((resolve, reject) => {
+        this.http.get('https://demo.edgagement.com/api/user', {
+            'headers': new HttpHeaders().set('Authorization', this.keyToken)
+        }).subscribe((res:any) => {
+            console.log(res);
+            if(res.code == 0){
+                this.user.next(res.data);
+                resolve();
+            }else{
+                console.log('user need login');
+                reject();
+            }
+        });
+    });
+}
+
+getUser() {
+    return this.user.asObservable();
+}
 
   constructor(private http: HttpClient) { }
  
@@ -24,12 +55,11 @@ export class UserService {
   }
   getCurrentUser(){
     return this.http.get(this.currentUserApiUrl, 
-      {headers: new HttpHeaders().set('Authorization', this.keyToken) });
+      {headers: new HttpHeaders().set('Authorization', this.keyToken) 
+
+    });
   }
-  /*getAllUsers(){ -- Not autorized --
-    return this.http.get(this.allUsersApiUrl,
-       {headers: new HttpHeaders().set('Authorization', this.keyToken) });
-  }*/
+ 
   getAllUsers(){
     return this.http.get<User[]>(this.allUsersApiUrl,
        {headers: new HttpHeaders().set('Authorization', this.keyToken) });
@@ -37,10 +67,5 @@ export class UserService {
   getUserDetail(){
     return false
   }
-  /*getData(){
-    this.http.get(this.url).subscribe(res => {
-      this.users = res
-    });
-  }*/
-
+ 
 }
