@@ -1,7 +1,6 @@
 @import '../../@theme/styles/themes';
 @import '~bootstrap/scss/mixins/breakpoints';
 @import '~@nebular/theme/styles/global/breakpoints';
-//@import '../../app/pages/forms/buttons/button-elements/button-elements.component.scss';
 @import '../dashboard/contacts/contacts.component';
 @import '../extra-components/form-inputs/nebular-select/nebular-select.component.scss';
 
@@ -42,8 +41,14 @@
 nb-window.full-screen {
   width: 40%;
 }
+.full-screen{
+  width: 40% !important;
+}
 .date-picker {
   display: inline-block;
   min-width: 220px;
   text-align: center;
+}
+button.center {
+  display:inline-block;
 }

@@ -12,7 +12,8 @@ import { forkJoin } from 'rxjs';
 import { NbWindowService} from '@nebular/theme'
 import { WindowFormComponent } from '../modal-overlays/window/window-form/window-form.component';
 import { NbWindowRef } from '@nebular/theme';
-//import { DayCellComponent } from './day-cell/day-cell.component';
+/**Get user from HTTP */
+
 
 @Component({
   selector: 'ngx-admin-users',

@@ -19,29 +19,21 @@
     <nb-card-body>
         <div class="input-group">
           <!--Add new user-->  
-          <button class="btn btn-danger input-group-text" (click)="openWindow(contentTemplate)" nbButton>Add new user</button>&nbsp;&nbsp;
+          <button class="btn btn-danger input-group-text" (click)="openWindow(newUser)" nbButton>Add new user</button>&nbsp;&nbsp;
           <input type="text" class="form-control" placeholder="Search for...">
                 <span class="input-group-append">
                       <button class="btn btn-danger input-group-text">
                         Search
                       </button>
                 </span>
-          <!--<nb-search type="rotate-layout" tag="rotate-layout"></nb-search>-->
         </div>
-        <br/> <!--If we should use smart table-->
-        <!--<ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
-          <nb-actions size="small">
-            <nb-action icon="fa fa-address-card"></nb-action>
-            <nb-action icon="fa fa fa-paper-plane"></nb-action>
-            <nb-action icon="fa fa-pencil-alt"></nb-action>
-          </nb-actions>
-        </ng2-smart-table>-->
+        <br/> 
         <div class="contact" *ngFor="let c of contacts">
             <nb-user [name]="c.user.name" [title]="c.type" size="large"></nb-user>
             <nb-actions size="small">
-              <nb-action icon="fa fa-address-card"></nb-action>
-              <nb-action icon="fa fa fa-paper-plane"></nb-action>
-              <nb-action icon="fa fa-pencil-alt"></nb-action>
+              <nb-action (click)="openWindow(viewUserTemplate)" icon="fa fa-address-card"></nb-action>
+              <nb-action (click)="openWindow(sendMsgTemplate)"icon="fa fa fa-paper-plane"></nb-action>
+              <nb-action (click)="openWindow(editUserTemplate)" icon="fa fa-pencil-alt"></nb-action>
             </nb-actions>
         </div>  
         <br/>   
@@ -49,8 +41,8 @@
         <button type="submit" class="btn btn-primary">Export Users</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Import Users</button></div>
     </nb-card-body>
 </nb-card>
-
-<ng-template #contentTemplate let-data class="col-md-6">
+<!--Add user-->
+<ng-template #newUser let-data class="col-md-6">
     <input type="text" nbInput fullWidth placeholder="Name:" class="child"><br/>
     <input type="text" nbInput fullWidth placeholder="Phone:" class="child"><br/>
     <input type="text" nbInput fullWidth placeholder="Email:" class="child"><br/>
@@ -63,9 +55,67 @@
     <p class="child">User Type:</p>
     <p class="child">Status:</p>
     <p class="child">Detail:</p>
-    <button type="submit" class="btn btn-primary child">SUBMIT</button>
+    <button type="submit" class="btn btn-primary child center">SUBMIT</button>
 </ng-template>
 
 <ng-template #disabledEsc>
   Disabled close on escape click.
+</ng-template>
+<!-- View user -->
+<ng-template #viewUserTemplate let-data class="col-md-6">
+    <input type="text" nbInput fullWidth placeholder="Name:" class="child"><br/>
+    <input type="text" nbInput fullWidth placeholder="Phone:" class="child"><br/>
+    <input type="text" nbInput fullWidth placeholder="Email:" class="child"><br/>
+    <input type="password" nbInput fullWidth placeholder="Password:" class="child"><br/>
+    <p>Delivery Method:</p><nb-select placeholder="None" [(selected)]="commonSelectedItem">
+                      <nb-option value="1">Email</nb-option>
+                      <nb-option value="2">Phone</nb-option>
+                      <nb-option value="3">Both</nb-option>
+                    </nb-select>
+    <p class="child">User Type:</p>
+    <p class="child">Status:</p>
+    <p class="child">Detail:</p>
+    <button type="submit" class="btn btn-primary child center">SUBMIT</button>
+</ng-template>
+<!--Edit Uset-->
+<!-- Send Msg -->
+<ng-template #sendMsgTemplate let-data class="col-md-6">
+    <input type="text" nbInput fullWidth placeholder="Name:" class="child"><br/>
+    <input type="text" nbInput fullWidth placeholder="Phone:" class="child"><br/>
+    <input type="text" nbInput fullWidth placeholder="Email:" class="child"><br/>
+    <input type="password" nbInput fullWidth placeholder="Password:" class="child"><br/>
+    <p>Delivery Method:</p><nb-select placeholder="None" [(selected)]="commonSelectedItem">
+                      <nb-option value="1">Email</nb-option>
+                      <nb-option value="2">Phone</nb-option>
+                      <nb-option value="3">Both</nb-option>
+                    </nb-select>
+    <p class="child">User Type:</p>
+    <p class="child">Status:</p>
+    <p class="child">Detail:</p>
+    <button type="submit" class="btn btn-primary child center">SUBMIT</button>
+</ng-template>
+<!--Edit Uset-->
+<ng-template #editUserTemplate let-data class="col-md-6">
+    <input type="text" nbInput fullWidth placeholder="Name:" class="child"><br/>
+    <input type="text" nbInput fullWidth placeholder="Phone:" class="child"><br/>
+    <input type="text" nbInput fullWidth placeholder="Email:" class="child"><br/>
+    <input type="password" nbInput fullWidth placeholder="New Password:" class="child"><br/>
+    <p>Delivery Method:</p><nb-select placeholder="None" [(selected)]="commonSelectedItem">
+                            <nb-option value="1">Email</nb-option>
+                            <nb-option value="2">Phone</nb-option>
+                            <nb-option value="3">Both</nb-option>
+                            </nb-select>
+    <p class="child">User Type:</p><nb-select placeholder="None" [(selected)]="commonSelectedItem">
+                                      <nb-option value="1">Guest</nb-option>
+                                      <nb-option value="2">Web session</nb-option>
+                                      <nb-option value="3">Beauty Advisor</nb-option>
+                                      <nb-option value="4">Account Executive</nb-option>
+                                      <nb-option value="5">FSD Access</nb-option>
+                                      <nb-option value="6">Admin</nb-option>
+                                    </nb-select>
+    <p class="child">Status:</p><nb-select placeholder="None" [(selected)]="commonSelectedItem">
+                                  <nb-option value="1">Active</nb-option>
+                                  <nb-option value="2">Terminate</nb-option>
+                                </nb-select>
+    <button type="submit" class="btn btn-primary child center">SUBMIT</button>
 </ng-template>
