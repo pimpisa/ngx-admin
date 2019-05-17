@@ -11,7 +11,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  
+
   apiUrl = 'https://jsonplaceholder.typicode.com/users';
   allUsersApiUrl = 'https://demo.edgagement.com/api/users';
   currentUserApiUrl = 'https://demo.edgagement.com/api/user';
@@ -24,6 +24,7 @@ export class UserService {
 private header:Headers = new Headers({
     'Authorization': 'blfyjKOdJPCTESy5zbC394VYYxzXnB21'
 });
+constructor(private http: HttpClient) { }
 
 loadUser(): Promise<any> {
     return new Promise((resolve, reject) => {
@@ -42,11 +43,27 @@ loadUser(): Promise<any> {
     });
 }
 
+loadAllUser():Promise<any> {
+  return new Promise((resolve, reject) => {
+    this.http.get('https://demo.edgagement.com/api/users', {
+      'headers': new HttpHeaders().set('Authorizaton', this.keyToken)
+    }).subscribe((res:any) => {
+      
+      if(res.code == 0) {
+        console.log(res);
+      }else{
+        console.log('not authorized');
+        reject();
+      }
+    });
+  });
+}
+
 getUser() {
     return this.user.asObservable();
 }
 
-  constructor(private http: HttpClient) { }
+  
  
   getUsers(){
     return this.http

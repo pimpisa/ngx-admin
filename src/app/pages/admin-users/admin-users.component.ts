@@ -46,11 +46,6 @@ export class AdminUsersComponent implements OnInit{
       .pipe(takeWhile(() => this.alive))
       .subscribe(([oldValue, newValue]) => {
       this.breakpoint = newValue;
-      //Get User
-      /*this.testUserService.getUsers()
-      .subscribe((resp) => {
-        console.log(resp);
-      });*/
     
   });
   forkJoin(
@@ -100,6 +95,7 @@ export class AdminUsersComponent implements OnInit{
         .subscribe(data => this.users = data);*/
         return this.testUserService.getAllUsers()
         .subscribe(data => this.users = [data]);
+        this.testUserService.loadAllUser();
 
      }
       /*ngOnInit(){
