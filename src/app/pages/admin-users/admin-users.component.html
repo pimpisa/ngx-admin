@@ -28,14 +28,22 @@
                 </span>
         </div>
         <br/> 
-        <div class="contact" *ngFor="let c of contacts">
+       <!-- <div class="contact" *ngFor="let c of contacts">
             <nb-user [name]="c.user.name" [title]="c.type" size="large"></nb-user>
             <nb-actions size="small">
               <nb-action (click)="openWindow(viewUserTemplate)" icon="fa fa-address-card"></nb-action>
               <nb-action (click)="openWindow(sendMsgTemplate)"icon="fa fa fa-paper-plane"></nb-action>
               <nb-action (click)="openWindow(editUserTemplate)" icon="fa fa-pencil-alt"></nb-action>
             </nb-actions>
-        </div>  
+        </div>  -->
+        <div class="contact" *ngFor="let user of users">
+            <h2>{{user.name}} - {{user.username}}</h2>
+            <nb-actions size="small">
+              <nb-action (click)="openWindow(viewUserTemplate)" icon="fa fa-address-card"></nb-action>
+              <nb-action (click)="openWindow(sendMsgTemplate)"icon="fa fa fa-paper-plane"></nb-action>
+              <nb-action (click)="openWindow(editUserTemplate)" icon="fa fa-pencil-alt"></nb-action>
+            </nb-actions>
+        </div>
         <br/>   
         <div class="flush-right"><button type="submit" class="btn btn-primary">Send Message</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Export CSV</button>&nbsp;&nbsp;
         <button type="submit" class="btn btn-primary">Export Users</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Import Users</button></div>

@@ -1,4 +1,4 @@
-import { Component, TemplateRef, ViewChild, OnDestroy } from '@angular/core';
+import { Component, TemplateRef, ViewChild, OnDestroy, OnInit } from '@angular/core';
 import { SmartTableComponent } from '../tables/smart-table/smart-table.component'
 import { LocalDataSource } from 'ng2-smart-table';
 import { SmartTableData } from '../../@core/data/smart-table';
@@ -13,30 +13,39 @@ import { NbWindowService} from '@nebular/theme'
 import { WindowFormComponent } from '../modal-overlays/window/window-form/window-form.component';
 import { NbWindowRef } from '@nebular/theme';
 /**Get user from HTTP */
-
+import { UserService } from '../../services/user.service';
+import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'ngx-admin-users',
   styleUrls: ['./admin-users.component.scss'],
   templateUrl: './admin-users.component.html',
 })
-export class AdminUsersComponent implements OnDestroy{
+export class AdminUsersComponent implements OnInit{
   @ViewChild('disabledEsc', { read: TemplateRef }) disabledEscTemplate: TemplateRef<HTMLElement>;
   private alive = true;
   contacts: any[];
   recent: any[];
   breakpoint: NbMediaBreakpoint;
   breakpoints: any;
+  title = 'app';
+  users: User[];
 
   constructor(private userService: UserData,
     private themeService: NbThemeService,
     private breakpointService: NbMediaBreakpointsService, 
-    private NbWindowService:NbWindowService) {
+    private NbWindowService:NbWindowService,
+    private testUserService: UserService) {
       this.breakpoints = this.breakpointService.getBreakpointsMap();
       this.themeService.onMediaQueryChange()
       .pipe(takeWhile(() => this.alive))
       .subscribe(([oldValue, newValue]) => {
       this.breakpoint = newValue;
+      //Get User
+      /*this.testUserService.getUsers()
+      .subscribe((resp) => {
+        console.log(resp);
+      });*/
     
   });
   forkJoin(
@@ -80,8 +89,10 @@ export class AdminUsersComponent implements OnDestroy{
         },
       };
       source: LocalDataSource = new LocalDataSource();
-      ngOnDestroy(){
-        this.alive =false;
+      
+      ngOnInit(){
+        return this.testUserService.getUsers()
+        .subscribe(data => this.users = data);
       }
 }
 
