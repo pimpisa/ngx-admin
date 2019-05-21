@@ -19,6 +19,8 @@ import { HttpClient } from '@angular/common/http';
 import { Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import { StringMap } from '@angular/core/src/render3/jit/compiler_facade_interface';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AccordionComponent } from '../extra-components/accordion/accordion.component';
 
 
 @Component({
@@ -28,6 +30,9 @@ import { StringMap } from '@angular/core/src/render3/jit/compiler_facade_interfa
 })
 export class AdminUsersComponent implements OnInit{
   @ViewChild('disabledEsc', { read: TemplateRef }) disabledEscTemplate: TemplateRef<HTMLElement>;
+  @ViewChild('newUser') newUser; 
+  @ViewChild('viewUserTemplate') viewUserTemplate; 
+  @ViewChild('sendMsgTemplate') sendMsgTemplate; 
   private alive = true;
   contacts: any[];
   recent: any[];
@@ -37,8 +42,14 @@ export class AdminUsersComponent implements OnInit{
   arrCase: object [];
   allUsers: User[];
   user: any;
+  test: any = {
+    name: "asdas"
+  };
   private usersObservable : Observable<User[]> ; 
   private users: User[] = [];
+  //UserDetail
+  userID: any; //Getting User id from URL
+  userData: any; //Getting user details
 
   //private users: any = [];
 
@@ -47,7 +58,9 @@ export class AdminUsersComponent implements OnInit{
     private breakpointService: NbMediaBreakpointsService, 
     private NbWindowService:NbWindowService,
     private testUserService: UserService,
-    private http: HttpClient) {
+    private http: HttpClient,
+    private router: Router,
+    private actRoute: ActivatedRoute) {
       this.breakpoints = this.breakpointService.getBreakpointsMap();
       this.themeService.onMediaQueryChange()
       .pipe(takeWhile(() => this.alive))
@@ -104,18 +117,23 @@ export class AdminUsersComponent implements OnInit{
   
       }
 
-      onView(user: User, id: string):void {
-        /*this.testUserService.getUserDetail(user).subscribe(res => {
-            this.user = res['data'].users;
-            console.log(id);
-        });*/
-        console.log(id);
-        this.testUserService.getUserDetail(user,id);
+      onView(user: User) {
+        
+        /*let test = this.testUserService.getUserDetail(user)
+        console.log(test);
+        this.test = test;
+        return false */
+
+        let userInfo = this.testUserService.getUserDetail(user)
+        this.user = userInfo;
           
       }
+
       onEdit(user: User): void {
         this.testUserService.editUser(user);
       }
+
+  
       
         
 }

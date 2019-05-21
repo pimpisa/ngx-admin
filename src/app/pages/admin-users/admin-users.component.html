@@ -20,29 +20,33 @@
         <div class="input-group">
           <!--Add new user-->  
           <button class="btn btn-danger input-group-text" (click)="openWindow(newUser)" nbButton>Add new user</button>&nbsp;&nbsp;
-          <input type="search" class="form-control" placeholder="Search for...">
+          <input type="search" class="form-control" placeholder="Search for..." [(ngModel)]="searchText">
                 <span class="input-group-append">
                       <button class="btn btn-danger input-group-text">
                         Search
                       </button>
                 </span>
         </div>
+        
         <br/> 
         <div class="contact" *ngFor="let u of allUsers">
-            <nb-user [name]="u.name" [title]="u.email" size="large"></nb-user>
+            <nb-user [name]="u.name" [title]="u.email" size="large">{{searchText}}</nb-user>
+            <ng-container>
             <nb-actions size="small">
-              <nb-action (click)="openWindow(viewUserTemplate);onView(u,u.id)" icon="fa fa-address-card"></nb-action>
+              <nb-action (click)="onView(u);openWindow(viewUserTemplate);" icon="fa fa-address-card"></nb-action>
               <nb-action (click)="openWindow(sendMsgTemplate)"icon="fa fa fa-paper-plane"></nb-action>
               <nb-action (click)="openWindow(editUserTemplate);onEdit(u)" icon="fa fa-pencil-alt"></nb-action>
             </nb-actions>
+            </ng-container>
         </div>
         <br/>   
         <div class="flush-right"><button type="submit" class="btn btn-primary">Send Message</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Export CSV</button>&nbsp;&nbsp;
         <button type="submit" class="btn btn-primary">Export Users</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Import Users</button></div>
-    </nb-card-body>
+          <p>{{user?.name}}</p>
+      </nb-card-body>
 </nb-card>
 <!--Add user-->
-<ng-template #newUser let-data class="col-md-6">
+<ng-template #newUser let-u='u' class="col-md-6">
     <input type="text" nbInput fullWidth placeholder="Name:" class="child"><br/>
     <input type="text" nbInput fullWidth placeholder="Phone:" class="child"><br/>
     <input type="text" nbInput fullWidth placeholder="Email:" class="child"><br/>
@@ -53,8 +57,24 @@
                       <nb-option value="3">Both</nb-option>
                     </nb-select>
     <p class="child">User Type:</p>
+                      <nb-select placeholder="None" [(selected)]="commonSelectedItem">
+                          <nb-option value="1">Guest</nb-option>
+                          <nb-option value="2">Web session</nb-option>
+                          <nb-option value="3">Beauty Advisor</nb-option>
+                          <nb-option value="4">Account Executive</nb-option>
+                          <nb-option value="5">FSD Access</nb-option>
+                          <nb-option value="6">Admin</nb-option>
+                      </nb-select>
     <p class="child">Status:</p>
+                      <nb-select placeholder="None" [(selected)]="commonSelectedItem">
+                        <nb-option value="1">Active</nb-option>
+                        <nb-option value="2">Terminate</nb-option>
+                      </nb-select>
     <p class="child">Detail:</p>
+                      <nb-select placeholder="None" [(selected)]="commonSelectedItem">
+                        <nb-option value="1">Active</nb-option>
+                        <nb-option value="2">Terminate</nb-option>
+                      </nb-select>
     <button type="submit" class="btn btn-primary child center">SUBMIT</button>
 </ng-template>
 
@@ -62,18 +82,18 @@
   Disabled close on escape click.
 </ng-template>
 <!-- View user -->
-<ng-template #viewUserTemplate let-data class="col-md-6">
-    <input disabled type="text" nbInput fullWidth placeholder="Name:" class="child">{{user?.name}}<br/>
-    <input type="text" nbInput fullWidth placeholder="Phone:" class="child"><br/>
-    <input type="text" nbInput fullWidth placeholder="Email:" class="child"><br/>
-    <input type="text" nbInput fullWidth placeholder="ID:" class="child"><br/>
-    <p class="child">User Type:</p>
-    <p class="child">Status:</p>
-    <p class="child">Detail:</p>
+<ng-template #viewUserTemplate let-u='u' class="col-md-6">
+    <input disabled type="text" nbInput fullWidth placeholder="Name:" value="{{user.name}}" class="child"><br/>
+    <input type="text" nbInput fullWidth placeholder="Phone:" value="{{user.phone}}" class="child"><br/>
+    <input type="text" nbInput fullWidth placeholder="Email:" value="{{user.email}}" class="child"><br/>
+    <input type="text" nbInput fullWidth placeholder="ID:" value="{{user.id}}" class="child"><br/>
+    <input type="text" nbInput fullWidth placeholder="User Type:" value="{{user.role}}" class="child"><br/>
+    <input type="text" nbInput fullWidth placeholder="Status:" value="{{user.status}}" class="child"><br/>
+    <input type="text" nbInput fullWidth placeholder="Delivery Method:" value="{{user.delivery_method}}" class="child"><br/>
 </ng-template>
 <!--Edit Uset-->
 <!-- Send Msg -->
-<ng-template #sendMsgTemplate let-data class="col-md-6">
+<ng-template #sendMsgTemplate let-user='user' class="col-md-6">
     <input type="text" nbInput fullWidth placeholder="Name:" class="child"><br/>
     <input type="text" nbInput fullWidth placeholder="Phone:" class="child"><br/>
     <input type="text" nbInput fullWidth placeholder="Email:" class="child"><br/>
@@ -89,7 +109,7 @@
     <button type="submit" class="btn btn-primary child center">SUBMIT</button>
 </ng-template>
 <!--Edit User-->
-<ng-template #editUserTemplate let-data class="col-md-6">
+<ng-template #editUserTemplate let-user='user' class="col-md-6">
     <input type="text" nbInput fullWidth placeholder="Name:" class="child"><br/>
     <input type="text" nbInput fullWidth placeholder="Phone:" class="child"><br/>
     <input type="text" nbInput fullWidth placeholder="Email:" class="child"><br/>

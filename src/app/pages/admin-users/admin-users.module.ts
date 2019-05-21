@@ -14,6 +14,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
   declarations: [
     AdminUsersComponent,
     SmartTableComponent,
+
   ],
 })
 export class AdminUsersModule { }

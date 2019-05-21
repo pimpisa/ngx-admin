@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { User } from '../interfaces/user';
 import { Observable } from 'rxjs/observable';
 import { map } from 'rxjs/operators';
-import { HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { throwError as ObservableThrowError } from 'rxjs';
 
 
 @Injectable({
@@ -80,14 +81,19 @@ getAllUsers() {
   return this.allUsers
 }
 
-getUserDetail(user: User, id: string){
-  const url = this.allUsersApiUrl + "/id/" + user.id;
+getUserDetail(user: User){
+  const url = this.currentUserApiUrl + "/id/" + user.id;
   console.log(user.name);
   console.log(user.id);
   console.log(user.phone);
   console.log(user.email);
-    return user;
+  console.log(user)
+  return user;
+ /* return this.http.get(url, {
+    'headers': new HttpHeaders().set('Authorization', this.keyToken)
+     });*/
 }
+
 editUser(user: User){
   const url = this.allUsersApiUrl + "/id/" + user.id;
   console.log(user.name);
@@ -117,8 +123,15 @@ testGetAllUsers(){
     return this.http.get(this.allUsersApiUrl, {
       'headers': new HttpHeaders().set('Authorization', this.keyToken)
       
-       });
+       })
+       .pipe(
+        catchError((error) => this._handleError(error))
+      );
 
+}
+private _handleError(err: HttpErrorResponse | any): Observable<any> {
+  const errorMsg = err.message || 'Error: Unable to complete request.';
+  return ObservableThrowError(errorMsg);
 }
  
 }
