@@ -28,25 +28,14 @@
                 </span>
         </div>
         <br/> 
-        <div class="contact" *ngFor="let c of contacts">
-            <nb-user [name]="c.user.name" [title]="c.type" size="large"></nb-user>
+        <div class="contact" *ngFor="let u of allUsers">
+            <nb-user [name]="u.name" [title]="u.email" size="large"></nb-user>
             <nb-actions size="small">
-              <nb-action (click)="openWindow(viewUserTemplate)" icon="fa fa-address-card"></nb-action>
+              <nb-action (click)="openWindow(viewUserTemplate);onView(u,u.id)" icon="fa fa-address-card"></nb-action>
               <nb-action (click)="openWindow(sendMsgTemplate)"icon="fa fa fa-paper-plane"></nb-action>
-              <nb-action (click)="openWindow(editUserTemplate)" icon="fa fa-pencil-alt"></nb-action>
+              <nb-action (click)="openWindow(editUserTemplate);onEdit(u)" icon="fa fa-pencil-alt"></nb-action>
             </nb-actions>
-        </div> 
-       <!--<div class="contact" *ngFor="let user of users | users">
-         {{user.key}}:{{user.key}}
-        <p *ngFor="let info of user.name">{{info.name}}</p>
-
-            <nb-actions size="small">
-              <nb-action (click)="openWindow(viewUserTemplate)" icon="fa fa-address-card"></nb-action>
-              <nb-action (click)="openWindow(sendMsgTemplate)"icon="fa fa fa-paper-plane"></nb-action>
-              <nb-action (click)="openWindow(editUserTemplate)" icon="fa fa-pencil-alt"></nb-action>
-            </nb-actions>
-        </div>-->
-       
+        </div>
         <br/>   
         <div class="flush-right"><button type="submit" class="btn btn-primary">Send Message</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Export CSV</button>&nbsp;&nbsp;
         <button type="submit" class="btn btn-primary">Export Users</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Import Users</button></div>
@@ -74,19 +63,13 @@
 </ng-template>
 <!-- View user -->
 <ng-template #viewUserTemplate let-data class="col-md-6">
-    <input type="text" nbInput fullWidth placeholder="Name:" class="child"><br/>
+    <input disabled type="text" nbInput fullWidth placeholder="Name:" class="child">{{user?.name}}<br/>
     <input type="text" nbInput fullWidth placeholder="Phone:" class="child"><br/>
     <input type="text" nbInput fullWidth placeholder="Email:" class="child"><br/>
-    <input type="password" nbInput fullWidth placeholder="Password:" class="child"><br/>
-    <p>Delivery Method:</p><nb-select placeholder="None" [(selected)]="commonSelectedItem">
-                      <nb-option value="1">Email</nb-option>
-                      <nb-option value="2">Phone</nb-option>
-                      <nb-option value="3">Both</nb-option>
-                    </nb-select>
+    <input type="text" nbInput fullWidth placeholder="ID:" class="child"><br/>
     <p class="child">User Type:</p>
     <p class="child">Status:</p>
     <p class="child">Detail:</p>
-    <button type="submit" class="btn btn-primary child center">SUBMIT</button>
 </ng-template>
 <!--Edit Uset-->
 <!-- Send Msg -->
@@ -105,7 +88,7 @@
     <p class="child">Detail:</p>
     <button type="submit" class="btn btn-primary child center">SUBMIT</button>
 </ng-template>
-<!--Edit Uset-->
+<!--Edit User-->
 <ng-template #editUserTemplate let-data class="col-md-6">
     <input type="text" nbInput fullWidth placeholder="Name:" class="child"><br/>
     <input type="text" nbInput fullWidth placeholder="Phone:" class="child"><br/>
@@ -128,5 +111,5 @@
                                   <nb-option value="1">Active</nb-option>
                                   <nb-option value="2">Terminate</nb-option>
                                 </nb-select>
-    <button type="submit" class="btn btn-primary child center">SUBMIT</button>
+    <button type="submit" (click)="onEdit(u)" class="btn btn-primary child center">SUBMIT</button>
 </ng-template>

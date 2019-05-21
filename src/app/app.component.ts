@@ -25,4 +25,5 @@ export class AppComponent implements OnInit {
     this.spinnerService.registerLoader(this.testUserService.loadUser());
     this.testUserService.loadUser();
   }
+
 }

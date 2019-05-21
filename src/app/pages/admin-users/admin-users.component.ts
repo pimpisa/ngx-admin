@@ -15,6 +15,10 @@ import { NbWindowRef } from '@nebular/theme';
 /**Get user from HTTP */
 import { UserService } from '../../services/user.service';
 import { User } from '../../interfaces/user';
+import { HttpClient } from '@angular/common/http';
+import { Response } from '@angular/http';
+import { Observable } from 'rxjs';
+import { StringMap } from '@angular/core/src/render3/jit/compiler_facade_interface';
 
 
 @Component({
@@ -31,8 +35,10 @@ export class AdminUsersComponent implements OnInit{
   breakpoints: any;
   title = 'app';
   arrCase: object [];
-  users: object [];
-
+  allUsers: User[];
+  user: any;
+  private usersObservable : Observable<User[]> ; 
+  private users: User[] = [];
 
   //private users: any = [];
 
@@ -40,7 +46,8 @@ export class AdminUsersComponent implements OnInit{
     private themeService: NbThemeService,
     private breakpointService: NbMediaBreakpointsService, 
     private NbWindowService:NbWindowService,
-    private testUserService: UserService) {
+    private testUserService: UserService,
+    private http: HttpClient) {
       this.breakpoints = this.breakpointService.getBreakpointsMap();
       this.themeService.onMediaQueryChange()
       .pipe(takeWhile(() => this.alive))
@@ -91,19 +98,25 @@ export class AdminUsersComponent implements OnInit{
       source: LocalDataSource = new LocalDataSource();
       
       ngOnInit(){
-        /*return this.testUserService.getUsers()
-        .subscribe(data => this.users = data);*/
-        return this.testUserService.getAllUsers()
-        .subscribe(data => this.users = [data]);
-        this.testUserService.loadAllUser();
+        this.testUserService.testGetAllUsers().subscribe(res => {
+            this.allUsers = res['data'].users;
+        }); 
+  
+      }
 
-     }
-      /*ngOnInit(){
-        return this.testUserService.getAllUsers()
-        .subscribe((resp) => {
-          console.log(resp);
-        });
-      }*/
+      onView(user: User, id: string):void {
+        /*this.testUserService.getUserDetail(user).subscribe(res => {
+            this.user = res['data'].users;
+            console.log(id);
+        });*/
+        console.log(id);
+        this.testUserService.getUserDetail(user,id);
+          
+      }
+      onEdit(user: User): void {
+        this.testUserService.editUser(user);
+      }
+      
         
 }
 
