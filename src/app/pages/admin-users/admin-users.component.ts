@@ -21,6 +21,8 @@ import { Observable } from 'rxjs';
 import { StringMap } from '@angular/core/src/render3/jit/compiler_facade_interface';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AccordionComponent } from '../extra-components/accordion/accordion.component';
+/**Form */
+import { FormGroup, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -33,6 +35,7 @@ export class AdminUsersComponent implements OnInit{
   @ViewChild('newUser') newUser; 
   @ViewChild('viewUserTemplate') viewUserTemplate; 
   @ViewChild('sendMsgTemplate') sendMsgTemplate; 
+  myForm: FormGroup;
   private alive = true;
   contacts: any[];
   recent: any[];
@@ -114,6 +117,12 @@ export class AdminUsersComponent implements OnInit{
         this.testUserService.testGetAllUsers().subscribe(res => {
             this.allUsers = res['data'].users;
         }); 
+
+        this.myForm = new FormGroup({
+          name: new FormControl(''),
+          email: new FormControl(''),
+          message: new FormControl('')
+        });
   
       }
 
@@ -129,6 +138,13 @@ export class AdminUsersComponent implements OnInit{
         console.log("onEditCall" + user.id);
         //console.log(user.id);
         this.testUserService.updateUser(user);
+      }
+
+      onSubmit(form: FormGroup) {
+        console.log('Valid?', form.valid); // true or false
+        console.log('Name', form.value.name);
+        console.log('Email', form.value.email);
+        console.log('Message', form.value.message);
       }
 
       /*submitUser(userForm: NgForm): void {

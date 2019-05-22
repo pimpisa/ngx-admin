@@ -13,8 +13,7 @@ import { throwError as ObservableThrowError } from 'rxjs';
 })
 export class UserService {
 
-  apiUrl = 'https://jsonplaceholder.typicode.com/users';
-  allUsersApiUrl = 'https://demo.edgagement.com/api/users';
+  allUsersApiUrl = 'https://demo.edgagement.com/api/user/list';
   currentUserApiUrl = 'https://demo.edgagement.com/api/user';
   keyToken = 'blfyjKOdJPCTESy5zbC394VYYxzXnB21';
 
