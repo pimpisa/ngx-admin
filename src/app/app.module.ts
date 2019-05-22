@@ -16,6 +16,7 @@ import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NbActionsModule } from '@nebular/theme';
 import { FilterPipe } from './filter.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -27,6 +28,7 @@ import { FilterPipe } from './filter.pipe';
     HttpClientModule,
     AppRoutingModule,
     NbActionsModule,
+    ReactiveFormsModule,
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),

@@ -117,24 +117,33 @@ export class AdminUsersComponent implements OnInit{
   
       }
 
-      onView(user: User) {
-        
-        /*let test = this.testUserService.getUserDetail(user)
-        console.log(test);
-        this.test = test;
-        return false */
-
+      onView(user: User, id: string) {
+        console.log("onViewCall" + user.id);
         let userInfo = this.testUserService.getUserDetail(user)
         this.user = userInfo;
           
       }
 
-      onEdit(user: User): void {
-        this.testUserService.editUser(user);
+      onEdit(user: User){
+        //console.log("onEditCall" + user.id); 
+        console.log("onEditCall" + user.id);
+        //console.log(user.id);
+        this.testUserService.updateUser(user);
       }
 
-  
-      
-        
+      /*submitUser(userForm: NgForm): void {
+        if (this.user.id == null) {
+          //Insert new employee
+        } else {
+          this.testUserService.updateUser(this.user).subscribe(
+            () => {
+              userForm.reset();
+              //close window
+            },
+            (error: any) => { console.log(error);}
+          );
+        }
+      }*/
+    
 }
 

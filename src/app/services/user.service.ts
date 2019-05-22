@@ -83,6 +83,7 @@ getAllUsers() {
 
 getUserDetail(user: User){
   const url = this.currentUserApiUrl + "/id/" + user.id;
+  console.log(url);
   console.log(user.name);
   console.log(user.id);
   console.log(user.phone);
@@ -96,6 +97,8 @@ getUserDetail(user: User){
 
 editUser(user: User){
   const url = this.allUsersApiUrl + "/id/" + user.id;
+  console.log(url);
+  console.log("--Checking on edit user---");
   console.log(user.name);
   console.log(user.id);
   console.log(user.phone);
@@ -110,13 +113,37 @@ editUser(user: User){
     'headers': new HttpHeaders().set('Authorization', this.keyToken)
      });
 }
+
+updateUser(user: User): Observable<void> {
+  console.log("--Checking on update user---");
+  const userDetail = {
+    phone: "83273720732",
+    email: "userupdate_test@gmail.com",
+    name: "Test Update",
+  }
+  const url = this.allUsersApiUrl + "/id/" + user.id;
+  console.log("url from updateUser" + url)
+  return this.http.put<void>(url, userDetail, {
+    'headers': new HttpHeaders().set('Authorization', this.keyToken)
+  });
+}
+createUser(user: User): Observable<User> {
+  const url = this.allUsersApiUrl + "/id/" + user.id;
+    return this.http.post<User>(url, user, {
+      'headers': new HttpHeaders().set('Authorization', this.keyToken)
+  });
+}
+
 deleteUser(id:number){
   const url = this.allUsersApiUrl + "/id/" + id;
   console.log(url);
   return this.http.delete(url, {
     'headers': new HttpHeaders().set('Authorization', this.keyToken)
     
-     });
+     })
+     .pipe(
+      catchError((error) => this._handleError(error))
+    );;
 }
 
 testGetAllUsers(){
@@ -133,5 +160,21 @@ private _handleError(err: HttpErrorResponse | any): Observable<any> {
   const errorMsg = err.message || 'Error: Unable to complete request.';
   return ObservableThrowError(errorMsg);
 }
+/*
+private handleError(error: HttpErrorResponse) {
+  if (error.error instanceof ErrorEvent) {
+    // A client-side or network error occurred. Handle it accordingly.
+    console.error('An error occurred:', error.error.message);
+  } else {
+    // The backend returned an unsuccessful response code.
+    // The response body may contain clues as to what went wrong,
+    console.error(
+      `Backend returned code ${error.status}, ` +
+      `body was: ${error.error}`);
+  }
+  // return an observable with a user-facing error message
+  return throwError(
+    'Something bad happened; please try again later.');
+};*/
  
 }

@@ -33,16 +33,15 @@
             <nb-user [name]="u.name" [title]="u.email" size="large">{{searchText}}</nb-user>
             <ng-container>
             <nb-actions size="small">
-              <nb-action (click)="onView(u);openWindow(viewUserTemplate);" icon="fa fa-address-card"></nb-action>
+              <nb-action (click)="onView(u);openWindow(viewUserTemplate)" icon="fa fa-address-card"></nb-action>
               <nb-action (click)="openWindow(sendMsgTemplate)"icon="fa fa fa-paper-plane"></nb-action>
-              <nb-action (click)="openWindow(editUserTemplate);onEdit(u)" icon="fa fa-pencil-alt"></nb-action>
+              <nb-action (click)="onView(u);openWindow(editUserTemplate)" icon="fa fa-pencil-alt"></nb-action>
             </nb-actions>
             </ng-container>
         </div>
         <br/>   
         <div class="flush-right"><button type="submit" class="btn btn-primary">Send Message</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Export CSV</button>&nbsp;&nbsp;
         <button type="submit" class="btn btn-primary">Export Users</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Import Users</button></div>
-          <p>{{user?.name}}</p>
       </nb-card-body>
 </nb-card>
 <!--Add user-->
@@ -77,23 +76,21 @@
                       </nb-select>
     <button type="submit" class="btn btn-primary child center">SUBMIT</button>
 </ng-template>
-
 <ng-template #disabledEsc>
   Disabled close on escape click.
 </ng-template>
 <!-- View user -->
 <ng-template #viewUserTemplate let-u='u' class="col-md-6">
     <input disabled type="text" nbInput fullWidth placeholder="Name:" value="{{user.name}}" class="child"><br/>
-    <input type="text" nbInput fullWidth placeholder="Phone:" value="{{user.phone}}" class="child"><br/>
-    <input type="text" nbInput fullWidth placeholder="Email:" value="{{user.email}}" class="child"><br/>
-    <input type="text" nbInput fullWidth placeholder="ID:" value="{{user.id}}" class="child"><br/>
-    <input type="text" nbInput fullWidth placeholder="User Type:" value="{{user.role}}" class="child"><br/>
-    <input type="text" nbInput fullWidth placeholder="Status:" value="{{user.status}}" class="child"><br/>
-    <input type="text" nbInput fullWidth placeholder="Delivery Method:" value="{{user.delivery_method}}" class="child"><br/>
+    <input disabled type="text" nbInput fullWidth placeholder="Phone:" value="{{user.phone}}" class="child"><br/>
+    <input disabled type="text" nbInput fullWidth placeholder="Email:" value="{{user.email}}" class="child"><br/>
+    <input disabled type="text" nbInput fullWidth placeholder="ID:" value="{{user.id}}" class="child"><br/>
+    <input disabled type="text" nbInput fullWidth placeholder="User Type:" value="{{user.role}}" class="child"><br/>
+    <input disabled type="text" nbInput fullWidth placeholder="Status:" value="{{user.group}}" class="child"><br/>
+    <input disabled type="text" nbInput fullWidth placeholder="Delivery Method:" value="{{user.delivery_method}}" class="child"><br/>
 </ng-template>
-<!--Edit Uset-->
 <!-- Send Msg -->
-<ng-template #sendMsgTemplate let-user='user' class="col-md-6">
+<ng-template #sendMsgTemplate let-u='u' class="col-md-6">
     <input type="text" nbInput fullWidth placeholder="Name:" class="child"><br/>
     <input type="text" nbInput fullWidth placeholder="Phone:" class="child"><br/>
     <input type="text" nbInput fullWidth placeholder="Email:" class="child"><br/>
@@ -109,27 +106,28 @@
     <button type="submit" class="btn btn-primary child center">SUBMIT</button>
 </ng-template>
 <!--Edit User-->
-<ng-template #editUserTemplate let-user='user' class="col-md-6">
-    <input type="text" nbInput fullWidth placeholder="Name:" class="child"><br/>
-    <input type="text" nbInput fullWidth placeholder="Phone:" class="child"><br/>
-    <input type="text" nbInput fullWidth placeholder="Email:" class="child"><br/>
-    <input type="password" nbInput fullWidth placeholder="New Password:" class="child"><br/>
-    <p>Delivery Method:</p><nb-select placeholder="None" [(selected)]="commonSelectedItem">
-                            <nb-option value="1">Email</nb-option>
-                            <nb-option value="2">Phone</nb-option>
-                            <nb-option value="3">Both</nb-option>
-                            </nb-select>
-    <p class="child">User Type:</p><nb-select placeholder="None" [(selected)]="commonSelectedItem">
-                                      <nb-option value="1">Guest</nb-option>
-                                      <nb-option value="2">Web session</nb-option>
-                                      <nb-option value="3">Beauty Advisor</nb-option>
-                                      <nb-option value="4">Account Executive</nb-option>
-                                      <nb-option value="5">FSD Access</nb-option>
-                                      <nb-option value="6">Admin</nb-option>
-                                    </nb-select>
-    <p class="child">Status:</p><nb-select placeholder="None" [(selected)]="commonSelectedItem">
-                                  <nb-option value="1">Active</nb-option>
-                                  <nb-option value="2">Terminate</nb-option>
-                                </nb-select>
-    <button type="submit" (click)="onEdit(u)" class="btn btn-primary child center">SUBMIT</button>
+<ng-template #editUserTemplate let-u='u' class="col-md-6"> 
+      <input type="text" nbInput fullWidth placeholder="Name:" value="{{user.name}}" class="child"><br/>
+      <input type="text" nbInput fullWidth placeholder="Phone:" value="{{user.phone}}" class="child"><br/>
+      <input type="text" nbInput fullWidth placeholder="Email:" value="{{user.email}}" class="child"><br/>
+      <input disabled type="text" nbInput fullWidth placeholder="ID:" value="{{user.id}}" class="child"><br/>
+      <input type="password" nbInput fullWidth placeholder="New Password:" value="{{user.password}}" class="child"><br/>
+      <p>Delivery Method:</p><nb-select placeholder="{{user?.delivery_method}} none" [(selected)]="commonSelectedItem">
+                              <nb-option value="1">Email</nb-option>
+                              <nb-option value="2">Phone</nb-option>
+                              <nb-option value="3">Both</nb-option>
+                              </nb-select>
+      <p class="child">User Type:</p><nb-select placeholder="{{user?.group}} none" [(selected)]="commonSelectedItem">
+                                        <nb-option value="1">Guest</nb-option>
+                                        <nb-option value="2">Web session</nb-option>
+                                        <nb-option value="3">Beauty Advisor</nb-option>
+                                        <nb-option value="4">Account Executive</nb-option>
+                                        <nb-option value="5">FSD Access</nb-option>
+                                        <nb-option value="6">Admin</nb-option>
+                                      </nb-select>
+      <p class="child">Status:</p><nb-select placeholder="{{user?.status}} none" [(selected)]="commonSelectedItem">
+                                    <nb-option value="1">Active</nb-option>
+                                    <nb-option value="2">Terminate</nb-option>
+                                  </nb-select>
+      <button type="submit" (click)="onEdit(user,user.id)" class="btn btn-primary child center">SUBMIT</button>
 </ng-template>
