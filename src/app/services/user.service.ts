@@ -29,6 +29,7 @@ export class UserService implements PipeTransform {
 
   allUsersApiUrl = 'https://demo.edgagement.com/api/user/list';
   currentUserApiUrl = 'https://demo.edgagement.com/api/user';
+  paginationUrl = 'https://demo.edgagement.com/api/user/list?page=';
   keyToken = 'blfyjKOdJPCTESy5zbC394VYYxzXnB21';
 
   private user = new BehaviorSubject<any>({
@@ -195,6 +196,17 @@ testGetAllUsers(){
        .pipe(
         catchError((error) => this._handleError(error))
       );
+
+}
+getAllUsersWithPage(page: number){
+  console.log("getAllUsersWithPage " + page);
+  return this.http.get(this.paginationUrl + page, {
+    'headers': new HttpHeaders().set('Authorization', this.keyToken)
+    
+     })
+     .pipe(
+      catchError((error) => this._handleError(error))
+    );
 
 }
 private _handleError(err: HttpErrorResponse | any): Observable<any> {

@@ -17,10 +17,15 @@ import { NbWindowRef } from '@nebular/theme';
 })
 export class AdminUserComponent  {
   @ViewChild('disabledEsc', { read: TemplateRef }) disabledEscTemplate: TemplateRef<HTMLElement>;
-  page = 26;
+  pageNo: any;
   source: LocalDataSource = new LocalDataSource();
+  
   allUsers: any;
   user:any;
+  pageLimit: any;
+  pageLimitTest = 3;
+  userTotal: any;
+  private currentPage:number = 1;
   settings = {
     columns: {
       id: {
@@ -51,6 +56,7 @@ export class AdminUserComponent  {
         }
       }
     },
+
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
@@ -76,8 +82,15 @@ export class AdminUserComponent  {
               private NbWindowService:NbWindowService) {
     this.userService.testGetAllUsers().subscribe(res => {
       this.allUsers = res['data'].users;
+      this.pageNo = res['data'].page;
+      this.pageLimit = res['data'].limit;
+      this.userTotal = res['data'].total;
       this.source.load(this.allUsers);
+      //this.source.setPaging(1,3,true);
       console.log(this.allUsers);
+      console.log("this page no." + this.pageNo);
+      console.log("this page limit" + this.pageLimit);
+      console.log("user_total" + this.userTotal);
     }); 
 
   }
@@ -107,6 +120,32 @@ export class AdminUserComponent  {
     this.user = userInfo;
       
   }*/
+  /*onPage(page: number){
+    console.log("onPage-call" + typeof page);
+    var num: number = { 
+      a:this.currentPage - 1
+    }
+    console.log("Type of " + typeof a);
+    var pageNum = num.toString();
+    this.userService.getAllUsersWithPage(num).subscribe(res => {
+      this.allUsers = res['data'].users;
+      this.source.load(this.allUsers);
+    });    
+  }*/
+
+  onPageTest(page: string){
+    console.log("onPage-call" + page);
+    var num: any = { 
+      page:this.currentPage - 1
+    }
+    console.log("Type of " + typeof num);
+    var pageNum = num.toString();
+    this.userService.getAllUsersWithPage(num).subscribe(res => {
+      this.allUsers = res['data'].users;
+      this.source.load(this.allUsers);
+    });    
+  }
+
   onView(event,user: User){
     console.log("onview-call");
     console.log("onViewCall" + user);
