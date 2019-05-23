@@ -1,4 +1,7 @@
 @import '../admin-users/admin-users.component.scss';
+
+
+@include nb-install-component() {
     nb-card {
       transform: translate3d(0, 0, 0);
     }
@@ -6,18 +9,10 @@
       display: inline-block;
       float: left;
     }
-    .header-template {
-      /*background-color: #849EFE;
-      height:80px;*/
-    }
-    .body-template {
-      
-    }
     .nb-theme-corporate ng2-smart-table table tr th, .nb-theme-corporate ng2-smart-table table tr td {
-      position: relative;
-      padding: 0.875rem 1.25rem;
-      border: none !important; 
-      vertical-align: middle;
+      border: none !important;
   }
+
+}
     
   

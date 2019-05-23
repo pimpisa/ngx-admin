@@ -112,7 +112,7 @@ export class AdminUserComponent  {
     console.log("onview-call");
     console.log("onViewCall" + user.id);
   }
-  
+
   onSearch(query: string = '') {
     this.source.setFilter([
       // fields we want to include in the search
