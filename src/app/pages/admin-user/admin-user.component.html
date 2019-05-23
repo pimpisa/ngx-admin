@@ -16,7 +16,7 @@
     </nb-card-header>
   
     <nb-card-body>
-      <ng2-smart-table  [source]="source" [settings]="settings" (deleteConfirm)="onDeleteConfirm($event)" (userRowSelect)="onView($event,user);openWindow(viewUserTemplate)">
+      <ng2-smart-table  [source]="source" [settings]="settings" (deleteConfirm)="onDeleteConfirm($event)" (userRowSelect)="onUserRowSelect($event);openWindow(viewUserTemplate)">
       </ng2-smart-table>
     </nb-card-body>
   </nb-card>
@@ -29,7 +29,7 @@
       <input disabled type="text" nbInput fullWidth placeholder="Name:"  class="child"><br/>
       <input disabled type="text" nbInput fullWidth placeholder="Phone:" class="child"><br/>
       <input disabled type="text" nbInput fullWidth placeholder="Email:" class="child"><br/>
-      <input disabled type="text" nbInput fullWidth placeholder="ID:" class="child"><br/>
+      <input disabled type="text" nbInput fullWidth placeholder="ID:" value="{{user.id}}"class="child"><br/>
       <input disabled type="text" nbInput fullWidth placeholder="User Type:" class="child"><br/>
       <input disabled type="text" nbInput fullWidth placeholder="Status:" class="child"><br/>
       <input disabled type="text" nbInput fullWidth placeholder="Delivery Method:" class="child"><br/>

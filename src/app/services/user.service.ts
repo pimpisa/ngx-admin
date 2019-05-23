@@ -125,6 +125,17 @@ getUserDetail(user: User){
      });*/
 }
 
+getUserInfo(id: string){
+  return this.http.get(this.currentUserApiUrl + "/id/" + id, {
+    'headers': new HttpHeaders().set('Authorization', this.keyToken)
+    
+     })
+     .pipe(
+      catchError((error) => this._handleError(error))
+    );
+
+}
+
 editUser(user: User){
   const url = this.allUsersApiUrl + "/id/" + user.id;
   console.log(url);

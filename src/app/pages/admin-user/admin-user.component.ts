@@ -110,9 +110,20 @@ export class AdminUserComponent  {
   }*/
   onView(event,user: User){
     console.log("onview-call");
-    console.log("onViewCall" + user.id);
+    console.log("onViewCall" + user);
   }
 
+  onUserRowSelect(event) { 
+    console.log('user row select: ', event); 
+    console.log("event[0]" + event.selected[0].id); 
+    const userId = event.selected[0].id;
+    console.log(userId);
+    let userInfo = this.userService.getUserInfo(userId);
+    this.user = userId;
+    console.log("userInfo " + this.user);
+    
+  }
+  
   onSearch(query: string = '') {
     this.source.setFilter([
       // fields we want to include in the search
