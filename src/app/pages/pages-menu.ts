@@ -15,9 +15,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Manage Users',
     icon: 'nb-person',
-    link: '/pages/admin-users',
+    link: '/pages/admin-user',
     home: true,
   },
+  
   {
     title: 'Manage Group',
     icon: 'nb-person',

@@ -21,6 +21,8 @@ import { AdminCampaignComponent } from './admin-campaign/admin-campaign.componen
 import { AdminLanguageComponent } from './admin-language/admin-language.component';
 import { AdminWebSessionComponent } from './admin-web-session/admin-web-session.component';
 import { AdminGameDemosComponent } from './admin-game-demos/admin-game-demos.component';
+import { AdminUserComponent } from './admin-user/admin-user.component';
+
 
 const routes: Routes = [{
   path: '',
@@ -39,6 +41,10 @@ const routes: Routes = [{
   {
     path: 'admin-users',
     component: AdminUsersComponent,
+  }, 
+  {
+    path: 'admin-user',
+    component: AdminUserComponent,
   }, 
   {
     path: 'admin-pages',

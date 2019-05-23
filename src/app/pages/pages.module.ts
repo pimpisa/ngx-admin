@@ -25,6 +25,8 @@ import { AdminGameDemosComponent } from './admin-game-demos/admin-game-demos.com
 import { ShowcaseDialogComponent } from './modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { PreviewGameComponent } from './admin-game-demos/preview-game/preview-game.component';
+import { AdminUserComponent } from './admin-user/admin-user.component';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 
 const PAGES_COMPONENTS = [
@@ -43,6 +45,7 @@ const PAGES_COMPONENTS = [
     AdminGroupModule,
     AdminPagesModule,
     DragDropModule,
+    Ng2SmartTableModule,
   
   ],
   declarations: [
@@ -61,6 +64,7 @@ const PAGES_COMPONENTS = [
     AdminGameDemosComponent,
     ShowcaseDialogComponent,
     PreviewGameComponent,
+    AdminUserComponent,
 
   ]
 })
