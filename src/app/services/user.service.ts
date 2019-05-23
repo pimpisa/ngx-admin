@@ -6,12 +6,26 @@ import { map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { throwError as ObservableThrowError } from 'rxjs';
+import { Pipe, PipeTransform } from '@angular/core';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+
+@Pipe({
+  name: 'filter'
+})
+export class UserService implements PipeTransform {
+
+  transform(items: any[], searchText: string): any[] {
+    if(!items) return [];
+      if(!searchText) return items;
+          searchText = searchText.toLowerCase();
+      return items.filter( it => {
+    return it.toLowerCase().includes(searchText);
+    });
+   }
 
   allUsersApiUrl = 'https://demo.edgagement.com/api/user/list';
   currentUserApiUrl = 'https://demo.edgagement.com/api/user';
@@ -24,7 +38,24 @@ export class UserService {
     name: '',
     id: '',
     phone: '',
-    email:''
+    email:'',
+    site_id:'',
+    avatar:'',
+    delivery_method:'',
+    group:'',
+    group_id:'',
+    referrer_id:'',
+    activity:'',
+    updated:'',
+    created:'',
+    deleted:'',
+    status:'',
+    role:'',
+    direct_report:'',
+    country:'',
+    zipcode:'',
+    practice:'',
+    hireType:''
   });
   
 

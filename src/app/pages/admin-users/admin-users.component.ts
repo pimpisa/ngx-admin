@@ -23,6 +23,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AccordionComponent } from '../extra-components/accordion/accordion.component';
 /**Form */
 import { FormGroup, FormControl } from '@angular/forms';
+import { FilterPipe } from '../../filter.pipe';
 
 
 @Component({
@@ -53,7 +54,8 @@ export class AdminUsersComponent implements OnInit{
   //UserDetail
   userID: any; //Getting User id from URL
   userData: any; //Getting user details
-
+  //search function
+  searchTerm: string;
   //private users: any = [];
 
   constructor(private userService: UserData,

@@ -62,7 +62,7 @@ const PAGES_COMPONENTS = [
     ShowcaseDialogComponent,
     PreviewGameComponent,
 
-  ],
+  ]
 })
 export class PagesModule {
 }
