@@ -17,7 +17,10 @@ import { NbWindowRef } from '@nebular/theme';
 })
 export class AdminUserComponent  {
   @ViewChild('disabledEsc', { read: TemplateRef }) disabledEscTemplate: TemplateRef<HTMLElement>;
-
+  page = 26;
+  source: LocalDataSource = new LocalDataSource();
+  allUsers: any;
+  user:any;
   settings = {
     columns: {
       id: {
@@ -67,11 +70,7 @@ export class AdminUserComponent  {
       deleteButtonContent: '<i class="nb-trash"></i>',
       confirmDelete: true,
     },
-  };
-
-  source: LocalDataSource = new LocalDataSource();
-  allUsers: any;
-  user:any;
+  }
 
   constructor(private userService: UserService,
               private NbWindowService:NbWindowService) {

@@ -18,6 +18,8 @@
     <nb-card-body>
       <ng2-smart-table  [source]="source" [settings]="settings" (deleteConfirm)="onDeleteConfirm($event)" (userRowSelect)="onUserRowSelect($event);openWindow(viewUserTemplate)">
       </ng2-smart-table>
+      <br/>
+      <ngb-pagination class="d-flex justify-content-center" [collectionSize]="70" [(page)]="page" ></ngb-pagination>
     </nb-card-body>
   </nb-card>
 <!--Pop up window-->
