@@ -19,7 +19,7 @@ export class AdminUserComponent  {
   @ViewChild('disabledEsc', { read: TemplateRef }) disabledEscTemplate: TemplateRef<HTMLElement>;
   pageNo: any;
   source: LocalDataSource = new LocalDataSource();
-  
+  pageClick: number;
   allUsers: any;
   user:any;
   pageLimit: any;
@@ -120,27 +120,10 @@ export class AdminUserComponent  {
     this.user = userInfo;
       
   }*/
-  /*onPage(page: number){
-    console.log("onPage-call" + typeof page);
-    var num: number = { 
-      a:this.currentPage - 1
-    }
-    console.log("Type of " + typeof a);
-    var pageNum = num.toString();
-    this.userService.getAllUsersWithPage(num).subscribe(res => {
-      this.allUsers = res['data'].users;
-      this.source.load(this.allUsers);
-    });    
-  }*/
 
-  onPageTest(page: string){
+  onPage(page: any){
     console.log("onPage-call" + page);
-    var num: any = { 
-      page:this.currentPage - 1
-    }
-    console.log("Type of " + typeof num);
-    var pageNum = num.toString();
-    this.userService.getAllUsersWithPage(num).subscribe(res => {
+    this.userService.getAllUsersWithPage(page).subscribe(res => {
       this.allUsers = res['data'].users;
       this.source.load(this.allUsers);
     });    
