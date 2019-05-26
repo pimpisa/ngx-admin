@@ -1,6 +1,7 @@
 @import '../../@theme/styles/themes';
 @import '~bootstrap/scss/mixins/breakpoints';
 @import '~@nebular/theme/styles/global/breakpoints';
+@import '../../@theme//styles/styles.scss';
 
 @include nb-install-component() {
   .full-width {
@@ -18,7 +19,7 @@
     padding-bottom: 0;
   }
   img {
-    max-width: 300px;
+    max-width: 250px;
   }
   nb-card {
     min-height: 80vh;

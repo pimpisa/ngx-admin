@@ -51,14 +51,17 @@ nb-action {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 700;
   text-transform: uppercase;
-  color: #BBBCCB;
+  color: #2a2a2a;
 }
 .nb-theme-corporate nb-menu, .nb-theme-corporate nb-menu .menu-item a.active {
   font-weight: 400;
   background: #fdfdfd;
   color: #4b4b4b;
 }
-.menu-item a:hover {
+.menu-item a.active {
+  border-right: solid 3px #849EFE;
+}
+.menu-item a.hover {
   font-weight: 400;
   background: #8989EB;
   color: #4b4b4b;
@@ -79,9 +82,123 @@ nb-action {
 nb-card.container-wrapper {
   background: transparent;
   border: none;
+  max-width: 1200px;
+  margin: auto;
+  min-height:70vh;
 }
-nb-card.large-card {
-  border: none;
-  border-radius: 0.5rem;
-  background:#F9FAFE;
+nb-card.large-card, nb-card.inner-card {
+  border: none !important;
+  border-radius: 0.5rem !important;
+  background:#F9FAFE !important;
+  box-shadow: 0 2px 12px 0 #dfe3eb;
+ // display:inline-block;
 }
+nb-card.container-card {
+  border: none !important;
+  border-radius: 0.5rem !important;
+  background:#F9FAFE !important;
+  box-shadow: 0 2px 12px 0 #dfe3eb;
+  padding:3rem;
+}
+nb-card-header {
+  font-size: 1.5rem;
+  font-weight: 350;
+}
+nb-card-footer {
+  font-size: 1.5rem !important;
+  font-weight: 400 !important;
+  border:none !important;
+}
+.card-headline{
+  padding: 1.25rem !important;
+  border-bottom-width: 0;
+  border-bottom-style: solid;
+  border-bottom-color: #cdd5dc;
+  border-top-left-radius: 0.17rem;
+  border-top-right-radius: 0.17rem;
+  color: #181818;
+  font-family: Roboto;
+  font-size: 1.9rem;
+  font-weight: 600;
+  width:100%;
+}
+.head {
+  font-family: Roboto !important;
+}
+.info {
+  padding:0px !important;
+  font-family: Roboto !important;
+}
+.user-picture {
+  border: solid 2px #73a1ff;
+}
+.purple-bg{
+  background: #8C8FC6;
+}
+.blue-bg{
+  background: #849EFE;
+}
+.yale-bg{
+  background: #4C4CA3;
+}
+.peach-bg{
+  background: #E89897;
+}
+.pink-bg {
+  background:#D1C4f7;
+}
+//icon
+.nb-home::before, .nb-layout-sidebar-left, .nb-person {
+  content: '\e93a';
+  color: #849efe !important;
+  font-weight: 400;
+}
+.nb-trash::before {
+  color:#E89897;
+  font-weight: 600;
+}
+.nb-edit::before {
+  color:#849EFE;
+  font-weight: 600;
+}
+//extra element 
+.no-pad {
+  padding:0 0 !important;
+}
+a {
+  color:#849EFE;
+}
+a.ng2-smart-action.ng2-smart-action-add-add.ng-star-inserted {
+  background: #849EFE;
+}
+
+
+//Form
+form {
+  font-family: Roboto;
+  font-size: 18px;
+}
+
+//Table 
+ng2-smart-table {
+  border-radius:6px 6px 0px 0px;
+  padding: 1.25px;
+}
+.nb-theme-corporate ng2-smart-table table tr th, .nb-theme-corporate ng2-smart-table table tr td {
+  border: none !important;
+}
+ng2-smart-table table th:fitst-child{
+  border-radius:6px 6px 0px 0px;
+}
+.ng2-smart-actions-title-add a{
+  background: #5d81f4;
+}
+ul.pagination a {
+  color: #849EFE;
+}
+.btn.btn-primary {
+  background-color: #849EFE;
+}
+
+
+

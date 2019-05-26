@@ -18,8 +18,11 @@
     padding: 1rem;
     background: transparent;
   }
+  nb-card-body {
+    padding: 0px 1.25px;
+  }
   .card-headline{
-    padding: 1.25rem;
+    padding: 0 0;
     border-bottom-width: 0;
     border-bottom-style: solid;
     border-bottom-color: #cdd5dc;

@@ -11,10 +11,14 @@
     }
     .nb-theme-corporate ng2-smart-table table tr th, .nb-theme-corporate ng2-smart-table table tr td {
       border: none !important;
-  }
-  nb-card-body{
-    min-height:70vh;
-  }
+    }
+    /*nb-card-body{
+      min-height:70vh;
+    }*/
+    .left {
+      text-align: left;
+      padding: 5px;
+    }
 
 }
     
