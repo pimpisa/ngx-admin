@@ -13,7 +13,7 @@
   
   .example-list {
     min-height: 60px;
-    background: white;
+    background: transparent;
     border-radius: 4px;
     overflow: hidden;
     display: block;
@@ -21,7 +21,7 @@
     min-height: 400px;
   }
   
-  .example-box {
+  /*.example-box {
     padding: 20px 10px;
     border: solid 2px #ccc;
     color: rgba(0, 0, 0, 0.87);
@@ -35,7 +35,7 @@
     font-size: 18px;
     margin-bottom: 15px;
     border-left:solid 3px #849EFE;
-  }
+  }*/
   
   .cdk-drag-preview {
     box-sizing: border-box;
@@ -62,10 +62,16 @@
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
   }
   nb-card {
-    min-height: 80vh;
-    padding:5rem;
+    min-height: 70vh;
   } 
   nb-action {
     padding:0px;
+  }
+  h2 {
+    font-size: 20px;
+    color: #a4abb3 !important;
+    border-bottom: solid 3px #849efe;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
   }
   

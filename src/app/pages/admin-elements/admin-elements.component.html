@@ -1,8 +1,9 @@
-<nb-card>
-    <nb-card-header>
+<nb-card class="container-wrapper">
+    <nb-card-header class="card-headline">
       Elements
     </nb-card-header>  
       <nb-card-body>
+        <nb-card class="container-card">
         <!--Add new user with button--> 
         <div class="flush-right" class="input-group">
           <button class="btn btn-danger input-group-text" (click)="openWindow(contentTemplate)" nbButton>Add Element</button>&nbsp;&nbsp;
@@ -20,6 +21,7 @@
         <br/>    
         <div class="flush-right"><button type="submit" class="btn btn-primary">Send Message</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Export CSV</button>&nbsp;&nbsp;
         <button type="submit" class="btn btn-primary">Export Users</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Import Users</button></div>
+      </nb-card>
     </nb-card-body>
 </nb-card>
 

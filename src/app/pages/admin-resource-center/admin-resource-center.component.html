@@ -1,12 +1,12 @@
-<nb-card>
-  <nb-card-header>
-    <div class="flush-right"><button type="submit" class="btn btn-primary">Import Resources</button>&nbsp;&nbsp;
+<nb-card class="container-wrapper">
+  <nb-card-header class="card-headline">
+    Resource Center<div class="flush-right"><button type="submit" class="btn btn-primary">Import Resources</button>&nbsp;&nbsp;
       <button type="submit" class="btn btn-primary">Export Resources</button>&nbsp;&nbsp;
     </div>
   </nb-card-header>
     <nb-card-body>
-      <div class="col-md-4">
-        <h4>Title</h4>
+      <div class="col-md-4 no-pad">
+        <h2>Title</h2>
         <div class="example-box" (click)="toggle()">
             March On
         </div>
@@ -16,7 +16,7 @@
         <button type="submit" class="btn btn-primary" (click)="openWindow(contentTemplate)">Add Main Menu</button>
       </div>
       <div class="col-md-8">
-        <h4>March On</h4>
+        <h2>March On</h2>
         <!--March On-->
         <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)" id="marchOn">
           <div class="example-box" *ngFor="let resource of marchOn" cdkDrag>{{resource.title}}

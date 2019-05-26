@@ -110,7 +110,7 @@ nb-card-footer {
   border:none !important;
 }
 .card-headline{
-  padding: 1.25rem !important;
+  padding: 1.25rem 0px !important;
   border-bottom-width: 0;
   border-bottom-style: solid;
   border-bottom-color: #cdd5dc;
@@ -147,9 +147,14 @@ nb-card-footer {
 .pink-bg {
   background:#D1C4f7;
 }
+//placeholder
+.card-placeholder {
+  background: #E2E7F5;
+  border: dotted #849efe;
+  border-radius: 7px;
+}
 //icon
-.nb-home::before, .nb-layout-sidebar-left, .nb-person {
-  content: '\e93a';
+.nb-home::before, .nb-layout-sidebar-left, .nb-person,.nb-grid-a-outline::before, .nb-keypad::before, .nb-compose::before,.nb-menu::before{
   color: #849efe !important;
   font-weight: 400;
 }
@@ -168,10 +173,17 @@ nb-card-footer {
 a {
   color:#849EFE;
 }
-a.ng2-smart-action.ng2-smart-action-add-add.ng-star-inserted {
-  background: #849EFE;
+a.ng2-smart-action.ng2-smart-action-add-add.ng-star-inserted, .btn {
+  background: #849EFE !important;
 }
 
+.progress-btn {
+  background: #E89897;
+  padding: 5px;
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 8px;
+}
 
 //Form
 form {
@@ -199,6 +211,33 @@ ul.pagination a {
 .btn.btn-primary {
   background-color: #849EFE;
 }
-
+//Drag and drop
+.example-box {
+  padding: 20px 10px;
+  border: none;
+  color: rgba(0, 0, 0, 0.87);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: move;
+  background: white;
+  font-size: 18px;
+  margin-bottom: 15px;
+  border-left: solid 3px #849EFE;
+  height: 80px;
+  border-radius: 4px;
+}
 
 
