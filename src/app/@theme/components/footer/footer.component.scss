@@ -9,7 +9,7 @@
   align-items: center;
 
   .socials {
-    font-size: 2rem;
+    font-size: 1rem;
 
     a {
       padding: 0.4rem;
@@ -20,6 +20,9 @@
         color: nb-theme(color-fg-heading);
       }
     }
+  }
+  img.logo {
+    width: 10rem;
   }
 
   @include media-breakpoint-down(is) {

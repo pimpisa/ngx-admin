@@ -1,11 +1,15 @@
 @import '../../styles/themes';
 @import '~bootstrap/scss/mixins/breakpoints';
 @import '~@nebular/theme/styles/global/breakpoints';
+@import '../../styles/custom.scss';
+
+
 
 @include nb-install-component() {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  background: #fdfdfd !important;
 
   .left {
     display: flex;
@@ -13,6 +17,8 @@
     order: 0;
     flex-direction: row;
   }
+ 
+     
   .right {
     order: 1;
     flex-direction: row-reverse;
@@ -32,6 +38,7 @@
     display: flex;
     align-items: center;
     width: auto;
+    background-color: #fdfdfd;
 
     .navigation {
       @include nb-ltr(padding-right, nb-theme(padding));

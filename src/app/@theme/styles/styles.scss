@@ -24,3 +24,64 @@
   // loading progress bar
   @include ngx-pace-theme();
 };
+//Custom change
+//Header
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; 
+}
+.layout nb-layout-header nav {
+  background: #fdfdfd !important;
+  color:#181818;
+}
+.header-container {
+  color:#181818;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.user-container{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; 
+}
+nb-action {
+  border-left:1px solid #faf4f5 !important;
+}
+.nb-menu::before, nb-action i.control-icon, .nb-notifications::before, .nb-search::before {
+  color: #BBBCCB;
+  font-weight: 800;
+}
+.user-name {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #BBBCCB;
+}
+.nb-theme-corporate nb-menu, .nb-theme-corporate nb-menu .menu-item a.active {
+  font-weight: 400;
+  background: #fdfdfd;
+  color: #4b4b4b;
+}
+.menu-item a:hover {
+  font-weight: 400;
+  background: #8989EB;
+  color: #4b4b4b;
+}
+.nb-theme-corporate nb-menu .menu-items > .menu-item {
+  border:none;
+}
+.content nb-layout-footer nav {
+  background: #fdfdfd;
+  color: #181818;
+  border-top: none !important; 
+  box-shadow: 0 2px 12px 0 #dfe3eb;
+}
+.content {
+  background: #EAEDF8;
+}
+//nb card
+nb-card.container-wrapper {
+  background: transparent;
+  border: none;
+}
+nb-card.large-card {
+  border: none;
+  border-radius: 0.5rem;
+  background:#F9FAFE;
+}
