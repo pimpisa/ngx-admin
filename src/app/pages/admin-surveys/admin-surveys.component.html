@@ -1,12 +1,17 @@
-<nb-card>
-  <nb-card-body>
+<nb-card class="container-wrapper">
+  <nb-card-header class="card-headline">
+    Survey Campaigns
+  </nb-card-header> 
+  <nb-card-body class="card-headline">
+    <div class="col-md-6 draggable-container example-custom-placeholder no-pad">
     <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let survey of surveys" cdkDrag>{{survey}} 
+      <div class="example-box" *ngFor="let survey of surveys" cdkDrag>{{survey.title}} 
         <nb-actions size="small">
         <nb-action icon="fas fa-trash"></nb-action>
         <nb-action icon="fa fa-pencil-alt"></nb-action>
         </nb-actions>
       </div>
+    </div>
     </div>
   </nb-card-body>
 </nb-card>

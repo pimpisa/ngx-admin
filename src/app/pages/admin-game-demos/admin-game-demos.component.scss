@@ -1,6 +1,7 @@
 @import '~@nebular/theme/styles/core/mixins';
 @import '../modal-overlays/dialog/dialog.component.scss';
 
+
 .demo-item {
     display: inline-block;
     vertical-align: top;
@@ -19,6 +20,9 @@
   }
   nb-card {
     min-width: 18rem;
+    display: inline-block;
+    text-align: center;
+
   }
   nb-card.medium-card {
     display: inline-grid;
@@ -34,7 +38,7 @@
     height:55px;
   }
   nb-card-body {
-    height: 160px;
+    /*height: 160px;*/
     padding: 5px;
   }
   nb-card-body img {

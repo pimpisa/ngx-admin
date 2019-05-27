@@ -1,10 +1,12 @@
-<nb-card>
-  <nb-card-header>
-      <div class="col-6 col-sm-4">Campaign list</div>
-      <div class="col-6 col-sm-4"></div> 
-      <div class="col-6 col-sm-4"><button class="btn btn-danger input-group-text float-right" (click)="openWindow(contentTemplate)" nbButton>Add New Campaign</button></div>
+<nb-card class="container-wrapper">
+  <nb-card-header class="card-headline">
+      Campaign list
   </nb-card-header>
   <nb-card-body>
+  <div class="flush-right" class="input-group">
+      <button class="btn btn-danger input-group-text float-left" (click)="openWindow(contentTemplate)" nbButton>Add New Campaign</button>
+  </div>
+  <div class="col-md-6 draggable-container example-custom-placeholder no-pad">
     <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
       <div class="example-box" *ngFor="let movie of movies" cdkDrag>{{movie}}
           <nb-actions size="small">
@@ -13,5 +15,6 @@
           </nb-actions>
       </div>
     </div>
+  </div>
 </nb-card-body>
 </nb-card>

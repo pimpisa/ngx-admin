@@ -1,5 +1,5 @@
-<nb-card>
-    <nb-card-header>
+<nb-card class="container-wrapper">
+    <nb-card-header class="card-headline">
         Lecture Catagories
     </nb-card-header>
     <nb-card-body>
@@ -7,12 +7,12 @@
     <div class="flush-right" class="input-group">
         <button class="btn btn-danger input-group-text" (click)="openWindow(contentTemplate)" nbButton>Add Group</button>&nbsp;&nbsp;
     </div>
-          <br/>
+    <div class="col-md-6 draggable-container example-custom-placeholder no-pad">
      <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
         <div class="example-box" *ngFor="let lecture of lectures" cdkDrag>
             {{lecture.title}}
         </div>
-        <br/>
+    </div>
     </div>
     </nb-card-body>
 </nb-card>
