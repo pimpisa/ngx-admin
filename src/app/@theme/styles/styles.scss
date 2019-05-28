@@ -158,11 +158,11 @@ nb-card-footer {
   color: #849efe !important;
   font-weight: 400;
 }
-.nb-trash::before {
+.nb-trash::before, .fa-trash:before {
   color:#E89897;
   font-weight: 600;
 }
-.nb-edit::before {
+.nb-edit::before, .fa-pencil-alt:before {
   color:#849EFE;
   font-weight: 600;
 }
@@ -241,5 +241,31 @@ ul.pagination a {
 }
 
 
-
-
+//Popup window
+.body-template {
+  border-radius: 5px;
+}
+nb-window > nb-card {
+  border-radius: 10px !important;
+  background: white !important;
+  border: none !important;
+  width: 40vh;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  min-width: 350px;
+}
+img.img-detail {
+  border-radius: 50%;
+  width: 40%;
+  display: inline-block;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+input.child.input-full-width.input-md.input-rectangle {
+  border: 0.5px solid #dadfe6;
+}
+.name-detail {
+  font-size: 30px;
+  display: inline-block;
+  float: right;
+  bottom: 30;
+  margin-top: 30%;
+}

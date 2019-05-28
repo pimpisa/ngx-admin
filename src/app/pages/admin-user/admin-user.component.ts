@@ -114,12 +114,7 @@ export class AdminUserComponent  {
       },
     );
   }
-  /*onView(user: User) {
-    console.log("onViewCall" + user.id);
-    let userInfo = this.userService.getUserDetail(user)
-    this.user = userInfo;
-      
-  }*/
+  
 
   onPage(page: any){
     console.log("onPage-call" + page);
@@ -136,14 +131,27 @@ export class AdminUserComponent  {
 
   onUserRowSelect(event) { 
     console.log('user row select: ', event); 
-    console.log("event[0]" + event.selected[0].id); 
+   /* console.log("event[0]" + event.selected[0].id); 
     const userId = event.selected[0].id;
     console.log(userId);
     let userInfo = this.userService.getUserInfo(userId);
-    this.user = userId;
-    console.log("userInfo " + this.user);
-    
+    this.user = userInfo;
+    console.log("userInfo " + this.user);*/
+    console.log("event[0].id" + event.selected[0].id); 
+    var userSelectedId = event.selected[0].id;
+    console.log(userSelectedId);
+    let userInfo = this.userService.getUserInfo(userSelectedId);
+   // this.user = userInfo;
+    console.log("userInfo " + userInfo);
   }
+  /*onView(user: User, id: string) {
+        console.log("onViewCall" + user.id);
+        let userInfo = this.testUserService.getUserDetail(user)
+        this.user = userInfo;
+          
+      }
+      
+  }*/
   
   onSearch(query: string = '') {
     this.source.setFilter([

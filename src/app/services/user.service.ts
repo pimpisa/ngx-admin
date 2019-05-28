@@ -29,6 +29,7 @@ export class UserService implements PipeTransform {
 
   allUsersApiUrl = 'https://demo.edgagement.com/api/user/list';
   currentUserApiUrl = 'https://demo.edgagement.com/api/user';
+  userByIdApi = 'https://demo.edgagement.com/api/user/id/';
   paginationUrl = 'https://demo.edgagement.com/api/user/list?page=';
   keyToken = 'blfyjKOdJPCTESy5zbC394VYYxzXnB21';
 
@@ -61,6 +62,7 @@ export class UserService implements PipeTransform {
   
 
 private allUser: User;
+private userInfo: any;
 
 private header:Headers = new Headers({
     'Authorization': 'blfyjKOdJPCTESy5zbC394VYYxzXnB21'
@@ -127,14 +129,17 @@ getUserDetail(user: User){
 }
 
 getUserInfo(id: string){
-  return this.http.get(this.currentUserApiUrl + "/id/" + id, {
+  console.log("getUserInfo get called:" + id)
+ // console.log("url:" + ""+id)
+  return this.http.get("https://demo.edgagement.com/api/user/id/" + id, {
     'headers': new HttpHeaders().set('Authorization', this.keyToken)
     
      })
-     .pipe(
-      catchError((error) => this._handleError(error))
-    );
+     .subscribe(result => {
+      this.userInfo = result;
+      console.log("this user selected "+ JSON.stringify(this.userInfo));
 
+    });
 }
 
 editUser(user: User){
