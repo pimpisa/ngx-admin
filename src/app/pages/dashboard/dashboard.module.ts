@@ -24,6 +24,7 @@ import { AdminSiteComponent } from './admin-site/admin-site.component';
 import { NbActionsModule } from '@nebular/theme';
 import { ChartsComponent } from './charts/charts.component';
 import { ChartsModule } from '../charts/charts.module';
+import { ChartModule } from 'angular2-chartjs';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { ChartsModule } from '../charts/charts.module';
     NgxEchartsModule,
     NbActionsModule,
     ChartsModule,
+    ChartModule,
   ],
   declarations: [
     DashboardComponent,
