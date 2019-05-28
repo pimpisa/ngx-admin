@@ -87,7 +87,7 @@ nb-card.container-wrapper {
   min-height:70vh;
 }
 nb-card.large-card, nb-card.inner-card {
-  border: none !important;
+  border: none;
   border-radius: 0.5rem !important;
   background:#F9FAFE !important;
   box-shadow: 0 2px 12px 0 #dfe3eb;
@@ -102,7 +102,7 @@ nb-card.container-card {
 }
 nb-card-header {
   font-size: 1.5rem;
-  font-weight: 350;
+  font-weight: 350 !important;
 }
 nb-card-footer {
   font-size: 1.5rem !important;

@@ -54,7 +54,7 @@ import { ChartModule } from 'angular2-chartjs';
     TrafficComponent,
     TrafficChartComponent,
     ChartsComponent,
-
+    
   ],
 })
 export class DashboardModule { }

@@ -8,6 +8,10 @@
     border: none;
     padding-bottom: 0;
   }
+  nb-card-header {
+    font-weight: 400 !important;
+    font-size: 1.5rem !important;
+}
   nb-card-footer {
     height: 70px;
     padding: 0.70rem !important;
@@ -20,6 +24,21 @@
   }
   nb-card-body {
     padding: 0px 1.25px;
+  }
+  nb-card.accent-blue {
+    border-top-color: #849EFE;
+  }
+  nb-card.accent-purple {
+    border-top-color: #8C8FC6;
+  }
+  nb-card.accent-yale {
+    border-top-color: #4C4CA3;
+  }
+  nb-card.accent-peach {
+    border-top-color: #E89897;
+  }
+  nb-card.accent-pink {
+    border-top-color: #D1C4f7;
   }
   .card-headline{
     padding: 0 0;
