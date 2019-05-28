@@ -14,9 +14,14 @@
     <div class="col-md-6">
         <nb-card size="large" tabTitle="Temperature">
             <nb-card-header>Audience</nb-card-header>
-              <div class="slider-container">
-                  
-              </div>
+            <nb-card-body>
+                <div class="pie-chart">
+                  <ngx-demographic></ngx-demographic>
+                </div>
+                <div class="pie-chart">
+                  <ngx-audience></ngx-audience>
+                </div>
+            </nb-card-body>
         </nb-card>
     </div>
   </div>
@@ -25,17 +30,15 @@
     <div class="col-md-6">
         <nb-card size="large" tabTitle="Temperature">
             <nb-card-header>Pre / Post Learning Objectives</nb-card-header>
-              <div class="slider-container">
-                
-              </div>
+            <nb-card-body><ngx-prepost></ngx-prepost></nb-card-body>
         </nb-card>
     </div>
     <div class="col-md-6">
         <nb-card size="large" tabTitle="Temperature">
             <nb-card-header>Retake Quiz / Test</nb-card-header>
-              <div class="slider-container">
-                
-              </div>
+              <nb-card-body>
+                <ngx-retake></ngx-retake>
+              </nb-card-body>  
         </nb-card>
     </div>
   </div>

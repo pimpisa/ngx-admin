@@ -25,6 +25,10 @@ import { NbActionsModule } from '@nebular/theme';
 import { ChartsComponent } from './charts/charts.component';
 import { ChartsModule } from '../charts/charts.module';
 import { ChartModule } from 'angular2-chartjs';
+import { AudienceComponent } from './audience/audience.component';
+import { DemographicComponent } from './demographic/demographic.component';
+import { RetakeComponent } from './retake/retake.component';
+import { PrepostComponent } from './prepost/prepost.component';
 
 
 @NgModule({
@@ -54,6 +58,10 @@ import { ChartModule } from 'angular2-chartjs';
     TrafficComponent,
     TrafficChartComponent,
     ChartsComponent,
+    AudienceComponent,
+    DemographicComponent,
+    RetakeComponent,
+    PrepostComponent,
     
   ],
 })
