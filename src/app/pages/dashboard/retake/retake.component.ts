@@ -1,5 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { NbThemeService, NbColorHelper } from '@nebular/theme';
+import { ChartService } from '../../../services/chart.service';
 
 @Component({
   selector: 'ngx-retake',
@@ -12,8 +13,9 @@ export class RetakeComponent implements OnDestroy {
   data: any;
   options: any;
   themeSubscription: any;
+  chart = [];
 
-  constructor(private theme: NbThemeService) {
+  constructor(private theme: NbThemeService, private chartService: ChartService) {
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
 
       const colors: any = config.variables;
@@ -45,6 +47,7 @@ export class RetakeComponent implements OnDestroy {
         scales: {
           xAxes: [
             {
+              barPercentage: 1,
               gridLines: {
                 display: false,
                 color: chartjs.axisLineColor,
@@ -68,6 +71,14 @@ export class RetakeComponent implements OnDestroy {
         },
       };
     });
+  }
+
+  ngOnInit(): void {
+   /*this.chartService.getResponseRate()
+      .subscribe(res => {
+        console.log(res)
+      })*/
+    
   }
 
   ngOnDestroy(): void {

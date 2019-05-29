@@ -1,4 +1,4 @@
-import { Component, OnDestroy} from '@angular/core';
+import { Component, OnDestroy, ɵbypassSanitizationTrustResourceUrl} from '@angular/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { chartData } from './chart-data';
 import { NbThemeService, NbColorHelper } from '@nebular/theme';
@@ -24,24 +24,24 @@ export class ChartsComponent implements OnDestroy  {
       const chartjs: any = config.variables.chartjs;
 
       this.data = {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+        labels: ['January', 'February', 'March', 'April'],
         datasets: [{
             label: 'Dataset 1',
             backgroundColor: NbColorHelper.hexToRgbA(colors.primaryLight, 0.8),
             borderWidth: 0,
-            data: [this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
+            data: [this.random(), this.random(), this.random(), this.random()],
           }, {
             label: 'Dataset 2',
             backgroundColor: colors.successLight,
             borderWidth: 0,
-            data: [this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
+            data: [this.random(), this.random(), this.random(), this.random()],
           },
         ],
       };
 
       this.options = {
         responsive: true,
-        maintainAspectRatio: false,
+        maintainAspectRatio: ɵbypassSanitizationTrustResourceUrl,
         elements: {
           rectangle: {
             borderWidth: 2,
@@ -61,6 +61,8 @@ export class ChartsComponent implements OnDestroy  {
           ],
           yAxes: [
             {
+              barPercentage: 1,
+              barThickness: 20,
               gridLines: {
                 display: false,
                 color: chartjs.axisLineColor,

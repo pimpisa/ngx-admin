@@ -47,6 +47,7 @@ export class PrepostComponent implements OnDestroy {
         scales: {
           xAxes: [
             {
+              barPercentage: 0.5,
               gridLines: {
                 display: false,
                 color: chartjs.axisLineColor,
@@ -58,6 +59,7 @@ export class PrepostComponent implements OnDestroy {
           ],
           yAxes: [
             {
+              barPercentage: 1,
               gridLines: {
                 display: false,
                 color: chartjs.axisLineColor,
