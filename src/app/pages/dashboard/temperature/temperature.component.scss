@@ -4,7 +4,12 @@
 @import '../dashboard.component.scss';
 
 @include nb-install-component() {
-
+  .top-button {
+    display:block;
+  }
+  .flush-right {
+    float:right;
+  }
   
   .visitors-value {
     font-size: 3rem;
