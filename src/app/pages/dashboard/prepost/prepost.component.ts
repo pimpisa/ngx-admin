@@ -21,17 +21,17 @@ export class PrepostComponent implements OnDestroy {
       const chartjs: any = config.variables.chartjs;
 
       this.data = {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+        labels: ['Objective1', 'Objective2', 'Objective3'],
         datasets: [{
             label: 'Dataset 1',
             backgroundColor: colors.infoLight,
             borderWidth: 0,
-            data: [this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
+            data: [this.random(), this.random(), this.random()],
           }, {
             label: 'Dataset 2',
             backgroundColor: colors.successLight,
             borderWidth: 0,
-            data: [this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
+            data: [this.random(), this.random(), this.random()],
           },
         ],
       };
@@ -48,7 +48,7 @@ export class PrepostComponent implements OnDestroy {
           xAxes: [
             {
               gridLines: {
-                display: true,
+                display: false,
                 color: chartjs.axisLineColor,
               },
               ticks: {

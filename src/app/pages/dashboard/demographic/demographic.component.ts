@@ -24,7 +24,8 @@ export class DemographicComponent implements OnDestroy {
         labels: ['Job Title 1', 'Job Title 2', 'Job Title 3'],
         datasets: [{
           data: [300, 500, 100],
-          backgroundColor: [colors.primaryLight, colors.infoLight, colors.successLight],
+          //backgroundColor: [colors.primaryLight, colors.infoLight, colors.successLight],
+          backgroundColor: ['#213493', '#50930C', '#43B5C4'],
         }],
       };
 

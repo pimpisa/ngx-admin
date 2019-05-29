@@ -22,6 +22,12 @@ export class RetakeComponent implements OnDestroy {
       this.data = {
         labels: ['SMS', 'EMAIL'],
         datasets: [{
+          label: '# of Votes',
+          data: [12, 23],
+          backgroundColor: NbColorHelper.hexToRgbA(colors.primaryLight, 0.8),
+        }]
+        /*labels: ['SMS', 'EMAIL'],
+        datasets: [{
           data: [65, 59],
           label: 'Series A',
           backgroundColor: NbColorHelper.hexToRgbA(colors.primaryLight, 0.8),
@@ -29,7 +35,7 @@ export class RetakeComponent implements OnDestroy {
           data: [28, 48],
           label: 'Series B',
           backgroundColor: NbColorHelper.hexToRgbA(colors.infoLight, 0.8),
-        }],
+        }],*/
       };
 
       this.options = {
