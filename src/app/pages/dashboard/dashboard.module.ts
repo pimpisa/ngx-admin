@@ -29,6 +29,7 @@ import { AudienceComponent } from './audience/audience.component';
 import { DemographicComponent } from './demographic/demographic.component';
 import { RetakeComponent } from './retake/retake.component';
 import { PrepostComponent } from './prepost/prepost.component';
+import { FunnelComponent } from './funnel/funnel.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { PrepostComponent } from './prepost/prepost.component';
     DemographicComponent,
     RetakeComponent,
     PrepostComponent,
+    FunnelComponent,
     
   ],
 })

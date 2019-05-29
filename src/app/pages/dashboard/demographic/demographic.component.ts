@@ -21,7 +21,7 @@ export class DemographicComponent implements OnDestroy {
       const chartjs: any = config.variables.chartjs;
 
       this.data = {
-        labels: ['Download Sales', 'In-Store Sales', 'Mail Sales'],
+        labels: ['Job Title 1', 'Job Title 2', 'Job Title 3'],
         datasets: [{
           data: [300, 500, 100],
           backgroundColor: [colors.primaryLight, colors.infoLight, colors.successLight],
@@ -29,7 +29,7 @@ export class DemographicComponent implements OnDestroy {
       };
 
       this.options = {
-        maintainAspectRatio: false,
+        maintainAspectRatio: true,
         responsive: true,
         scales: {
           xAxes: [
