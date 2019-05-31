@@ -22,17 +22,6 @@ export class DemographicComponent implements OnDestroy {
   userTitle: String [];
   selected = null;
 
-  arrTitle: any [] = [
-    {id:'BE',name: 'BE'},
-    {id:'BS',name: 'BS'},
-    {id:'DEPT BA' ,name: 'DEPT BA'},
-    {id:'DM',name: 'DM'},
-    {id:'EA BC' ,name: 'EA BC'},
-    {id:'EA FT' ,name: 'EA FT'},
-    {id:'EA PT' ,name: 'EA PT'},
-    {id:'MB' ,name: 'MB'}
-  ];
-
   keyToken = 'blfyjKOdJPCTESy5zbC394VYYxzXnB21';
 
   constructor(private theme: NbThemeService, private dropdownService: DropdownService, private http: HttpClient) {

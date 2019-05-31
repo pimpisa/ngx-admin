@@ -14,15 +14,8 @@
             <nb-card-header>
               <div class="row" style="margin:0px;display:inline">Learner Demograhphic
                 <!--<nb-select placeholder="All Title" [(selected)]="commonSelectedItem" class="top-button flush-right">
-                  <nb-option value="1">Job Title 1</nb-option>
-                  <nb-option value="2">Job Title 2</nb-option>
-                  <nb-option value="3">Job Title 3</nb-option>
-                  <nb-option value="4">Job Title 4</nb-option>
-                </nb-select>-->
-                <nb-select placeholder="All Title" [(selected)]="commonSelectedItem" class="top-button flush-right">
                     <nb-option *ngFor="let title of titleList | keyvalue" value="{{title.key}}">{{title.value}}</nb-option>
-                </nb-select>
-                
+                </nb-select>-->
               </div>
             </nb-card-header>
             <nb-card-body>

@@ -82,6 +82,7 @@ export class FunnelComponent implements AfterViewInit, OnDestroy {
                             fontSize: 15,
                             fontStyle: 'normal',
                             fontWeight: 'bold',
+                            fontColor: '#000',
                           },
                       },
                       labelLine: {
