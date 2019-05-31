@@ -8,6 +8,7 @@ import { UserService } from '../../services/user.service';
 import { NbWindowService} from '@nebular/theme'
 import { WindowFormComponent } from '../modal-overlays/window/window-form/window-form.component';
 import { NbWindowRef } from '@nebular/theme';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -26,6 +27,7 @@ export class AdminUserComponent  {
   pageLimitTest = 3;
   userTotal: any;
   selected_id: any;
+  userDetail: Observable <User>;
   private currentPage:number = 1;
   settings = {
     columns: {
@@ -141,6 +143,7 @@ export class AdminUserComponent  {
     console.log("event[0].id" + event.selected[0].id); 
     var userSelectedId = event.selected[0].id;
     console.log(userSelectedId);
+    //this.userDetail = this.userService.getUserInfo(userSelectedId);
    // let userInfo = this.userService.getUserInfo(userSelectedId);
     //this.user = userInfo;
    // console.log("userInfo " + userInfo);

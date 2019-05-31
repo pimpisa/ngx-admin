@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnDestroy, AfterContentInit } from '@angular/
 import { NbThemeService } from '@nebular/theme';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ChartOptions, ChartType, ChartDataSets} from '../../../../../node_modules/chart.js';
-import * as echarts from 'echarts';
+//import * as echarts from 'echarts';
 
 @Component({
   selector: 'ngx-funnel',
@@ -49,56 +49,12 @@ export class FunnelComponent implements AfterViewInit, OnDestroy {
           }
       },
       legend: {
-        data : ['learners accessed the platform','entered the module','began the game','finished the game','requested credit'],
-         position: 'bottom',
+        data : ['accessed the platform','entered the module','began the game','finished the game','requested credit']
       },
       calculable : true,
       series : [
           {
               name:'Participation',
-              type:'funnel',
-              width: '40%',
-              itemStyle : dataStyle,
-              data:[
-                  {value:60, name:'requested credit'},
-                  {value:40, name:'finished the game'},
-                  {value:20, name:'began the game'},
-                  {value:80, name:'entered the module'},
-                  {value:100, name:'learners accessed the platform'}
-              ]
-          }
-      ]
-  };  
-
-});
-}
-
-ngOnDestroy(): void {
-  this.themeSubscription.unsubscribe();
-}
-}
-          
-      
-      /*tooltip : {
-          trigger: 'item',
-          formatter: "{a} <br/>{b} : {c}%"
-      },
-      toolbox: {
-          show : false,
-          feature : {
-              mark : {show: true},
-              dataView : {show: true, readOnly: false},
-              restore : {show: true},
-              saveAsImage : {show: true}
-          }
-      },
-      legend: {
-          data : ['learners accessed the platform','entered the module','began the game','finished the game','requested credit']
-      },
-      calculable : true,
-      series : [
-          {
-              name:'漏斗图',
               type:'funnel',
               x: '10%',
               y: 60,
@@ -149,90 +105,57 @@ ngOnDestroy(): void {
                   }
               },
               data:[
+                {value:60, name:'requested credit'},
+                {value:40, name:'finished the game'},
+                {value:20, name:'began the game'},
+                {value:80, name:'entered the module'},
+                {value:100, name:'accessed the platform'}
+            ]
+          }
+      ]
+  };
+        /*tooltip : {
+          trigger: 'item',
+          formatter: "{a} <br/>{b} : {c}%"
+      },
+      toolbox: {
+          show : false,
+          feature : {
+              mark : {show: true},
+              dataView : {show: true, readOnly: false},
+              restore : {show: true},
+              saveAsImage : {show: true}
+          }
+      },
+      legend: {
+        data : ['accessed the platform','entered the module','began the game','finished the game','requested credit'],
+         position: 'bottom',
+      },
+      calculable : true,
+      series : [
+          {
+              name:'Participation',
+              type:'funnel',
+              width: '40%',
+              itemStyle : dataStyle,
+              data:[
                   {value:60, name:'requested credit'},
                   {value:40, name:'finished the game'},
                   {value:20, name:'began the game'},
                   {value:80, name:'entered the module'},
-                  {value:100, name:'learners accessed the platform'}
+                  {value:100, name:'accessed the platform'}
               ]
           }
       ]
-  };
-});
+    };*/  
+
+  });
   }
 
-  ngOnDestroy(): void {
-    this.themeSubscription.unsubscribe();
-  }
+    ngOnDestroy(): void {
+      this.themeSubscription.unsubscribe();
+    }
 }
-
-                      
-    /*this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
-
-      const colors: any = config.variables;
-      const chartjs: any = config.variables.chartjs;
-
-      this.data = {
-        labels: ['Objective1', 'Objective2', 'Objective3'],
-        datasets: [{
-            label: 'Dataset 1',
-            backgroundColor: colors.infoLight,
-            borderWidth: 0,
-            data: [this.random(), this.random(), this.random()],
-          }, {
-            label: 'Dataset 2',
-            backgroundColor: colors.successLight,
-            borderWidth: 0,
-            data: [this.random(), this.random(), this.random()],
-          },
-        ],
-      };
-
-      this.options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        elements: {
-          rectangle: {
-            borderWidth: 0,
-          },
-        },
-        scales: {
-          xAxes: [
-            {
-              barPercentage: 0.5,
-              gridLines: {
-                display: false,
-                color: chartjs.axisLineColor,
-              },
-              ticks: {
-                fontColor: chartjs.textColor,
-              },
-            },
-          ],
-          yAxes: [
-            {
-              barPercentage: 1,
-              gridLines: {
-                display: false,
-                color: chartjs.axisLineColor,
-              },
-              ticks: {
-                fontColor: chartjs.textColor,
-              },
-            },
-          ],
-        },
-        legend: {
-          position: 'right',
-          labels: {
-            fontColor: chartjs.textColor,
-          },
-        },
-      };
-    });
-  }
-
-  ngOnDestroy(): void {
-    this.themeSubscription.unsubscribe();
-  }
-}*/
+          
+      
+     

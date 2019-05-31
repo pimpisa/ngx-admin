@@ -25,6 +25,9 @@
     padding-bottom: 0;
   }
   nb-card.large-card {
+    min-height: 470px;
+  }
+  nb-card.medium-card {
     min-height: 350px;
   }
   nb-card-header {
