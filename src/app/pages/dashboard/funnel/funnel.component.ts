@@ -12,6 +12,12 @@ export class FunnelComponent implements OnDestroy {
   data: any;
   options: any;
   themeSubscription: any;
+  funnelData = [
+    ["Applicants",   12000],
+    ["Pre-screened", 4000],
+    ["Interviewed",  2500],
+    ["Hired",        1500]
+  ];
 
   constructor(private theme: NbThemeService) {
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
