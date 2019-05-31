@@ -131,17 +131,11 @@ export class AdminUserComponent  {
 
   onUserRowSelect(event) { 
     console.log('user row select: ', event); 
-   /* console.log("event[0]" + event.selected[0].id); 
-    const userId = event.selected[0].id;
-    console.log(userId);
-    let userInfo = this.userService.getUserInfo(userId);
-    this.user = userInfo;
-    console.log("userInfo " + this.user);*/
     console.log("event[0].id" + event.selected[0].id); 
     var userSelectedId = event.selected[0].id;
     console.log(userSelectedId);
     let userInfo = this.userService.getUserInfo(userSelectedId);
-   // this.user = userInfo;
+    //this.user = userInfo;
     console.log("userInfo " + userInfo);
   }
   /*onView(user: User, id: string) {

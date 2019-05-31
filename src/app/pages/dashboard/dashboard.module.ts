@@ -30,6 +30,7 @@ import { DemographicComponent } from './demographic/demographic.component';
 import { RetakeComponent } from './retake/retake.component';
 import { PrepostComponent } from './prepost/prepost.component';
 import { FunnelComponent } from './funnel/funnel.component';
+import { } from 'echarts/dist/echarts';
 
 
 @NgModule({
