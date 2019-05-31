@@ -29,14 +29,14 @@
   </nb-card>
 <!--Pop up window-->
   <!-- View user -->
-<ng-template #viewUserTemplate let-userInfo='userInfo' class="col-md-6">
+<ng-template #viewUserTemplate let-userInfo="getUser(userSelectedId)" class="col-md-6">
     <div class="header-template no-pad">
     </div>
     <div class="body-template">
       <img class="img-detail" src="../../../assets/images/kate.png"/>
       <div class="name-detail"></div>
       <!--<input disabled type="text" nbInput fullWidth placeholder="Name:"  class="child"><br/>-->
-      <input disabled type="text" nbInput fullWidth placeholder="Phone:" value="{{userInfo.name}}" class="child"><br/>
+      <input disabled type="text" nbInput fullWidth placeholder="Phone:" value="" class="child"><br/>
       <input disabled type="text" nbInput fullWidth placeholder="Email:" value="" class="child"><br/>
       <input disabled type="text" nbInput fullWidth placeholder="ID:" value="" class="child"><br/>
       <input disabled type="text" nbInput fullWidth placeholder="User Type:" value="" class="child"><br/>

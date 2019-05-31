@@ -25,6 +25,7 @@ export class AdminUserComponent  {
   pageLimit: any;
   pageLimitTest = 3;
   userTotal: any;
+  selected_id: any;
   private currentPage:number = 1;
   settings = {
     columns: {
@@ -129,14 +130,20 @@ export class AdminUserComponent  {
     console.log("onViewCall" + user);
   }
 
+  getUser(id:string){
+    console.log("getUser-id1: " + id);
+    let userInfo = this.userService.getUserInfo(id);
+    console.log("getUser-id2: " + userInfo);
+  }
+
   onUserRowSelect(event) { 
     console.log('user row select: ', event); 
     console.log("event[0].id" + event.selected[0].id); 
     var userSelectedId = event.selected[0].id;
     console.log(userSelectedId);
-    let userInfo = this.userService.getUserInfo(userSelectedId);
+   // let userInfo = this.userService.getUserInfo(userSelectedId);
     //this.user = userInfo;
-    console.log("userInfo " + userInfo);
+   // console.log("userInfo " + userInfo);
   }
   /*onView(user: User, id: string) {
         console.log("onViewCall" + user.id);
