@@ -31,6 +31,7 @@ import { RetakeComponent } from './retake/retake.component';
 import { PrepostComponent } from './prepost/prepost.component';
 import { FunnelComponent } from './funnel/funnel.component';
 import { } from 'echarts/dist/echarts';
+import { ReportComponent } from './report/report.component';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { } from 'echarts/dist/echarts';
     RetakeComponent,
     PrepostComponent,
     FunnelComponent,
+    ReportComponent,
     
   ],
 })

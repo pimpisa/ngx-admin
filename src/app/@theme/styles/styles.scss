@@ -86,7 +86,7 @@ nb-card.container-wrapper {
   margin: auto;
   min-height:70vh;
 }
-nb-card.large-card, nb-card.inner-card {
+nb-card.large-card, nb-card.inner-card,nb-card.medium-card {
   border: none;
   border-radius: 0.5rem !important;
   background:#F9FAFE !important;
@@ -190,6 +190,30 @@ form {
   font-family: Roboto;
   font-size: 18px;
 }
+//Main Title
+.title_wrapper {
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	float: left;
+	min-height: 1px;
+	overflow: hidden;
+}
+
+.title_wrapper h2 {
+	padding: 0px 0px 12px 0px;
+	background: none;
+	border-bottom: 4px solid #859efe;
+	display: table-cell;
+}
+.main_title {
+	margin: 0px 0px 20px 0px;
+}
+.main_title:after {
+    /*content: "";*/
+    display: table-cell;
+    width: 100%;
+}
 
 //Table 
 ng2-smart-table {
@@ -239,8 +263,6 @@ ul.pagination a {
   height: 80px;
   border-radius: 4px;
 }
-
-
 //Popup window
 .body-template {
   border-radius: 5px;

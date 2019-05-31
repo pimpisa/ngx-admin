@@ -27,7 +27,7 @@ export class FunnelComponent implements AfterViewInit, OnDestroy {
             label : {
                 show: true,
                 position: 'insideLeft',
-                formatter: "{c} {b}"
+                formatter: "{c}\n{b}"
             }
         }
       };
@@ -75,8 +75,14 @@ export class FunnelComponent implements AfterViewInit, OnDestroy {
                       borderWidth: 1,
                       label: {
                           show: true,
-                          position: 'inside'
-                          // textStyle: null      // 默认使用全局文本样式，详见TEXTSTYLE
+                          position: 'inside',
+                          formatter: '{c}\n{b}',
+                          textStyle: {
+                            fontFamily: 'Arial',
+                            fontSize: 15,
+                            fontStyle: 'normal',
+                            fontWeight: 'bold',
+                          },
                       },
                       labelLine: {
                           show: false,
@@ -94,9 +100,9 @@ export class FunnelComponent implements AfterViewInit, OnDestroy {
                       borderWidth: 5,
                       label: {
                           show: true,
-                          formatter: '{b}:{c}%',
+                          formatter: '{b}:{c}',
                           textStyle:{
-                              fontSize:20
+                              fontSize:15
                           }
                       },
                       labelLine: {

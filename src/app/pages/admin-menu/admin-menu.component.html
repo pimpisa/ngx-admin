@@ -12,11 +12,15 @@
 </nb-card>-->
 <nb-card class="container-wrapper">
     <nb-card-header class="card-headline">
-        Menu
+        <div class="title_wrapper">
+            <div class="main_title">
+              <h2>Menu</h2>
+            </div>
+      </div>  
     </nb-card-header>  
     <nb-card-body>
       <div class="col-md-6 draggable-container example-custom-placeholder no-pad">
-          <h2>Top</h2>
+          <h3>Top</h3>
           <div
             cdkDropList
             #todoList="cdkDropList"
@@ -29,7 +33,7 @@
         </div>
         
         <div class="col-md-6 draggable-container example-custom-placeholder">
-          <h2>Bottom</h2>
+          <h3>Bottom</h3>
         
           <div
             cdkDropList
