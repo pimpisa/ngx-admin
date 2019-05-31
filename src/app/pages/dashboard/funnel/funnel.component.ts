@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, AfterContentInit } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ChartOptions, ChartType, ChartDataSets} from '../../../../../node_modules/chart.js';
@@ -20,7 +20,8 @@ export class FunnelComponent implements OnDestroy {
   ];
 
   constructor(private theme: NbThemeService) {
-    this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
+
+    /*this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
 
       const colors: any = config.variables;
       const chartjs: any = config.variables.chartjs;
@@ -82,7 +83,7 @@ export class FunnelComponent implements OnDestroy {
           },
         },
       };
-    });
+    });*/
   }
 
   ngOnDestroy(): void {
