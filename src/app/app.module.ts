@@ -20,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { NgxGaugeModule } from 'ngx-gauge';
 
+
 @NgModule({
   declarations: [AppComponent, FilterPipe],
   imports: [

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterContentInit, OnDestroy  } from '@angular/core';
 import { NgxGauge } from 'ngx-gauge/gauge/gauge';
 import { NgxGaugeModule } from 'ngx-gauge';
 import { NbThemeService } from '@nebular/theme';
@@ -10,80 +10,46 @@ import { ChartOptions, ChartType, ChartDataSets} from '../../../../../node_modul
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.scss']
 })
-export class ReportComponent implements OnInit {
-  data: any;
+export class ReportComponent {
+  /*data: any;
   options: any;
   themeSubscription: any;
-
+  
   constructor(private theme: NbThemeService) {
-    var labelTop = {
-      normal : {
-          label : {
-              show : true,
-              position : 'center',
-              formatter : '{b}',
-              textStyle: {
-                  baseline : 'bottom'
-              }
-          },
-          labelLine : {
-              show : false
-          }
-      }
-  };
-  var labelFromatter = {
-      normal : {
-          label : {
-              formatter : function (params){
-                  return 100 - params.value + '%'
-              },
-              textStyle: {
-                  baseline : 'top'
-              }
-          }
-      },
   }
-  var labelBottom = {
-      normal : {
-          color: '#ccc',
-          label : {
-              show : true,
-              position : 'center'
-          },
-          labelLine : {
-              show : false
-          }
-      },
-      emphasis: {
-          color: 'rgba(0,0,0,0)'
-      }
-  };
-  var radius = [53, 55];
-  this.options = {
-      legend: {
-          x : 'center',
-          y : 'center',
-          data:[
-              'Engagement'
-          ]
+  ngAfterViewInit() {
+    this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
+
+      const colors = config.variables;
+      const echarts: any = config.variables.echarts;
+      this.options = {
+        backgroundColor: echarts.bg,
+        color: [colors.warningLight, colors.infoLight, colors.dangerLight, colors.successLight, colors.primaryLight],
+        tooltip : {
+          formatter: "{a} <br/>{b} : {c}%"
       },
       series : [
-          {
-              type : 'pie',
-              center : ['10%', '30%'],
-              radius : radius,
-              x: '0%', // for funnel
-              itemStyle : labelFromatter,
-              data : [
-                  {name:'other', value:98.7, itemStyle : labelBottom},
-                  {name:'GoogleMaps', value:1.3,itemStyle : labelTop}
-              ]
-          },
-      ]
+        {
+            type:'gauge',
+            detail : {formatter:'{value}%'},
+            startAngle:225,
+            endAngle:-45,
+            axisTick:{show:false},
+            pointer: {
+              width:50,
+              length: '50%',
+              color: 'rgb(169,169,169)'
+            },
+            data:[{value: 50, name: ''}]
+        }
+    ]
   };
+       
+  });
   }
 
-  ngOnInit() {
-  }              
-
+    ngOnDestroy(): void {
+      this.themeSubscription.unsubscribe();
+    }*/
 }
+  
