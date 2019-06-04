@@ -18,7 +18,7 @@ import { NbActionsModule } from '@nebular/theme';
 import { FilterPipe } from './filter.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-
+import { NgxGaugeModule } from 'ngx-gauge';
 
 @NgModule({
   declarations: [AppComponent, FilterPipe],
@@ -30,6 +30,7 @@ import { FormsModule } from '@angular/forms';
     NbActionsModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxGaugeModule,
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),

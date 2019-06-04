@@ -70,7 +70,7 @@ export class FunnelComponent implements AfterViewInit, OnDestroy {
               gap : 10,
               itemStyle: {
                   normal: {
-                      // color: 各异,
+              
                       borderColor: '#fff',
                       borderWidth: 1,
                       label: {
@@ -78,11 +78,11 @@ export class FunnelComponent implements AfterViewInit, OnDestroy {
                           position: 'inside',
                           formatter: '{c}\n{b}',
                           textStyle: {
-                            fontFamily: 'Arial',
+                            fontFamily: 'sans-serif',
                             fontSize: 15,
                             fontStyle: 'normal',
-                            fontWeight: 'bold',
-                            fontColor: '#000',
+                            fontWeight: 'normal',
+                            color: '#000',
                           },
                       },
                       labelLine: {

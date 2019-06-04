@@ -13,6 +13,7 @@ import { ChartOptions, ChartType, ChartDataSets} from '../../../../../node_modul
   styleUrls: ['./charts.component.scss']
 })
 export class ChartsComponent implements OnDestroy  {
+ 
   data: any;
   options: any;
   themeSubscription: any;
