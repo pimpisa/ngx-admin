@@ -11,7 +11,7 @@
                       5 out of 443 <br>users completed 
                   </div>
                 </div>     
-              </nb-card-footer>
+            </nb-card-footer>
         </nb-card>
     </div>
     <div class="col-md-4">
@@ -22,25 +22,57 @@
     <div class="col-md-4">
         <nb-card class="inner-card">
             <nb-card-header class="text-center">Pages<div class="details text-center">Percent of Click</div></nb-card-header>
+        
+        <nb-card-body>
+        <div class="clearfix">
+            <div class="c100 p3 big">
+                <span>3%</span>
+                <div class="slice">
+                    <div class="bar"></div>
+                    <div class="fill"></div>
+                </div>
+            </div>
+        </div>  
+        </nb-card-body>
+        <nb-card-footer class="blue-bg">
+            <div>
+              <div class="info count">
+                  5 out of 443 <br>users completed 
+              </div>
+            </div>     
+        </nb-card-footer>
         </nb-card>
     </div>
 </div>
 <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-8">
               <nb-card class="inner-card">
                   <nb-card-header class="text-center">Leaderboard<div class="details text-center">Ranking</div></nb-card-header>
-                    <nb-card-footer class="yale-bg">
+                  <nb-card-body>
+                      <div echarts [options]="options_leaderboard" class="echart"></div>
+                    </nb-card-body>  
+                  <nb-card-footer class="blue-bg">
                       <div>
                         <div class="info count">
                             5 out of 443 <br>users completed 
                         </div>
                       </div>     
-                    </nb-card-footer>
+                  </nb-card-footer>
               </nb-card>
           </div>
           <div class="col-md-4">
               <nb-card class="inner-card">
                   <nb-card-header class="text-center">Push Messages<div class="details text-center">Email vs Text</div></nb-card-header>
+                  <nb-card-body>
+                    <div echarts [options]="options" class="echart"></div>
+                  </nb-card-body>
+                  <nb-card-footer class="blue-bg">
+                      <div>
+                        <div class="info count">
+                            5 out of 443 <br>users completed 
+                        </div>
+                      </div>     
+                  </nb-card-footer>
               </nb-card>
           </div>
   </div>
