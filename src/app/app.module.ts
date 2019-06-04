@@ -19,6 +19,7 @@ import { FilterPipe } from './filter.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { NgxGaugeModule } from 'ngx-gauge';
+//import { GaugeModule } from 'angular-gauge';
 
 
 @NgModule({
