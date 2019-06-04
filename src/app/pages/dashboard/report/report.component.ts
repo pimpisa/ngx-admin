@@ -149,13 +149,14 @@ export class ReportComponent implements AfterViewInit, OnDestroy {
               show : false,
           }
       ],
-      series : [
+      series : [/**#849EFE */
           {
               name:'User score',
               type:'bar',
               data:[100,80,60,40,20],
               itemStyle: {
                 color:'#849EFE',
+                 
               },
               markPoint : {
                   data : [
