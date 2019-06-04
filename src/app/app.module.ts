@@ -19,6 +19,10 @@ import { FilterPipe } from './filter.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { NgxGaugeModule } from 'ngx-gauge';
+import { ChartModule, HIGHCHARTS_MODULES } from '../../node_modules/highcharts';
+import * as more from 'highcharts/highcharts-more.src';
+import * as solidGauge from 'highcharts/modules/solid-gauge.src';
+import { ChartService } from '../app/services/chart.service';
 //import { GaugeModule } from 'angular-gauge';
 
 
@@ -40,8 +44,7 @@ import { NgxGaugeModule } from 'ngx-gauge';
   ],
   bootstrap: [AppComponent],
   providers: [
-    { provide: APP_BASE_HREF, useValue: '/' },
-  ],
+    { provide: APP_BASE_HREF, useValue: '/'}],
 })
 export class AppModule {
 }

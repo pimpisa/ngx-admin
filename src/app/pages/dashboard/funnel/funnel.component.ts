@@ -2,6 +2,8 @@ import { AfterViewInit, Component, OnDestroy, AfterContentInit } from '@angular/
 import { NbThemeService } from '@nebular/theme';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ChartOptions, ChartType, ChartDataSets} from '../../../../../node_modules/chart.js';
+import { ChartService } from '../../../services/chart.service';
+
 //import * as echarts from 'echarts';
 
 @Component({
@@ -13,9 +15,30 @@ export class FunnelComponent implements AfterViewInit, OnDestroy {
   data: any;
   options: any;
   themeSubscription: any;
+  funnel_data = [];
   
-  constructor(private theme: NbThemeService) {
+  constructor(private theme: NbThemeService, private charts: ChartService) {
   }
+
+  ngOnInit() {
+    this.charts.getLeaders()
+      .subscribe(res => {
+        console.log(res)
+        /**
+         * let temp_max = res['list'].map(res => res.main.temp_max);
+            let temp_min = res['list'].map(res => res.main.temp_min);
+            let alldates = res['list'].map(res => res.dt)
+
+            let weatherDates = []
+            alldates.forEach((res) => {
+                let jsdate = new Date(res * 1000)
+                weatherDates.push(jsdate.toLocaleTimeString('en', { year: 'numeric', month: 'short', day: 'numeric' }))
+            })
+         * 
+         */
+      })
+  }
+
   ngAfterViewInit() {
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
 

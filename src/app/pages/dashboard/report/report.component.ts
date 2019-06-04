@@ -81,15 +81,15 @@ export class ReportComponent implements AfterViewInit, OnDestroy {
                       },
                       label: {
                           show: true,
-                          position: 'insideTop',
+                          position: 'top',
                           formatter: '{c}%\n{b}',
                           textStyle: {
-                fontFamily: 'Arial',
-                fontSize: 18,
-                fontStyle: 'normal',
-                fontWeight: 'bold',
-              },
-                      }
+                            fontFamily: 'Arial',
+                            fontSize: 18,
+                            fontStyle: 'normal',
+                            fontWeight: 'bold',
+                         },
+                    }
                   }
               },
               data: [12,21],

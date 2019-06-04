@@ -14,4 +14,8 @@ export class ChartService {
       .map(result => result);
   }
 
+  getLeaders() {
+    return this.http.get("").map(result => result);
+  }
+
 }

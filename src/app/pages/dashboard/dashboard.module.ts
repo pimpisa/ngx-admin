@@ -32,7 +32,8 @@ import { PrepostComponent } from './prepost/prepost.component';
 import { FunnelComponent } from './funnel/funnel.component';
 import { } from 'echarts/dist/echarts';
 import { ReportComponent } from './report/report.component';
-
+import { PopularComponent } from './popular/popular.component';
+import { ChartService } from '../../services/chart.service';
 
 @NgModule({
   imports: [
@@ -42,6 +43,7 @@ import { ReportComponent } from './report/report.component';
     ChartsModule,
     ChartModule,
   ],
+  providers: [ChartService], 
   declarations: [
     DashboardComponent,
     StatusCardComponent,
@@ -67,6 +69,7 @@ import { ReportComponent } from './report/report.component';
     PrepostComponent,
     FunnelComponent,
     ReportComponent,
+    PopularComponent,
     
   ],
 })
