@@ -25,20 +25,55 @@ export class ReportComponent implements AfterViewInit, OnDestroy {
   messages: Observable<Report_message>;
   pages: Observable<Report_page>;
   surveys: Observable<Report_survey>;
+   //Games
+   game_overall: any;
+   game_edgage: any;
+   game_users: any;
+   game_mnum: any;
+   //Survey
+   survey_overall: any;
+   survey_edgage: any;
+   survey_users: any;
+   survey_mnum: any;
+   //Pages
+   pages_clicks: any;
+   pages_pages: any;
+   pages_percent: any;
+    //Leaderboard
+    top1_name: any;
+    top1_score: any;
+    top2_name: any;
+    top2_score: any;
+    top3_name: any;
+    top3_score: any;
+    top4_name: any;
+    top4_score: any;
+    top5_name: any;
+    top5_score: any;
+    //Push_Message
+    msg_sms: any;
+    msg_email: any;
   
-  constructor(private theme: NbThemeService,private reportData: ReportService) {}
-
-  ngOnInit() {
+  
+  constructor(private theme: NbThemeService,private reportData: ReportService) {
     this.reportData.getOverAllReport()
-     .subscribe(res => {
-       console.log(res);
-       this.games = res['data'].games;
-       this.leaderboard = res['data'].leaderboard;
-       this.messages = res['data'].messages;
-       this.pages = res['data'].pages;
-       this.surveys = res['data'].surveys;
-     })
-   }  
+    .subscribe(res => {
+      this.game_overall = res['data'].games.overall;
+      this.game_edgage = res['data'].games.edgage;
+      this.game_users = res['data'].games.users;
+      this.game_mnum = res['data'].games.mnum;
+      this.survey_overall = res['data'].surveys.overall;
+      this.survey_edgage = res['data'].surveys.edgage;
+      this.survey_users = res['data'].surveys.users;
+      this.survey_mnum = res['data'].surveys.mnum;
+      this.pages_clicks = res['data'].pages.clicked;
+      this.pages_pages = res['data'].pages.pages;
+      this.pages_percent = res['data'].pages.precent;
+      this.msg_sms = res['data'].messages.sms;
+      this.msg_email = res['data'].messages.email;
+    })
+  }
+
 
   ngAfterViewInit() {
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {

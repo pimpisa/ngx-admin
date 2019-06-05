@@ -4,8 +4,8 @@
             <nb-card-header class="text-center">Games<div class="details text-center">Percent of Engagement</div></nb-card-header>
             <nb-card-body>
                 <div class="clearfix">
-                    <div class="c100 p1 big">
-                        <span>{{games.edgage}}%</span>
+                    <div class="c100 p{{game_edgage}} big">
+                        <span>{{game_edgage}}%</span>
                         <div class="slice">
                             <div class="bar"></div>
                             <div class="fill"></div>
@@ -19,7 +19,7 @@
                         Users
                   </div>
                   <div class="count">
-                      {{games.overall}}/{{games.users}}
+                      {{game_overall}}/{{game_users}}
                   </div>
                 </div>  
                 <div class="right">
@@ -27,7 +27,7 @@
                         Games
                   </div>
                   <div class="count">
-                      {{games.mnum}}
+                      {{game_mnum}}
                   </div>
                   </div>    
             </nb-card-footer>
@@ -38,8 +38,8 @@
             <nb-card-header class="text-center">Survey<div class="details text-center">Percent of Engagement</div></nb-card-header>
         <nb-card-body>
             <div class="clearfix">
-                <div class="c100 p1 big">
-                    <span>1%</span>
+                <div class="c100 p{{survey_edgage}} big">
+                    <span>{{survey_edgage}}%</span>
                     <div class="slice">
                         <div class="bar"></div>
                         <div class="fill"></div>
@@ -53,7 +53,7 @@
                     Users
               </div>
               <div class="count">
-                 6/457
+                 {{survey_overall}}/{{survey_users}}
               </div>
             </div>  
             <div class="right">
@@ -61,7 +61,7 @@
                     Surveys
               </div>
               <div class="count">
-                    2
+                    {{survey_mnum}}
               </div>
               </div>    
         </nb-card-footer>
@@ -73,8 +73,8 @@
         
         <nb-card-body>
         <div class="clearfix">
-            <div class="c100 p3 big">
-                <span>3%</span>
+            <div class="c100 p{{pages_percent}} big">
+                <span>{{pages_percent}}%</span>
                 <div class="slice">
                     <div class="bar"></div>
                     <div class="fill"></div>
@@ -88,7 +88,7 @@
                     Clicks
               </div>
               <div class="count">
-                 721
+                {{pages_clicks}}
               </div>
             </div>  
             <div class="right">
@@ -96,7 +96,7 @@
                     Pages
               </div>
               <div class="count">
-                    14
+                {{pages_pages}}
               </div>
               </div>    
         </nb-card-footer>
