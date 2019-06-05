@@ -1,30 +1,30 @@
 <div class="row">
     <div class="col-md-4">
         <nb-card class="inner-card">
-        <nb-card-header class="text-center">Games<div class="details text-center">Quiz me</div></nb-card-header>
+        <nb-card-header class="text-center sm">Games<div class="details text-center">{{mostgame.title}}</div></nb-card-header>
         <nb-card-footer class="blue-bg">
             <div class="info count">
-              4 out of 457 <br>users completed 
+                {{mostgame.completed}} out of {{mostgame.total}} <br>users completed 
             </div>
         </nb-card-footer>
         </nb-card>
     </div>
     <div class="col-md-4">
         <nb-card class="inner-card">
-        <nb-card-header class="text-center">Click<div class="details text-center">March on Text Link</div></nb-card-header>
+        <nb-card-header class="text-center sm">Click<div class="details text-center">{{mostclick.title}}</div></nb-card-header>
         <nb-card-footer class="blue-bg">
           <div class="info count">
-            9 opens<br>in the 30 days
+              {{mostclick.count}} opens<br>in the 30 days
           </div>
         </nb-card-footer>
         </nb-card>
     </div>
     <div class="col-md-4">
         <nb-card class="inner-card">
-        <nb-card-header class="text-center">Resources<div class="details text-center">None</div></nb-card-header>
+        <nb-card-header class="text-center sm">Resources<div class="details text-center">{{resources.title}}</div></nb-card-header>
         <nb-card-footer class="blue-bg">
           <div class="info count">
-            0 opens<br>in the 30 days 
+              {{resources.count}} opens<br>in the 30 days 
           </div>
         </nb-card-footer>
         </nb-card>

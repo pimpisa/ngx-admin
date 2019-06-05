@@ -1,24 +1,44 @@
-import { Component, AfterViewInit, OnDestroy  } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, OnInit} from '@angular/core';
 import { NgxGauge } from 'ngx-gauge/gauge/gauge';
 import { NgxGaugeModule } from 'ngx-gauge';
 import { NbThemeService, NbColorHelper } from '@nebular/theme';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ChartOptions, ChartType, ChartDataSets} from '../../../../../node_modules/chart.js';
-
+import { Report_game, Report_survey, Report_page, Report_leaderboard, Report_message, Report_mostgame, Report_mostclick, Report_resource } from '../../../interfaces/report';
+import { ReportService } from '../../../services/report.service';
+import { Observable } from 'rxjs';
+  
 @Component({
   selector: 'ngx-report',
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.scss']
 })
 export class ReportComponent implements AfterViewInit, OnDestroy {
+  //Graph
   data: any;
   options: any;
   themeSubscription: any;
   options_leaderboard: any;
+  //Data
+  games:Observable<Report_game>;
+  leaderboard: Observable<Report_leaderboard>;
+  messages: Observable<Report_message>;
+  pages: Observable<Report_page>;
+  surveys: Observable<Report_survey>;
   
-  constructor(private theme: NbThemeService) {
+  constructor(private theme: NbThemeService,private reportData: ReportService) {}
 
-  }
+  ngOnInit() {
+    this.reportData.getOverAllReport()
+     .subscribe(res => {
+       console.log(res);
+       this.games = res['data'].games;
+       this.leaderboard = res['data'].leaderboard;
+       this.messages = res['data'].messages;
+       this.pages = res['data'].pages;
+       this.surveys = res['data'].surveys;
+     })
+   }  
 
   ngAfterViewInit() {
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
