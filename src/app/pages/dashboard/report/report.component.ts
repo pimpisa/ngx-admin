@@ -50,6 +50,8 @@ export class ReportComponent implements AfterViewInit, OnDestroy {
     top4_score: any;
     top5_name: any;
     top5_score: any;
+    high_score: any;
+    high_name: any;
     //Push_Message
     msg_sms: any;
     msg_email: any;
@@ -71,6 +73,11 @@ export class ReportComponent implements AfterViewInit, OnDestroy {
       this.pages_percent = res['data'].pages.precent;
       this.msg_sms = res['data'].messages.sms;
       this.msg_email = res['data'].messages.email;
+      this.top1_name = res['data'].leadboard.top5;
+      this.high_score = res['data'].leadboard.high;
+      this.high_name = res['data'].leadboard.name;
+      //this.top1_score = res['data'].leadboard.top5[0].value;
+      console.log("top1-score" + this.top1_name[0][0]);
     })
   }
 
@@ -112,7 +119,7 @@ export class ReportComponent implements AfterViewInit, OnDestroy {
           {
               type: 'category',
               show: false,
-              data: ['Email', 'Text']
+              data: ['EMAIL', 'SMS']
           }
       ],
       yAxis: [
@@ -147,7 +154,7 @@ export class ReportComponent implements AfterViewInit, OnDestroy {
                     }
                   }
               },
-              data: [12,21],
+              data: [this.msg_email,this.msg_sms],
               markPoint: {
                   tooltip: {
                       trigger: 'item',
@@ -195,7 +202,7 @@ export class ReportComponent implements AfterViewInit, OnDestroy {
       xAxis : [
           {
               type : 'category',
-              data : ['User1','User2', 'User3','User4','User5'],
+              data : [this.top1_name[0][0],this.top1_name[1][0], this.top1_name[2][0],this.top1_name[3][0],this.top1_name[4][0]],
               axisLine: 5
           }
       ],
@@ -208,7 +215,7 @@ export class ReportComponent implements AfterViewInit, OnDestroy {
           {
               name:'User score',
               type:'bar',
-              data:[100,80,60,40,20],
+              data:[this.top1_name[0][1],this.top1_name[1][1], this.top1_name[2][1],this.top1_name[3][1],this.top1_name[4][1]],
               itemStyle: {
                 color:'#849EFE',
                  

@@ -108,12 +108,14 @@
               <nb-card class="inner-card">
                   <nb-card-header class="text-center">Leaderboard<div class="details text-center">Ranking</div></nb-card-header>
                   <nb-card-body>
-                      <div echarts [options]="options_leaderboard" class="echart"></div>
+                    <div *ngIf="top1_name">
+                        <div echarts [options]="options_leaderboard" class="echart"></div>
+                    </div>
                     </nb-card-body>  
                   <nb-card-footer class="blue-bg">
                       <div>
                         <div class="info count">
-                            5 out of 443 <br>users completed 
+                            1st Leader <br>{{high_name}} {{high_score}} pts
                         </div>
                       </div>     
                   </nb-card-footer>
@@ -122,15 +124,26 @@
           <div class="col-md-4">
               <nb-card class="inner-card">
                   <nb-card-header class="text-center">Push Messages<div class="details text-center">Email vs Text</div></nb-card-header>
-                  <nb-card-body>
+                  <nb-card-body *ngIf="msg_sms">
                     <div echarts [options]="options" class="echart"></div>
                   </nb-card-body>
                   <nb-card-footer class="blue-bg">
-                      <div>
-                        <div class="info count">
-                            5 out of 443 <br>users completed 
+                    <div class="left">
+                        <div class="head">
+                             Sent Email
                         </div>
-                      </div>     
+                        <div class="count">
+                            {{msg_email}}
+                        </div>
+                      </div>  
+                      <div class="right">
+                        <div class="head">
+                             Sent Text
+                        </div>
+                        <div class="count">
+                            {{msg_sms}}
+                        </div>
+                        </div>     
                   </nb-card-footer>
               </nb-card>
           </div>
