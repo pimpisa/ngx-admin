@@ -38,19 +38,4 @@ export class PopularComponent {
     })
   }
 
-  /*ngOnInit() {
-   this.reportData.getOverAllReport()
-    .subscribe(res => {
-      console.log(res);
-      this.games = res['data'].games;
-      this.leaderboard = res['data'].leaderboard;
-      this.messages = res['data'].messages;
-      this.mostclick = res['data'].mostclick;
-      this.mostgame = res['data'].mostgame;
-      this.pages = res['data'].pages;
-      this.resources = res['data'].resources;
-      this.surveys = res['data'].surveys;
-    })
-  }  */
-
 }

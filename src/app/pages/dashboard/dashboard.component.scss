@@ -24,6 +24,13 @@
     border: none;
     padding-bottom: 0;
   }
+  nb-card.container-wrapper-sm {
+    background: transparent;
+    border: none;
+    margin: auto;
+    max-height: 400px;
+    min-height: 0px !important;
+}
   nb-card.large-card {
     min-height: 470px;
   }

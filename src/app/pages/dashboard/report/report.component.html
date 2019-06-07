@@ -108,9 +108,7 @@
               <nb-card class="inner-card">
                   <nb-card-header class="text-center">Leaderboard<div class="details text-center">Ranking</div></nb-card-header>
                   <nb-card-body>
-                    <div *ngIf="top1_name">
                         <div echarts [options]="options_leaderboard" class="echart"></div>
-                    </div>
                     </nb-card-body>  
                   <nb-card-footer class="blue-bg">
                       <div>
@@ -124,7 +122,7 @@
           <div class="col-md-4">
               <nb-card class="inner-card">
                   <nb-card-header class="text-center">Push Messages<div class="details text-center">Email vs Text</div></nb-card-header>
-                  <nb-card-body *ngIf="msg_sms">
+                  <nb-card-body>
                     <div echarts [options]="options" class="echart"></div>
                   </nb-card-body>
                   <nb-card-footer class="blue-bg">

@@ -1,4 +1,5 @@
-import { Component, AfterViewInit, OnDestroy, OnInit} from '@angular/core';
+import { delay, takeWhile } from 'rxjs/operators';
+import { Component, AfterViewInit, OnDestroy, OnInit, Input} from '@angular/core';
 import { NgxGauge } from 'ngx-gauge/gauge/gauge';
 import { NgxGaugeModule } from 'ngx-gauge';
 import { NbThemeService, NbColorHelper } from '@nebular/theme';
@@ -7,25 +8,25 @@ import { ChartOptions, ChartType, ChartDataSets} from '../../../../../node_modul
 import { Report_game, Report_survey, Report_page, Report_leaderboard, Report_message, Report_mostgame, Report_mostclick, Report_resource } from '../../../interfaces/report';
 import { ReportService } from '../../../services/report.service';
 import { Observable } from 'rxjs';
+import { LayoutService } from '../../../@core/utils';
   
 @Component({
   selector: 'ngx-report',
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.scss']
 })
-export class ReportComponent implements AfterViewInit, OnDestroy {
-  //Graph
-  data: any;
-  options: any;
-  themeSubscription: any;
-  options_leaderboard: any;
-  //Data
-  games:Observable<Report_game>;
-  leaderboard: Observable<Report_leaderboard>;
-  messages: Observable<Report_message>;
-  pages: Observable<Report_page>;
-  surveys: Observable<Report_survey>;
-   //Games
+export class ReportComponent {
+    
+    top_name = [];
+    top_score = [];
+    data: any;
+    options: any;
+    options_leaderboard: any;
+
+    high_score: any;
+    high_name: any;
+
+    //Games
    game_overall: any;
    game_edgage: any;
    game_users: any;
@@ -39,143 +40,139 @@ export class ReportComponent implements AfterViewInit, OnDestroy {
    pages_clicks: any;
    pages_pages: any;
    pages_percent: any;
-    //Leaderboard
-    top1_name: any;
-    top1_score: any;
-    top2_name: any;
-    top2_score: any;
-    top3_name: any;
-    top3_score: any;
-    top4_name: any;
-    top4_score: any;
-    top5_name: any;
-    top5_score: any;
-    high_score: any;
-    high_name: any;
-    //Push_Message
-    msg_sms: any;
-    msg_email: any;
-  
-  
-  constructor(private theme: NbThemeService,private reportData: ReportService) {
-    this.reportData.getOverAllReport()
-    .subscribe(res => {
-      this.game_overall = res['data'].games.overall;
-      this.game_edgage = res['data'].games.edgage;
-      this.game_users = res['data'].games.users;
-      this.game_mnum = res['data'].games.mnum;
-      this.survey_overall = res['data'].surveys.overall;
-      this.survey_edgage = res['data'].surveys.edgage;
-      this.survey_users = res['data'].surveys.users;
-      this.survey_mnum = res['data'].surveys.mnum;
-      this.pages_clicks = res['data'].pages.clicked;
-      this.pages_pages = res['data'].pages.pages;
-      this.pages_percent = res['data'].pages.precent;
-      this.msg_sms = res['data'].messages.sms;
-      this.msg_email = res['data'].messages.email;
-      this.top1_name = res['data'].leadboard.top5;
-      this.high_score = res['data'].leadboard.high;
-      this.high_name = res['data'].leadboard.name;
-      //this.top1_score = res['data'].leadboard.top5[0].value;
-      console.log("top1-score" + this.top1_name[0][0]);
-    })
-  }
+   //Push_Message
+   msg_sms: any;
+   msg_email: any;
 
+    constructor(private report: ReportService) {}
 
-  ngAfterViewInit() {
-    this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
+    ngOnInit() {
+    this.report.getOverAllReport()
+      .subscribe(res => {
+        //Games
+        this.game_overall = res['data'].games.overall;
+        this.game_edgage = res['data'].games.edgage;
+        this.game_users = res['data'].games.users;
+        this.game_mnum = res['data'].games.mnum;
+        //Survey
+        this.survey_overall = res['data'].surveys.overall;
+        this.survey_edgage = res['data'].surveys.edgage;
+        this.survey_users = res['data'].surveys.users;
+        this.survey_mnum = res['data'].surveys.mnum;
+        //Pages
+        this.pages_clicks = res['data'].pages.clicked;
+        this.pages_pages = res['data'].pages.pages;
+        this.pages_percent = res['data'].pages.precent;
+        let email = res['data'].messages.email;
+        let text = res['data'].messages.sms;
+        this.high_score = res['data'].leadboard.high;
+        this.high_name = res['data'].leadboard.name;
+        let top1_name = res['data'].leadboard.top5[0][0];
+        let top1_score = res['data'].leadboard.top5[0][1];
+        let top2_name = res['data'].leadboard.top5[1][0];
+        let top2_score = res['data'].leadboard.top5[1][1];
+        let top3_name = res['data'].leadboard.top5[2][0];
+        let top3_score = res['data'].leadboard.top5[2][1];
+        let top4_name = res['data'].leadboard.top5[3][0];
+        let top4_score = res['data'].leadboard.top5[3][1];
+        let top5_name = res['data'].leadboard.top5[4][0];
+        let top5_score = res['data'].leadboard.top5[4][1];
+        //Message
+        this.msg_sms = res['data'].messages.sms;
+        this.msg_email = res['data'].messages.email;
 
-      const colors = config.variables;
-      const echarts: any = config.variables.echarts;
+        console.log("top5_score" + top5_score);
+        console.log("text" + text);
 
-      var dataStyle = { 
-        normal: {
-            label : {
-                show: true,
-                position: 'insideRight',
-                formatter: '{c}%',
-              textStyle: {
-            fontFamily: 'Roboto',
-            fontSize: 20,
-            fontStyle: 'normal',
-            fontWeight: 'bold',
-        },
+        //Graph
+        var dataStyle = { 
+            normal: {
+                label : {
+                    show: true,
+                    position: 'insideRight',
+                    formatter: '{c}%',
+                  textStyle: {
+                fontFamily: 'Roboto',
+                fontSize: 20,
+                fontStyle: 'normal',
+                fontWeight: 'bold',
+            },
+                }
             }
-        }
-    };
+        };
 
-      this.options = {
-        tooltip: {
-          trigger: 'item'
-      },
-     
-      calculable: true,
-      grid: {
-          borderWidth: 0,
-          y: 80,
-          y2: 60
-      },
-      xAxis: [
-          {
-              type: 'category',
-              show: false,
-              data: ['EMAIL', 'SMS']
-          }
-      ],
-      yAxis: [
-          {
-              type: 'value',
-              show: false
-          }
-      ],
-      series: [
-          {
-              name: 'Push Messages',
-              type: 'bar',
-              itemStyle: {
-                  normal: {
-                      color: function(params) {
-                          // build a color map as your need.
-                          var colorList = [
-                            '#9fbeff','#75d6e8'
-                          ];
-                          return colorList[params.dataIndex]
-                      },
-                      label: {
-                          show: true,
-                          position: 'top',
-                          formatter: '{c}%\n{b}',
-                          textStyle: {
-                            fontFamily: 'Arial',
-                            fontSize: 18,
-                            fontStyle: 'normal',
-                            fontWeight: 'bold',
-                         },
-                    }
-                  }
-              },
-              data: [this.msg_email,this.msg_sms],
-              markPoint: {
-                  tooltip: {
-                      trigger: 'item',
-                      backgroundColor: 'rgba(0,0,0,0)',
-                      formatter: function(params){
-                          return '<img src="' 
-                                  + params.data.symbol.replace('image://', '')
-                                  + '"/>';
+        this.options =  {
+            tooltip : {
+              trigger: 'axis'
+          },
+          calculable: true,
+          grid: {
+              borderWidth: 0,
+              y: 80,
+              y2: 60
+          },
+          xAxis: [
+              {
+                  type: 'category',
+                  show: false,
+                  data: ['EMAIL', 'SMS']
+              }
+          ],
+          yAxis: [
+              {
+                  type: 'value',
+                  show: false
+              }
+          ],
+          series: [
+              {
+                  name: 'Push Messages',
+                  type: 'bar',
+                  itemStyle: {
+                      normal: {
+                          color: function(params) {
+                              // build a color map as your need.
+                              var colorList = [
+                                '#9fbeff','#75d6e8'
+                              ];
+                              return colorList[params.dataIndex]
+                          },
+                          label: {
+                              show: true,
+                              position: 'top',
+                              formatter: '{c}%\n{b}',
+                              textStyle: {
+                                fontFamily: 'Arial',
+                                fontSize: 18,
+                                fontStyle: 'normal',
+                                fontWeight: 'bold',
+                             },
+                        }
                       }
                   },
-                  data: [
-                      {xAxis:0, y: 350, name:'Email', symbolSize:20, symbol: 'image://../asset/ico/折线图.png'},
-                      {xAxis:1, y: 350, name:'Text', symbolSize:20, symbol: 'image://../asset/ico/柱状图.png'},
-             
-                  ]
+                  data: [email, text],
+                  markPoint: {
+                      tooltip: {
+                          trigger: 'item',
+                          backgroundColor: 'rgba(0,0,0,0)',
+                          formatter: function(params){
+                              return '<img src="' 
+                                      + params.data.symbol.replace('image://', '')
+                                      + '"/>';
+                          }
+                      },
+                      data: [
+                          {xAxis:0, y: 350, name:'Email', symbolSize:20, symbol: 'image://../asset/ico/折线图.png'},
+                          {xAxis:1, y: 350, name:'Text', symbolSize:20, symbol: 'image://../asset/ico/柱状图.png'},
+                 
+                      ]
+                  }
               }
+          ]
           }
-      ]
-      };
-      //Leaderboard Rank
-      var dataStyle_Leaderboard = { 
+
+            //Leaderboard Rank
+     var dataStyle_Leaderboard = { 
         normal: {
             label : {
                 show: true,
@@ -202,7 +199,7 @@ export class ReportComponent implements AfterViewInit, OnDestroy {
       xAxis : [
           {
               type : 'category',
-              data : [this.top1_name[0][0],this.top1_name[1][0], this.top1_name[2][0],this.top1_name[3][0],this.top1_name[4][0]],
+              data : [top1_name,top2_name, top3_name,top4_name,top5_name],
               axisLine: 5
           }
       ],
@@ -211,19 +208,19 @@ export class ReportComponent implements AfterViewInit, OnDestroy {
               show : false,
           }
       ],
-      series : [/**#849EFE */
+      series : [
           {
               name:'User score',
               type:'bar',
-              data:[this.top1_name[0][1],this.top1_name[1][1], this.top1_name[2][1],this.top1_name[3][1],this.top1_name[4][1]],
+              data:[top1_score,top2_score, top3_score,top4_score,top5_score],
               itemStyle: {
                 color:'#849EFE',
                  
               },
               markPoint : {
                   data : [
-                      {type : 'max', name: 'User1'},
-                      {type : 'min', name: 'User5'}
+                      {type : 'max', name: top1_name},
+                      {type : 'min', name: top5_name}
                   ]
               },
               markLine : {
@@ -235,13 +232,11 @@ export class ReportComponent implements AfterViewInit, OnDestroy {
         
       ]
       };
-       
-  });
-  }
 
-    ngOnDestroy(): void {
-      this.themeSubscription.unsubscribe();
-    }
-  
+      })//Subscribe
+
+      
+  }//OnInit End
+
 }
   

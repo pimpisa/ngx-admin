@@ -7,8 +7,12 @@ nb-card-footer {
     text-transform: uppercase;
     font-weight: bold;
 }
-nb-card.container-wrapper.sm {
-    min-height: 300px;
+nb-card.container-wrapper-sm {
+    background: transparent;
+    border: none;
+    margin: auto;
+    max-height: 400px;
+    min-height: 0px !important;
 }
 nb-card-header.text-center.sm {
     min-height: 135px;
