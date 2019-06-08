@@ -27,6 +27,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { PreviewGameComponent } from './admin-game-demos/preview-game/preview-game.component';
 import { AdminUserComponent } from './admin-user/admin-user.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { UserDetailComponent } from './admin-user/user-detail/user-detail.component';
 
 
 const PAGES_COMPONENTS = [
@@ -65,6 +66,7 @@ const PAGES_COMPONENTS = [
     ShowcaseDialogComponent,
     PreviewGameComponent,
     AdminUserComponent,
+    UserDetailComponent,
 
   ]
 })

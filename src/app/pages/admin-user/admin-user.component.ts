@@ -18,6 +18,8 @@ import { Observable } from 'rxjs';
 })
 export class AdminUserComponent  {
   @ViewChild('disabledEsc', { read: TemplateRef }) disabledEscTemplate: TemplateRef<HTMLElement>;
+  flipped = false;
+
   pageNo: any;
   source: LocalDataSource = new LocalDataSource();
   pageClick: number;
@@ -27,7 +29,9 @@ export class AdminUserComponent  {
   pageLimitTest = 3;
   userTotal: any;
   selected_id: any;
-  userDetail: Observable <User>;
+  userDetail: User = new User();
+  userInfo: Observable<User[]>;
+
   private currentPage:number = 1;
   settings = {
     columns: {
@@ -97,6 +101,9 @@ export class AdminUserComponent  {
     }); 
 
   }
+  toggleView() {
+    this.flipped = !this.flipped;
+  }
 
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
@@ -143,10 +150,10 @@ export class AdminUserComponent  {
     console.log("event[0].id" + event.selected[0].id); 
     var userSelectedId = event.selected[0].id;
     console.log(userSelectedId);
-    //this.userDetail = this.userService.getUserInfo(userSelectedId);
-   // let userInfo = this.userService.getUserInfo(userSelectedId);
-    //this.user = userInfo;
-   // console.log("userInfo " + userInfo);
+    let user = this.userService.getUserInfo(userSelectedId);
+    console.log("user-detail" + JSON.stringify(user));
+    //this.userDetail = user;
+    
   }
   /*onView(user: User, id: string) {
         console.log("onViewCall" + user.id);

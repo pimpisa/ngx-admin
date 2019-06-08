@@ -63,6 +63,7 @@ export class UserService implements PipeTransform {
 
 private allUser: User;
 private userInfo: any;
+userDetail: Observable<User[]>;
 
 private header:Headers = new Headers({
     'Authorization': 'blfyjKOdJPCTESy5zbC394VYYxzXnB21'
@@ -136,7 +137,7 @@ getUserInfo(id: string){
     
      })
      .subscribe(result => {
-      this.userInfo = result;
+      this.userInfo = result["data"];
       console.log("this user selected "+ JSON.stringify(this.userInfo));
 
     });
