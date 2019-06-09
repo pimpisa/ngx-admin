@@ -5,3 +5,20 @@ nb-card.container-wrapper {
     margin: auto;
     min-height: 70vh;
 }
+.left-container {
+    min-height:300px;
+    border-right: solid 2px #869efe;
+}
+.right-container {
+    min-height:300px;
+}
+:host nb-tab {
+    padding: 1.25rem;
+}
+a {
+    font-size: 1.25rem !important;
+}
+nb-card.container-card {
+    padding: 1rem;
+}
+

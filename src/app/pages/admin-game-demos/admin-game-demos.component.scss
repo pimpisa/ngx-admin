@@ -12,12 +12,47 @@
     background: #fff;
     box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
 }
+nb-card.mango {
+  border-top: solid 5px #EDE574;
+  background: #EDE574 !important;   /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #E1F5C4, #EDE574);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #E1F5C4, #EDE574); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-.salmon {
-  background: #ff7e5f;  /* fallback for old browsers */
+}
+nb-card.salmon {
+  border-top: solid 5px #ff7e5f;  /* fallback for old browsers */
+  background: #ff7e5f !important; 
   background: -webkit-linear-gradient(to right, #feb47b, #ff7e5f);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #feb47b, #ff7e5f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+nb-card.violet {
+  border-top: solid 5px #9796f0;  /* fallback for old browsers */
+  background: #9796f0 !important; 
+  background: -webkit-linear-gradient(to right, #fbc7d4, #9796f0);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #fbc7d4, #9796f0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+nb-card.mint {
+  border-top: solid 5px #B3FFAB;  /* fallback for old browsers */
+  background: #B3FFAB !important; 
+  background: -webkit-linear-gradient(to right, #12FFF7, #B3FFAB);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #12FFF7, #B3FFAB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+nb-card.sky {
+  border-top: solid 5px #24C6DC;  /* fallback for old browsers */
+  background:  #24C6DC !important; 
+  background: -webkit-linear-gradient(to right, #514A9D, #24C6DC);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #514A9D, #24C6DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+nb-card.heart {
+  border-top: solid 5px #DD5E89;  /* fallback for old browsers */
+  background:  #DD5E89 !important; 
+  background: -webkit-linear-gradient(to right, #F7BB97, #DD5E89);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #F7BB97, #DD5E89); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 
 :host {
     display: flex;
@@ -34,7 +69,7 @@
     display: inline-grid;
     margin-left:10px;
     width: 10%;
-    height: 300px;
+    height: 250px;
     border-radius: 0.6rem;
     box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
   }

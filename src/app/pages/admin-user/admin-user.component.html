@@ -22,7 +22,7 @@
             </nb-select>
           </div>
     </nb-card-header>
-              <ng2-smart-table  [source]="source" [settings]="settings" (deleteConfirm)="onDeleteConfirm($event)" (userRowSelect)="onUserRowSelect($event);openWindow(viewUserTemplate)" (click)="toggleView()" >
+              <ng2-smart-table  [source]="source" [settings]="settings" (deleteConfirm)="onDeleteConfirm($event)" (userRowSelect)="onUserRowSelect($event)" (click)="toggleView()" >
                 </ng2-smart-table>
                 <br/>
                 <div class="flush-left"><button type="submit" class="btn btn-primary">Send Message</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Export CSV</button>&nbsp;&nbsp;
@@ -34,10 +34,54 @@
           </nb-card>
         </nb-card-front>
         <nb-card-back>
-          <nb-card size="xsmall">
-            <ngx-user-detail></ngx-user-detail>
-            <i class="nb-arrow-right" (click)="toggleView()"></i>
-          </nb-card>
+              <nb-card class="container-wrapper">
+                  <nb-card-header class="card-headline">
+                      <div class="title_wrapper">
+                          <div class="main_title">
+                            <h2>User Detail</h2>
+                          </div>
+                          
+                    </div>
+                  </nb-card-header>  
+                  <nb-card-body>
+                      <!--Add new user with button--> 
+                      
+                    <nb-card class="container-card" style="background: #F9FAFE !important;">
+                      <i class="nb-arrow-right flush-right" (click)="toggleView()"></i>
+                        <nb-tabset fullWidth>
+                            <nb-tab tabIcon="person-outline" tabTitle="Detail">
+                              <div class="row">
+                                  <div class="left-container col-md-4">
+                                      <div class="text-center title">
+                                        <nb-user [picture]="user?.picture" [name]="userInfo.name" showName=false></nb-user>
+                                        <strong>{{userInfo.name}}</strong></div>
+                                      <div class="box-left sub-title">
+                                        Last Login<br/>
+                                        Total Points<br/>
+                                        Actions
+                                      </div>
+                                      <div class="box-right info">
+                                        <p *ngIf="userInfo.activity == '0000-00-00 00:00:00'">None</p>
+                                      </div>
+                        
+                                  </div>
+                                  <div class="right-container cold-md-8">
+                        
+                                  </div>
+                                </div>
+                            </nb-tab>
+                            <nb-tab tabIcon="bell-outline" tabTitle="Page Clicks">
+                              <p>List of <strong>orders</strong>.</p>
+                            </nb-tab>
+                            <nb-tab tabIcon="email-outline" tabTitle="Resource Clicks">
+                              <p>List of <strong>transactions</strong>.</p>
+                            </nb-tab>
+                          </nb-tabset>
+                      
+                    </nb-card>
+                    </nb-card-body>
+              </nb-card>
+          
         </nb-card-back>
       </nb-flip-card>
    

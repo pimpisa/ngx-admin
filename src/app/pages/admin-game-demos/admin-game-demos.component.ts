@@ -1,4 +1,4 @@
-import { Component, TemplateRef, ViewChild, HostBinding } from '@angular/core';
+import { Component, TemplateRef, ViewChild, HostBinding, OnInit } from '@angular/core';
 import {
   NgxPopoverCardComponent, NgxPopoverFormComponent,
   NgxPopoverTabsComponent,
@@ -9,6 +9,9 @@ import { ShowcaseDialogComponent } from '../modal-overlays/dialog/showcase-dialo
 import { DialogNamePromptComponent } from '../modal-overlays/dialog/dialog-name-prompt/dialog-name-prompt.component';
 import { PreviewGameComponent } from './preview-game/preview-game.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClient} from '@angular/common/http';
+import { GameService } from '../../services/game.service';
+import { Game } from '../../interfaces/game';
 
 @Component({
   selector: 'ngx-admin-game-demos',
@@ -18,9 +21,41 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class AdminGameDemosComponent {
   names: string[] = [];
   loseResult: string;
+  games: Game[] = [];
+  displayedGames: string[] = ['id', 'title'];
+  
+  constructor(private modalService: NgbModal, private gameService: GameService) {}
 
-  constructor(private modalService: NgbModal) {}
-  demos = [
+  ngOnInit() {
+    this.loadGame();
+    
+  }
+
+  getColorClass(index){
+    if (index % 5 == 0){
+      return 'mango';
+    }else if (index % 5 == 4) {
+      return 'sky';
+    } else if (index % 5 == 3){
+      return 'violet';
+    }else if (index % 5 == 2){
+      return 'mint';
+    } else {
+      return 'heart';
+    }
+  }
+  
+  loadGame(){
+    this.gameService.getGame()
+      .subscribe(
+        data => {
+          this.games = data['data'];
+          console.log("gmas" + JSON.stringify(this.games));
+
+        },
+        error => console.log(error));
+      }
+  /*demos = [
     { id: 1, title: 'Words With Brands', image: 'assets/images/place_holder_crop.png'},
     { id: 2, title: 'Box Selector', image: 'assets/images/place_holder_crop.png'},
     { id: 3, title: 'Steps', image: 'assets/images/place_holder_crop.png'},
@@ -40,7 +75,7 @@ export class AdminGameDemosComponent {
     { id: 17, title: 'Drop & Drag', image: 'https://files.edgagement.com/images/games/icons/gameDrop.jpg'},
     { id: 18, title: 'Fact or Fiction?', image: 'https://files.edgagement.com/images/games/icons/gameVideo.jpg'},
     { id: 19, title: 'Are u Smarter than...', image: 'https://files.edgagement.com/images/games/icons/gameSmileface.jpg'}
-  ];
+  ];*/
 
   openVerticallyCentered(content) {
     this.modalService.open(content, { centered: true });

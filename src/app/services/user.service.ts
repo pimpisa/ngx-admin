@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { User } from '../interfaces/user';
-import { Observable } from 'rxjs/observable';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -129,10 +129,8 @@ getUserDetail(user: User){
      });*/
 }
 
-getUserInfo(id: string){
-  console.log("getUserInfo get called:" + id)
- // console.log("url:" + ""+id)
-  return this.http.get("https://demo.edgagement.com/api/user/id/" + id, {
+/*getUserInfo(id: string): Observable<object> {
+  return this.http.get<User[]>("https://demo.edgagement.com/api/user/id/" + id, {
     'headers': new HttpHeaders().set('Authorization', this.keyToken)
     
      })
@@ -141,7 +139,16 @@ getUserInfo(id: string){
       console.log("this user selected "+ JSON.stringify(this.userInfo));
 
     });
-}
+}*/
+  getUserInfo(id: string): Observable<object> {
+    return this.http.get<User[]>("https://demo.edgagement.com/api/user/id/" + id, {
+      'headers': new HttpHeaders().set('Authorization', this.keyToken)
+      
+       })
+       .pipe(
+        catchError((error) => this._handleError(error))
+      );
+  }
 
 editUser(user: User){
   const url = this.allUsersApiUrl + "/id/" + user.id;

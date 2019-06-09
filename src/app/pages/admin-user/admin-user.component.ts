@@ -30,7 +30,8 @@ export class AdminUserComponent  {
   userTotal: any;
   selected_id: any;
   userDetail: User = new User();
-  userInfo: Observable<User[]>;
+  //userInfo: Observable<User[]>;
+  userInfo: User[] = [];
 
   private currentPage:number = 1;
   settings = {
@@ -146,12 +147,17 @@ export class AdminUserComponent  {
   }
 
   onUserRowSelect(event) { 
-    console.log('user row select: ', event); 
-    console.log("event[0].id" + event.selected[0].id); 
     var userSelectedId = event.selected[0].id;
-    console.log(userSelectedId);
-    let user = this.userService.getUserInfo(userSelectedId);
-    console.log("user-detail" + JSON.stringify(user));
+    this.userService.getUserInfo(userSelectedId)
+    .subscribe(
+      data => {
+        this.userInfo = data['data'];
+        console.log("user" + JSON.stringify(this.userInfo));
+
+      },
+      error => console.log(error));
+    //let user = this.userService.getUserInfo(userSelectedId);
+    //console.log("user-detail" + JSON.stringify(user));
     //this.userDetail = user;
     
   }

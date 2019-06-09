@@ -4,12 +4,46 @@
             <div class="main_title">
               <h2>User Detail</h2>
             </div>
+            <i class="nb-arrow-right" (click)="toggleView()"></i>
       </div>
     </nb-card-header>  
     <nb-card-body>
         <!--Add new user with button--> 
-        <nb-card class="container-card">
-            <div *ngIf="employee">
+        
+      <nb-card class="container-card">
+          <nb-tabset fullWidth>
+              <nb-tab tabIcon="person-outline" tabTitle="Detail">
+                <div class="row">
+                    <div class="left-container col-md-4">
+                        <strong>users</strong>
+                        <div class="flush-left">
+                          Last Login<br/>
+                          Total Points<br/>
+                          Actions
+                        </div>
+                        <div class="flush-right">
+
+                        </div>
+          
+                    </div>
+                    <div class="right-container cold-md-8">
+          
+                    </div>
+                  </div>
+              </nb-tab>
+              <nb-tab tabIcon="bell-outline" tabTitle="Page Clicks">
+                <p>List of <strong>orders</strong>.</p>
+              </nb-tab>
+              <nb-tab tabIcon="email-outline" tabTitle="Resource Clicks">
+                <p>List of <strong>transactions</strong>.</p>
+              </nb-tab>
+            </nb-tabset>
+        
+      </nb-card>
+      </nb-card-body>
+</nb-card>
+
+<!--<div *ngIf="employee">
                 <div>
                     <label>Name: </label> {{user.name}}
                 </div>
@@ -24,7 +58,4 @@
                 </div>
             
                 <hr/>
-            </div>
-      </nb-card>
-      </nb-card-body>
-</nb-card>
+            </div>-->
