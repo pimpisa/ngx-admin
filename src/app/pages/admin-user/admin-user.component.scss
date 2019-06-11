@@ -100,8 +100,22 @@
       color: rgb(75,75,75);
       clear: none;
     }
-  
+    nb-progress-bar ~ nb-progress-bar {
+      margin-top: 1rem;
+    }
+    nb-user{
+      display: block;
+      margin-bottom: 30px;
+    }
+    
 
+}
+
+.user-picture.background{
+  display: block !important;
+  margin: auto !important;
+  width: 50px !important;
+  height: 50px !important;
 }
     
   

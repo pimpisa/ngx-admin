@@ -3,7 +3,7 @@
     <!--1st card -->
     <div class="col-md-6">
         <nb-card size="large" tabTitle="Temperature">
-            <nb-card-header>Participation</nb-card-header>
+            <nb-card-header class="text-center">Participation</nb-card-header>
             <ngx-funnel></ngx-funnel>
         
         </nb-card>
@@ -11,12 +11,12 @@
   <!--2nd card -->
     <div class="col-md-6">
         <nb-card size="large" tabTitle="Temperature">
-            <nb-card-header>
-              <div class="row" style="margin:0px;display:inline">Learner Demograhphic
+            <nb-card-header class="text-center">Learner Demograhphic
+              
                 <!--<nb-select placeholder="All Title" [(selected)]="commonSelectedItem" class="top-button flush-right">
                     <nb-option *ngFor="let title of titleList | keyvalue" value="{{title.key}}">{{title.value}}</nb-option>
                 </nb-select>-->
-              </div>
+             
             </nb-card-header>
             <nb-card-body>
                 <div class="pie-chart">
@@ -30,13 +30,13 @@
   <div class="row">
     <div class="col-md-6">
         <nb-card size="medium" tabTitle="Temperature">
-            <nb-card-header>Pre / Post Learning Objectives</nb-card-header>
+            <nb-card-header class="text-center">Pre / Post Learning Objectives</nb-card-header>
             <nb-card-body><ngx-prepost></ngx-prepost></nb-card-body>
         </nb-card>
     </div>
     <div class="col-md-6">
         <nb-card size="medium" tabTitle="Temperature">
-            <nb-card-header>Retake Quiz / Test</nb-card-header>
+            <nb-card-header class="text-center">Retake Quiz / Test</nb-card-header>
               <nb-card-body>
                 <ngx-retake></ngx-retake>
               </nb-card-body>  

@@ -7,6 +7,18 @@
   .top-button {
     display:block;
   }
+  nb-card-header {
+    padding: 1.25rem;
+    border-bottom-width: 0;
+    border-bottom-style: solid;
+    border-bottom-color: #cdd5dc;
+    border-top-left-radius: 0.17rem;
+    border-top-right-radius: 0.17rem;
+    color: #181818;
+    font-family: Roboto;
+    font-size: 1.9rem !important;
+
+  }
   .flush-right {
     float:right;
   }

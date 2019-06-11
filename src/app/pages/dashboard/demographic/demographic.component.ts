@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit} from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { DropdownService } from '../../../services/dropdown.service';
 import { HttpClient, HttpErrorResponse, HttpHeaders  } from '@angular/common/http';
+import { Options } from 'selenium-webdriver';
 
 @Component({
   selector: 'ngx-demographic',
@@ -11,60 +12,60 @@ import { HttpClient, HttpErrorResponse, HttpHeaders  } from '@angular/common/htt
   `,*/
   styleUrls: ['./demographic.component.scss']
 })
-export class DemographicComponent implements OnDestroy {
-
+export class DemographicComponent {
   data: any;
   options: any;
-  themeSubscription: any;
-  titleList:any;
-  title_id: any;
-  userTitle: String [];
-  selected = null;
+  constructor() {}
 
-  keyToken = 'blfyjKOdJPCTESy5zbC394VYYxzXnB21';
-
-  constructor(private theme: NbThemeService, private dropdownService: DropdownService, private http: HttpClient) {
-
-    this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
-
-      const colors: any = config.variables;
-      const chartjs: any = config.variables.chartjs;
-
-      this.data = {
-        labels: ['Job Title 1', 'Job Title 2', 'Job Title 3'],
-        datasets: [{
-          data: [300, 500, 100],
-          backgroundColor: ['#213493', '#50930C', '#43B5C4'],
-        }],
-      };
-
-      this.options = {
-        maintainAspectRatio: true,
-        responsive: true,
-        scales: {
-          xAxes: [
-            {
-              display: false,
+  ngOnInit() {
+    
+   //Graph
+  this.options = {
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient : 'vertical',
+        x : 'left',
+        data:['Job title 1','Job title 2','Job title 3','Job title 4','Job title 5']
+    },
+    calculable : true,
+    series : [
+        {
+            name:'Demographic',
+            type:'pie',
+            radius : ['50%', '70%'],
+            itemStyle : {
+                normal : {
+                    label : {
+                        show : false
+                    },
+                    labelLine : {
+                        show : false
+                    }
+                },
+                emphasis : {
+                    label : {
+                        show : true,
+                        position : 'center',
+                        textStyle : {
+                            fontSize : '20',
+                            fontWeight : 'bold'
+                        }
+                    }
+                }
             },
-          ],
-          yAxes: [
-            {
-              display: false,
-            },
-          ],
-        },
-        legend: {
-          labels: {
-            fontColor: chartjs.textColor,
-          },
-          position: 'right',
-        },
-      };
-    });
-  }
+            data:[
+                {value:335, name:'Job title 1'},
+                {value:310, name:'Job title 2'},
+                {value:234, name:'Job title 3'},
+                {value:135, name:'Job title 4'},
+                {value:1548, name:'Job title 5'}
+            ]
+        }
+    ]
+};
 
-  ngOnDestroy(): void {
-    this.themeSubscription.unsubscribe();
-  }
-
+}
 }

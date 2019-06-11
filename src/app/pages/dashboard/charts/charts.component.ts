@@ -23,8 +23,64 @@ export class ChartsComponent implements OnDestroy  {
 
       const colors: any = config.variables;
       const chartjs: any = config.variables.chartjs;
-
-      this.data = {
+      var dataStyle = { 
+        normal: {
+          color: function(params) {
+              // build a color map as your need.
+              var colorList = [
+                '#75d6e8','#75d6e8'
+              ];
+              return colorList[params.dataIndex]
+          },
+          label: {
+              show: true,
+              position: 'right',
+              formatter: '{b}\n{c}%',
+              textStyle: {
+                fontFamily: 'Arial',
+                fontSize: 12,
+                fontStyle: 'normal',
+                fontWeight: 'bold',
+             },
+        }
+      }
+        
+      };
+      this.options = {
+        tooltip : {
+          trigger: 'axis'
+      },
+      legend: {
+          data:['leaderboard']
+      },
+     
+      calculable : true,
+      xAxis : [
+          {
+            show: false,
+          }
+      ],
+      yAxis : [
+          {
+            type : 'category',
+            data : ["Obj1", "Obj2", "Obj3", "Obj4", "Obj5"],
+            axisLine: 5
+          }
+      ],
+      series : [
+          {
+              name:'User score',
+              type:'bar',
+              data:[10,30,60,40,60],
+              itemStyle: dataStyle 
+                
+              ,
+            
+          },
+        
+      ]
+      };
+      /*this.data = {
         labels: ['January', 'February', 'March', 'April'],
         datasets: [{
             label: 'Dataset 1',
@@ -80,7 +136,7 @@ export class ChartsComponent implements OnDestroy  {
             fontColor: chartjs.textColor,
           },
         },
-      };
+      };*/
     });
   }
 
