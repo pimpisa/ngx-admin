@@ -18,6 +18,13 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
+    .click-info{
+      width:100%;
+    }
+    table.click-info td {
+      padding: 10px;
+      margin: 10px;
+    }
     .row-title{
       width: 30%;
     }
@@ -140,8 +147,9 @@
       color: rgb(75,75,75);
       clear: none;
     }
-    nb-progress-bar ~ nb-progress-bar {
-      margin-top: 1rem;
+   nb-progress-bar {
+      margin-bottom: 2rem;
+      margin-top:1rem;
     }
     nb-user{
       display: inline-block;
@@ -153,8 +161,6 @@
       overflow: hidden;
       padding: 2px 10px;
     }
-    
-
 }
 
 .user-picture.background{

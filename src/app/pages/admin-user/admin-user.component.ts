@@ -9,6 +9,7 @@ import { NbWindowService} from '@nebular/theme'
 import { WindowFormComponent } from '../modal-overlays/window/window-form/window-form.component';
 import { NbWindowRef } from '@nebular/theme';
 import { Observable } from 'rxjs';
+import { FindValueSubscriber } from 'rxjs/internal/operators/find';
 
 
 @Component({
@@ -35,6 +36,7 @@ export class AdminUserComponent  {
 
   private currentPage:number = 1;
   settings = {
+    actions: false,
     columns: {
       id: {
         title: 'ID',

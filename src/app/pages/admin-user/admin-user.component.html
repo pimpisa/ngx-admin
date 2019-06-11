@@ -125,30 +125,45 @@
                                       </div>-->
                                       
                                   </div>
-                                  <div class="right-container col-md-8">
-                                    <div class="col-2 sub-title">
-                                      <!--QuizMe/Test Knowledge Score: 40%
-                                      Game Score: 60%
-                                      Module Page Clicks: 20%
-                                      Resource Center Clicks: 10%-->
-                                    </div>
-                                    <div class="col-10 info">
-                                      <nb-progress-bar [value]="40" status="primary" [displayValue]="true"></nb-progress-bar>
-                                      <nb-progress-bar [value]="60" status="primary" [displayValue]="true"></nb-progress-bar>
-                                      <nb-progress-bar [value]="20" status="primary" [displayValue]="true"></nb-progress-bar>
-                                      <nb-progress-bar [value]="10" status="primary" [displayValue]="true"></nb-progress-bar>
-                                    </div>
+                                  <div class="right-container col-md-8 title">
+                                    QuizMe/Test Knowledge Score:
+                                    <nb-progress-bar [value]="40" status="primary" [displayValue]="true" size="giant"></nb-progress-bar>
+                                    Game Score: 
+                                    <nb-progress-bar [value]="60" status="primary" [displayValue]="true" size="giant"></nb-progress-bar>
+                                    Module Page Clicks: 
+                                    <nb-progress-bar [value]="20" status="primary" [displayValue]="true" size="giant"></nb-progress-bar>
+                                    Resource Center Clicks: 
+                                    <nb-progress-bar [value]="10" status="primary" [displayValue]="true" size="giant"></nb-progress-bar>
                                   </div>
                                 </div>
                             </nb-tab>
                             <nb-tab tabIcon="bell-outline" tabTitle="Page Clicks">
-                              <p>List of <strong>orders</strong>.</p>
+                              <table class="click-info title">
+                                <thead>
+                                  <tr>
+                                    <td>Title</td>
+                                    <td>Clicks</td>
+                                    <td>Last Click</td>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                              </table>
                             </nb-tab>
                             <nb-tab tabIcon="email-outline" tabTitle="Resource Clicks">
-                              <p>List of <strong>transactions</strong>.</p>
+                                <table class="click-info title">
+                                    <thead>
+                                      <tr>
+                                        <td>Title</td>
+                                        <td>Clicks</td>
+                                        <td>Last Click</td>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                  </table>
                             </nb-tab>
                           </nb-tabset>
-                      
                     </nb-card>
                     </nb-card-body>
               </nb-card>
