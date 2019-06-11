@@ -155,13 +155,17 @@ nb-card-footer {
   border-radius: 7px;
 }
 //icon
-.nb-home::before, .nb-layout-sidebar-left, .nb-person,.nb-grid-a-outline::before, .nb-keypad::before, .nb-compose::before,.nb-menu::before{
+.nb-home::before, .nb-layout-sidebar-left, .nb-person,.nb-grid-a-outline::before, .nb-keypad::before, .nb-compose::before,.nb-menu::before {
   color: #849efe !important;
   font-weight: 400;
 }
 .nb-trash::before, .fa-trash:before {
   color:#E89897;
   font-weight: 600;
+}
+.fa-redo-alt:before {
+  content: "\f2f9";
+  color: #859efe;
 }
 .nb-edit::before, .fa-pencil-alt:before, .fa-paper-plane:before, .fa-address-card:before {
   color:#849EFE;

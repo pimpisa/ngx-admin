@@ -46,27 +46,68 @@
                   <nb-card-body>
                       <!--Add new user with button--> 
                       
-                    <nb-card class="container-card" style="background: #F9FAFE !important;">
+                    <nb-card class="container-card" style="background: #F9FAFE !important; min-height:70vh;">
                       <i class="nb-arrow-right flush-right" (click)="toggleView()"></i>
                         <nb-tabset fullWidth>
                             <nb-tab tabIcon="person-outline" tabTitle="Detail">
                               <div class="row">
                                   <div class="left-container col-md-4">
                                       <div class="text-center title">
-                                        <nb-user [picture]="user?.picture" [name]="userInfo.name" size="large" showName=false></nb-user>
+                                        <nb-user [picture]="user?.picture" [name]="userInfo.name" [size]="large" showName=false></nb-user>
+                                        
                                         <strong>{{userInfo.name}}</strong></div>
-                                      <div class="box-left sub-title">
-                                        ID
-                                        Email
-                                        Delivery Method
-                                        Group
-                                        Last Login
-                                        Total Points
+                                        <table class="user-info">
+                                            <thead>
+                                                <tr>
+                                                  <th class="row-1 row-title"></th>
+                                                  <th class="row-1 row-detail"></th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                              <tr>
+                                                <td valign="top">ID</td>
+                                                <td valign="top">{{userInfo.id}}</td>
+                                              </tr>
+                                              <tr>
+                                                <td valign="top">Email</td>
+                                                <td valign="top">{{userInfo.email}}</td>
+                                              </tr>
+                                              <tr>
+                                                <td valign="top">Delivery Method</td>
+                                                <td valign="top">{{userInfo.delivery_method}}</td>
+                                              </tr>
+                                              <tr>
+                                                <td valign="top">Group</td>
+                                                <td valign="top">{{userInfo.group}}</td>
+                                              </tr>
+                                              <tr>
+                                                <td valign="top">Delivery Method</td>
+                                                <td valign="top">{{userInfo.delivery_method}}</td>
+                                              </tr>
+                                              <tr>
+                                                <td valign="top">Last Login</td>
+                                                <td valign="top" *ngIf="userInfo.activity == '0000-00-00 00:00:00'">None</td>
+                                              </tr>
+                                              <tr>
+                                                <td valign="top">Total Points</td>
+                                                <td valign="top">0</td>
+                                              </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="actions-group">
                                         <nb-actions size="small">
-                                            <nb-action icon="fa fa-trash"></nb-action>
                                             <nb-action icon="fa fa fa-paper-plane"></nb-action>
                                             <nb-action icon="fa fa-pencil-alt"></nb-action>
-                                        </nb-actions>
+                                            <nb-action icon="fa fa-redo-alt"></nb-action>
+                                          </nb-actions>
+                                        </div>
+                                      <!--<div class="box-left sub-title">
+                                        ID<br/>
+                                        Email<br/>
+                                        Delivery Method<br/>
+                                        Group<br/>
+                                        Last Login<br/>
+                                        Total Points
                                       </div>
                                       <div class="box-right user-detail">
                                         {{userInfo.id}}
@@ -74,16 +115,28 @@
                                         {{userInfo.delivery_method}}
                                         {{userInfo.group}}
                                         <div *ngIf="userInfo.activity == '0000-00-00 00:00:00'">None</div>
-                                      </div>
-                        
+                                        <nb-actions size="small">
+                                          <nb-action icon="fa fa fa-paper-plane"></nb-action>
+                                          <nb-action icon="fa fa-pencil-alt"></nb-action>
+                                          <nb-action icon="fas fa-redo-alt"></nb-action>
+                                          <nb-action icon="fa fa-trash"></nb-action>
+                                        </nb-actions>
+                                        
+                                      </div>-->
+                                      
                                   </div>
                                   <div class="right-container col-md-8">
                                     <div class="col-2 sub-title">
+                                      <!--QuizMe/Test Knowledge Score: 40%
+                                      Game Score: 60%
+                                      Module Page Clicks: 20%
+                                      Resource Center Clicks: 10%-->
                                     </div>
                                     <div class="col-10 info">
                                       <nb-progress-bar [value]="40" status="primary" [displayValue]="true"></nb-progress-bar>
                                       <nb-progress-bar [value]="60" status="primary" [displayValue]="true"></nb-progress-bar>
                                       <nb-progress-bar [value]="20" status="primary" [displayValue]="true"></nb-progress-bar>
+                                      <nb-progress-bar [value]="10" status="primary" [displayValue]="true"></nb-progress-bar>
                                     </div>
                                   </div>
                                 </div>
