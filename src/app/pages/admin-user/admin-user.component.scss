@@ -24,6 +24,7 @@
     table.click-info td {
       padding: 10px;
       margin: 10px;
+      position: relative;
     }
     .row-title{
       width: 30%;
@@ -123,6 +124,30 @@
       line-height: 1.2;
       padding-bottom: 15px;
     }
+    .tracker thead{
+      color:grey;
+    }
+   /* .tracker td:nth-child(1) {
+      padding: 10px;
+      margin-bottom: 5px;
+      background-color: #ff6b82;
+      color: white;
+      border-radius: 10px;
+    }
+    .tracker td:nth-child(2) {
+      padding: 10px;
+      margin-bottom: 5px;
+      background-color: #ffa36b;
+      color: white;
+      border-radius: 10px;
+    }
+    .tracker td:nth-child(3) {
+      padding: 10px;
+      margin-bottom: 5px;
+      background-color: #5dcfe3;
+      color: white;
+      border-radius: 10px;
+    }*/
     .actions-group {
       display: block;
       text-align: center;
