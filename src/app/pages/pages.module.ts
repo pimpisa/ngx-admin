@@ -28,7 +28,7 @@ import { PreviewGameComponent } from './admin-game-demos/preview-game/preview-ga
 import { AdminUserComponent } from './admin-user/admin-user.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { UserDetailComponent } from './admin-user/user-detail/user-detail.component';
-
+import { NbBadgeModule } from '../../../node_modules/@nebular/theme/components/badge/badge.module';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -47,6 +47,7 @@ const PAGES_COMPONENTS = [
     AdminPagesModule,
     DragDropModule,
     Ng2SmartTableModule,
+    NbBadgeModule,
   
   ],
   declarations: [
