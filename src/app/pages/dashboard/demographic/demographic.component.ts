@@ -38,6 +38,13 @@ export class DemographicComponent {
             radius : ['50%', '70%'],
             itemStyle : {
                 normal : {
+                  color: function(params) {
+                    // build a color map as your need.
+                    var colorList = [
+                      '#75d6e8','#F0A8B4','#AFF3E6','#96A9C9','#F7AF80'
+                    ];
+                    return colorList[params.dataIndex]
+                    },
                     label : {
                         show : false
                     },

@@ -4,7 +4,7 @@ import { NbThemeService } from '@nebular/theme';
 @Component({
   selector: 'ngx-prepost',
   template: `
-    <chart type="horizontalBar" [data]="data" [options]="options"></chart>
+    <div echarts [options]="options" class="echart"></div>
   `,
   styleUrls: ['./prepost.component.scss']
 })
@@ -19,65 +19,64 @@ export class PrepostComponent implements OnDestroy {
 
       const colors: any = config.variables;
       const chartjs: any = config.variables.chartjs;
-
-      this.data = {
-        labels: ['Objective1', 'Objective2', 'Objective3'],
-        datasets: [{
-            label: 'Dataset 1',
-            backgroundColor: colors.infoLight,
-            borderWidth: 0,
-            data: [this.random(), this.random(), this.random()],
-          }, {
-            label: 'Dataset 2',
-            backgroundColor: colors.successLight,
-            borderWidth: 0,
-            data: [this.random(), this.random(), this.random()],
+      var dataStyle = { 
+        normal: {
+          color: function(params) {
+              // build a color map as your need.
+              var colorList = [
+                '#75d6e8','#75d6e8'
+              ];
+              return colorList[params.dataIndex]
           },
-        ],
+          label: {
+              show: true,
+              position: 'right',
+              formatter: '{b}\n{c}%',
+              textStyle: {
+                fontFamily: 'Arial',
+                fontSize: 12,
+                fontStyle: 'normal',
+                fontWeight: 'bold',
+             },
+        }
+      }
+        
       };
-
       this.options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        elements: {
-          rectangle: {
-            borderWidth: 0,
+        tooltip : {
+          trigger: 'axis'
+      },
+      legend: {
+          data:['leaderboard']
+      },
+     
+      calculable : true,
+      xAxis : [
+          {
+            show: false,
+          }
+      ],
+      yAxis : [
+          {
+            type : 'category',
+            data : ["Obj1", "Obj2"],
+            axisLine: 5
+          }
+      ],
+      series : [
+          {
+              name:'User score',
+              type:'bar',
+              data:[10,30],
+              itemStyle: dataStyle 
+                
+              ,
+            
           },
-        },
-        scales: {
-          xAxes: [
-            {
-              barPercentage: 0.5,
-              gridLines: {
-                display: false,
-                color: chartjs.axisLineColor,
-              },
-              ticks: {
-                fontColor: chartjs.textColor,
-              },
-            },
-          ],
-          yAxes: [
-            {
-              barPercentage: 1,
-              barThickness: 20,
-              gridLines: {
-                display: false,
-                color: chartjs.axisLineColor,
-              },
-              ticks: {
-                fontColor: chartjs.textColor,
-              },
-            },
-          ],
-        },
-        legend: {
-          position: 'right',
-          labels: {
-            fontColor: chartjs.textColor,
-          },
-        },
+        
+      ]
       };
+     
     });
   }
 

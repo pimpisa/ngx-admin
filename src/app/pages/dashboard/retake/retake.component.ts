@@ -5,74 +5,87 @@ import { ChartService } from '../../../services/chart.service';
 @Component({
   selector: 'ngx-retake',
   template: `
-    <chart type="bar" [data]="data" [options]="options"></chart>
+    <div echarts [options]="options" class="echart"></div>
   `,
   styleUrls: ['./retake.component.scss']
 })
 export class RetakeComponent implements OnDestroy {
+
   data: any;
   options: any;
   themeSubscription: any;
-  chart = [];
 
-  constructor(private theme: NbThemeService, private chartService: ChartService) {
+  constructor(private theme: NbThemeService) {
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
 
       const colors: any = config.variables;
       const chartjs: any = config.variables.chartjs;
-
-      this.data = {
-        labels: ['SMS', 'EMAIL'],
-        datasets: [{
-          label: '# of Votes',
-          data: [12, 23],
-          backgroundColor: NbColorHelper.hexToRgbA(colors.primaryLight, 0.8),
-        }]
+      var dataStyle = { 
+        normal: {
+          color: function(params) {
+              // build a color map as your need.
+              var colorList = [
+                '#9fbeff','#75d6e8'
+              ];
+              return colorList[params.dataIndex]
+          },
+          label: {
+              show: true,
+              position: 'top',
+              formatter: '{b}\n{c}%',
+              textStyle: {
+                fontFamily: 'Arial',
+                fontSize: 18,
+                fontStyle: 'normal',
+                fontWeight: 'bold',
+             },
+        }
+      }
+        
       };
-
       this.options = {
-        maintainAspectRatio: false,
-        responsive: true,
-        legend: false,
-        scales: {
-          xAxes: [
-            {
-              barPercentage: 1,
-              gridLines: {
-                display: false,
-                color: chartjs.axisLineColor,
-              },
-              ticks: {
-                fontColor: chartjs.textColor,
-              },
-            },
-          ],
-          yAxes: [
-            {
-              gridLines: {
-                display: false,
-                color: chartjs.axisLineColor,
-              },
-              ticks: {
-                fontColor: chartjs.textColor,
-              },
-            },
-          ],
-        },
+        tooltip : {
+          trigger: 'axis'
+      },
+      legend: {
+          data:['leaderboard']
+      },
+     
+      calculable : true,
+      xAxis : [
+          {
+            type : 'category',
+            data : ["data1", "data2"],
+            axisLine: 5
+          }
+      ],
+      yAxis : [
+          {
+            show: false,
+          }
+      ],
+      series : [
+          {
+              name:'User score',
+              type:'bar',
+              data:[10,30],
+              itemStyle: dataStyle 
+                
+              ,
+            
+          },
+        
+      ]
       };
+     
     });
-  }
-
-  ngOnInit(): void {
-   /*this.chartService.getResponseRate()
-      .subscribe(res => {
-        console.log(res)
-      })*/
-    
   }
 
   ngOnDestroy(): void {
     this.themeSubscription.unsubscribe();
   }
 
+  private random() {
+    return Math.round(Math.random() * 100);
+  }
 }

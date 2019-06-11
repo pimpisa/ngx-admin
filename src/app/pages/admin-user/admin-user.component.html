@@ -53,15 +53,27 @@
                               <div class="row">
                                   <div class="left-container col-md-4">
                                       <div class="text-center title">
-                                        <nb-user [picture]="user?.picture" [name]="userInfo.name" showName=false></nb-user>
+                                        <nb-user [picture]="user?.picture" [name]="userInfo.name" size="large" showName=false></nb-user>
                                         <strong>{{userInfo.name}}</strong></div>
                                       <div class="box-left sub-title">
-                                        Last Login<br/>
-                                        Total Points<br/>
-                                        Actions
+                                        ID
+                                        Email
+                                        Delivery Method
+                                        Group
+                                        Last Login
+                                        Total Points
+                                        <nb-actions size="small">
+                                            <nb-action icon="fa fa-trash"></nb-action>
+                                            <nb-action icon="fa fa fa-paper-plane"></nb-action>
+                                            <nb-action icon="fa fa-pencil-alt"></nb-action>
+                                        </nb-actions>
                                       </div>
-                                      <div class="box-right info">
-                                        <p *ngIf="userInfo.activity == '0000-00-00 00:00:00'">None</p>
+                                      <div class="box-right user-detail">
+                                        {{userInfo.id}}
+                                        {{userInfo.email}}
+                                        {{userInfo.delivery_method}}
+                                        {{userInfo.group}}
+                                        <div *ngIf="userInfo.activity == '0000-00-00 00:00:00'">None</div>
                                       </div>
                         
                                   </div>

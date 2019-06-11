@@ -60,7 +60,8 @@
       font-size:1.25rem !important;
     }
     .box-left {
-      width: 45%;
+      width: 35%;
+      max-width:350px;
       display: inline-block;
       float: left;
       text-align: left;
@@ -92,7 +93,7 @@
       font-weight: bold;
       line-height:2;
     }
-    .info {
+    .user-detail {
       font-family: Roboto;
       font-size: 16px;
       font-weight: 350;
@@ -106,6 +107,12 @@
     nb-user{
       display: block;
       margin-bottom: 30px;
+    }
+    .progress-value {
+      height: 100%;
+      text-align: right;
+      overflow: hidden;
+      padding: 2px 10px;
     }
     
 
