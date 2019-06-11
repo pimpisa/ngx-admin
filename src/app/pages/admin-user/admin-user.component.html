@@ -48,7 +48,7 @@
                       
                     <nb-card class="container-card" style="background: #F9FAFE !important; min-height:70vh;">
                       <i class="nb-arrow-right flush-right" (click)="toggleView()"></i>
-                        <nb-tabset fullWidth>
+                        <nb-tabset fullWidth style="border:none;">
                             <nb-tab tabIcon="person-outline" tabTitle="Detail">
                               <div class="row">
                                   <div class="left-container col-md-4">
@@ -125,7 +125,7 @@
                                       </div>-->
                                       
                                   </div>
-                                  <div class="right-container col-md-8 title">
+                                 <!-- <div class="right-container col-md-8 title">
                                     QuizMe/Test Knowledge Score:
                                     <nb-progress-bar [value]="40" status="primary" [displayValue]="true" size="giant"></nb-progress-bar>
                                     Game Score: 
@@ -134,6 +134,100 @@
                                     <nb-progress-bar [value]="20" status="primary" [displayValue]="true" size="giant"></nb-progress-bar>
                                     Resource Center Clicks: 
                                     <nb-progress-bar [value]="10" status="primary" [displayValue]="true" size="giant"></nb-progress-bar>
+                                  </div>-->
+                                  <div class="right-container col-md-8 title">
+                                      <nb-tabset fullWidthn style="border:none;">
+                                          <nb-tab tabTitle="All">
+                                              <div class="right-container col-md-8 title">
+                                                  <br/>
+                                                  
+                                                  QuizMe/Test Knowledge Score:
+                                                  <nb-progress-bar [value]="40" status="primary" [displayValue]="true" size="giant"></nb-progress-bar>
+                                                  Game Score: 
+                                                  <nb-progress-bar [value]="60" status="primary" [displayValue]="true" size="giant"></nb-progress-bar>
+                                                  Module Page Clicks: 
+                                                  <nb-progress-bar [value]="20" status="primary" [displayValue]="true" size="giant"></nb-progress-bar>
+                                                  Resource Center Clicks: 
+                                                  <nb-progress-bar [value]="10" status="primary" [displayValue]="true" size="giant"></nb-progress-bar>
+                                                </div>
+                                          </nb-tab>
+                                          <nb-tab tabTitle="Q">
+                                              <br/>
+                                            <table style="width:100%; text-align:center;">
+                                              <thead>
+                                                <tr>
+                                                  <td>Not Strated </td>
+                                                  <td>In Progress </td>
+                                                  <td>Completed </td>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                  <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                  </tr>
+                                              </tbody>
+                                            </table>
+                                          </nb-tab>
+                                          <nb-tab tabTitle="G">
+                                              <br/>
+                                              <table style="width:100%; text-align:center;">
+                                                  <thead>
+                                                    <tr>
+                                                      <td>Not Strated </td>
+                                                      <td>In Progress </td>
+                                                      <td>Completed </td>
+                                                    </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                      <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                      </tr>
+                                                  </tbody>
+                                                </table>
+                                          </nb-tab>
+                                          <nb-tab tabTitle="M">
+                                              <br/>
+                                              <table style="width:100%; text-align:center;">
+                                                  <thead>
+                                                    <tr>
+                                                      <td>Not Strated </td>
+                                                      <td>In Progress </td>
+                                                      <td>Completed </td>
+                                                    </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                      <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                      </tr>
+                                                  </tbody>
+                                                </table>
+                                          </nb-tab>
+                                          <nb-tab tabTitle="R">
+                                            <br/>
+                                              <table style="width:100%; text-align:center;">
+                                                  <thead>
+                                                    <tr>
+                                                      <td>Not Strated </td>
+                                                      <td>In Progress </td>
+                                                      <td>Completed </td>
+                                                    </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                      <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                      </tr>
+                                                  </tbody>
+                                                </table>
+                                          </nb-tab>
+                                      </nb-tabset>
                                   </div>
                                 </div>
                             </nb-tab>

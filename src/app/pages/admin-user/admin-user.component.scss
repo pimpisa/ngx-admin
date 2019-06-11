@@ -59,6 +59,7 @@
     .left-container {
         min-height:300px;
         border-right: solid 2px #869efe;
+        margin-top:2rem;
     }
     .right-container {
         min-height:300px;
@@ -103,9 +104,11 @@
       margin: 10px;
     }
     .row {
-      margin-top: 2.5rem;
+      margin-top: 10px;
     }
-   
+    ul.tabset {
+      border-bottom: 0px !important;
+    }
     .user-info td {
       font-family: Roboto;
       font-size: 15px;
@@ -168,6 +171,9 @@
   margin: auto !important;
   width: 50px !important;
   height: 50px !important;
+}
+ul.tabset {
+  border-bottom: 0px !important;
 }
     
   
