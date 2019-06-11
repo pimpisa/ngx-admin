@@ -11,6 +11,7 @@
     margin: 10px;
     background: #fff;
     box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
+    animation: 1.25s ease-in-out 0ms 1 fadein;
 }
 nb-card.mango {
   border-top: solid 5px #EDE574;
@@ -92,7 +93,7 @@ nb-card.heart {
     overflow: hidden;
   }
   nb-card-footer {
-    height: 40px;
+    height: 60px;
   }
   i.fas.fa-info {
     float: right;
