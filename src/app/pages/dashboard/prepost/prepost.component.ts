@@ -1,11 +1,11 @@
 import { Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
+import { Game_Module } from '../../../interfaces/game';
+import { GameService } from '../../../services/game.service';
 
 @Component({
   selector: 'ngx-prepost',
-  template: `
-    <div echarts [options]="options" class="echart"></div>
-  `,
+  templateUrl: './prepost.component.html',
   styleUrls: ['./prepost.component.scss']
 })
 export class PrepostComponent implements OnDestroy {
@@ -13,8 +13,10 @@ export class PrepostComponent implements OnDestroy {
   data: any;
   options: any;
   themeSubscription: any;
+  game_module: Game_Module[] = [];
 
-  constructor(private theme: NbThemeService) {
+  constructor(private theme: NbThemeService, private gameService: GameService) {
+    this.loadGameModule();
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
 
       const colors: any = config.variables;
@@ -80,11 +82,20 @@ export class PrepostComponent implements OnDestroy {
     });
   }
 
+  loadGameModule(){
+    this.gameService.getGameModule()
+      .subscribe(
+        res => {
+          this.game_module = res['data'].data;
+          console.log("game_module:" + JSON.stringify(this.game_module));
+
+        },
+        error => console.log(error));
+   }
+
   ngOnDestroy(): void {
     this.themeSubscription.unsubscribe();
   }
 
-  private random() {
-    return Math.round(Math.random() * 100);
-  }
+
 }

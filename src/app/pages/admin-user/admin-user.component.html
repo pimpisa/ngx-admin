@@ -20,6 +20,19 @@
               <nb-option value="3">L&T Corporate</nb-option>
               <nb-option value="4">Global Corporate</nb-option>
             </nb-select>
+            <nb-select multiple placeholder="Multiple Select">
+                <nb-option value="1">Option 1</nb-option>
+                <nb-option value="2">Option 2</nb-option>
+                <nb-option value="3">Option 3</nb-option>
+                <nb-option value="4">Option 4</nb-option>
+            </nb-select>
+
+            <nb-select *nfIf="" placeholder="All Group" [(selected)]="commonSelectedItem" class="top-button">
+                <nb-option value="1">Group2</nb-option>
+                <nb-option value="2">Boscov's</nb-option>
+                <nb-option value="3">L&T Corporate</nb-option>
+                <nb-option value="4">Global Corporate</nb-option>
+              </nb-select>
           </div>
     </nb-card-header>
               <ng2-smart-table  [source]="source" [settings]="settings" (deleteConfirm)="onDeleteConfirm($event)" (userRowSelect)="onUserRowSelect($event)" (click)="toggleView()" >
@@ -100,41 +113,8 @@
                                             <nb-action icon="fa fa-pencil-alt"></nb-action>
                                             <nb-action icon="fa fa-redo-alt"></nb-action>
                                           </nb-actions>
-                                        </div>
-                                      <!--<div class="box-left sub-title">
-                                        ID<br/>
-                                        Email<br/>
-                                        Delivery Method<br/>
-                                        Group<br/>
-                                        Last Login<br/>
-                                        Total Points
-                                      </div>
-                                      <div class="box-right user-detail">
-                                        {{userInfo.id}}
-                                        {{userInfo.email}}
-                                        {{userInfo.delivery_method}}
-                                        {{userInfo.group}}
-                                        <div *ngIf="userInfo.activity == '0000-00-00 00:00:00'">None</div>
-                                        <nb-actions size="small">
-                                          <nb-action icon="fa fa fa-paper-plane"></nb-action>
-                                          <nb-action icon="fa fa-pencil-alt"></nb-action>
-                                          <nb-action icon="fas fa-redo-alt"></nb-action>
-                                          <nb-action icon="fa fa-trash"></nb-action>
-                                        </nb-actions>
-                                        
-                                      </div>-->
-                                      
+                                        </div>  
                                   </div>
-                                 <!-- <div class="right-container col-md-8 title">
-                                    QuizMe/Test Knowledge Score:
-                                    <nb-progress-bar [value]="40" status="primary" [displayValue]="true" size="giant"></nb-progress-bar>
-                                    Game Score: 
-                                    <nb-progress-bar [value]="60" status="primary" [displayValue]="true" size="giant"></nb-progress-bar>
-                                    Module Page Clicks: 
-                                    <nb-progress-bar [value]="20" status="primary" [displayValue]="true" size="giant"></nb-progress-bar>
-                                    Resource Center Clicks: 
-                                    <nb-progress-bar [value]="10" status="primary" [displayValue]="true" size="giant"></nb-progress-bar>
-                                  </div>-->
                                   <div class="right-container col-md-8 title">
                                       <nb-tabset fullWidthn style="border:none;">
                                           <nb-tab tabTitle="All">
@@ -293,12 +273,7 @@
           
         </nb-card-back>
       </nb-flip-card>
-   
-    
-          
-         
-    
-  
+
 <!--Pop up window-->
   <!-- View user -->
 <ng-template #viewUserTemplate let-userInfo="getUser(user-Info)" class="col-md-6">
@@ -307,7 +282,6 @@
     <div class="body-template">
       <img class="img-detail" src="../../../assets/images/kate.png"/>
       <div class="name-detail"></div>
-      <!--<input disabled type="text" nbInput fullWidth placeholder="Name:"  class="child"><br/>-->
       <input disabled type="text" nbInput fullWidth placeholder="Phone:" value="" class="child"><br/>
       <input disabled type="text" nbInput fullWidth placeholder="Email:" value="" class="child"><br/>
       <input disabled type="text" nbInput fullWidth placeholder="ID:" value="" class="child"><br/>
