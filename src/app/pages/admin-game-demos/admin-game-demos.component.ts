@@ -54,7 +54,7 @@ export class AdminGameDemosComponent {
 
         },
         error => console.log(error));
-      }
+  }
   /*demos = [
     { id: 1, title: 'Words With Brands', image: 'assets/images/place_holder_crop.png'},
     { id: 2, title: 'Box Selector', image: 'assets/images/place_holder_crop.png'},

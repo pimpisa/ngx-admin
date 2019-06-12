@@ -10,14 +10,14 @@ import { throwError as ObservableThrowError } from 'rxjs';
 })
 export class UserActivityService {
 
-  private activity_api = 'https://demo.edgagement.com/api/report/leadboard';
+  private activity_api = 'https://demo.edgagement.com/api/report/activity';
   private keyToken = 'blfyjKOdJPCTESy5zbC394VYYxzXnB21';
 
-  constructor( private http: HttpClient, private act: Activity) { 
+  constructor( private http: HttpClient) { 
 
   }
   getActivity(): Observable<object> {
-    return this.http.get(this.activity_api, {
+    return this.http.get<Activity>(this.activity_api, {
       'headers': new HttpHeaders().set('Authorization', this.keyToken)
       
        })
