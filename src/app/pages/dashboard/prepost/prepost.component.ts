@@ -1,7 +1,8 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { Game_Module } from '../../../interfaces/game';
 import { GameService } from '../../../services/game.service';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'ngx-prepost',
@@ -14,9 +15,14 @@ export class PrepostComponent implements OnDestroy {
   options: any;
   themeSubscription: any;
   game_module: Game_Module[] = [];
+  selectedGame = [];
+  //Dropdown
+  games = new FormControl();
 
   constructor(private theme: NbThemeService, private gameService: GameService) {
+  
     this.loadGameModule();
+    
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
 
       const colors: any = config.variables;
@@ -92,6 +98,8 @@ export class PrepostComponent implements OnDestroy {
         },
         error => console.log(error));
    }
+
+
 
   ngOnDestroy(): void {
     this.themeSubscription.unsubscribe();

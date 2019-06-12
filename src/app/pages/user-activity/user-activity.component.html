@@ -1,0 +1,15 @@
+<nb-card class="container-wrapper">
+    <nb-card-header class="card-headline">
+        <div class="col-6 col-sm-4 no-pad">
+            <div class="title_wrapper">
+                  <div class="main_title">
+                    <h2>User Activity</h2>
+                  </div>
+            </div>
+        </div>
+</nb-card-header>
+<nb-card-body>
+    <ng2-smart-table  [source]="source" [settings]="settings" (deleteConfirm)="onDeleteConfirm($event)" (userRowSelect)="onUserRowSelect($event)" >
+      </ng2-smart-table>
+</nb-card-body>
+</nb-card>

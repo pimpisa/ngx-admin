@@ -22,6 +22,7 @@ import { AdminLanguageComponent } from './admin-language/admin-language.componen
 import { AdminWebSessionComponent } from './admin-web-session/admin-web-session.component';
 import { AdminGameDemosComponent } from './admin-game-demos/admin-game-demos.component';
 import { AdminUserComponent } from './admin-user/admin-user.component';
+import { UserActivityComponent } from './user-activity/user-activity.component';
 
 
 const routes: Routes = [{
@@ -31,6 +32,10 @@ const routes: Routes = [{
     path: 'dashboard',
     component: ECommerceComponent,
   }, {
+    path: 'user-activity',
+    component: UserActivityComponent,
+  }
+  , {
     path: 'iot-dashboard',
     component: DashboardComponent,
   }, 

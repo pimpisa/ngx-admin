@@ -23,6 +23,8 @@ import { ChartModule, HIGHCHARTS_MODULES } from '../../node_modules/highcharts';
 import * as more from 'highcharts/highcharts-more.src';
 import * as solidGauge from 'highcharts/modules/solid-gauge.src';
 import { ChartService } from '../app/services/chart.service';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { SelectDropDownModule } from 'ngx-select-dropdown';
 //import { GaugeModule } from 'angular-gauge';
 
 
@@ -37,6 +39,8 @@ import { ChartService } from '../app/services/chart.service';
     ReactiveFormsModule,
     FormsModule,
     NgxGaugeModule,
+    NgMultiSelectDropDownModule,
+    SelectDropDownModule,
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),

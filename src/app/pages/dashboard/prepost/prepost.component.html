@@ -1,8 +1,6 @@
-<div class="col-md-4">
-<select id="UserSelector" style="width: 100%;">
-    <option>hehf</option>
-    <option>njeijv;rev</option>
-    <option>vnrkljviv</option>
-</select>
+<div class="dropdown_graph">
+  <nb-select multiple placeholder="Multiple Select" >
+    <nb-option *ngFor="let q of game_module" value="q.id">{{q.title}}</nb-option>
+  </nb-select>
 </div>
 <div echarts [options]="options" class="echart" *ngIf=""></div>

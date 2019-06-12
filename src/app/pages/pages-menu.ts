@@ -7,6 +7,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/iot-dashboard',
   },
   {
+    title: 'User Activity',
+    icon: 'nb-bar-chart',
+    link: '/pages/user-activity',
+  }
+  ,
+  {
     title: 'Manage Site',
     icon: 'nb-layout-sidebar-left',
     link: '/pages/admin-site',

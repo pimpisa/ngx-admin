@@ -29,6 +29,8 @@ import { AdminUserComponent } from './admin-user/admin-user.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { UserDetailComponent } from './admin-user/user-detail/user-detail.component';
 import { NbBadgeModule } from '../../../node_modules/@nebular/theme/components/badge/badge.module';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { UserActivityComponent } from './user-activity/user-activity.component';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -48,6 +50,7 @@ const PAGES_COMPONENTS = [
     DragDropModule,
     Ng2SmartTableModule,
     NbBadgeModule,
+    NgMultiSelectDropDownModule,
   
   ],
   declarations: [
@@ -68,6 +71,7 @@ const PAGES_COMPONENTS = [
     PreviewGameComponent,
     AdminUserComponent,
     UserDetailComponent,
+    UserActivityComponent,
 
   ]
 })

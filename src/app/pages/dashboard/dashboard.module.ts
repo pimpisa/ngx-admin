@@ -34,6 +34,9 @@ import { } from 'echarts/dist/echarts';
 import { ReportComponent } from './report/report.component';
 import { PopularComponent } from './popular/popular.component';
 import { ChartService } from '../../services/chart.service';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { SelectDropDownModule } from 'ngx-select-dropdown';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -42,6 +45,8 @@ import { ChartService } from '../../services/chart.service';
     NbActionsModule,
     ChartsModule,
     ChartModule,
+    NgMultiSelectDropDownModule,
+    SelectDropDownModule,
   ],
   providers: [ChartService], 
   declarations: [
