@@ -35,7 +35,7 @@
                 <div class="flush-left"><button type="submit" class="btn btn-primary">Send Message</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Export CSV</button>&nbsp;&nbsp;
                 <button type="submit" class="btn btn-primary">Export Users</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Import Users</button></div>
                 <br/>
-                <ngb-pagination class="d-flex justify-content-center" [collectionSize]="userTotal" [pageSize]="pageLimit" [(page)]="page" (click)="onPage(page)"></ngb-pagination>
+                <ngb-pagination class="d-flex justify-content-center" [collectionSize]="userTotal" [pageSize]="pageLimit" [(page)]="page" [maxSize]="10" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
               
             <i class="nb-arrow-right" (click)="toggleView()"></i>
           </nb-card>

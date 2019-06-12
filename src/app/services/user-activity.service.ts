@@ -11,6 +11,7 @@ import { throwError as ObservableThrowError } from 'rxjs';
 export class UserActivityService {
 
   private activity_api = 'https://demo.edgagement.com/api/report/activity';
+  private paginationUrl = 'https://demo.edgagement.com/api/report/activity?page=';
   private keyToken = 'blfyjKOdJPCTESy5zbC394VYYxzXnB21';
 
   constructor( private http: HttpClient) { 
@@ -25,6 +26,17 @@ export class UserActivityService {
         catchError((error) => this._handleError(error))
       );
 
+  }
+  getActivityWithPage(page: string){
+    console.log("getAllUsersWithPage" + this.paginationUrl+page);
+    return this.http.get<Activity>(this.paginationUrl + page, {
+      'headers': new HttpHeaders().set('Authorization', this.keyToken)
+      
+       })
+       .pipe(
+        catchError((error) => this._handleError(error))
+      );
+  
   }
 
   private _handleError(err: HttpErrorResponse | any): Observable<any> {

@@ -94,6 +94,14 @@ export class UserActivityComponent implements OnInit {
     
   }
 
+  onPage(page: any){
+    console.log("onPage-call" + page);
+    this.activityService.getActivityWithPage(page).subscribe(res => {
+      this.user_activty = res['data'].data;
+      this.source.load(this.user_activty);
+    });    
+  }
+
   ngOnInit() {
   }
 
