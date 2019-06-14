@@ -5,3 +5,6 @@
 .nb-theme-corporate nb-card.medium-card {
     height: auto !important;
 }
+.input-group-prepend, .nb-theme-corporate .dropdown .dropdown-menu, .nb-theme-corporate .dropup .dropdown-menu {
+    min-width:200px;
+}

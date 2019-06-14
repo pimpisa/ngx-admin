@@ -10,4 +10,8 @@
 
 export const environment = {
   production: false,
+  keyToken: 'blfyjKOdJPCTESy5zbC394VYYxzXnB21',
+  base_api: 'https://demo.edgagement.com/api/',
+
+
 };

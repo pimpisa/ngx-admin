@@ -37,6 +37,11 @@ import { ChartService } from '../../services/chart.service';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { SelectDropDownModule } from 'ngx-select-dropdown';
 import { FormsModule } from '@angular/forms';
+import { EdgageComponent } from './report/edgage/edgage.component';
+
+const components = [
+  EdgageComponent,
+];
 
 @NgModule({
   imports: [
@@ -75,6 +80,7 @@ import { FormsModule } from '@angular/forms';
     FunnelComponent,
     ReportComponent,
     PopularComponent,
+    EdgageComponent,
     
   ],
 })

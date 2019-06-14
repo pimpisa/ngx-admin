@@ -6,15 +6,16 @@ import { throwError as ObservableThrowError } from 'rxjs';
 import { Pipe, PipeTransform } from '@angular/core';
 import { Game } from '../interfaces/game';
 import { Game_Module } from '../interfaces/game';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
 
-  private game_demos_api = 'https://demo.edgagement.com/api/game/type';
-  private game_module_api = 'https://demo.edgagement.com/api/report/game';
-  private keyToken = 'blfyjKOdJPCTESy5zbC394VYYxzXnB21';
+  private game_demos_api = environment.base_api+'game/type';
+  private game_module_api = environment.base_api+'report/game';
+  private keyToken = environment.keyToken;
   
   constructor(private http: HttpClient) { }
 

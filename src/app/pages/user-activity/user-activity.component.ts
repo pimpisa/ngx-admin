@@ -7,7 +7,6 @@ import { DatePipe } from '@angular/common';
 import { NgbPaginationConfig } from '@ng-bootstrap/ng-bootstrap';
 
 
-
 @Component({
   selector: 'ngx-user-activity',
   templateUrl: './user-activity.component.html',
@@ -22,6 +21,7 @@ export class UserActivityComponent implements OnInit {
   pageNo: string;
   pageLimit: string;
   userTotal: string;
+  datePipe: DatePipe;
 
   settings = {
     actions: false,
@@ -37,13 +37,31 @@ export class UserActivityComponent implements OnInit {
         type: 'string',
         filter: false,
       },
-      last_activity: {
+      usage: {
+        title: 'name',
+        type: 'string',
+        filter: false,
+      },
+      /*last_activity: {
         title: 'last activity',
         filter: false,
           type: 'date',
             valuePrepareFunction: (value) => {
-              if (value) {
-                return new DatePipe("en-US").transform(value, 'MM/dd/yyyy hh:mm:ss');
+            if(value){
+              return this.transformDate(value);
+            }
+            return null;
+          },
+          sort:false
+              }*/
+      last_activity : {
+        title: 'last activity',
+        filter: false,
+          type: 'date',
+            valuePrepareFunction: (date) => {
+              console.log("value---"+date);
+              if (date) {
+                return new DatePipe("en-US").transform(date, 'MM/dd/yyyy hh:mm');
                 //return new Date(updated).toDateString();
               }
             return null;
@@ -100,6 +118,7 @@ export class UserActivityComponent implements OnInit {
         error => console.log(error));
     
   }
+
 
   onPage(page: any){
     console.log("onPage-call" + page);

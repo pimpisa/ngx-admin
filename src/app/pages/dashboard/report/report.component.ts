@@ -171,7 +171,7 @@ export class ReportComponent {
           ]
           }
 
-            //Leaderboard Rank
+     //Leaderboard Rank
      var dataStyle_Leaderboard = { 
         normal: {
             label : {

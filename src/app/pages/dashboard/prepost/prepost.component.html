@@ -1,6 +1,21 @@
-<div class="dropdown_graph">
-  <nb-select multiple placeholder="Select Game Modules" >
+<div class="dropdown_graph flush-right">
+  <!--<nb-select class="col-md-4" multiple placeholder="Select Game Modules" >
     <nb-option *ngFor="let q of game_module" value="q.id">{{q.title}}</nb-option>
   </nb-select>
+  <div class="">
+
+  </div>-->
+  <!--<div class="input-group">
+      <div class="dropdown input-group-prepend input-group-btn" ngbDropdown>
+        <button type="button" class="btn btn-success dropdown-toggle" ngbDropdownToggle>
+          Module Group
+        </button>
+        <ul class="dropdown-menu" ngbDropdownMenu>
+          <li class="dropdown-item" *ngFor="let q of game_module" value="q.id">{{q.title}}</li>
+        </ul>
+      </div>
+      <input type="text" class="form-control">
+    </div>-->
+    
 </div>
 <div echarts [options]="options" class="echart"></div>

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard.component';
 import { AdminSiteComponent } from './admin-site/admin-site.component';
+import { EdgageComponent } from './report/edgage/edgage.component';
 
 const routes: Routes = [{
   path: '',
@@ -10,6 +11,9 @@ const routes: Routes = [{
   children: [{
     path: 'admin-site',
     component: AdminSiteComponent,
+  }, {
+    path: 'edgage',
+    component: EdgageComponent,
   }],
 }];
 
