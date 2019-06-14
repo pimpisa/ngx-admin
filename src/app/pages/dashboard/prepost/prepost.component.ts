@@ -32,7 +32,7 @@ export class PrepostComponent implements OnDestroy {
           color: function(params) {
               // build a color map as your need.
               var colorList = [
-                '#75d6e8','#75d6e8'
+                '#75d6e8','#5E81F4','#3b3b95','#5e81f4'
               ];
               return colorList[params.dataIndex]
           },
@@ -75,11 +75,8 @@ export class PrepostComponent implements OnDestroy {
           {
               name:'User score',
               type:'bar',
-              data:[10,30],
-              itemStyle: dataStyle 
-                
-              ,
-            
+              data:[10,20],
+              itemStyle: dataStyle,
           },
         
       ]

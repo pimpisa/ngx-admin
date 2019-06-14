@@ -8,8 +8,7 @@
             </div>
         </div>
 </nb-card-header>
-<nb-card-body>
-   <ng2-smart-table  [source]="source" [settings]="settings">
+<ng2-smart-table  [source]="source" [settings]="settings">
       </ng2-smart-table>
       <br/>
       <div class="flush-left"><button type="submit" class="btn btn-primary">Send Message</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Export CSV</button>&nbsp;&nbsp;
@@ -18,7 +17,5 @@
       <!--<ngb-pagination class="d-flex justify-content-center" [collectionSize]="userTotal" 
       [pageSize]="pageLimit" [(page)]="page" (click)="onPage(page)"></ngb-pagination>-->
       <ngb-pagination class="d-flex justify-content-center" [collectionSize]="userTotal" [pageSize]="pageLimit" [(page)]="page" 
-      [maxSize]="5" [boundaryLinks]="true"
-      (click)="onPage(page)"></ngb-pagination>
-</nb-card-body>
+      [maxSize]="10" [rotate]="true" [boundaryLinks]="true" (pageChange)="onPage(page)"></ngb-pagination>
 </nb-card>

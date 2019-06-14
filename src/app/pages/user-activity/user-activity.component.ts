@@ -4,13 +4,15 @@ import { UserActivityService } from '../../services/user-activity.service';
 import { Activity } from '../../interfaces/activity';
 import { LocalDataSource } from 'ng2-smart-table';
 import { DatePipe } from '@angular/common';
+import { NgbPaginationConfig } from '@ng-bootstrap/ng-bootstrap';
 
 
 
 @Component({
   selector: 'ngx-user-activity',
   templateUrl: './user-activity.component.html',
-  styleUrls: ['./user-activity.component.scss']
+  styleUrls: ['./user-activity.component.scss'],
+  providers: [NgbPaginationConfig]
 })
 export class UserActivityComponent implements OnInit {
 
@@ -23,6 +25,7 @@ export class UserActivityComponent implements OnInit {
 
   settings = {
     actions: false,
+    pager: false,
     columns: {
       id: {
         title: 'ID',
@@ -38,9 +41,9 @@ export class UserActivityComponent implements OnInit {
         title: 'last activity',
         filter: false,
           type: 'date',
-            valuePrepareFunction: (last_activity) => {
-              if (last_activity) {
-                return new DatePipe("en-US").transform(last_activity, 'MM/dd/yyyy hh:mm:ss');
+            valuePrepareFunction: (value) => {
+              if (value) {
+                return new DatePipe("en-US").transform(value, 'MM/dd/yyyy hh:mm:ss');
                 //return new Date(updated).toDateString();
               }
             return null;
@@ -70,8 +73,12 @@ export class UserActivityComponent implements OnInit {
     },
   }
 
-  constructor(private activityService: UserActivityService) {
+  constructor(private activityService: UserActivityService, config: NgbPaginationConfig) {
     this.loadUserActivity();
+    config.boundaryLinks = true;
+    config.maxSize = 10;
+    config.directionLinks = true;
+    config.maxSize = 10;
   }
 
   loadUserActivity(){

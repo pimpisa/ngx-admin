@@ -1,6 +1,6 @@
 <div class="dropdown_graph">
-  <nb-select multiple placeholder="Multiple Select" >
+  <nb-select multiple placeholder="Select Game Modules" >
     <nb-option *ngFor="let q of game_module" value="q.id">{{q.title}}</nb-option>
   </nb-select>
 </div>
-<div echarts [options]="options" class="echart" *ngIf=""></div>
+<div echarts [options]="options" class="echart"></div>
