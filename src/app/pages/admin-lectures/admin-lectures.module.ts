@@ -1,7 +1,6 @@
 '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { ThemeModule } from '../../@theme/theme.module';
-import { AdminLecturesComponent } from './admin-lectures.component';
 import { HttpClientModule} from '@angular/common/http';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { BrowserModule } from '@angular/platform-browser';
@@ -21,8 +20,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   exports:[
       BrowserAnimationsModule
   ],
-  declarations: [
-    AdminLecturesComponent,
-  ],
+  
 })
 export class AdminLectureseModule { }

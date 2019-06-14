@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { ThemeModule } from '../../@theme/theme.module';
-import { AdminMenuComponent } from './admin-menu.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
@@ -8,8 +7,6 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     ThemeModule,
     DragDropModule,
   ],
-  declarations: [
-    AdminMenuComponent,
-  ],
+  
 })
 export class AdminMenuModule { }
