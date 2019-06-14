@@ -75,6 +75,7 @@ const PAGES_COMPONENTS = [
     UserActivityComponent,
     AdminElementsComponent,
     AdminSiteComponent,
+    UserService,
 
   ]
 })
