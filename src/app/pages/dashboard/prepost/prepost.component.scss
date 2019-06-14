@@ -1,3 +1,10 @@
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+body {
+  padding: 20px;
+}
+
 .dropdown_graph {
     width: 100%;
     padding: 20px;
@@ -7,4 +14,62 @@
 }
 .input-group-prepend, .nb-theme-corporate .dropdown .dropdown-menu, .nb-theme-corporate .dropup .dropdown-menu {
     min-width:200px;
+}
+.ng-select {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+}
+.ng-select .ng-select-container {
+    color: #333;
+    cursor: default;
+    display: flex;
+    outline: 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.ng-select .ng-select-container {
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    min-height: 36px;
+    align-items: center;
+}
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container {
+    flex-wrap: wrap;
+}
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container {
+    padding-top: 5px;
+    padding-left: 7px;
+}
+.ng-select .ng-select-container .ng-value-container {
+    display: flex;
+    flex: 1;
+}
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-placeholder {
+    position: absolute;
+    z-index: 1;
+}
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-placeholder {
+    top: 5px;
+    padding-bottom: 5px;
+    padding-left: 3px;
+}
+.ng-select .ng-select-container .ng-value-container .ng-placeholder {
+    color: #999;
+}
+.ng-select .ng-has-value .ng-placeholder {
+    display: none;
+}
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    background-color: #ebf5ff;
+    border-radius: 2px;
+    margin-right: 5px;
+}
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value .ng-value-icon {
+    display: inline-block;
+    padding: 1px 5px;
 }

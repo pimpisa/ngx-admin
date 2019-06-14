@@ -2,14 +2,16 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { Game_Module } from '../../../interfaces/game';
 import { GameService } from '../../../services/game.service';
-import {FormControl} from '@angular/forms';
+import {FormControl, FormGroup, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgSelectModule, NgOption} from '@ng-select/ng-select';
 
 @Component({
   selector: 'ngx-prepost',
   templateUrl: './prepost.component.html',
   styleUrls: ['./prepost.component.scss']
 })
-export class PrepostComponent implements OnDestroy {
+export class PrepostComponent implements OnDestroy, OnInit {
 
   data: any;
   options: any;
@@ -18,10 +20,25 @@ export class PrepostComponent implements OnDestroy {
   selectedGame = [];
   //Dropdown
   games = new FormControl();
+  //
+  cities2 = [
+    {id: 1, name: 'Module1'},
+    {id: 2, name: 'Module2'},
+    {id: 3, name: 'Module3', disabled: true},
+    {id: 4, name: 'Module4'},
+    {id: 5, name: 'Module5'}
+  ];
+  cities4 = [];
+  selectedCity: any;
+    selectedCityIds: string[];
+    selectedCityName = 'Vilnius';
+    selectedCityId: number;
+    selectedUserIds: number[];
 
   constructor(private theme: NbThemeService, private gameService: GameService) {
   
     this.loadGameModule();
+    this.create10kCities();
     
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
 
@@ -85,6 +102,10 @@ export class PrepostComponent implements OnDestroy {
     });
   }
 
+  ngOnInit(){
+    
+  }
+
   loadGameModule(){
     this.gameService.getGameModule()
       .subscribe(
@@ -95,6 +116,16 @@ export class PrepostComponent implements OnDestroy {
         },
         error => console.log(error));
    }
+
+   addCustomUser = (term) => ({id: term, name: term});
+    
+    private create10kCities() {
+        this.cities4 = Array.from({length: 10000}, (value, key) => key)
+                            .map(val => ({
+                              id: val,
+                              name: `city ${val}`
+                            }));
+    }
 
 
 

@@ -38,6 +38,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { SelectDropDownModule } from 'ngx-select-dropdown';
 import { FormsModule } from '@angular/forms';
 import { EdgageComponent } from './report/edgage/edgage.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 const components = [
   EdgageComponent,
@@ -52,6 +53,8 @@ const components = [
     ChartModule,
     NgMultiSelectDropDownModule,
     SelectDropDownModule,
+    NgSelectModule, 
+    FormsModule,
   ],
   providers: [ChartService], 
   declarations: [

@@ -1,4 +1,14 @@
 <div class="dropdown_graph flush-right">
+    <ng-select [items]="cities2"
+    bindLabel="name"
+    bindValue="id"
+    [multiple]="true"
+    placeholder="Select cities"
+    [(ngModel)]="selectedCityIds">
+</ng-select>
+<p>
+Selected cities: {{selectedCityIds}}
+</p>
   <!--<nb-select class="col-md-4" multiple placeholder="Select Game Modules" >
     <nb-option *ngFor="let q of game_module" value="q.id">{{q.title}}</nb-option>
   </nb-select>
