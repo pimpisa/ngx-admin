@@ -53,7 +53,6 @@ const PAGES_COMPONENTS = [
     Ng2SmartTableModule,
     NbBadgeModule,
     NgMultiSelectDropDownModule,
-    UserService,
   
   ],
   declarations: [
