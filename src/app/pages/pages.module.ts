@@ -32,7 +32,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { UserActivityComponent } from './user-activity/user-activity.component';
 import { AdminElementsComponent } from './admin-elements/admin-elements.component';
 import { UserService } from '../services/user.service';
-import { AdminSiteComponent } from '../pages/admin-site/admin-site.component';
+
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -74,7 +74,6 @@ const PAGES_COMPONENTS = [
     UserDetailComponent,
     UserActivityComponent,
     AdminElementsComponent,
-    AdminSiteComponent,
     UserService,
 
   ]
