@@ -20,7 +20,6 @@ import { AdminLanguageComponent } from './admin-language/admin-language.componen
 import { AdminLecturesComponent } from './admin-lectures/admin-lectures.component';
 import { AdminReviewsComponent } from './admin-reviews/admin-reviews.component';
 import { AdminWebSessionComponent } from './admin-web-session/admin-web-session.component';
-import { AdminElementsComponent } from './admin-elements/admin-elements.component';
 import { AdminGameDemosComponent } from './admin-game-demos/admin-game-demos.component';
 import { ShowcaseDialogComponent } from './modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -31,6 +30,7 @@ import { UserDetailComponent } from './admin-user/user-detail/user-detail.compon
 import { NbBadgeModule } from '../../../node_modules/@nebular/theme/components/badge/badge.module';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { UserActivityComponent } from './user-activity/user-activity.component';
+import { AdminElementsComponent } from './admin-elements/admin-elements.component';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -65,13 +65,13 @@ const PAGES_COMPONENTS = [
     AdminLecturesComponent,
     AdminReviewsComponent,
     AdminWebSessionComponent,
-    AdminElementsComponent,
     AdminGameDemosComponent,
     ShowcaseDialogComponent,
     PreviewGameComponent,
     AdminUserComponent,
     UserDetailComponent,
     UserActivityComponent,
+    AdminElementsComponent,
 
   ]
 })
