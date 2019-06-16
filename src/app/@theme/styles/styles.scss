@@ -5,8 +5,8 @@
 @import '~@nebular/theme/styles/globals';
 @import '~@nebular/auth/styles/all';
 @import '~@nebular/bootstrap/styles/globals';
-// ...
-
+//multiple select dropdown
+@import "~@ng-select/ng-select/themes/material.theme.css";
 // global app font size
 @import './font-size';
 

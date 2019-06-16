@@ -21,13 +21,7 @@ export class PrepostComponent implements OnDestroy, OnInit {
   //Dropdown
   games = new FormControl();
   //
-  cities2 = [
-    {id: 1, name: 'Module1'},
-    {id: 2, name: 'Module2'},
-    {id: 3, name: 'Module3', disabled: true},
-    {id: 4, name: 'Module4'},
-    {id: 5, name: 'Module5'}
-  ];
+
   cities4 = [];
   selectedCity: any;
     selectedCityIds: string[];
