@@ -17,14 +17,17 @@ export class PrepostComponent implements OnDestroy, OnInit {
   options: any;
   themeSubscription: any;
   game_module: Game_Module[] = [];
+  module_name: string;
   selectedGame = [];
   //Dropdown
   games = new FormControl();
+  arrBirds: string [];
+
   //
 
   cities4 = [];
   selectedCity: any;
-    selectedCityIds: string[];
+    selectedModule: string[];
     selectedCityName = 'Vilnius';
     selectedCityId: number;
     selectedUserIds: number[];
@@ -103,9 +106,9 @@ export class PrepostComponent implements OnDestroy, OnInit {
   loadGameModule(){
     this.gameService.getGameModule()
       .subscribe(
-        res => {
-          this.game_module = res['data'].data;
-          console.log("game_module:" + JSON.stringify(this.game_module));
+       res => {
+        this.game_module = res['data'].data;
+        console.log("game_module:" + JSON.stringify(this.game_module));
 
         },
         error => console.log(error));

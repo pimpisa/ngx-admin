@@ -1,13 +1,13 @@
 <div class="dropdown_graph flush-right">
-    <ng-select [items]="game_module.title"
-    bindLabel="name"
-    bindValue="id"
+    <ng-select [items]="game_module"
+    bindLabel="title"
+    bindValue="title"
     [multiple]="true"
-    placeholder="Select cities"
-    [(ngModel)]="selectedCityIds">
+    placeholder="Select module"
+    [(ngModel)]="selectedModule">
 </ng-select>
 <p>
-Selected cities: {{selectedCityIds}}
+Selected Modules: {{selectedModule}}
 </p>
   <!--<nb-select class="col-md-4" multiple placeholder="Select Game Modules" >
     <nb-option *ngFor="let q of game_module" value="q.id">{{q.title}}</nb-option>
@@ -28,4 +28,4 @@ Selected cities: {{selectedCityIds}}
     </div>-->
     
 </div>
-<div echarts [options]="options" class="echart"></div>
+<div *ngIf="selectedModule" echarts [options]="options" class="echart"></div>

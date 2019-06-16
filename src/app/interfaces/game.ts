@@ -13,7 +13,7 @@ export interface Game_Module {
     inprogress: string;
     total: string;
     max: string;
-    Overall: string;
+    overall: string;
     raw: number;
 }
 

@@ -7,6 +7,19 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Game } from '../interfaces/game';
 import { Game_Module } from '../interfaces/game';
 import { environment } from '../../environments/environment';
+import { delay, map } from 'rxjs/operators';
+import 'rxjs/operator/filter'; 
+
+export interface Game_type {
+  id: string;
+  title: string;
+  completed: string;
+  inprogress: string;
+  total: string;
+  max: string;
+  overall: string;
+  raw: number;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -19,15 +32,14 @@ export class GameService {
   
   constructor(private http: HttpClient) { }
 
-  getGame(): Observable<object> {
-    return this.http.get<Game[]>(this.game_demos_api, {
+  getGame(): Observable<Game> {
+    return this.http.get<Game>(this.game_demos_api, {
       'headers': new HttpHeaders().set('Authorization', this.keyToken)
       
        })
        .pipe(
         catchError((error) => this._handleError(error))
       );
-
   }
   getGameModule(): Observable<object> {
     return this.http.get<Game_Module[]>(this.game_module_api, {
