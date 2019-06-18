@@ -6,7 +6,7 @@ import { ECommerceModule } from './e-commerce/e-commerce.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ThemeModule } from '../@theme/theme.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
-import { AdminSiteModule } from './admin-site/admin-site.module';
+//import { AdminSiteModule } from './admin-site/admin-site.module';
 import { AdminUsersModule } from './admin-users/admin-users.module';
 import { AdminGroupModule } from './admin-group/admin-group.module';
 import { AdminPagesModule } from './admin-pages/admin-pages.module';
@@ -32,6 +32,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { UserActivityComponent } from './user-activity/user-activity.component';
 import { AdminElementsComponent } from './admin-elements/admin-elements.component';
 import { UserService } from '../services/user.service';
+import { AdminSiteComponent } from './admin-site/admin-site.component';
 
 
 const PAGES_COMPONENTS = [
@@ -45,7 +46,7 @@ const PAGES_COMPONENTS = [
     DashboardModule,
     ECommerceModule,
     MiscellaneousModule,
-    AdminSiteModule,
+    //AdminSiteModule,
     AdminUsersModule,
     AdminGroupModule,
     AdminPagesModule,
@@ -75,6 +76,7 @@ const PAGES_COMPONENTS = [
     UserActivityComponent,
     AdminElementsComponent,
     UserService,
+    AdminSiteComponent,
 
   ]
 })
