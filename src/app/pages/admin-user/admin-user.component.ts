@@ -21,6 +21,7 @@ export class AdminUserComponent  {
   @ViewChild('disabledEsc', { read: TemplateRef }) disabledEscTemplate: TemplateRef<HTMLElement>;
   flipped = false;
 
+  page: any;
   pageNo: any;
   source: LocalDataSource = new LocalDataSource();
   pageClick: number;
