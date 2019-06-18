@@ -67,11 +67,11 @@ private userInfo: any;
 userDetail: Observable<User[]>;
 
 private header:Headers = new Headers({
-    'Authorization': 'blfyjKOdJPCTESy5zbC394VYYxzXnB21'
+    'Authorization': this.keyToken
 });
 
 private setHeaders = new HttpHeaders()
-  .set("Authorization","blfyjKOdJPCTESy5zbC394VYYxzXnB21")
+  .set("Authorization", this.keyToken)
 
 constructor(private http: HttpClient) { }
 

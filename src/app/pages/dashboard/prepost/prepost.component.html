@@ -1,7 +1,7 @@
 <div class="dropdown_graph flush-right">
-    <ng-select [items]="game_module"
+    <ng-select (change)="onChange(title,overall)" [items]="game_module"
     bindLabel="title"
-    bindValue="title"
+    bindValue="overall"
     [multiple]="true"
     placeholder="Select module"
     [(ngModel)]="selectedModule">
