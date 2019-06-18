@@ -6,7 +6,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { AdminSiteComponent } from './admin-site/admin-site.component';
-import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { AdminGroupComponent } from './admin-group/admin-group.component';
 import { AdminPagesComponent } from './admin-pages/admin-pages.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
@@ -42,11 +41,7 @@ const routes: Routes = [{
   {
     path: 'admin-site',
     component: AdminSiteComponent,
-  }, 
-  {
-    path: 'admin-users',
-    component: AdminUsersComponent,
-  }, 
+  },
   {
     path: 'admin-user',
     component: AdminUserComponent,

@@ -7,7 +7,6 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { ThemeModule } from '../@theme/theme.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 //import { AdminSiteModule } from './admin-site/admin-site.module';
-import { AdminUsersModule } from './admin-users/admin-users.module';
 import { AdminGroupModule } from './admin-group/admin-group.module';
 import { AdminPagesModule } from './admin-pages/admin-pages.module';
 import { AdminCampaignComponent } from './admin-campaign/admin-campaign.component';
@@ -47,7 +46,6 @@ const PAGES_COMPONENTS = [
     ECommerceModule,
     MiscellaneousModule,
     //AdminSiteModule,
-    AdminUsersModule,
     AdminGroupModule,
     AdminPagesModule,
     DragDropModule,
