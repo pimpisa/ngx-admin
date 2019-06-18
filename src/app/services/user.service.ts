@@ -141,7 +141,7 @@ getUserDetail(user: User){
     });
 }*/
   getUserInfo(id: string): Observable<object> {
-    return this.http.get<User[]>("https://demo.edgagement.com/api/user/id/" + id, {
+    return this.http.get("https://demo.edgagement.com/api/user/id/" + id, {
       'headers': new HttpHeaders().set('Authorization', this.keyToken)
       
        })
