@@ -57,7 +57,7 @@ export class FunnelComponent implements AfterViewInit, OnDestroy {
 
       this.options = {
         backgroundColor: echarts.bg,
-        color: [colors.warningLight, colors.infoLight, colors.dangerLight, colors.successLight, colors.primaryLight],
+        color: ["#5450A6", "#4562C9", "#005FC9", "#006CC9", colors.primaryLight],
         tooltip : {
           trigger: 'item',
           formatter: "{a} <br/>{b} : {c}%"

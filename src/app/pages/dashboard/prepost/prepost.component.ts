@@ -11,7 +11,7 @@ import {NgSelectModule, NgOption} from '@ng-select/ng-select';
   templateUrl: './prepost.component.html',
   styleUrls: ['./prepost.component.scss']
 })
-export class PrepostComponent implements OnDestroy, OnInit {
+export class PrepostComponent implements OnInit {
 
   data: any;
   options: any;
@@ -28,8 +28,8 @@ export class PrepostComponent implements OnDestroy, OnInit {
   cities4 = [];
   selectedCity: any;
     selectedModule: string[];
-    selectedCityName = 'Vilnius';
-    selectedCityId: number;
+    //selectedCityName = 'Vilnius';
+   // selectedCityId: number;
     selectedUserIds: number[];
 
   constructor(private theme: NbThemeService, private gameService: GameService) {
@@ -37,10 +37,6 @@ export class PrepostComponent implements OnDestroy, OnInit {
     this.loadGameModule();
     this.create10kCities();
     
-    this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
-
-      const colors: any = config.variables;
-      const chartjs: any = config.variables.chartjs;
       var dataStyle = { 
         normal: {
           color: function(params) {
@@ -76,6 +72,7 @@ export class PrepostComponent implements OnDestroy, OnInit {
       xAxis : [
           {
             show: false,
+        
           }
       ],
       yAxis : [
@@ -96,7 +93,7 @@ export class PrepostComponent implements OnDestroy, OnInit {
       ]
       };
      
-    });
+  
   }
 
   ngOnInit(){
@@ -114,7 +111,7 @@ export class PrepostComponent implements OnDestroy, OnInit {
         error => console.log(error));
    }
 
-   addCustomUser = (term) => ({id: term, name: term});
+  // addCustomUser = (term) => ({id: term, name: term});
     
     private create10kCities() {
         this.cities4 = Array.from({length: 10000}, (value, key) => key)
@@ -123,12 +120,6 @@ export class PrepostComponent implements OnDestroy, OnInit {
                               name: `city ${val}`
                             }));
     }
-
-
-
-  ngOnDestroy(): void {
-    this.themeSubscription.unsubscribe();
-  }
 
 
 }

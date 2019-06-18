@@ -100,6 +100,9 @@ nb-card.container-card {
   box-shadow: 0 2px 12px 0 #dfe3eb;
   padding:3rem;
 }
+nb-card.medium-card {
+  height: auto;
+}
 nb-card-header {
   font-size: 1.5rem;
   font-weight: 350 !important;
