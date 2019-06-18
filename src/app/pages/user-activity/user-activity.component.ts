@@ -22,6 +22,7 @@ export class UserActivityComponent implements OnInit {
   pageLimit: string;
   userTotal: string;
   datePipe: DatePipe;
+  page: any;
 
   settings = {
     actions: false,
