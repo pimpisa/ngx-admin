@@ -22,7 +22,7 @@ export class AdminUserComponent  {
   flipped = false;
 
   page: any;
-  largeL: any;
+  large: any;
   pageNo: any;
   source: LocalDataSource = new LocalDataSource();
   pageClick: number;
