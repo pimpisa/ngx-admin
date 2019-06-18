@@ -22,6 +22,7 @@ export class AdminUserComponent  {
   flipped = false;
 
   page: any;
+  largeL: any;
   pageNo: any;
   source: LocalDataSource = new LocalDataSource();
   pageClick: number;
@@ -33,7 +34,7 @@ export class AdminUserComponent  {
   selected_id: any;
   userDetail: User = new User();
   //userInfo: Observable<User[]>;
-  userInfo: User[] = [];
+  userInfo: User = new User();
 
   private currentPage:number = 1;
   settings = {
