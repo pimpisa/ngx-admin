@@ -78,22 +78,20 @@ export class PrepostComponent implements OnInit {
       yAxis : [
           {
             type : 'category',
-            data : ["Obj1", "Obj2"],
+            data : ["Module1","Module2","Module3","Module4","Module5","Module6","Module7","Module8"],
             axisLine: 5
           }
       ],
       series : [
           {
-              name:'User score',
-              type:'bar',
-              data:[10,20],
-              itemStyle: dataStyle,
-          },
-        
+            name:'User score',
+            type:'bar',
+            data:[10,20,38,78,49,20,48,20],
+            itemStyle: dataStyle,
+          },    
       ]
       };
      
-  
   }
 
   ngOnInit(){
