@@ -4,15 +4,16 @@ import { Activity } from '../interfaces/activity';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { throwError as ObservableThrowError } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserActivityService {
 
-  private activity_api = 'https://demo.edgagement.com/api/report/activity';
-  private paginationUrl = 'https://demo.edgagement.com/api/report/activity?page=';
-  private keyToken = 'blfyjKOdJPCTESy5zbC394VYYxzXnB21';
+  private activity_api = environment.base_api + 'report/activity';
+  private paginationUrl = environment.base_api + 'report/activity?page=';
+  private keyToken = environment.keyToken;
 
   constructor( private http: HttpClient) { 
 

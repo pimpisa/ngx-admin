@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { throwError as ObservableThrowError } from 'rxjs';
 import { Pipe, PipeTransform } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 
 @Injectable({
@@ -27,11 +28,11 @@ export class UserService implements PipeTransform {
     });
    }
 
-  allUsersApiUrl = 'https://demo.edgagement.com/api/user/list';
-  currentUserApiUrl = 'https://demo.edgagement.com/api/user';
-  userByIdApi = 'https://demo.edgagement.com/api/user/id/';
-  paginationUrl = 'https://demo.edgagement.com/api/user/list?page=';
-  keyToken = 'blfyjKOdJPCTESy5zbC394VYYxzXnB21';
+  private allUsersApiUrl = environment.base_api + 'user/list';
+  private currentUserApiUrl = environment.base_api + 'user';
+  private userByIdApi = environment.base_api + 'user/id/';
+  private paginationUrl = environment.base_api + 'user/list?page=';
+  private keyToken = environment.keyToken;
 
   private user = new BehaviorSubject<any>({
     name: ''
