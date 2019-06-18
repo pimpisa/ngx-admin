@@ -10,8 +10,8 @@ import {
 } from '@nebular/auth';
 
 const routes: Routes = [
-  { path: 'pages', loadChildren: 'app/pages/pages.module#PagesModule' },
-  {
+ { path: 'pages', loadChildren: 'app/pages/pages.module#PagesModule' },
+    {
     path: 'auth',
     component: NbAuthComponent,
     children: [
@@ -42,6 +42,7 @@ const routes: Routes = [
     ],
   },
   { path: '', redirectTo: 'pages/iot-dashboard', pathMatch: 'full' },
+  
   { path: '**', redirectTo: 'pages' },
 ];
 
