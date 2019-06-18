@@ -1,7 +1,6 @@
-@import '../admin-users/admin-users.component.scss';
+//@import '../admin-users/admin-users.component.scss';
 
 
-@include nb-install-component() {
     nb-card {
       transform: translate3d(0, 0, 0);
       background: transparent !important;
@@ -189,7 +188,6 @@
       overflow: hidden;
       padding: 2px 10px;
     }
-}
 
 .user-picture.background{
   display: block !important;
@@ -200,5 +198,5 @@
 ul.tabset {
   border-bottom: 0px !important;
 }
-    
+
   
