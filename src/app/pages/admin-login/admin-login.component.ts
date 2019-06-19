@@ -1,0 +1,18 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'ngx-admin-login',
+  templateUrl: './admin-login.component.html',
+  styleUrls: ['./admin-login.component.scss']
+})
+export class AdminLoginComponent implements OnInit {
+
+  constructor() { 
+    window.location.href = "https://eadev.edgagement.com/login";
+  }
+
+  ngOnInit() {
+    
+  }
+
+}

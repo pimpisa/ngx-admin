@@ -32,6 +32,7 @@ import { UserActivityComponent } from './user-activity/user-activity.component';
 import { AdminElementsComponent } from './admin-elements/admin-elements.component';
 import { UserService } from '../services/user.service';
 import { AdminSiteComponent } from './admin-site/admin-site.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 
 const PAGES_COMPONENTS = [
@@ -75,6 +76,7 @@ const PAGES_COMPONENTS = [
     AdminElementsComponent,
     UserService,
     AdminSiteComponent,
+    AdminLoginComponent,
 
   ]
 })
