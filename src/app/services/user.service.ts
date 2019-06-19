@@ -8,6 +8,7 @@ import { catchError } from 'rxjs/operators';
 import { throwError as ObservableThrowError } from 'rxjs';
 import { Pipe, PipeTransform } from '@angular/core';
 import { environment } from '../../environments/environment';
+import 'rxjs/add/operator/catch';
 
 
 @Injectable({
@@ -75,12 +76,12 @@ private setHeaders = new HttpHeaders()
 
 constructor(private http: HttpClient) { }
 
-loadUser(): Promise<any> {
+/*loadUser(): Promise<any> {
     return new Promise((resolve, reject) => {
         this.http.get('https://demo.edgagement.com/api/user', {
-            'headers': new HttpHeaders().set('Authorization', this.keyToken)
+            'headers': new HttpHeaders().set('Authorization', 'this.keyToken')
         }).subscribe((res:any) => {
-            //console.log(res);
+            // console.log(res);
             if(res.code == 0){
                 this.user.next(res.data);
                 resolve();
@@ -88,7 +89,29 @@ loadUser(): Promise<any> {
                // console.log('user need login');
                 reject();
             }
-        });
+        }).pipe(catchError((error) => {
+          window.location.href = '/login';
+        }));
+    });
+}*/
+loadUser(): Promise<any> {
+  return new Promise((resolve, reject) => {
+      this.http.get('https://demo.edgagement.com/api/user', {
+          'headers': new HttpHeaders().set('Authorization', this.keyToken)
+      }).subscribe((res:any) => {
+        // console.log(res);
+        if(res.code == 0){
+            this.user.next(res.data);
+            resolve();
+        }else{
+           // console.log('user need login');
+           window.location.href = '/login';
+        }
+      },
+        err => {
+          window.location.href = '/login';
+          }
+        )
     });
 }
 
@@ -199,7 +222,7 @@ deleteUser(id:number){
      })
      .pipe(
       catchError((error) => this._handleError(error))
-    );;
+    );
 }
 
 testGetAllUsers(){

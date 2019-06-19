@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
-import { Game_Module } from '../../../interfaces/game';
+import { Game_Module, Game } from '../../../interfaces/game';
 import { GameService } from '../../../services/game.service';
 import {FormControl, FormGroup, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
@@ -14,6 +14,7 @@ interface AngSelectEvent {
 
 @Component({
   selector: 'ngx-prepost',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './prepost.component.html',
   styleUrls: ['./prepost.component.scss']
 })
@@ -34,7 +35,7 @@ export class PrepostComponent implements OnInit {
 
   cities4 = [];
   selectedCity: any;
-    selectedModule: string[];
+  selectedModule: string[];
     //selectedCityName = 'Vilnius';
    // selectedCityId: number;
   selectedUserIds: number[];
@@ -49,10 +50,15 @@ export class PrepostComponent implements OnInit {
      
   }
 
-  onChange(title:any, overall:any){
-    console.log("event click" + title + overall);
-    this.events.push({ name: title, value: overall });
-    this.loadChart(this.events['name'],this.events['value']);
+  onChange(selectedGame){
+    //onChange($event){
+     console.log(this.selectedModule);
+    //console.log("event click" + title + overall);
+    //this.events.push({ name: '(change)', value: $event });
+    
+    //console.log("event-names " + this.events['name'],"event-values " + this.events['value']);
+    //console.log("event---- " + this.events.toString);
+   // this.loadChart(,this.events['value']);
   }
 
   loadChart(module:string[], score:number[]){

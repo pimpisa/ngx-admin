@@ -22,6 +22,7 @@ import { AdminWebSessionComponent } from './admin-web-session/admin-web-session.
 import { AdminGameDemosComponent } from './admin-game-demos/admin-game-demos.component';
 import { AdminUserComponent } from './admin-user/admin-user.component';
 import { UserActivityComponent } from './user-activity/user-activity.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 
 const routes: Routes = [{
@@ -33,6 +34,10 @@ const routes: Routes = [{
   }, {
     path: 'user-activity',
     component: UserActivityComponent,
+  }
+  , {
+    path: 'admin-login',
+    component: AdminLoginComponent,
   }
   , {
     path: 'iot-dashboard',

@@ -23,7 +23,6 @@ export class AppComponent implements OnInit {
     this.analytics.trackPageViews();
 
     this.spinnerService.registerLoader(this.testUserService.loadUser());
-    this.testUserService.loadUser();
   }
 
 }

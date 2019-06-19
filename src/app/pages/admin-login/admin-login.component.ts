@@ -12,7 +12,7 @@ export class AdminLoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
   }
 
 }

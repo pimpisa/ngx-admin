@@ -1,31 +1,10 @@
 <div class="dropdown_graph flush-right">
-    <ng-select (change)="onChange(title,overall)" [items]="game_module"
-    bindLabel="title"
-    bindValue="overall"
-    [multiple]="true"
-    placeholder="Select module"
-    [(ngModel)]="selectedModule">
+<!--<ng-select placeholder="SELECT GAME MODULE" [(ngModel)]="selectedModule" [multiple]="true" (change)="onChange(selectedModule)">
+    <ng-option *ngFor="let g of game_module" [value]="g">{{g.title}}</ng-option>
 </ng-select>
 <p>
-Selected Modules: {{selectedModule}}
-</p>
-  <!--<nb-select class="col-md-4" multiple placeholder="Select Game Modules" >
-    <nb-option *ngFor="let q of game_module" value="q.id">{{q.title}}</nb-option>
-  </nb-select>
-  <div class="">
-
-  </div>-->
-  <!--<div class="input-group">
-      <div class="dropdown input-group-prepend input-group-btn" ngbDropdown>
-        <button type="button" class="btn btn-success dropdown-toggle" ngbDropdownToggle>
-          Module Group
-        </button>
-        <ul class="dropdown-menu" ngbDropdownMenu>
-          <li class="dropdown-item" *ngFor="let q of game_module" value="q.id">{{q.title}}</li>
-        </ul>
-      </div>
-      <input type="text" class="form-control">
-    </div>-->
+Selected Modules: {{selectedModule | json}}
+</p>-->
     
 </div>
 <div *ngIf="selectedModule" echarts [options]="options" class="echart"></div>
