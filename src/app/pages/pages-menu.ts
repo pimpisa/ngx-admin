@@ -13,15 +13,27 @@ export const MENU_ITEMS: NbMenuItem[] = [
   }
   ,
   {
-    title: 'Manage Site',
-    icon: 'nb-layout-sidebar-left',
-    link: '/pages/admin-site',
-    home: true,
-  },
-  {
     title: 'Manage Users',
     icon: 'nb-person',
     link: '/pages/admin-user',
+    home: true,
+  },
+  {
+    title: 'Game Demos',
+    icon: 'nb-compose',
+    link: '/pages/admin-game-demos',
+    home: true,
+  },
+  {
+    title: 'Manage Pages',
+    icon: 'nb-compose',
+    link: '/pages/admin-manage',
+    home: true,
+  }/*,
+  {
+    title: 'Manage Site',
+    icon: 'nb-layout-sidebar-left',
+    link: '/pages/admin-site',
     home: true,
   },
   
@@ -102,11 +114,5 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'nb-compose',
     link: '/pages/admin-web-session',
     home: true,
-  },
-  {
-    title: 'Game Demos',
-    icon: 'nb-compose',
-    link: '/pages/admin-game-demos',
-    home: true,
-  }  
+  }*/
 ];

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { Game_Module, Game } from '../../../interfaces/game';
 import { GameService } from '../../../services/game.service';
@@ -19,7 +19,7 @@ interface AngSelectEvent {
   styleUrls: ['./prepost.component.scss']
 })
 export class PrepostComponent implements OnInit {
-
+  flipped = false;
   data: any;
   options: any;
   themeSubscription: any;
@@ -30,24 +30,39 @@ export class PrepostComponent implements OnInit {
   games = new FormControl();
   arrBirds: string [];
   events: AngSelectEvent[] = [];
-
+  public gm:Game_Module[];
+  gm1: Game_Module;
   //
-
+  game_overall: any;
+  game_title: any;
+  
   cities4 = [];
   selectedCity: any;
   selectedModule: string[];
     //selectedCityName = 'Vilnius';
    // selectedCityId: number;
   selectedUserIds: number[];
+  //public listData: number[];
+  //public module: string[];
+  public listData = [100,20,38,78,49,20,48,20];
+  public module = ["Mobile Engagement","Module2","Module3","Module4","Module5","Module6","Module7","Module8"];
+  @Input()
+  @HostBinding('class.revealed')
+  revealed: boolean = false;
 
-  public listData = [10,20,38,78,49,20,48,20];
-  public module = ["Module1","Module2","Module3","Module4","Module5","Module6","Module7","Module8"]
+  /**
+   * Show/hide toggle button to be able to control toggle from your code
+   * @type {boolean}
+   */
+  @Input() showToggleButton = true;
+
   constructor(private theme: NbThemeService, private gameService: GameService) {
-  
+    
     this.loadGameModule();
     this.create10kCities();
-    //this.loadChart(this.module,this.listData)
-     
+    
+    this.loadChart(this.module,this.listData)
+  
   }
 
   onChange(selectedGame){
@@ -113,7 +128,7 @@ export class PrepostComponent implements OnInit {
           name:'User score',
           type:'bar',
           data: score,
-          //data: this.listData,
+         // data: this.listData,
           itemStyle: dataStyle,
         },    
     ]
@@ -124,16 +139,33 @@ export class PrepostComponent implements OnInit {
     
   }
 
-  loadGameModule(){
+  showGraph(){
+
+    console.log("show graph called");
+  }
+
+  toggleView() {
+    this.flipped = !this.flipped;
+  }
+  /*loadGameModule(){
     this.gameService.getGameModule()
       .subscribe(
        res => {
         this.game_module = res['data'].data;
-        console.log("game_module:" + JSON.stringify(this.game_module));
-
+        console.log("game_module:" + JSON.stringify(this.game_module['title']));
+       // this.listData = 
         },
         error => console.log(error));
-   }
+   }*/
+   loadGameModule(){
+     this.gameService.getGameModule()
+      .subscribe((gm:Game_Module[]) => {
+       this.gm = gm['data'].data;
+       //this.gm = gm[0]['data']['title'];
+       this.game_module = gm['data'].data;
+        console.log("gma=" + JSON.stringify(this.gm));
+      })
+  }
 
   // addCustomUser = (term) => ({id: term, name: term});
     

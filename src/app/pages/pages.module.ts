@@ -33,6 +33,7 @@ import { AdminElementsComponent } from './admin-elements/admin-elements.componen
 import { UserService } from '../services/user.service';
 import { AdminSiteComponent } from './admin-site/admin-site.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminManageComponent } from './admin-manage/admin-manage.component';
 
 
 const PAGES_COMPONENTS = [
@@ -77,6 +78,7 @@ const PAGES_COMPONENTS = [
     UserService,
     AdminSiteComponent,
     AdminLoginComponent,
+    AdminManageComponent,
 
   ]
 })

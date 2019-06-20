@@ -44,7 +44,6 @@ export class GameService {
   getGameModule(): Observable<object> {
     return this.http.get<Game_Module[]>(this.game_module_api, {
       'headers': new HttpHeaders().set('Authorization', this.keyToken)
-      
        })
        .pipe(
         catchError((error) => this._handleError(error))

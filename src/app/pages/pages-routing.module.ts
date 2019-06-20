@@ -23,6 +23,7 @@ import { AdminGameDemosComponent } from './admin-game-demos/admin-game-demos.com
 import { AdminUserComponent } from './admin-user/admin-user.component';
 import { UserActivityComponent } from './user-activity/user-activity.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminManageComponent } from './admin-manage/admin-manage.component';
 
 
 const routes: Routes = [{
@@ -44,13 +45,21 @@ const routes: Routes = [{
     component: DashboardComponent,
   }, 
   {
-    path: 'admin-site',
-    component: AdminSiteComponent,
-  },
-  {
     path: 'admin-user',
     component: AdminUserComponent,
   }, 
+  {
+    path: 'admin-game-demos',
+    component: AdminGameDemosComponent,
+  },
+  {
+    path: 'admin-manage',
+    component: AdminManageComponent,
+  },
+  {
+    path: 'admin-site',
+    component: AdminSiteComponent,
+  },
   {
     path: 'admin-pages',
     component: AdminPagesComponent,
@@ -102,11 +111,7 @@ const routes: Routes = [{
   {
     path: 'admin-web-session',
     component: AdminWebSessionComponent,
-  },
-  {
-    path: 'admin-game-demos',
-    component: AdminGameDemosComponent,
-  },
+  }, 
   {
     path: 'ui-features',
     loadChildren: './ui-features/ui-features.module#UiFeaturesModule',
