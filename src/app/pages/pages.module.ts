@@ -35,6 +35,7 @@ import { AdminSiteComponent } from './admin-site/admin-site.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminManageComponent } from './admin-manage/admin-manage.component';
 import { EdgageGameComponent } from './edgage-game/edgage-game.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 const PAGES_COMPONENTS = [
@@ -55,6 +56,7 @@ const PAGES_COMPONENTS = [
     Ng2SmartTableModule,
     NbBadgeModule,
     NgMultiSelectDropDownModule,
+    NgSelectModule, 
   
   ],
   declarations: [

@@ -43,18 +43,6 @@ export class UserActivityComponent implements OnInit {
         type: 'string',
         filter: false,
       },
-      /*last_activity: {
-        title: 'last activity',
-        filter: false,
-          type: 'date',
-            valuePrepareFunction: (value) => {
-            if(value){
-              return this.transformDate(value);
-            }
-            return null;
-          },
-          sort:false
-              }*/
       last_activity : {
         title: 'last activity',
         filter: false,
@@ -62,7 +50,7 @@ export class UserActivityComponent implements OnInit {
             valuePrepareFunction: (date) => {
               console.log("value---"+date);
               if (date) {
-                return new DatePipe("en-US").transform(date, 'MM/dd/yyyy hh:mm');
+                return new DatePipe("en-US").transform(new Date(date*1000), 'MM/dd/yyyy hh:mm');
                 //return new Date(updated).toDateString();
               }
             return null;

@@ -78,6 +78,13 @@ nb-action {
 .content {
   background: #EAEDF8;
 }
+.ng-placeholder {
+  font-size: 1rem !important;
+}
+//smart-table
+.ng2-smart-actions ng2-st-tbody-edit-delete{
+  display: none !important;
+}
 //nb card
 nb-card.container-wrapper {
   background: transparent;

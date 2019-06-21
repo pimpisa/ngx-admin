@@ -38,7 +38,31 @@ export class AdminUserComponent  {
 
   private currentPage:number = 1;
   settings = {
-    actions: false,
+    actions:{
+      add: false,
+      delete: false,
+      view: false,
+      columnTitle: 'Actions',
+      position: 'right',
+      class: 'action-column',
+      custom: [
+        {
+          name: 'view',
+          title: '<i class="nb-edit"></i>',
+          filter:false,
+        }
+      ],
+      /** custom: [
+        {
+          name: 'view',
+          title: '<i class="nb-edit"></i>',
+          valuePrepareFunction:(cell,row)=> {
+            return `<a href="#" (custom)="onCustom($event);toggleView()" <i class="nb-edit"></i></a>`
+          },
+          filter:false,
+        }
+      ],*/
+    },
     columns: {
       id: {
         title: 'ID',
@@ -56,38 +80,8 @@ export class AdminUserComponent  {
         title: 'Phone',
         type: 'string',
       },
-      date: {
-        title: 'Date',
-        filter: {
-          type: 'daterange',
-          config: {
-            daterange: {
-              format: 'mm/dd/yyyy',
-            },
-          }
-        }
-      }
     },
 
-    add: {
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    view: {
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
-    },
   }
 
   constructor(private userService: UserService,
@@ -164,6 +158,9 @@ export class AdminUserComponent  {
     //console.log("user-detail" + JSON.stringify(user));
     //this.userDetail = user;
     
+  }
+  onCustom(event){
+    console.log("custom click:"+ JSON.stringify(event));
   }
   /*onView(user: User, id: string) {
         console.log("onViewCall" + user.id);

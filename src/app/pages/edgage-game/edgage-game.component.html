@@ -1,1 +1,59 @@
+<!--<nb-card class="container-wrapper">-->
 
+<div class="row">
+    <div class="col-md-4">
+    <ng-select placeholder="SELECT GAME MODULE" [(ngModel)]="selectedModule" (click)="changeGame(game)" >
+        <ng-option *ngFor="let g of game_module" [value]="g">{{g.title}}</ng-option>    
+    </ng-select>
+    </div>
+    <div class="col-md-4" style="display:block;text-align:center;">
+            <input nbInput placeholder="Pick Date Range" [nbDatepicker]="formpicker">
+            <nb-rangepicker #formpicker></nb-rangepicker>
+    </div>
+    <div class="col-md-4">
+    <form [formGroup]="form"
+            novalidate>
+            <ng-select [items]="game_group"
+            bindValue="id"
+            bindLabel="name"
+            [multiple]="true"
+            placeholder="SELECT GROUP"
+            formControlName="example">
+
+   <ng-template ng-header-tmp>
+
+     <div>
+            <pre><button class="btn btn-link"
+               (click)="onSelectAll()">Select All</button></pre>
+            <pre><button class="btn btn-link"
+               (click)="onClearAll()">Clear All</button></pre>
+     </div>
+
+   </ng-template>
+
+ </ng-select>
+</form>
+</div>
+
+</div>
+<div class="row">
+    <nb-card class="wrapper">
+        <nb-card-body>
+               <nb-card class="module">
+                    <div class="clearfix">
+                        <div class="c100" [ngClass]="['p' + 80, isBig ? 'big' : 'small', color]">
+                            <span>80%</span>
+                                <div class="slice">
+                                  <div class="bar"></div>
+                                  <div class="fill"></div>
+                                </div>
+                          </div> 
+                    </div>     
+               </nb-card>
+               <nb-card class="module">
+                    
+                </nb-card>
+        </nb-card-body> 
+    </nb-card>
+</div>
+<!--</nb-card>-->

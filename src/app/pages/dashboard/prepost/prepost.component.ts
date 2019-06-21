@@ -43,15 +43,12 @@ export class PrepostComponent implements OnInit {
   
   cities4 = [];
   selectedCity: any;
-  selectedModule: Game_Module[];
-    //selectedCityName = 'Vilnius';
-   // selectedCityId: number;
+  private selectedModule: Game_Module[];
   selectedUserIds: number[];
   public listData: any[];
   public scoreData: any[];
   public maxData = [];
-  //public listData = [100,20,38,78,49,20,48,20];
-  //public module = ["Mobile Engagement","Module2","Module3","Module4","Module5","Module6","Module7","Module8"];
+  
   @Input()
   @HostBinding('class.revealed')
   revealed: boolean = false;
