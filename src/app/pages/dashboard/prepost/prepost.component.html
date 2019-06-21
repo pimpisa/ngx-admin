@@ -1,25 +1,7 @@
 <div class="dropdown_graph">
-<ng-select placeholder="SELECT GAME MODULE" [(ngModel)]="selectedModule" [multiple]="true">
+<ng-select placeholder="SELECT GAME MODULE" [(ngModel)]="selectedModule" [multiple]="true" [dropdownPosition]="'bottom'">
     <ng-option *ngFor="let g of game_module" [value]="g">{{g.title}}</ng-option>
 </ng-select>
+<button (click)="showGraph()" nbButton>SHOW GRAPH</button>
+<div *ngIf="listData" echarts [options]="options" class="echart"></div>
 </div>
-
-<!--<nb-flip-card>
-    <nb-card-front>
-        <nb-card>
-        <nb-card-header>Select Game Module</nb-card-header>
-        <nb-card-body>
-            <nb-checkbox status="info" *ngFor="let g of game_module">{{g.title}}</nb-checkbox>
-            <button (click)="toggleView()" nbButton>SHOW GRAPH</button>
-            </nb-card-body>
-          </nb-card>
-        </nb-card-front>
-        <nb-card-back>
-          <nb-card>
-            <nb-card-body>
-                <div echarts [options]="options" class="echart"></div>
-            </nb-card-body>
-          </nb-card>
-        </nb-card-back>
-</nb-flip-card>
--->

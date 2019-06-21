@@ -38,14 +38,14 @@ export class PrepostComponent implements OnInit {
   
   cities4 = [];
   selectedCity: any;
-  selectedModule: string[];
+  selectedModule: Game_Module[];
     //selectedCityName = 'Vilnius';
    // selectedCityId: number;
   selectedUserIds: number[];
-  //public listData: number[];
-  //public module: string[];
-  public listData = [100,20,38,78,49,20,48,20];
-  public module = ["Mobile Engagement","Module2","Module3","Module4","Module5","Module6","Module7","Module8"];
+  public listData: any[];
+  public scoreData: any[];
+  //public listData = [100,20,38,78,49,20,48,20];
+  //public module = ["Mobile Engagement","Module2","Module3","Module4","Module5","Module6","Module7","Module8"];
   @Input()
   @HostBinding('class.revealed')
   revealed: boolean = false;
@@ -61,7 +61,7 @@ export class PrepostComponent implements OnInit {
     this.loadGameModule();
     this.create10kCities();
     
-    this.loadChart(this.module,this.listData)
+    //this.loadChart(this.module,this.listData)
   
   }
 
@@ -76,7 +76,7 @@ export class PrepostComponent implements OnInit {
    // this.loadChart(,this.events['value']);
   }
 
-  loadChart(module:string[], score:number[]){
+  loadChart(module, score){
     var dataStyle = { 
       normal: {
         color: function(params) {
@@ -88,13 +88,13 @@ export class PrepostComponent implements OnInit {
         },
         label: {
             show: true,
-            position: 'right',
-            formatter: '{b}\n{c}%',
+            position: 'top',
+            formatter: '{c}%',
             textStyle: {
-              fontFamily: 'Arial',
-              fontSize: 12,
+              fontFamily: 'sans-serif',
+              fontSize: 16,
               fontStyle: 'normal',
-              fontWeight: 'bold',
+              fontWeight: 'normal',
            },
       }
     }
@@ -105,31 +105,56 @@ export class PrepostComponent implements OnInit {
         trigger: 'axis'
     },
     legend: {
-        data:['leaderboard']
+        data:['Game Module overall score']
     },
-   
+    toolbox: {
+      show : true,
+      feature : {
+          saveAsImage : {show: true}
+      }
+   },
     calculable : true,
     xAxis : [
         {
+          splitLine: {show: false},
           show: false,
-      
         }
     ],
     yAxis : [
         {
           type : 'category',
-          //data : ["Module1","Module2","Module3","Module4","Module5","Module6","Module7","Module8"],
+          axisLabel: {show: true},
           data: module,
           axisLine: 5
         }
     ],
     series : [
+        // For shadow
+      {
+        name:'User score',
+        type:'bar',
+        data: 100,
+       // data: this.listData,
+        itemStyle: {
+          normal: {
+            color: '#D3D3D3',
+          },
+          opacity: 1,
+        },
+        barWidth: '40%',
+        barGap: '-100%',
+        barCategoryGap: '10%',
+      },
         {
           name:'User score',
           type:'bar',
           data: score,
          // data: this.listData,
           itemStyle: dataStyle,
+          barWidth: '40%',
+          barGap: '-100%',
+          barCategoryGap: '10%',
+          z: 2,
         },    
     ]
     };
@@ -140,8 +165,11 @@ export class PrepostComponent implements OnInit {
   }
 
   showGraph(){
+    console.log(this.selectedModule);
+    this.listData =  this.selectedModule.map(x => x.title);
+    this.scoreData =  this.selectedModule.map(x => x.overall);
+    this.loadChart(this.listData,this.scoreData)
 
-    console.log("show graph called");
   }
 
   toggleView() {
