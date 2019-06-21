@@ -1,3 +1,4 @@
+<div class="col-md-12">
 <nb-flip-card [showToggleButton]="false" [flipped]="flipped">
     <nb-card-front>
 <nb-card class="container-wrapper">
@@ -24,7 +25,7 @@
     </nb-card-header>
               <!--<ng2-smart-table  [source]="source" [settings]="settings" (deleteConfirm)="onDeleteConfirm($event)" (userRowSelect)="onUserRowSelect($event)" (custom)="onCustom($event)" (click)="toggleView()" >-->
               <!--<ng2-smart-table  [source]="source" [settings]="settings" (deleteConfirm)="onDeleteConfirm($event)" (custom)="onCustom($event);toggleView()">-->
-              <ng2-smart-table  [source]="source" [settings]="settings" (custom)="onCustom($event);toggleView()">  
+              <ng2-smart-table class="table-sm" [source]="source" [settings]="settings" (custom)="onCustom($event);toggleView()">  
               </ng2-smart-table>
                 <br/>
                 <div class="flush-left"><button type="submit" class="btn btn-primary">Send Message</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Export CSV</button>&nbsp;&nbsp;
@@ -262,9 +263,10 @@
           
         </nb-card-back>
       </nb-flip-card>
-
+</div>
 <!--Pop up window-->
   <!-- View user -->
+<div class="col-md-12">
 <ng-template #viewUserTemplate let-userInfo="getUser(user-Info)" class="col-md-6">
     <div class="header-template no-pad">
     </div>
@@ -279,5 +281,7 @@
       <input disabled type="text" nbInput fullWidth placeholder="Delivery Method:" value="" class="child"><br/>  
   </div>
 </ng-template>
+</div>
+
 
   
