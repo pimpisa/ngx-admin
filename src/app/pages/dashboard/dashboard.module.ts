@@ -38,6 +38,7 @@ import { SelectDropDownModule } from 'ngx-select-dropdown';
 import { FormsModule } from '@angular/forms';
 import { EdgageComponent } from './report/edgage/edgage.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { EdgageGameComponent } from './edgage-game/edgage-game.component';
 
 const components = [
   EdgageComponent,
@@ -83,6 +84,7 @@ const components = [
     ReportComponent,
     PopularComponent,
     EdgageComponent,
+    EdgageGameComponent,
     
   ],
 })

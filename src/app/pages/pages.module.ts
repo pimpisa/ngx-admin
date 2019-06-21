@@ -34,6 +34,7 @@ import { UserService } from '../services/user.service';
 import { AdminSiteComponent } from './admin-site/admin-site.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminManageComponent } from './admin-manage/admin-manage.component';
+import { EdgageGameComponent } from './edgage-game/edgage-game.component';
 
 
 const PAGES_COMPONENTS = [
@@ -79,6 +80,7 @@ const PAGES_COMPONENTS = [
     AdminSiteComponent,
     AdminLoginComponent,
     AdminManageComponent,
+    EdgageGameComponent,
 
   ]
 })

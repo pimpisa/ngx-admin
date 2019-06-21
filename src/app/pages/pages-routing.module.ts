@@ -24,24 +24,29 @@ import { AdminUserComponent } from './admin-user/admin-user.component';
 import { UserActivityComponent } from './user-activity/user-activity.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminManageComponent } from './admin-manage/admin-manage.component';
+import { EdgageGameComponent } from './edgage-game/edgage-game.component';
 
 
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [{
-    path: 'dashboard',
+    path: 'ecommerce',
     component: ECommerceComponent,
   }, {
     path: 'user-activity',
     component: UserActivityComponent,
   }
   , {
+    path: 'edgage-game',
+    component: EdgageGameComponent,
+  }
+  , {
     path: 'admin-login',
     component: AdminLoginComponent,
   }
   , {
-    path: 'iot-dashboard',
+    path: 'dashboard',
     component: DashboardComponent,
   }, 
   {
