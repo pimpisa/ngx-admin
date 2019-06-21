@@ -48,7 +48,11 @@ export class AdminUserComponent  {
       custom: [
         {
           name: 'view',
+          type: 'custom',
           title: '<i class="nb-edit"></i>',
+          valuePrepareFunction: (cell, row) => {
+            return '<a onclick="onCustom(row.id)"</a>';
+         },
           filter:false,
         }
       ],
@@ -154,13 +158,21 @@ export class AdminUserComponent  {
 
       },
       error => console.log(error));
-    //let user = this.userService.getUserInfo(userSelectedId);
-    //console.log("user-detail" + JSON.stringify(user));
-    //this.userDetail = user;
     
   }
   onCustom(event){
-    console.log("custom click:"+ JSON.stringify(event));
+    console.log("custom click:");
+    var id = event.data.id;
+    console.log(" data"+  id);
+    this.userService.getUserInfo(id)
+    .subscribe(
+      data => {
+        this.userInfo = data['data'];
+        console.log("user" + JSON.stringify(this.userInfo));
+
+      },
+      error => console.log(error));
+    
   }
   /*onView(user: User, id: string) {
         console.log("onViewCall" + user.id);
