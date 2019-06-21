@@ -1,5 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
+export interface Pages {
+  title: string;
+
+}
+
 @Component({
   selector: 'ngx-admin-manage',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -7,6 +12,20 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-manage.component.scss']
 })
 export class AdminManageComponent implements OnInit {
+  private pages: Pages[] = [
+    {
+      title: 'Manage Sites',
+
+    },
+    {
+      title: 'Manage Groups',
+     
+    },
+    {
+      title: 'Manage Menu',
+    
+    },
+  ];
 
   constructor() { }
 

@@ -5,15 +5,52 @@ import { delay, takeWhile } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
 import { LayoutService } from '../../../@core/utils/layout.service';
 
+export interface Participation {
+
+  title: string;
+  rate: number;
+    
+}
+
 @Component({
   selector: 'ngx-temperature',
   styleUrls: ['./temperature.component.scss'],
   templateUrl: './temperature.component.html',
 })
+
+
 export class TemperatureComponent implements OnDestroy {
+
   data: any;
   options: any;
   themeSubscription: any;
+  //progress
+  private alive = true;
+  
+
+  private progressInfoData: Participation[] = [
+    {
+      title: 'Accessed the platform',
+      rate: 100,
+    },
+    {
+      title: 'Entered the module',
+      rate: 80,
+    },
+    {
+      title: 'Began the game',
+      rate: 60,
+    },
+    {
+      title: 'Finished the game',
+      rate: 40,
+    },
+    {
+      title: 'Requested credit',
+      rate: 20,
+    }
+  ];
+
 
   constructor(private theme: NbThemeService) {
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {

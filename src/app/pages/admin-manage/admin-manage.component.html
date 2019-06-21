@@ -7,7 +7,35 @@
               </div> 
         
     </nb-card-header>
-    <nb-card-body>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let card of pages">
+          <nb-card-body>
+              <nb-flip-card>
+                  <nb-card-front>
+                    <nb-card class="blue-bg">
+                      <nb-card-header>{{card.title}}</nb-card-header>
+                      <nb-card-body>
+                        Put icon here
+                      </nb-card-body>
+                      <nb-card-footer>
+                      </nb-card-footer>
+                    </nb-card>
+                  </nb-card-front>
+                  <nb-card-back>
+                    <nb-card class="blue-bg">
+                      <nb-card-header>{{card.title}}</nb-card-header>
+                      <nb-card-body>
+                          Put icon here
+                      </nb-card-body>
+                      <nb-card-footer>
+                      </nb-card-footer>
+                    </nb-card>
+                  </nb-card-back>
+                </nb-flip-card>
+          </nb-card-body>
+      </div>
+    </div>
+    <!--<nb-card-body>
         <nb-flip-card>
             <nb-card-front>
               <nb-card status="success">
@@ -27,4 +55,5 @@
             </nb-card-back>
           </nb-flip-card>
     </nb-card-body>
+    -->
 </nb-card>

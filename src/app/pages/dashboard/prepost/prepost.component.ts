@@ -209,6 +209,11 @@ export class PrepostComponent implements OnInit {
     
   }
 
+  onClear(){
+    this.listData = [];
+
+  }
+
   showGraph(){
     var arr = [];
     console.log(this.selectedModule);

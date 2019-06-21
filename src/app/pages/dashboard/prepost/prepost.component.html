@@ -1,5 +1,5 @@
 <div class="dropdown_graph">
-<ng-select placeholder="SELECT GAME MODULE" [(ngModel)]="selectedModule" [multiple]="true" [dropdownPosition]="'bottom'">
+<ng-select placeholder="SELECT GAME MODULE" [(ngModel)]="selectedModule" [multiple]="true" [dropdownPosition]="'bottom'" (clear)="onClear()">
     <ng-option *ngFor="let g of game_module" [value]="g">{{g.title}}</ng-option>
 </ng-select>
 <button (click)="showGraph()" nbButton>SHOW GRAPH</button>

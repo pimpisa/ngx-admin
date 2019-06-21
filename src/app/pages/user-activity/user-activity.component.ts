@@ -39,7 +39,7 @@ export class UserActivityComponent implements OnInit {
         filter: false,
       },
       usage: {
-        title: 'name',
+        title: 'usage',
         type: 'string',
         filter: false,
       },
