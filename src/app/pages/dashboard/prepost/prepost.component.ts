@@ -5,6 +5,8 @@ import { GameService } from '../../../services/game.service';
 import {FormControl, FormGroup, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgSelectModule, NgOption} from '@ng-select/ng-select';
+import { takeWhile } from 'rxjs/operators';
+
 
 interface AngSelectEvent {
   name: string;
@@ -19,6 +21,9 @@ interface AngSelectEvent {
   styleUrls: ['./prepost.component.scss']
 })
 export class PrepostComponent implements OnInit {
+  @Input() maxValue: number;
+
+  private alive = true;
   flipped = false;
   data: any;
   options: any;
@@ -44,6 +49,7 @@ export class PrepostComponent implements OnInit {
   selectedUserIds: number[];
   public listData: any[];
   public scoreData: any[];
+  public maxData = [];
   //public listData = [100,20,38,78,49,20,48,20];
   //public module = ["Mobile Engagement","Module2","Module3","Module4","Module5","Module6","Module7","Module8"];
   @Input()
@@ -66,17 +72,16 @@ export class PrepostComponent implements OnInit {
   }
 
   onChange(selectedGame){
-    //onChange($event){
-     console.log(this.selectedModule);
-    //console.log("event click" + title + overall);
-    //this.events.push({ name: '(change)', value: $event });
+    console.log(this.selectedModule);
     
-    //console.log("event-names " + this.events['name'],"event-values " + this.events['value']);
-    //console.log("event---- " + this.events.toString);
-   // this.loadChart(,this.events['value']);
   }
 
   loadChart(module, score){
+
+    this.theme.getJsTheme()
+      .pipe(takeWhile(() => this.alive))
+      .subscribe(config => {
+        const countriesTheme: any = config.variables.countryOrders;
     var dataStyle = { 
       normal: {
         color: function(params) {
@@ -97,67 +102,107 @@ export class PrepostComponent implements OnInit {
               fontWeight: 'normal',
            },
       }
-    }
-      
+    }  
     };
-    this.options = {
-      tooltip : {
-        trigger: 'axis'
-    },
-    legend: {
-        data:['Game Module overall score']
-    },
-    toolbox: {
-      show : true,
-      feature : {
-          saveAsImage : {show: true}
-      }
-   },
-    calculable : true,
-    xAxis : [
-        {
-          splitLine: {show: false},
-          show: false,
-        }
-    ],
-    yAxis : [
-        {
-          type : 'category',
-          axisLabel: {show: true},
-          data: module,
-          axisLine: 5
-        }
-    ],
-    series : [
-        // For shadow
-      {
-        name:'User score',
-        type:'bar',
-        data: 100,
-       // data: this.listData,
-        itemStyle: {
-          normal: {
-            color: '#D3D3D3',
-          },
-          opacity: 1,
-        },
-        barWidth: '40%',
-        barGap: '-100%',
-        barCategoryGap: '10%',
+    this.options = Object.assign({}, {
+      grid: {
+        left: '3%',
+        right: '3%',
+        bottom: '3%',
+        top: '3%',
+        containLabel: true,
       },
-        {
-          name:'User score',
-          type:'bar',
-          data: score,
-         // data: this.listData,
-          itemStyle: dataStyle,
+      xAxis: {
+        axisLabel: {
+          color: countriesTheme.chartAxisTextColor,
+          fontSize: countriesTheme.chartAxisFontSize,
+        },
+        axisLine: {
+          lineStyle: {
+            color: countriesTheme.chartAxisLineColor,
+            width: '2',
+          },
+        },
+        axisTick: {
+          show: false,
+        },
+        splitLine: {
+          lineStyle: {
+            color: countriesTheme.chartAxisSplitLine,
+            width: '1',
+          },
+        },
+      },
+      yAxis: {
+        data: this.listData,
+        axisLabel: {
+          color: countriesTheme.chartAxisTextColor,
+          fontSize: countriesTheme.chartAxisFontSize,
+        },
+        axisLine: {
+          lineStyle: {
+            color: countriesTheme.chartAxisLineColor,
+            width: '2',
+          },
+        },
+        axisTick: {
+          show: false,
+        },
+      },
+      series: [
+        { // For shadow
+          type: 'bar',
+          data: this.maxData,
+          cursor: 'default',
+          itemStyle: {
+            normal: {
+              color: countriesTheme.chartInnerLineColor,
+            },
+            opacity: 1,
+          },
           barWidth: '40%',
           barGap: '-100%',
-          barCategoryGap: '10%',
+          barCategoryGap: '30%',
+          animation: false,
+          z: 1,
+        },
+        { // For bottom line
+          type: 'bar',
+          data: this.scoreData,
+          cursor: 'default',
+          itemStyle: {
+            normal: {
+              color: countriesTheme.chartLineBottomShadowColor,
+            },
+            opacity: 1,
+          },
+          barWidth: '40%',
+          barGap: '-100%',
+          barCategoryGap: '30%',
           z: 2,
-        },    
-    ]
-    };
+        },
+        {
+          type: 'bar',
+          barWidth: '35%',
+          data: this.scoreData,
+          cursor: 'default',
+          itemStyle: {
+            normal: {
+              color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [{
+                offset: 0,
+                color: countriesTheme.chartGradientFrom,
+              }, {
+                offset: 1,
+                color: countriesTheme.chartGradientTo,
+              }]),
+            },
+          },
+          z: 3,
+        },
+      ],
+    });
+    });
+
   }
 
   ngOnInit(){
@@ -165,9 +210,16 @@ export class PrepostComponent implements OnInit {
   }
 
   showGraph(){
+    var arr = [];
     console.log(this.selectedModule);
     this.listData =  this.selectedModule.map(x => x.title);
     this.scoreData =  this.selectedModule.map(x => x.overall);
+    for (var i = 1; i <= this.selectedModule.length; i++) {
+      arr.push(100);
+    }
+    this.maxData = arr;
+    console.log("this max" + this.maxData);
+    //this.maxData = this.selectedModule.length * 100;
     this.loadChart(this.listData,this.scoreData)
 
   }
