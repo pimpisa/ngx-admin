@@ -35,6 +35,9 @@ export class AdminUserComponent  {
   userDetail: User = new User();
   //userInfo: Observable<User[]>;
   userInfo: User = new User();
+  public filterDate:string;
+  fromDate: string;
+  toDate: string;
 
   private currentPage:number = 1;
   settings = {
@@ -126,6 +129,23 @@ export class AdminUserComponent  {
         },
       },
     );
+  }
+
+  getUserByDate(event){
+    console.log("getUserByDate($event)");
+
+    if (event.start && event.end) {
+      this.fromDate = new Date(event.start).toLocaleDateString("en-US");
+      this.toDate = new Date(event.end).toLocaleDateString("en-US");
+      console.log("F/t" + this.fromDate + this.toDate);
+      this.filterDate = this.fromDate + " to " + this.toDate;
+      console.log("this.filterDate" + this.filterDate);
+      
+    }
+  }
+
+  filterUserByDate(date){
+    console.log("filterUserByDate");
   }
   
 

@@ -34,7 +34,7 @@ export class EdgageGameComponent implements OnInit {
   @Input() value: number = 0;
   @Input() color: string = 'green';
 
-   classes = [];
+  classes = [];
 
   constructor(private gameService: GameService, private fb: FormBuilder,protected dateService: NbDateService<Date>) { 
 
