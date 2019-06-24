@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 export interface Pages {
   title: string;
+  icon: string;
 
 }
 
@@ -15,14 +16,17 @@ export class AdminManageComponent implements OnInit {
   private pages: Pages[] = [
     {
       title: 'Manage Sites',
+      icon: 'nb-square-outline',
 
     },
     {
       title: 'Manage Groups',
+      icon: 'nb-person',
      
     },
     {
       title: 'Manage Menu',
+      icon: 'nb-keypad',
     
     },
   ];

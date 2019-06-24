@@ -140,8 +140,15 @@ export class AdminUserComponent  {
       console.log("F/t" + this.fromDate + this.toDate);
       this.filterDate = this.fromDate + " to " + this.toDate;
       console.log("this.filterDate" + this.filterDate);
+      //call the api to filter the user by date
+      this.showUserByDate(this.filterDate);
       
     }
+  }
+
+  showUserByDate(filterDate: string){
+    console.log("showUserByDate");
+
   }
 
   filterUserByDate(date){
