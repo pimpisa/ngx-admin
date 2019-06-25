@@ -48,6 +48,7 @@ export class PrepostComponent implements OnInit {
   public listData: any[];
   public scoreData: any[];
   public maxData = [];
+  public trimList: string[];
   
   @Input()
   @HostBinding('class.revealed')
@@ -94,7 +95,7 @@ export class PrepostComponent implements OnInit {
             formatter: '{c}%',
             textStyle: {
               fontFamily: 'sans-serif',
-              fontSize: 16,
+              fontSize: 12,
               fontStyle: 'normal',
               fontWeight: 'normal',
            },
@@ -112,7 +113,8 @@ export class PrepostComponent implements OnInit {
       xAxis: {
         axisLabel: {
           color: countriesTheme.chartAxisTextColor,
-          fontSize: countriesTheme.chartAxisFontSize,
+          //fontSize: countriesTheme.chartAxisFontSize,
+          fontSize: '12',
         },
         axisLine: {
           lineStyle: {
@@ -131,10 +133,11 @@ export class PrepostComponent implements OnInit {
         },
       },
       yAxis: {
-        data: this.listData,
+        data: this.trimList,
         axisLabel: {
           color: countriesTheme.chartAxisTextColor,
-          fontSize: countriesTheme.chartAxisFontSize,
+          fontSize: '12',
+          //fontSize: countriesTheme.chartAxisFontSize,
         },
         axisLine: {
           lineStyle: {
@@ -215,6 +218,7 @@ export class PrepostComponent implements OnInit {
     var arr = [];
     console.log(this.selectedModule);
     this.listData =  this.selectedModule.map(x => x.title);
+    this.trimList = this.listData.splice(0,10);
     this.scoreData =  this.selectedModule.map(x => x.overall);
     for (var i = 1; i <= this.selectedModule.length; i++) {
       arr.push(100);

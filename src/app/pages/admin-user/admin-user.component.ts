@@ -147,7 +147,7 @@ export class AdminUserComponent  {
 
   showProgress(){
     console.log("showprogress");
-
+    
   }
 
   openWindow(contentTemplate) {
