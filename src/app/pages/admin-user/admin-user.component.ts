@@ -10,6 +10,7 @@ import { WindowFormComponent } from '../modal-overlays/window/window-form/window
 import { NbWindowRef } from '@nebular/theme';
 import { Observable } from 'rxjs';
 import { FindValueSubscriber } from 'rxjs/internal/operators/find';
+import { FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn } from '@angular/forms';
 
 
 @Component({
@@ -20,6 +21,9 @@ import { FindValueSubscriber } from 'rxjs/internal/operators/find';
 export class AdminUserComponent  {
   @ViewChild('disabledEsc', { read: TemplateRef }) disabledEscTemplate: TemplateRef<HTMLElement>;
   flipped = false;
+  form: FormGroup;
+  groups = [];
+
 
   page: any;
   large: any;
@@ -94,7 +98,7 @@ export class AdminUserComponent  {
   }
 
   constructor(private userService: UserService,
-              private NbWindowService:NbWindowService) {
+              private NbWindowService:NbWindowService, private formBuilder: FormBuilder) {
     this.userService.testGetAllUsers().subscribe(res => {
       this.allUsers = res['data'].users;
       this.pageNo = res['data'].page;
@@ -107,7 +111,24 @@ export class AdminUserComponent  {
       console.log("this page limit" + this.pageLimit);
       console.log("user_total" + this.userTotal);
     }); 
+    this.form = this.formBuilder.group({
+      groups: ['']
+    });
+    this.groups = this.getGroups();
+  }
 
+  getGroups(){
+    return [
+      { id: '1', name: 'Role 1' },
+      { id: '2', name: 'Role 2' },
+      { id: '3', name: 'Role 3' },
+      { id: '4', name: 'Role 4' }
+    ];
+  }
+
+  submit(form) {
+    console.log(form.value);
+    form.reset();
   }
   /*toggleView() {
     this.flipped = !this.flipped;
@@ -126,7 +147,7 @@ export class AdminUserComponent  {
 
   showProgress(){
     console.log("showprogress");
-    
+
   }
 
   openWindow(contentTemplate) {

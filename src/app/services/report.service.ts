@@ -11,6 +11,8 @@ import { environment } from '../../environments/environment';
 export class ReportService {
 
   private overall_report_API = environment.base_api+'report/overall';
+  private leaders_report_API = environment.base_api+'report/overall';
+  private pushMsg_report_API = environment.base_api+'report/overall';
   private keyToken = environment.keyToken;
 
   constructor(private http: HttpClient) { }
@@ -25,6 +27,14 @@ export class ReportService {
 
   getLeaders() {
     return this.http.get("").map(result => result);
+  }
+
+  getPushMsg(){
+    return this.http.get(this.overall_report_API, {
+      'headers': new HttpHeaders().set('Authorization', this.keyToken)
+      
+       })
+       .map(result => result);
   }
 
 }

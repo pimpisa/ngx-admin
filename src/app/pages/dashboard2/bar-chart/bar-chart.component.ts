@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ngx-bar-chart',
@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BarChartComponent implements OnInit {
 
+  @Input()
+  public options:Object = {
+    type: "circle",
+    percent: 5
+  };
   constructor() { }
 
   ngOnInit() {

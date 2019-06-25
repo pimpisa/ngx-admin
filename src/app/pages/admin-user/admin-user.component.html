@@ -3,25 +3,39 @@
     <nb-card-front>
       <nb-card>
           <nb-card-header class="card-headline">
-              <div class="col-6 col-sm-4 no-pad">
+              <div class="col-md-6 no-pad">
                   <div class="title_wrapper">
                         <div class="main_title">
                           <h2>Users</h2>
                         </div>
                   </div>
               </div>
-              <div class="col-6 col-sm-4">
+              <!--<div class="col-6 col-sm-4">
                   <input nbInput placeholder="Select Date" [nbDatepicker]="formpicker" class="date-picker">
                   <nb-rangepicker #formpicker (rangeChange)="getUserByDate($event)"></nb-rangepicker>
+              </div>-->
+              <div class="col-md-6">
+                  <form #filterForm="ngForm" (ngSubmit)="submit(filterForm.form)">
+                      <input nbInput placeholder="Select Date" [nbDatepicker]="formpicker" name="filterDate" class="date-picker">
+                      <nb-rangepicker #formpicker></nb-rangepicker>
+                      <label for="groups">GROUPS</label>
+                      <nb-select formControlName="groups" id="groups" placeholder="All Group" class="top-button">
+                        <nb-option *ngFor="let group of groups; let i = index" [value]="groups[i].id">
+                          {{groups[i].name}}
+                        </nb-option>
+                      </nb-select>
+                    
+                      <button nbButton>submit</button>
+                    </form>
               </div>
-              <div class="col-6 col-sm-4">
+              <!--<div class="col-6 col-sm-4">
                   <nb-select placeholder="All Group" [(selected)]="commonSelectedItem" class="top-button">
                       <nb-option value="1">Group2</nb-option>
                       <nb-option value="2">Boscov's</nb-option>
                       <nb-option value="3">L&T Corporate</nb-option>
                       <nb-option value="4">Global Corporate</nb-option>
-                    </nb-select>
-                </div>
+                  </nb-select>
+                </div>-->
           </nb-card-header>
           <nb-card-body>
               <ng2-smart-table class="table-sm" [source]="source" [settings]="settings" (custom)="onCustom($event);toggleView()">  
@@ -41,7 +55,7 @@
                 </div>
             </nb-card-header>
             <nb-card-body>
-                <nb-card class="container-card" style="background: #F9FAFE !important; min-height:70vh;">
+                <nb-card class="container-card" style="background: #F9FAFE !important; min-height:100vh;">
                     <i class="nb-arrow-down flush-right" (click)="toggleView()"></i>
                       <nb-tabset fullWidth style="border:none;">
                           <nb-tab tabIcon="person-outline" tabTitle="Detail">
