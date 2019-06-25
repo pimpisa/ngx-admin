@@ -124,6 +124,11 @@ export class AdminUserComponent  {
     }
   }
 
+  showProgress(){
+    console.log("showprogress");
+    
+  }
+
   openWindow(contentTemplate) {
     this.NbWindowService.open(
       contentTemplate,
