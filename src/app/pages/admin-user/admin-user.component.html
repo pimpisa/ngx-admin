@@ -15,7 +15,7 @@
             <nb-rangepicker #formpicker (rangeChange)="getUserByDate($event)"></nb-rangepicker>
         </div>
         <div class="col-6 col-sm-4">
-            <nb-select *nfIf="" placeholder="All Group" [(selected)]="commonSelectedItem" class="top-button">
+            <nb-select placeholder="All Group" [(selected)]="commonSelectedItem" class="top-button">
                 <nb-option value="1">Group2</nb-option>
                 <nb-option value="2">Boscov's</nb-option>
                 <nb-option value="3">L&T Corporate</nb-option>
@@ -25,19 +25,29 @@
     </nb-card-header>
               <!--<ng2-smart-table  [source]="source" [settings]="settings" (deleteConfirm)="onDeleteConfirm($event)" (userRowSelect)="onUserRowSelect($event)" (custom)="onCustom($event)" (click)="toggleView()" >-->
               <!--<ng2-smart-table  [source]="source" [settings]="settings" (deleteConfirm)="onDeleteConfirm($event)" (custom)="onCustom($event);toggleView()">-->
-              <div class="card-content table-responsive" id="body-second">
-                <table class="table">
+    <nb-card-body>
                   <ng2-smart-table class="table-sm" [source]="source" [settings]="settings" (custom)="onCustom($event);toggleView()">  
                   </ng2-smart-table>
-                </table>
+              <br/>
+              <div class="row">
+                <div class="col-6 col-sm-3">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </div>
+                <div class="col-6 col-sm-3">
+                  <button type="submit" class="btn btn-primary">Export CSV</button>
+                </div>
+                <div class="col-6 col-sm-3">
+                  <button type="submit" class="btn btn-primary">Export Users</button>
+                </div>
+                <div class="col-6 col-sm-3">
+                  <button type="submit" class="btn btn-primary">Import Users</button>
+                </div>
+        
               </div>
-                <br/>
-                <div class="flush-left"><button type="submit" class="btn btn-primary">Send Message</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Export CSV</button>&nbsp;&nbsp;
-                <button type="submit" class="btn btn-primary">Export Users</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Import Users</button></div>
-                <br/>
                 <ngb-pagination class="d-flex justify-content-center" [collectionSize]="userTotal" [pageSize]="pageLimit" [(page)]="page" [maxSize]="10" [rotate]="true" [boundaryLinks]="true" (pageChange)="onPage(page)"></ngb-pagination>
               
             <i class="nb-arrow-right" (click)="toggleView()"></i>
+         </nb-card-body>
           </nb-card>
         </nb-card-front>
         <nb-card-back>

@@ -8,14 +8,28 @@
             </div>
         </div>
 </nb-card-header>
-<ng2-smart-table  [source]="source" [settings]="settings">
-      </ng2-smart-table>
+<nb-card-body>
+<ng2-smart-table  [source]="source" [settings]="settings"></ng2-smart-table>
       <br/>
-      <div class="flush-left"><button type="submit" class="btn btn-primary">Send Message</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Export CSV</button>&nbsp;&nbsp;
-      <button type="submit" class="btn btn-primary">Export Users</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Import Users</button></div>
-      <br/>
+      <div class="row">
+        <div class="col-6 col-sm-3">
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </div>
+        <div class="col-6 col-sm-3">
+          <button type="submit" class="btn btn-primary">Export CSV</button>
+        </div>
+        <div class="col-6 col-sm-3">
+          <button type="submit" class="btn btn-primary">Export Users</button>
+        </div>
+        <div class="col-6 col-sm-3">
+          <button type="submit" class="btn btn-primary">Import Users</button>
+        </div>
+
+      </div>
+      
       <!--<ngb-pagination class="d-flex justify-content-center" [collectionSize]="userTotal" 
       [pageSize]="pageLimit" [(page)]="page" (click)="onPage(page)"></ngb-pagination>-->
       <ngb-pagination class="d-flex justify-content-center" [collectionSize]="userTotal" [pageSize]="pageLimit" [(page)]="page" 
       [maxSize]="10" [rotate]="true" [boundaryLinks]="true" (pageChange)="onPage(page)"></ngb-pagination>
+    </nb-card-body>
 </nb-card>

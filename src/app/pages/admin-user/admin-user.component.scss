@@ -103,9 +103,13 @@
       padding: 10px;
       margin: 10px;
     }
-    .row {
-      margin-top: 10px;
+    .front-container {
+      width: 100%;
     }
+    .row {
+      margin: 15px;
+    }
+
     ul.tabset {
       border-bottom: 0px !important;
     }
@@ -130,6 +134,10 @@
       width: 100%;
       text-align: center;
     }
+    nb-card-body {
+      padding: 0px !important;
+      width: 100%;
+  }
    /* .tracker td:nth-child(1) {
       padding: 10px;
       margin-bottom: 5px;
