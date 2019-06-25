@@ -1,3 +1,254 @@
+
+<nb-reveal-card [showToggleButton]="false" [revealed]="revealed">
+    <nb-card-front>
+      <nb-card>
+          <nb-card-header class="card-headline">
+              <div class="col-6 col-sm-4 no-pad">
+                  <div class="title_wrapper">
+                        <div class="main_title">
+                          <h2>Users</h2>
+                        </div>
+                  </div>
+              </div>
+              <div class="col-6 col-sm-4">
+                  <input nbInput placeholder="Select Date" [nbDatepicker]="formpicker" class="date-picker">
+                  <nb-rangepicker #formpicker (rangeChange)="getUserByDate($event)"></nb-rangepicker>
+              </div>
+              <div class="col-6 col-sm-4">
+                  <nb-select placeholder="All Group" [(selected)]="commonSelectedItem" class="top-button">
+                      <nb-option value="1">Group2</nb-option>
+                      <nb-option value="2">Boscov's</nb-option>
+                      <nb-option value="3">L&T Corporate</nb-option>
+                      <nb-option value="4">Global Corporate</nb-option>
+                    </nb-select>
+                </div>
+          </nb-card-header>
+          <nb-card-body>
+              <ng2-smart-table class="table-sm" [source]="source" [settings]="settings" (custom)="onCustom($event);toggleView()">  
+              </ng2-smart-table>
+          </nb-card-body>
+      </nb-card>
+    </nb-card-front>
+    <nb-card-back>
+        <nb-card>
+            <nb-card-header class="card-headline">
+                <div class="col-6 col-sm-4 no-pad">
+                    <div class="title_wrapper">
+                          <div class="main_title">
+                            <h2>User Detail</h2>
+                          </div>
+                    </div>
+                </div>
+            </nb-card-header>
+            <nb-card-body>
+                <nb-card class="container-card" style="background: #F9FAFE !important; min-height:70vh;">
+                    <i class="nb-arrow-down flush-right" (click)="toggleView()"></i>
+                      <nb-tabset fullWidth style="border:none;">
+                          <nb-tab tabIcon="person-outline" tabTitle="Detail">
+                            <div class="row">
+                                <div class="left-container col-md-4">
+                                    <div class="text-center title">
+                                      <nb-user [picture]="user?.picture" [name]="userInfo.name" [size]="large" showName=false></nb-user>
+                                      
+                                      <strong>{{userInfo.name}}</strong></div>
+                                      <table class="user-info">
+                                          <thead>
+                                              <tr>
+                                                <th class="row-1 row-title"></th>
+                                                <th class="row-1 row-detail"></th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                              <td valign="top">ID</td>
+                                              <td valign="top">{{userInfo.id}}</td>
+                                            </tr>
+                                            <tr>
+                                              <td valign="top">Email</td>
+                                              <td valign="top">{{userInfo.email}}</td>
+                                            </tr>
+                                            <tr>
+                                              <td valign="top">Delivery Method</td>
+                                              <td valign="top">{{userInfo.delivery_method}}</td>
+                                            </tr>
+                                            <tr>
+                                              <td valign="top">Group</td>
+                                              <td valign="top">{{userInfo.group}}</td>
+                                            </tr>
+                                            <tr>
+                                              <td valign="top">Delivery Method</td>
+                                              <td valign="top">{{userInfo.delivery_method}}</td>
+                                            </tr>
+                                            <tr>
+                                              <td valign="top">Last Login</td>
+                                              <td valign="top" *ngIf="userInfo.activity == '0000-00-00 00:00:00'">None</td>
+                                            </tr>
+                                            <tr>
+                                              <td valign="top">Total Points</td>
+                                              <td valign="top">0</td>
+                                            </tr>
+                                          </tbody>
+                                      </table>
+                                      <div class="actions-group">
+                                      <nb-actions size="small">
+                                          <nb-action icon="fa fa fa-paper-plane"></nb-action>
+                                          <nb-action icon="fa fa-pencil-alt"></nb-action>
+                                          <nb-action icon="fa fa-redo-alt"></nb-action>
+                                        </nb-actions>
+                                      </div>  
+                                </div>
+                                <div class="right-container col-md-8 title">
+                                    <nb-tabset fullWidthn style="border:none;">
+                                        <nb-tab tabTitle="All">
+                                            <div class="right-container col-md-8 title">
+                                                <br/>
+                                                
+                                                QuizMe/Test Knowledge Score:
+                                                <nb-progress-bar [value]="40" status="primary" [displayValue]="true" size="giant"></nb-progress-bar>
+                                                Game Score: 
+                                                <nb-progress-bar [value]="60" status="primary" [displayValue]="true" size="giant"></nb-progress-bar>
+                                                Module Page Clicks: 
+                                                <nb-progress-bar [value]="20" status="primary" [displayValue]="true" size="giant"></nb-progress-bar>
+                                                Resource Center Clicks: 
+                                                <nb-progress-bar [value]="10" status="primary" [displayValue]="true" size="giant"></nb-progress-bar>
+                                              </div>
+                                        </nb-tab>
+                                        <nb-tab tabTitle="Q">
+                                            <br/>
+                                          <table class="tracker" style="width:100%; text-align:center;">
+                                            <thead>
+                                              <tr>
+                                                  <td style="position: relative">Not Strated
+                                                      <nb-badge text="15" status="danger" position="right"></nb-badge>
+                                                      </td>
+                                                      <td style="position: relative">In Progress 
+                                                        <nb-badge text="25" status="warning" position="right"></nb-badge>
+                                                      </td>
+                                                      <td style="position: relative">Completed 
+                                                        <nb-badge text="5" status="success" position="right"></nb-badge>
+                                                    </td>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                               
+                                            </tbody>
+                                          </table>
+                                        </nb-tab>
+                                        <nb-tab tabTitle="G">
+                                            <br/>
+                                            <table class="tracker" style="width:100%; text-align:center;">
+                                                <thead>
+                                                  <tr>
+                                                      <td style="position: relative">Not Strated
+                                                          <nb-badge text="12" status="danger" position="right"></nb-badge>
+                                                          </td>
+                                                          <td style="position: relative">In Progress 
+                                                            <nb-badge text="22" status="warning" position="right"></nb-badge>
+                                                          </td>
+                                                          <td style="position: relative">Completed 
+                                                            <nb-badge text="2" status="success" position="right"></nb-badge>
+                                                          </td>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                      <td></td>
+                                                      <td></td>
+                                                      <td></td>
+                                                    </tr>
+                                                </tbody>
+                                              </table>
+                                        </nb-tab>
+                                        <nb-tab tabTitle="M">
+                                            <br/>
+                                            <table class="tracker" style="width:100%; text-align:center;">
+                                                <thead>
+                                                  <tr>
+                                                    <td style="position: relative">Not Strated
+                                                    <nb-badge text="14" status="danger" position="right"></nb-badge>
+                                                    </td>
+                                                    <td style="position: relative">In Progress 
+                                                      <nb-badge text="24" status="warning" position="right"></nb-badge>
+                                                    </td>
+                                                    <td style="position: relative">Completed 
+                                                      <nb-badge text="4" status="success" position="right"></nb-badge>
+                                                    </td>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                      <td></td>
+                                                      <td></td>
+                                                      <td></td>
+                                                    </tr>
+                                                </tbody>
+                                              </table>
+                                        </nb-tab>
+                                        <nb-tab tabTitle="R">
+                                          <br/>
+                                            <table class="tracker" style="width:100%; text-align:center;">
+                                                <thead>
+                                                  <tr>
+                                                      <td style="position: relative">Not Strated
+                                                          <nb-badge text="11" status="danger" position="right"></nb-badge>
+                                                          </td>
+                                                          <td style="position: relative">In Progress 
+                                                            <nb-badge text="21" status="warning" position="right"></nb-badge>
+                                                          </td>
+                                                          <td style="position: relative">Completed 
+                                                            <nb-badge text="1" status="success" position="right"></nb-badge>
+                                                      </td>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                      <td></td>
+                                                      <td></td>
+                                                      <td></td>
+                                                    </tr>
+                                                </tbody>
+                                              </table>
+                                        </nb-tab>
+                                    </nb-tabset>
+                                </div>
+                              </div>
+                          </nb-tab>
+                          <nb-tab tabIcon="bell-outline" tabTitle="Page Clicks">
+                            <table class="click-info title">
+                              <thead>
+                                <tr>
+                                  <td>Title</td>
+                                  <td>Clicks</td>
+                                  <td>Last Click</td>
+                                </tr>
+                              </thead>
+                              <tbody>
+                              </tbody>
+                            </table>
+                          </nb-tab>
+                          <nb-tab tabIcon="email-outline" tabTitle="Resource Clicks">
+                              <table class="click-info title">
+                                  <thead>
+                                    <tr>
+                                      <td>Title</td>
+                                      <td>Clicks</td>
+                                      <td>Last Click</td>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  </tbody>
+                                </table>
+                          </nb-tab>
+                        </nb-tabset>
+                  
+            </nb-card>
+            </nb-card-body>
+            
+          </nb-card>
+    </nb-card-back>
+  </nb-reveal-card>
+
+<!--
 <div class="col-md-12">
 <nb-flip-card [showToggleButton]="false" [flipped]="flipped">
     <nb-card-front>
@@ -23,8 +274,7 @@
               </nb-select>
           </div>
     </nb-card-header>
-              <!--<ng2-smart-table  [source]="source" [settings]="settings" (deleteConfirm)="onDeleteConfirm($event)" (userRowSelect)="onUserRowSelect($event)" (custom)="onCustom($event)" (click)="toggleView()" >-->
-              <!--<ng2-smart-table  [source]="source" [settings]="settings" (deleteConfirm)="onDeleteConfirm($event)" (custom)="onCustom($event);toggleView()">-->
+            
     <nb-card-body>
                   <ng2-smart-table class="table-sm" [source]="source" [settings]="settings" (custom)="onCustom($event);toggleView()">  
                   </ng2-smart-table>
@@ -61,8 +311,7 @@
                     </div>
                   </nb-card-header>  
                   <nb-card-body>
-                      <!--Add new user with button--> 
-                      
+                     
                     <nb-card class="container-card" style="background: #F9FAFE !important; min-height:70vh;">
                       <i class="nb-arrow-right flush-right" (click)="toggleView()"></i>
                         <nb-tabset fullWidth style="border:none;">
@@ -152,16 +401,7 @@
                                                 </tr>
                                               </thead>
                                               <tbody>
-                                                  <!--<tr>
-                                                    <td>SELL IT TO ME!</td>
-                                                    <td>AGREE TO DISAGREE</td>
-                                                    <td>KNOW UR #'S</td>
-                                                  </tr>
-                                                  <tr>
-                                                      <td>R U A PRODUCT GENIUS?</td>
-                                                      <td>SALES BOOSTER</td>
-                                                      <td>QUIZ ME</td>
-                                                  </tr>-->
+                                                 
                                               </tbody>
                                             </table>
                                           </nb-tab>
@@ -280,7 +520,8 @@
 </div>
 <!--Pop up window-->
   <!-- View user -->
-<div class="col-md-12">
+<!--
+  <div class="col-md-12">
 <ng-template #viewUserTemplate let-userInfo="getUser(user-Info)" class="col-md-6">
     <div class="header-template no-pad">
     </div>
@@ -295,7 +536,7 @@
       <input disabled type="text" nbInput fullWidth placeholder="Delivery Method:" value="" class="child"><br/>  
   </div>
 </ng-template>
-</div>
+</div>-->
 
 
   

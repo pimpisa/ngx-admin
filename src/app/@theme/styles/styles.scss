@@ -334,4 +334,15 @@ chart {
 .nb-theme-corporate nb-card-footer {
   padding: 0.75rem;
 }
+.nb-theme-corporate nb-tabset .tabset {
+  font-family: Roboto;
+  font-size: 1.25rem !important;
+}
+
+//mobile view
+@media (max-width: 399.98px){
+  .nb-theme-corporate [_nghost-c4] .right[_ngcontent-c4] {
+    display: block !important;
+  }
+}
 

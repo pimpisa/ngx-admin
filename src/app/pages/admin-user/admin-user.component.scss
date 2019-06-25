@@ -35,6 +35,7 @@
     .col-sm-4 {
       display: inline-block;
       float: left;
+      margin-bottom: 10px;
     }
     .nb-theme-corporate ng2-smart-table table tr th, .nb-theme-corporate ng2-smart-table table tr td {
       border: none !important;
@@ -45,6 +46,9 @@
     .left {
       text-align: left;
       padding: 5px;
+    }
+    nb-card-back {
+      background: #eaedf8;
     }
     .nb-theme-corporate nb-tabset .tabset{
       border-bottom:none;
@@ -108,6 +112,9 @@
     }
     .row {
       margin: 15px;
+    }
+    nb-card-body{
+      overflow: auto;
     }
 
     ul.tabset {
@@ -209,6 +216,23 @@
 }
 ul.tabset {
   border-bottom: 0px !important;
+}
+
+.nb-theme-corporate nb-tabset .tabset {
+  font-family: Roboto;
+  font-size: 1.25rem !important;
+}
+//mobile view
+@media only screen and (min-width: 768px) {
+  .nb-theme-corporate nb-tabset .tabset {
+    font-size: 1.25rem !important;
+  }
+  .left-container {
+    border-right: none;
+    margin-top:0px;
+    min-height: 70vh;
+  }
+
 }
 
   

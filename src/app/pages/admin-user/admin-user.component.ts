@@ -39,6 +39,7 @@ export class AdminUserComponent  {
   public filterDate:string;
   fromDate: string;
   toDate: string;
+  revealed = false;
 
   private currentPage:number = 1;
   settings = {
@@ -108,8 +109,11 @@ export class AdminUserComponent  {
     }); 
 
   }
-  toggleView() {
+  /*toggleView() {
     this.flipped = !this.flipped;
+  }*/
+  toggleView() {
+    this.revealed = !this.revealed;
   }
 
   onDeleteConfirm(event): void {
