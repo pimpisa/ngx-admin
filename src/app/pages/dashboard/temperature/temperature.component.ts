@@ -28,7 +28,7 @@ export class TemperatureComponent implements OnDestroy {
   private alive = true;
   
 
-  private progressInfoData: Participation[] = [
+  progressInfoData: Participation[] = [
     {
       title: 'Accessed the platform',
       rate: 100,

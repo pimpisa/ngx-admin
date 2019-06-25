@@ -43,7 +43,7 @@ export class PrepostComponent implements OnInit {
   
   cities4 = [];
   selectedCity: any;
-  private selectedModule: Game_Module[];
+  selectedModule: Game_Module[];
   selectedUserIds: number[];
   public listData: any[];
   public scoreData: any[];

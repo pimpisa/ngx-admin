@@ -17,15 +17,15 @@ export interface Game_Group {
   styleUrls: ['./edgage-game.component.scss']
 })
 export class EdgageGameComponent implements OnInit {
-  private game_module: Game_Module[] = [];
-  private game_group = [
+  game_module: Game_Module[] = [];
+  game_group = [
     {id: 1, name: 'Other'},
     {id: 2, name: 'Web Session'},
     {id: 3, name: 'YSL'},
     {id: 4, name: 'Test Group'}
   ];
-  private selectedModule: Game_Module[];
-  private selectedGroup : Game_Group[] = [];
+  selectedModule: Game_Module[];
+  selectedGroup : Game_Group[] = [];
   form: FormGroup;
   range: NbCalendarRange<Date>;
 

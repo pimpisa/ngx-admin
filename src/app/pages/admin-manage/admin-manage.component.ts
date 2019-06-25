@@ -13,7 +13,7 @@ export interface Pages {
   styleUrls: ['./admin-manage.component.scss']
 })
 export class AdminManageComponent implements OnInit {
-  private pages: Pages[] = [
+  pages: Pages[] = [
     {
       title: 'Manage Sites',
       icon: 'nb-square-outline',

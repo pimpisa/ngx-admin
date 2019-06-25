@@ -33,6 +33,7 @@ export class AdminUserComponent  {
   userTotal: any;
   selected_id: any;
   userDetail: User = new User();
+  commonSelectedItem: any;
   //userInfo: Observable<User[]>;
   userInfo: User = new User();
   public filterDate:string;
