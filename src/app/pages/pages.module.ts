@@ -38,6 +38,8 @@ import { EdgageGameComponent } from './edgage-game/edgage-game.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 
 
+import { Dashboard2Module } from './dashboard2/dashboard2.module';
+
 const PAGES_COMPONENTS = [
   PagesComponent,
 ];
@@ -57,7 +59,8 @@ const PAGES_COMPONENTS = [
     NbBadgeModule,
     NgMultiSelectDropDownModule,
     NgSelectModule, 
-  
+    
+    Dashboard2Module,
   ],
   declarations: [
     ...PAGES_COMPONENTS,

@@ -7,6 +7,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/dashboard',
   },
   {
+    title: 'Dashboard2',
+    icon: 'nb-home',
+    link: '/pages/dashboard2',
+  },
+  {
     title: 'User Activity',
     icon: 'nb-bar-chart',
     link: '/pages/user-activity',
