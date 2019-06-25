@@ -27,6 +27,9 @@ import { AdminManageComponent } from './admin-manage/admin-manage.component';
 import { EdgageGameComponent } from './edgage-game/edgage-game.component';
 
 
+import { Dashboard2Component } from './dashboard2/dashboard2.component';
+
+
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
@@ -48,6 +51,10 @@ const routes: Routes = [{
   , {
     path: 'dashboard',
     component: DashboardComponent,
+  }
+  , {
+    path: 'dashboard2',
+    component: Dashboard2Component,
   }, 
   {
     path: 'admin-user',

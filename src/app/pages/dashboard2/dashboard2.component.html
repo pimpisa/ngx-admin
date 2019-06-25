@@ -1,0 +1,80 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-select placeholder="Select Group" [selected]="selectedGroup" (selectedChange)="onGroupChange($event)">
+      <nb-option value="sample">Sample Data</nb-option>
+      <nb-option value="ajax">Ajax Data</nb-option>
+    </nb-select>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="title_wrapper main_title">
+      <h2>Impact Summary</h2>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="title_wrapper main_title">
+      <h2>Report</h2>
+    </div>
+  </div>
+
+  <div *ngFor="let report of reports" class="reports col-md-{{report.width}}">
+    <nb-card class="inner-card">
+      <nb-card-header class="text-center">
+        <h3>{{report.title}}</h3>
+        <h3><small>{{report.subtitle}}</small></h3>
+      </nb-card-header>
+      <nb-card-body>
+        <div [ngSwitch]="report.chart.type">
+          <div *ngSwitchCase="'circle'">
+            <ngx-circle-chart [options]="report.chart"></ngx-circle-chart>
+          </div>
+          <div *ngSwitchCase="'bar'">
+
+          </div>
+        </div>
+      </nb-card-body>
+      <nb-card-footer class="blue-bg">
+        <div *ngIf="report.mid_head; then midBlock else lfBlock"></div>
+        <ng-template #midBlock>
+          <div class="text-center">
+            {{report.mid_head}}<br>{{report.mid_msg}}
+          </div>
+        </ng-template>
+        <ng-template #lfBlock>
+          <div class="left">
+            <div class="head">
+              {{report.left_head}}
+            </div>
+            <div class="count">
+              {{report.left_msg}}
+            </div>
+          </div>
+          <div class="right">
+            <div class="head">
+              {{report.right_head}}
+            </div>
+            <div class="count">
+              {{report.right_msg}}
+            </div>
+          </div>
+        </ng-template>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="title_wrapper main_title">
+      <h2>Most Popular</h2>
+    </div>
+  </div>
+  <div class="col-md-4" *ngFor="let popular of populars">
+    <ngx-popular-box [data]="popular"></ngx-popular-box>
+  </div>
+</div>
