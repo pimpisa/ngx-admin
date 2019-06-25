@@ -3,6 +3,6 @@
     <ng-option *ngFor="let g of game_module" [value]="g">{{g.title}}</ng-option>
 </ng-select>
 <button (click)="showGraph()" nbButton>SHOW GRAPH</button>
-<!--<div *ngIf="listData" echarts [options]="options" class="echart"></div>-->
-<div echarts [options]="options" class="echart"></div>
+<div *ngIf="listData" echarts [options]="options" class="echart"></div>
+<!--<div echarts [options]="options" class="echart"></div>-->
 </div>
