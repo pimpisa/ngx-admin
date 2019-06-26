@@ -251,7 +251,7 @@ export class PrepostComponent implements OnInit {
        this.game_module = gm['data'].data;
         console.log("gma=" + JSON.stringify(this.gm));
       })
-  }
+    }
 
   // addCustomUser = (term) => ({id: term, name: term});
     
