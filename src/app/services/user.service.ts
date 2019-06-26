@@ -33,6 +33,7 @@ export class UserService implements PipeTransform {
   private currentUserApiUrl = environment.base_api + 'user';
   private userByIdApi = environment.base_api + 'user/id/';
   private paginationUrl = environment.base_api + 'user/list?page=';
+  private filterByDate = environment.base_api + 'user/list?page=';
   private keyToken = environment.keyToken;
 
   private user = new BehaviorSubject<any>({
@@ -237,6 +238,27 @@ getAllUsersWithFilters(date: string, group: string){
       catchError((error) => this._handleError(error))
     );
   }
+  /** if(group == "All Group") {
+    var parms = new HttpParams();
+    parms.set('fromdate', '2/28/2017 to 3/2/2019');
+    return this.http.get(this.allUsersApiUrl + date, {
+      'headers': new HttpHeaders().set('Authorization', this.keyToken),
+      'params': parms
+       }
+
+       )
+       .pipe(
+        catchError((error) => this._handleError(error))
+      );
+  } else {
+  return this.http.get(this.allUsersApiUrl + date, {
+    'headers': new HttpHeaders().set('Authorization', this.keyToken)
+    
+     })
+     .pipe(
+      catchError((error) => this._handleError(error))
+    );
+  } */
 }
 getAllUsersWithPage(page: string){
   console.log("getAllUsersWithPage " + page);

@@ -172,7 +172,51 @@ export class Dashboard2Component implements OnInit {
             subtitle: "Ranking",
             chart: {
               type: 'bar',
-              options: 5 //TO-DO
+              options: { 
+                tooltip : {
+                  trigger: 'axis'
+              },
+              legend: {
+                  data:['leaderboard']
+              },
+             
+              calculable : true,
+              xAxis : [
+                  {
+                      type : 'category',
+                      data : [res['data'].leadboard.top5[0][0],res['data'].leadboard.top5[1][0],res['data'].leadboard.top5[2][0],res['data'].leadboard.top5[3][0],res['data'].leadboard.top5[4][0]],
+                      axisLine: 5
+                  }
+              ],
+              yAxis : [
+                  {
+                      show : false,
+                  }
+              ],
+              series : [
+                  {
+                      name:'User score',
+                      type:'bar',
+                      data:[res['data'].leadboard.top5[0][1],res['data'].leadboard.top5[1][1],res['data'].leadboard.top5[2][1],res['data'].leadboard.top5[3][1],res['data'].leadboard.top5[4][1]],
+                      itemStyle: {
+                        color:'#849EFE',
+                         
+                      },
+                      markPoint : {
+                          data : [
+                              {type : 'max', name: res['data'].leadboard.name},
+                              {type : 'min', name: res['data'].leadboard.name}
+                          ]
+                      },
+                      markLine : {
+                          data : [
+                              {type : 'average', name: 'Average'}
+                          ]
+                      }
+                  },
+                
+              ]
+              }
             },
             mid_head: "1st Leader",
             mid_msg: res['data'].leadboard.name+" "+res['data'].leadboard.high+" pts",

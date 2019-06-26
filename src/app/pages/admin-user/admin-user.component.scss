@@ -35,7 +35,11 @@
     .row-detail{
       width: 70%;
     }
-    
+    .actions-group {
+      margin: auto;
+      width: 80%;
+      display: block;
+    }
     .col-sm-4 {
       display: inline-block;
       float: left;
@@ -145,7 +149,15 @@
       width: 100%;
       text-align: center;
       margin-bottom:5px;
+      max-width:300px;
+      float:right;
     }
+    button.btn-primary {
+      max-width: 300px;
+   }
+   button.btn.btn-success {
+    float: none;
+  }
     nb-card-body {
       padding: 0px !important;
       width: 100%;
@@ -238,7 +250,7 @@ ul.tabset {
   .left-container {
     border-right: none;
     margin-top:0px;
-    min-height: 70vh;
+    height:auto;
   }
   .title {
     font-size: 1.25rem;
@@ -250,8 +262,30 @@ ul.tabset {
     display: none;
   
   }
-  .right-container {
+  .nb-theme-corporate .second-card-container {
+    height: calc(100% + 6rem);
+    border-radius: 0.17rem;
+    overflow: hidden;
+  }
+  .right-container.col-md-8.title.ng-star-inserted {
+    font-size: 0.8rem;
+  }
+  /*.right-container {
     display:none;
+  }*/
+  button.btn.btn-success[_ngcontent-c26] {
+    float: left !important;
+  }
+  button.btn-primary.bottom {
+    width: 80%;
+  } 
+  input#datePicker {
+    float: unset;
+    margin: auto;
+  }
+  .form-group {
+    width: 70%;
+    text-align: center;
   }
 
 }
