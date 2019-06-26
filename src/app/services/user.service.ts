@@ -141,29 +141,13 @@ getAllUsers() {
 
 getUserDetail(user: User){
   const url = this.currentUserApiUrl + "/id/" + user.id;
-  console.log(url);
-  console.log(user.name);
-  console.log(user.id);
-  console.log(user.phone);
-  console.log(user.email);
-  console.log(user)
+
   return user;
  /* return this.http.get(url, {
     'headers': new HttpHeaders().set('Authorization', this.keyToken)
      });*/
 }
 
-/*getUserInfo(id: string): Observable<object> {
-  return this.http.get<User[]>("https://demo.edgagement.com/api/user/id/" + id, {
-    'headers': new HttpHeaders().set('Authorization', this.keyToken)
-    
-     })
-     .subscribe(result => {
-      this.userInfo = result["data"];
-      console.log("this user selected "+ JSON.stringify(this.userInfo));
-
-    });
-}*/
   getUserInfo(id: string): Observable<object> {
     return this.http.get("https://demo.edgagement.com/api/user/id/" + id, {
       'headers': new HttpHeaders().set('Authorization', this.keyToken)
@@ -234,6 +218,25 @@ testGetAllUsers(){
         catchError((error) => this._handleError(error))
       );
 
+}
+getAllUsersWithFilters(date: string, group: string){
+  if(group == "All Group") {
+    return this.http.get(this.allUsersApiUrl + date, {
+      'headers': new HttpHeaders().set('Authorization', this.keyToken)
+      
+       })
+       .pipe(
+        catchError((error) => this._handleError(error))
+      );
+  } else {
+  return this.http.get(this.allUsersApiUrl + date, {
+    'headers': new HttpHeaders().set('Authorization', this.keyToken)
+    
+     })
+     .pipe(
+      catchError((error) => this._handleError(error))
+    );
+  }
 }
 getAllUsersWithPage(page: string){
   console.log("getAllUsersWithPage " + page);

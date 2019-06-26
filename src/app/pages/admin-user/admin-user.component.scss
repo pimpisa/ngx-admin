@@ -6,6 +6,10 @@
       background: transparent !important;
       border: none !important;
     }
+    .nb-theme-corporate nb-card-header {
+     
+      display: inherit;
+    }
 
     .user-detail {
       table-layout: fixed;
@@ -140,11 +144,12 @@
     input.date-picker.input-md.input-rectangle {
       width: 100%;
       text-align: center;
+      margin-bottom:5px;
     }
     nb-card-body {
       padding: 0px !important;
       width: 100%;
-  }
+    }
    /* .tracker td:nth-child(1) {
       padding: 10px;
       margin-bottom: 5px;

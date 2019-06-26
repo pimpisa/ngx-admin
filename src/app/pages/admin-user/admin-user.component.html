@@ -3,31 +3,57 @@
     <nb-card-front>
       <nb-card>
           <nb-card-header class="card-headline">
-              <div class="col-md-6 no-pad">
+            <div class="row">
+              <div class="col-12 col-md-6 no-pad">
                   <div class="title_wrapper">
                         <div class="main_title">
                           <h2>Users</h2>
                         </div>
                   </div>
               </div>
+              <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                      <input nbInput placeholder="Select Date" [nbDatepicker]="formpicker" [formControl]="dateFormControl" class="date-picker form-control" name="datePicker" id="datePicker" formControlName="datePicker">
+                      <nb-rangepicker #formpicker></nb-rangepicker>
+                  </div>
+              
+                  <div class="form-group">
+                      <nb-select formControlName="groups" id="groups" placeholder="All Group" class="top-button">
+                          <nb-option *ngFor="let group of groups; let i = index" [value]="groups[i].id">
+                          {{groups[i].name}}
+                          </nb-option>
+                        </nb-select>
+                  </div>
+              
+              
+                  <button class="btn btn-success">SEARCH</button>
+                </form>
               <!--<div class="col-6 col-sm-4">
                   <input nbInput placeholder="Select Date" [nbDatepicker]="formpicker" class="date-picker">
                   <nb-rangepicker #formpicker (rangeChange)="getUserByDate($event)"></nb-rangepicker>
               </div>-->
-              <div class="col-md-6">
-                  <form #filterForm="ngForm" (ngSubmit)="submit(filterForm.form)">
+              <!--
+              <div class="col-12 col-md-6">
+                  <form #filterForm="ngForm" (ngSubmit)="submit(filterForm,formpicker)">
+                      <div class="col-md-6">
                       <input nbInput placeholder="Select Date" [nbDatepicker]="formpicker" name="filterDate" class="date-picker">
                       <nb-rangepicker #formpicker></nb-rangepicker>
-                      <label for="groups">GROUPS</label>
-                      <nb-select formControlName="groups" id="groups" placeholder="All Group" class="top-button">
-                        <nb-option *ngFor="let group of groups; let i = index" [value]="groups[i].id">
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                        <nb-select formControlName="groups" id="groups" placeholder="All Group" class="top-button">
+                          <nb-option *ngFor="let group of groups; let i = index" [value]="groups[i].id">
                           {{groups[i].name}}
-                        </nb-option>
-                      </nb-select>
-                    
-                      <button nbButton>submit</button>
-                    </form>
-              </div>
+                          </nb-option>
+                        </nb-select>
+                        </div>
+                        <div class="col-md-6">
+                          <button nbButton hero>submit</button>
+                        </div>
+                      </div>
+                  </form>
+              </div>-->
+            </div>
               <!--<div class="col-6 col-sm-4">
                   <nb-select placeholder="All Group" [(selected)]="commonSelectedItem" class="top-button">
                       <nb-option value="1">Group2</nb-option>
