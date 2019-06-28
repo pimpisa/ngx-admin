@@ -11,3 +11,12 @@
 :host nb-tab {
     padding: 1.25rem;
 }
+.user-name {
+    font-size:1rem;
+}
+//mobile view
+@media only screen and (max-width:700px) {
+    .user-picture.background {
+        display: none !important;
+    }
+}

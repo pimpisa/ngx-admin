@@ -30,7 +30,7 @@
     </nb-card-body>
 </nb-card>
 <!--Modal Add Page-->
-<ng-template #contentTemplate let-data class="col-md-6">
+<ng-template #contentTemplate let-data class="col-md-8">
     <input type="text" nbInput fullWidth placeholder="Title:" class="child"><br/>
     <input type="text" nbInput fullWidth placeholder="Path:" class="child"><br/>
     <p>Permission:</p><nb-select placeholder="None" [(selected)]="commonSelectedItem" class="child">
@@ -43,7 +43,7 @@
                       <nb-option value="7">Hide</nb-option>
                       <nb-option value="8">Group</nb-option>
                     </nb-select>
-     <h3 class="text-primary font-main" class="child">Warning: Can not change filter after created.</h3>
+     <h3 class="text-primary font-main" class="child">you can open builder after save this</h3>
     <button type="submit" class="btn btn-primary child">SAVE</button>
 </ng-template>
 
