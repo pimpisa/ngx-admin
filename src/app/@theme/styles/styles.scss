@@ -176,6 +176,14 @@ nb-card-footer {
   color: #849efe !important;
   font-weight: 400;
 }
+.fa-archive:before {
+  color: #73a0fe;
+}
+.ion-document-text:before, .ion-archive:before {
+  color: #73a0fe;
+  font-size: 2.1rem;
+  margin-top: -6px;
+}
 .nb-trash::before, .fa-trash:before {
   color:#E89897;
   font-weight: 600;

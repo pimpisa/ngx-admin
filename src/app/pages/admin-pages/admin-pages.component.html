@@ -12,9 +12,10 @@
           <button class="btn btn-danger input-group-text" (click)="openWindow(contentTemplate)" nbButton>Add Page</button>&nbsp;&nbsp;
         </div>
         <nb-tabset fullWidth>
-          <nb-tab tabTitle="Pages" tabIcon="sunny-circled" responsive>
+          <nb-tab tabTitle="Pages" tabIcon="ion-document-text" responsive>
             <div class="contact" *ngFor="let c of pages">
-              <nb-user [name]="c.name" size="large"></nb-user>
+              <!--<nb-user [name]="c.name" size="large" showInitials=false></nb-user>-->
+                <h4>{{c.name}}</h4>
                 <nb-actions size="small">
                 <nb-action icon="fa fa-address-card"></nb-action>
                 <nb-action icon="fa fa fa-paper-plane"></nb-action>
@@ -22,18 +23,18 @@
                 </nb-actions>
               </div> 
           </nb-tab>
-          <nb-tab tabTitle="Archived" tabIcon="skip-forward-outline" responsive>
-            
+          <nb-tab tabTitle="Archived" tabIcon="ion-archive" responsive>
           </nb-tab>
         </nb-tabset>
       </nb-card>
     </nb-card-body>
 </nb-card>
 <!--Modal Add Page-->
-<ng-template #contentTemplate let-data class="col-md-8">
+<ng-template #contentTemplate let-p="p" class="col-md-8">
     <input type="text" nbInput fullWidth placeholder="Title:" class="child"><br/>
     <input type="text" nbInput fullWidth placeholder="Path:" class="child"><br/>
-    <p>Permission:</p><nb-select placeholder="None" [(selected)]="commonSelectedItem" class="child">
+    <p>Permission:</p><nb-select placeholder="Select Group" [(selected)]="commonSelectedItem" [(ngModel)]="selectedPerm" class="child">
+                      <!--<nb-option *ngFor="let perm of data">{{perm.name}}</nb-option>-->
                       <nb-option value="1">Guest</nb-option>
                       <nb-option value="2">Websession</nb-option>
                       <nb-option value="3">Beauty Advisor</nb-option>

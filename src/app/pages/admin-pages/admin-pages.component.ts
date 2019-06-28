@@ -33,6 +33,16 @@ export class AdminPagesComponent{
         {id: 13, name: 'Rewards'},
         {id: 14, name: 'White Tea'}
     ];
+    permission_group = [
+        {id: 1, name: 'Guest'},
+        {id: 2, name: 'Web Session'},
+        {id: 3, name: 'Beauty Advisor'},
+        {id: 4, name: 'Account Executive'},
+        {id: 5, name: 'FSD Access'},
+        {id: 6, name: 'Admin'},
+        {id: 7, name: 'Hide'},
+        {id: 8, name: 'Group'},
+    ];
     contacts: any[];
     recent: any[];
     breakpoint: NbMediaBreakpoint;
