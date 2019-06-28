@@ -7,25 +7,26 @@
       </div>
     </nb-card-header>  
     <nb-card-body>
-        <nb-card class="container-card">
-        <!--Add new user with button--> 
+      <nb-card class="container-card">
         <div class="flush-right" class="input-group">
           <button class="btn btn-danger input-group-text" (click)="openWindow(contentTemplate)" nbButton>Add Page</button>&nbsp;&nbsp;
         </div>
-        <br/>
-        <div class="contact" *ngFor="let c of pages">
-            <!-- <nb-user [name]="g.name"></nb-user>-->
-            <nb-user [name]="c.name" size="large"></nb-user>
-            <nb-actions size="small">
-              <nb-action icon="fa fa-address-card"></nb-action>
-              <nb-action icon="fa fa fa-paper-plane"></nb-action>
-              <nb-action icon="fa fa-pencil-alt"></nb-action>
-            </nb-actions>
-        </div>  
-        <br/>   
-        <div class="flush-right"><button type="submit" class="btn btn-primary">Send Message</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Export CSV</button>&nbsp;&nbsp;
-        <button type="submit" class="btn btn-primary">Export Users</button>&nbsp;&nbsp;<button type="submit" class="btn btn-primary">Import Users</button></div>
-        </nb-card>
+        <nb-tabset fullWidth>
+          <nb-tab tabTitle="Pages" tabIcon="sunny-circled" responsive>
+            <div class="contact" *ngFor="let c of pages">
+              <nb-user [name]="c.name" size="large"></nb-user>
+                <nb-actions size="small">
+                <nb-action icon="fa fa-address-card"></nb-action>
+                <nb-action icon="fa fa fa-paper-plane"></nb-action>
+                <nb-action icon="fa fa-pencil-alt"></nb-action>
+                </nb-actions>
+              </div> 
+          </nb-tab>
+          <nb-tab tabTitle="Archived" tabIcon="skip-forward-outline" responsive>
+            
+          </nb-tab>
+        </nb-tabset>
+      </nb-card>
     </nb-card-body>
 </nb-card>
 <!--Modal Add Page-->

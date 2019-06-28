@@ -30,7 +30,8 @@ export class AdminPagesComponent{
         {id: 10, name: 'Retinol'},
         {id: 11, name: 'AHA'},
         {id: 12, name: 'Retinol Deep Dive'},
-        {id: 13, name: 'Rewards'}
+        {id: 13, name: 'Rewards'},
+        {id: 14, name: 'White Tea'}
     ];
     contacts: any[];
     recent: any[];

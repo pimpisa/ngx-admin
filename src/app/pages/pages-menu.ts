@@ -31,8 +31,8 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Manage Pages',
-    icon: 'nb-compose',
-    link: '/pages/admin-manage',
+    icon: 'nb-square-outline',
+    link: '/pages/admin-pages',
     home: true,
   }/*,
   {

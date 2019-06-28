@@ -13,13 +13,13 @@
               </div>
               <div class="col-12 col-md-6 no-pad">
               <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
-                <div class="col-12 col-md-6 no-pad">
+                
                   <div class="form-group">
                       <input nbInput placeholder="Select Date" [nbDatepicker]="formpicker" [formControl]="dateFormControl" class="date-picker form-control" name="datePicker" id="datePicker" formControlName="datePicker">
                       <nb-rangepicker #formpicker></nb-rangepicker>
                   </div>
-                </div>
-                <div class="col-12 col-md-6 no-pad">
+               
+               
                   <div class="form-group">
                       <nb-select formControlName="groups" id="groups" placeholder="All Group" class="top-button">
                           <nb-option *ngFor="let group of groups; let i = index" [value]="groups[i].id">
@@ -28,7 +28,7 @@
                         </nb-select>
                   </div>
                   <button class="btn btn-success">SEARCH</button>
-                </div>
+                
                 </form>
             </div>
            </div>

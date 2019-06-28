@@ -109,6 +109,7 @@ nb-card.container-card {
   background:#F9FAFE !important;
   box-shadow: 0 2px 12px 0 #dfe3eb;
   padding:3rem;
+  min-height: 70vh;
 }
 nb-card.medium-card {
   height: auto;
@@ -171,7 +172,7 @@ nb-card-footer {
   border-radius: 7px;
 }
 //icon
-.nb-home::before, .nb-layout-sidebar-left, .nb-person,.nb-grid-a-outline::before, .nb-keypad::before, .nb-compose::before,.nb-menu::before, .nb-bar-chart::before {
+.nb-home::before, .nb-layout-sidebar-left, .nb-person,.nb-grid-a-outline::before, .nb-keypad::before, .nb-compose::before,.nb-menu::before, .nb-bar-chart::before, .nb-square-outline::before {
   color: #849efe !important;
   font-weight: 400;
 }
@@ -187,6 +188,7 @@ nb-card-footer {
   color:#849EFE;
   font-weight: 600;
 }
+
 //extra element 
 .no-pad {
   padding:0 0 !important;
