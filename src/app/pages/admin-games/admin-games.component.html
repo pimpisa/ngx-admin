@@ -18,10 +18,10 @@
                           #todoList="cdkDropList"
                           [cdkDropListData]="quiz"
                           [cdkDropListConnectedTo]="[doneList]"
-                          class="example-list"
+                          class="example-list col-md-12"
                           (cdkDropListDropped)="drop($event)"
                           (cdkDropListMousedown)="clicked($event)">
-                          <div class="example-box" *ngFor="let item of quiz" cdkDrag>{{item.title}}</div>
+                          <div class="example-box" *ngFor="let item of quiz" (click)="showDetail(item.title)"cdkDrag>{{item.title}}<i class="fas fa-ellipsis-v"></i></div>
                         </div>
                     </div>
                 </nb-card>
@@ -33,10 +33,10 @@
                           #doneList="cdkDropList"
                           [cdkDropListData]="other"
                           [cdkDropListConnectedTo]="[todoList]"
-                          class="example-list"
-                          (cdkDropListDropped)="drop($event)"
+                          class="example-list col-md-12"
+                          (cdkDropListDropped)="drop($event)" 
                           >
-                          <div class="example-box" *ngFor="let item of other" (click)="showDetail(item.title)"cdkDrag>{{item.title}}</div>
+                          <div class="example-box" *ngFor="let item of other" (click)="showDetail(item.title)"cdkDrag>{{item.title}}<i class="fas fa-ellipsis-v"></i></div>
                         </div>
                       </div>
                 </nb-card>
@@ -49,9 +49,30 @@
                     <button nbButton [status]="primary" hero>
                        SAVE SETTING
                     </button>
+                    <hr>
+                    <h4>Games</h4>
+                      <div class="flush-right" style="display:none;">
+                        <button nbButton [status]="primary" hero>
+                          Import Game
+                        </button>
+                        <button nbButton [status]="primary" hero>
+                          Add Game
+                          </button>
+                      </div>
                   </nb-card-header>
                   <nb-card-body>
-                    
+                    <div class="row" style="margin:0px;">
+                    <div cdkDropList class="example-list col-md-9" (cdkDropListDropped)="sort($event)">
+                      <div class="example-box" *ngFor="let game of sub_game" cdkDrag>{{game}}<i class="fas fa-braille"></i></div>
+                    </div>
+                    <div class="col-md-3" style="text-align:right;">
+                      <nb-actions *ngFor="let game of sub_game" class="flush-right" size="small">
+                        <nb-action icon="fa fa-trash"></nb-action>
+                        <nb-action icon="fa fa-upload"></nb-action>
+                        <nb-action icon="fa fa-pencil-alt"></nb-action>
+                        </nb-actions>
+                    </div>
+                    </div>
                   </nb-card-body>
                 </nb-card>
             </div>

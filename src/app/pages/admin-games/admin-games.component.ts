@@ -27,7 +27,7 @@ export class AdminGamesComponent {
   game_detail: string;
   game_title:string;
   game_desc: string;
- // subgame:[string];
+  sub_game:string[];
   select_game: Game_Category[];
   //title = "subgame";
   //game_desc = "";
@@ -108,12 +108,29 @@ export class AdminGamesComponent {
                         event.currentIndex);
     }
   }
+
+  sort(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.sub_game, event.previousIndex, event.currentIndex);
+  }
+
   showDetail(game:string){
     this.game_title = game;
     if (game == "Spin Games"){
       this.game_desc = "Welcome to the Elizabeth Arden Spin to Win Challenge! !\nTo play the game, simply spin, tap and engage to see how well you know our products AND how to service our customers. Finish all 15 questions to earn your gratis product. Have fun and good luck!'";
-    }else {
+      this.sub_game = [ 'SELL IT TO ME!',
+                        'AGREE TO DISAGREE',
+                        'KNOW UR #\'S',
+                        'R U A PRODUCT GENIUS?',
+                        'SALES BOOSTER'];
+    }else if (game == "March On"){
       this.game_desc = "";
+      this.sub_game = ['quiz me',
+                      'Get to know PINK',
+                      'March on TEST game'];
+    } else {
+      this.game_desc = "";
+      this.sub_game = [ 'Quiz Me',
+                        'White Tea QuizMe'];
     }
       //this.game_desc = 
      // this.select_game = this.game_cat_detail.title[game];

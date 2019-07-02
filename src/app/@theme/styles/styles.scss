@@ -184,7 +184,7 @@ nb-card-footer {
   font-size: 2.1rem;
   margin-top: -6px;
 }
-.nb-trash::before, .fa-trash:before {
+.nb-trash::before {
   color:#E89897;
   font-weight: 600;
 }
@@ -192,7 +192,7 @@ nb-card-footer {
   content: "\f2f9";
   color: #859efe;
 }
-.nb-edit::before, .fa-pencil-alt:before, .fa-paper-plane:before, .fa-address-card:before {
+.nb-edit::before, .fa-pencil-alt:before, .fa-paper-plane:before, .fa-address-card:before, .fa-upload:before, .fa-trash:before {
   color:#849EFE;
   font-weight: 600;
 }
@@ -200,7 +200,7 @@ nb-card.row-2 {
   max-height: 300px;
   min-height: 200px !important;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 0px;
   box-shadow: 0 0.5rem 1rem 0 rgba(44,51,73,.1);
 }
 //extra element 
