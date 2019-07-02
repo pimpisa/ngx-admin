@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { FormControl } from '@angular/forms';
+
+export interface Game_Category {
+  title: string;
+  description: string;
+  subGames:Object[];
+}
 
 @Component({
   selector: 'ngx-admin-games',
@@ -7,6 +14,7 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
   styleUrls: ['./admin-games.component.scss']
 })
 export class AdminGamesComponent {
+
   quiz = [
    
   ];
@@ -17,8 +25,35 @@ export class AdminGamesComponent {
   ];
   //Detail
   game_detail: string;
+  game_title:string;
+  game_desc: string;
+ // subgame:[string];
+  select_game: Game_Category[];
+  //title = "subgame";
+  //game_desc = "";
+  //game_cat_detail:Game_Category[] = [
   game_cat_detail = [
     { title: 'Spin Games', description: 
+    'Welcome to the Elizabeth Arden Spin to Win Challenge! !\nTo play the game, simply spin, tap and engage to see how well you know our products AND how to service our customers. Finish all 15 questions to earn your gratis product. Have fun and good luck!',
+  subGames:[
+    {
+      title:'SELL IT TO ME!',
+    },
+    {
+      title:'AGREE TO DISAGREE',
+    },
+    {
+      title:'KNOW UR #\'S',
+    },
+    {
+      title:'R U A PRODUCT GENIUS?',
+    },
+    {
+      title:'SALES BOOSTER',
+    },
+  ]
+  }
+   /* { title: 'Spin Games', description: 
                             'Welcome to the Elizabeth Arden Spin to Win Challenge! !\nTo play the game, simply spin, tap and engage to see how well you know our products AND how to service our customers. Finish all 15 questions to earn your gratis product. Have fun and good luck!',
                           subGames:[
                             {
@@ -60,7 +95,7 @@ export class AdminGamesComponent {
                               title:'White Tea QuizMe',
                             }
                           ]
-    },
+    },*/
   ];
 
   drop(event: CdkDragDrop<string[]>) {
@@ -74,7 +109,20 @@ export class AdminGamesComponent {
     }
   }
   showDetail(game:string){
-    console.log("show detail!");
+    this.game_title = game;
+    if (game == "Spin Games"){
+      this.game_desc = "Welcome to the Elizabeth Arden Spin to Win Challenge! !\nTo play the game, simply spin, tap and engage to see how well you know our products AND how to service our customers. Finish all 15 questions to earn your gratis product. Have fun and good luck!'";
+    }else {
+      this.game_desc = "";
+    }
+      //this.game_desc = 
+     // this.select_game = this.game_cat_detail.title[game];
+      //this.game_desc = this.game_cat_detail['title'];
+      //console.log(this.game_desc);
+  
+  }
+  showDesc(game:string){
+
   }
 
   clicked(event) {

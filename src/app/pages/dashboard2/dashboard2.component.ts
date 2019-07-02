@@ -104,7 +104,7 @@ export class Dashboard2Component implements OnInit {
 
   onGroupChange(value) {
     this.selectedGroup = value;
-    if(value=='ajax'){
+    if(value=='test'){
       this.loadAjaxData();
     }else{
       this.reports = this.reports_sample;

@@ -35,8 +35,8 @@
                           [cdkDropListConnectedTo]="[todoList]"
                           class="example-list"
                           (cdkDropListDropped)="drop($event)"
-                          (cdkDropListMousedown)="clicked($event)">
-                          <div class="example-box" *ngFor="let item of other" [cdkDragData]="item" [class.activemitem]="item.title === game_detail" cdkDrag>{{item.title}}</div>
+                          >
+                          <div class="example-box" *ngFor="let item of other" (click)="showDetail(item.title)"cdkDrag>{{item.title}}</div>
                         </div>
                       </div>
                 </nb-card>
@@ -44,7 +44,15 @@
             <div class="col-md-8">
                 <h5>Game Category Detail</h5>
                 <nb-card > 
-                  <p *ngIf="game_detail">{{game_detail}}</p>
+                  <nb-card-header><h4>Title: {{game_title}}</h4><br/>
+                    <textarea nbInput fullWidth placeholder="Textarea">{{game_desc}}</textarea><br/>
+                    <button nbButton [status]="primary" hero>
+                       SAVE SETTING
+                    </button>
+                  </nb-card-header>
+                  <nb-card-body>
+                    
+                  </nb-card-body>
                 </nb-card>
             </div>
           </div>
