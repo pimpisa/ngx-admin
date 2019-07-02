@@ -1,4 +1,4 @@
-import { Component, OnDestroy} from '@angular/core';
+import { Component, NgModule, ViewChild, OnDestroy} from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { Game_Module } from '../../../interfaces/game';
 import { GameService } from '../../../services/game.service';
@@ -28,7 +28,12 @@ export class ProgressBarComponent  {
   public gm:Game_Module[];
   game_module: Game_Module[] = [];
   cities4 = [];
-
+  public listData: any[];
+  public scoreData: any[];
+  public maxData = [];
+  public trimList: string[];
+  selectedGame = [];
+ 
   progressInfoData: Participation[] = [
     {
       title: 'Accessed the platform',
@@ -65,7 +70,27 @@ export class ProgressBarComponent  {
       this.game_module = gm['data'].data;
        console.log("gma=" + JSON.stringify(this.gm));
      })
- }
+  }
+
+  onChange(selectedGame){
+    console.log("OnChange" + this.selectedModule);
+    
+  }
+
+  showGraph(){
+    var arr = [];
+    console.log("In show Graph"+this.selectedModule);
+    this.listData =  this.selectedModule.map(x => x.title);
+    this.trimList = this.listData.splice(0,10);
+    this.scoreData =  this.selectedModule.map(x => x.overall);
+   // this.prePostData = this.selectedModule.
+    for (var i = 1; i <= this.selectedModule.length; i++) {
+      arr.push(100);
+    }
+    this.maxData = arr;
+    console.log("this max" + this.maxData);
+    //this.maxData = this.selectedModule.length * 100;
+  }
 
  // addCustomUser = (term) => ({id: term, name: term});
    

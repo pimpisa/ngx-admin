@@ -34,7 +34,15 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'nb-square-outline',
     link: '/pages/admin-pages',
     home: true,
-  }/*,
+  },
+  {
+    title: 'Manage Games',
+    icon: 'nb-square-outline',
+    link: '/pages/admin-games',
+    home: true,
+  }
+
+  /*,
   {
     title: 'Manage Site',
     icon: 'nb-layout-sidebar-left',

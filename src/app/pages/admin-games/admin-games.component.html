@@ -8,7 +8,49 @@
           </div> 
         </nb-card-header>
         <nb-card-body>
-          <div class="col-md-6 draggable-container example-custom-placeholder no-pad">
+          <div class="row">
+            <div class="col-md-4">
+                <h5>Test Knowledge/Quiz Me</h5>
+                <nb-card class="row-2">
+                    <div class="draggable-container example-custom-placeholder no-pad">
+                        <div
+                          cdkDropList
+                          #todoList="cdkDropList"
+                          [cdkDropListData]="quiz"
+                          [cdkDropListConnectedTo]="[doneList]"
+                          class="example-list"
+                          (cdkDropListDropped)="drop($event)"
+                          (cdkDropListMousedown)="clicked($event)">
+                          <div class="example-box" *ngFor="let item of quiz" cdkDrag>{{item.title}}</div>
+                        </div>
+                    </div>
+                </nb-card>
+                <h5>Other</h5>
+                <nb-card class="row-2">
+                    <div class="draggable-container example-custom-placeholder">
+                        <div
+                          cdkDropList
+                          #doneList="cdkDropList"
+                          [cdkDropListData]="other"
+                          [cdkDropListConnectedTo]="[todoList]"
+                          class="example-list"
+                          (cdkDropListDropped)="drop($event)"
+                          (cdkDropListMousedown)="clicked($event)">
+                          <div class="example-box" *ngFor="let item of other" [cdkDragData]="item" [class.activemitem]="item.title === game_detail" cdkDrag>{{item.title}}</div>
+                        </div>
+                      </div>
+                </nb-card>
+            </div>
+            <div class="col-md-8">
+                <h5>Game Category Detail</h5>
+                <nb-card > 
+                  <p *ngIf="game_detail">{{game_detail}}</p>
+                </nb-card>
+            </div>
+          </div>
+        </nb-card-body>
+        <!--<nb-card-body>
+          <div class="col-md-4 draggable-container example-custom-placeholder no-pad">
               <h2>Test Knowledge/Quiz Me</h2>
               <div
                 cdkDropList
@@ -21,7 +63,7 @@
               </div>
             </div>
 
-            <div class="col-md-6 draggable-container example-custom-placeholder">
+            <div class="col-md-4 draggable-container example-custom-placeholder">
               <h2>Other</h2>
             
               <div
@@ -34,7 +76,7 @@
                 <div class="example-box" *ngFor="let item of other" cdkDrag>{{item.title}}</div>
               </div>
             </div>
-      </nb-card-body>
+      </nb-card-body>-->
     </nb-card>
       
       

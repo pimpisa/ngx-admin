@@ -1,2 +1,13 @@
 @import '../../dashboard/temperature/temperature.component.scss'; 
 @import "~@ng-select/ng-select/themes/default.theme.css";
+
+.nb-theme-corporate [_nghost-c19] nb-progress-bar .progress-value {
+    transition: width 2s ease-in-out;
+}
+
+nb-progress-bar .progress-value-green {
+    background: linear-gradient(90deg,#2ce69b,#00d68f);
+}
+
+
+

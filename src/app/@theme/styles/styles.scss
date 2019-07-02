@@ -196,7 +196,13 @@ nb-card-footer {
   color:#849EFE;
   font-weight: 600;
 }
-
+nb-card.row-2 {
+  max-height: 300px;
+  min-height: 200px !important;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(44,51,73,.1);
+}
 //extra element 
 .no-pad {
   padding:0 0 !important;
@@ -268,9 +274,9 @@ ul.pagination a {
 }
 //Drag and drop
 .example-box {
-  padding: 20px 10px;
+  padding: 10px 10px;
   border: none;
-  color: rgba(0, 0, 0, 0.87);
+  color: #ffffff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -287,12 +293,12 @@ ul.pagination a {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   cursor: move;
-  background: white;
-  font-size: 18px;
-  margin-bottom: 15px;
+  background: #7593f6;
+  font-size: 15px;
+  margin-bottom: 10px;
   border-left: solid 3px #849EFE;
-  height: 80px;
-  border-radius: 4px;
+  height: 40px;
+  border-radius: 0px;
 }
 //Popup window
 .body-template {

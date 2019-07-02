@@ -6,7 +6,7 @@ import { takeWhile } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
 import { LocalDataSource } from 'ng2-smart-table';
 /**Import this for popup-window */
-import { NbWindowService} from '@nebular/theme'
+import { NbWindowService} from '@nebular/theme';
 import { WindowFormComponent } from '../modal-overlays/window/window-form/window-form.component';
 import { NbWindowRef } from '@nebular/theme';
 
@@ -51,7 +51,7 @@ export class AdminPagesComponent{
     constructor(private userService: UserData,
         private themeService: NbThemeService,
         private breakpointService: NbMediaBreakpointsService, 
-        private NbWindowService:NbWindowService) {
+        private NbWindowService:NbWindowService,private windowService: NbWindowService) {
           this.breakpoints = this.breakpointService.getBreakpointsMap();
           this.themeService.onMediaQueryChange()
           .pipe(takeWhile(() => this.alive))
@@ -80,6 +80,11 @@ export class AdminPagesComponent{
             },
           },
         );
+      }
+
+      savePage(){
+        console.log("save page called");
+        
       }
 
 }

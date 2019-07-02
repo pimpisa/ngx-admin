@@ -130,10 +130,15 @@ export class AdminUserComponent  {
 
   getGroups(){
     return [
-      { id: '1', name: 'Role 1' },
-      { id: '2', name: 'Role 2' },
-      { id: '3', name: 'Role 3' },
-      { id: '4', name: 'Role 4' }
+      { id: '0', name: 'All' },
+      { id: '1', name: 'BAs' },
+      { id: '2', name: 'AEs(without CAN' },
+      { id: '3', name: 'AEs(CAN)' },
+      { id: '4', name: 'FSDs' },
+      { id: '5', name: 'Dillard'},
+      { id: '6', name: 'Boscov'},
+      { id: '7', name: 'L&T Coporate'},
+      { id: '8', name: 'Global Coporate'}
     ];
   }
 

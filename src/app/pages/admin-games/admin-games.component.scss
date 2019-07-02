@@ -58,9 +58,11 @@
   .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
   }**/
-  
+  .nb-theme-corporate nb-card {
+    border: 0px;
+  }
   .draggable-container {
-    width: 400px;
+    width: 100%;
     max-width: 100%;
     margin: 0 25px 25px 0;
     display: inline-block;
@@ -91,7 +93,8 @@
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
   }
   nb-card {
-    min-height: 70vh;
+    min-height: 73vh;
+    border:0px;
   } 
   nb-action {
     padding:0px;
