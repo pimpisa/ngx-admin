@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CircleChartComponent implements OnInit {
 
   @Input()
-  public options:Object = {
+  public options: any = {
     type: "circle",
     percent: 5
   };

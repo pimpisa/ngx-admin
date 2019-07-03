@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PopularBoxComponent implements OnInit {
 
   @Input()
-  public data: Object = {
+  public data: any = {
     title: "Title",
     subtitle: "Sub Title",
     msg: "12 out of 123\nusers completed"

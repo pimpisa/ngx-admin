@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BarChartComponent implements OnInit {
 
   @Input()
-  public options:Object = {
+  public options:any = {
     options: {
       tooltip : {
         trigger: 'axis'
