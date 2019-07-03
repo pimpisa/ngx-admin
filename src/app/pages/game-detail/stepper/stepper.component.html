@@ -7,7 +7,7 @@
             <div class="row">
               <div class="col-md-6">
                 <h5>Choose Game Type</h5>
-                <nb-select class="col-md-6" placeholder="Select Game Type" [(selected)]="selectedItem">
+                <nb-select class="col-md-6" placeholder="Select Game Type">
                     <nb-option *ngFor="let g of games | keyvalue;" value="{{g.value}}">{{g.value}}</nb-option>
                 </nb-select>
               </div>
