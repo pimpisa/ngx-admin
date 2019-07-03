@@ -6,6 +6,7 @@ import { AnalyticsService } from '../../../@core/utils';
 import { LayoutService } from '../../../@core/utils';
 import { User } from '../../../interfaces/user';
 import { UserService } from '../../../services/user.service';
+import { filter, map } from 'rxjs/operators';
 
 
 
@@ -21,7 +22,7 @@ export class HeaderComponent implements OnInit {
 
   user: any;
 
-  userMenu = [{ title: 'Profile' }, { title: 'Log out' }];
+  userMenu = [{ title: 'View Site' }, { title: 'Log out' }];
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
@@ -33,6 +34,20 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.userService.getUser()
       .subscribe((user: any) => this.user = user);
+
+    this.menuService.onItemClick()
+      .pipe(
+        filter(({ tag }) => tag === 'headerMenu'),
+        map(({ item: { title } }) => title),
+      )
+      .subscribe((title) => {
+        if(title == "View Site") {
+          window.location.href = "/home";
+        } else if (title == "Log Out") {
+          window.location.href = "/logout";
+        }
+      })
+        
   }
 
   toggleSidebar(): boolean {
