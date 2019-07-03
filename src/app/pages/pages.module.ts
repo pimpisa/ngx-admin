@@ -36,9 +36,15 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminManageComponent } from './admin-manage/admin-manage.component';
 import { EdgageGameComponent } from './edgage-game/edgage-game.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { GameDetailComponent } from './game-detail/game-detail.component';
 
 
 import { Dashboard2Module } from './dashboard2/dashboard2.module';
+import { StepperComponent } from './game-detail/stepper/stepper.component';
+import { EditWindowComponent } from './game-detail/edit-window/edit-window.component';
+import { GameQuestComponent } from './game-detail/game-quest/game-quest.component';
+
+//import { GameDetailComponent } from './admin-games/game-detail.module';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -61,6 +67,7 @@ const PAGES_COMPONENTS = [
     NgSelectModule, 
     
     Dashboard2Module,
+    
   ],
   declarations: [
     ...PAGES_COMPONENTS,
@@ -86,6 +93,10 @@ const PAGES_COMPONENTS = [
     AdminLoginComponent,
     AdminManageComponent,
     EdgageGameComponent,
+    GameDetailComponent,
+    StepperComponent,
+    EditWindowComponent,
+    GameQuestComponent,
 
   ]
 })

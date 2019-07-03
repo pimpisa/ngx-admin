@@ -1,0 +1,69 @@
+<div class="title_wrapper">
+  <div class="main_title">
+    <h2>Game Detail</h2>
+  </div>
+</div> 
+<h3>Game Name</h3>
+<div class="row">
+  <div class="col-md-2">
+  <div *ngIf="!files.length" class="col-md-2 rmpm dropzone" appDrag (files)="filesDropped($event)">
+    <div class="text-wrapper">
+      <div class="centered">Drop your file here!</div>
+    </div>
+  </div>
+        <!--droped image preview-->
+<div *ngFor="let file of files">
+  <img *ngIf="file" [src]="file.url" width="200px" height="200px">
+</div>
+<button type="button" nbButton (click)="upload()">Upload Image</button>
+</div>
+<div class="col-md-10">
+  <h5>Description</h5>
+  <textarea nbInput fullWidth placeholder="Textarea"></textarea>
+</div>
+</div>
+<hr>
+<div class="col-md-6">
+<h5>Access</h5>
+  <nb-select class="col-md-6" placeholder="Select Access" [(selected)]="selectedItem">
+      <nb-option *ngFor="let g of access" value="{{g.id}}">{{g.title}}</nb-option>
+  </nb-select>
+</div>
+<br/>
+<div class="row">
+  <div class="col-md-6">
+    <h5>Show result?</h5>
+    <nb-radio-group>
+        <nb-radio [value]="0">
+          YES
+        </nb-radio>
+        <nb-radio [value]="1">
+          NO
+        </nb-radio>
+      </nb-radio-group>
+  </div>
+  <div class="col-md-6">
+      <h5>Special instructions</h5>
+      <nb-checkbox 
+        *ngFor="let option of special_instructions"
+        [value]="option.value" status="primary">
+        {{ option.label }}
+      </nb-checkbox>
+  </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+      <h5>Points</h5>
+    </div>
+    <div class="col-md-6">
+        <h5>Link to</h5>
+        <nb-select class="col-md-6" placeholder="Select Access" [(selected)]="selectedItem">
+            <nb-option *ngFor="let g of links" value="{{g.value}}">{{g.label}}</nb-option>
+        </nb-select>
+    </div>
+</div>
+<hr>
+
+
+        
+   

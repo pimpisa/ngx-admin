@@ -1,0 +1,31 @@
+p {
+    font-family: Lato;
+  }
+  .dropzone {
+    height: 150px;
+    width: 150px;
+    display: table;
+    background-color: #fdfdfd;
+    border: dotted 3px #859efe;
+    margin: 20px 0px;
+  }
+  
+  .text-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  .centered {
+    font-family: sans-serif;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align:center;
+  }
+  //Input
+  textarea.input-full-width.input-md.input-rectangle {
+    height: 200px;
+    }
+    .row{
+        margin-bottom:20px;
+        margin-left: 10px;
+    }

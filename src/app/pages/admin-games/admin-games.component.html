@@ -19,8 +19,7 @@
                           [cdkDropListData]="quiz"
                           [cdkDropListConnectedTo]="[doneList]"
                           class="example-list col-md-12"
-                          (cdkDropListDropped)="drop($event)"
-                          (cdkDropListMousedown)="clicked($event)">
+                          (cdkDropListDropped)="drop($event)">
                           <div class="example-box" *ngFor="let item of quiz" (click)="showDetail(item.title)"cdkDrag>{{item.title}}<i class="fas fa-ellipsis-v"></i></div>
                         </div>
                     </div>
@@ -34,8 +33,7 @@
                           [cdkDropListData]="other"
                           [cdkDropListConnectedTo]="[todoList]"
                           class="example-list col-md-12"
-                          (cdkDropListDropped)="drop($event)" 
-                          >
+                          (cdkDropListDropped)="drop($event)">
                           <div class="example-box" *ngFor="let item of other" (click)="showDetail(item.title)"cdkDrag>{{item.title}}<i class="fas fa-ellipsis-v"></i></div>
                         </div>
                       </div>
@@ -57,13 +55,13 @@
                         </button>
                         <button nbButton [status]="primary" hero>
                           Add Game
-                          </button>
+                        </button>
                       </div>
                   </nb-card-header>
                   <nb-card-body>
                     <div class="row" style="margin:0px;">
                     <div cdkDropList class="example-list col-md-9" (cdkDropListDropped)="sort($event)">
-                      <div class="example-box" *ngFor="let game of sub_game" cdkDrag>{{game}}<i class="fas fa-braille"></i></div>
+                      <a href="#/pages/game-detail"><div class="example-box" *ngFor="let game of sub_game" cdkDrag>{{game}}<i class="fas fa-braille"></i></div></a>
                     </div>
                     <div class="col-md-3" style="text-align:right;">
                       <nb-actions *ngFor="let game of sub_game" class="flush-right" size="small">

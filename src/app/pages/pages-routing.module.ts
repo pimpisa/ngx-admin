@@ -25,6 +25,7 @@ import { UserActivityComponent } from './user-activity/user-activity.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminManageComponent } from './admin-manage/admin-manage.component';
 import { EdgageGameComponent } from './edgage-game/edgage-game.component';
+import { GameDetailComponent } from './game-detail/game-detail.component';
 
 
 import { Dashboard2Component } from './dashboard2/dashboard2.component';
@@ -37,6 +38,9 @@ const routes: Routes = [{
     path: 'ecommerce',
     component: ECommerceComponent,
   }, {
+    path: 'game-detail',
+    component: GameDetailComponent,
+  },{
     path: 'user-activity',
     component: UserActivityComponent,
   }
@@ -121,7 +125,7 @@ const routes: Routes = [{
     component: AdminLanguageComponent,
   },
   {
-    path: 'admin-web-session',
+    path: 'admin-web',
     component: AdminWebSessionComponent,
   }, 
   {

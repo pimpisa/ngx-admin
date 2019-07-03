@@ -25,11 +25,12 @@ import * as solidGauge from 'highcharts/modules/solid-gauge.src';
 import { ChartService } from '../app/services/chart.service';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { SelectDropDownModule } from 'ngx-select-dropdown';
+import { DragDirective } from './dragDrop.directive';
 //import { GaugeModule } from 'angular-gauge';
 
 
 @NgModule({
-  declarations: [AppComponent, FilterPipe],
+  declarations: [AppComponent, FilterPipe, DragDirective],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
