@@ -37,6 +37,9 @@ import { AdminManageComponent } from './admin-manage/admin-manage.component';
 import { EdgageGameComponent } from './edgage-game/edgage-game.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { GameDetailComponent } from './game-detail/game-detail.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatInputModule } from '@angular/material/input';
+import { ColorPickerModule } from 'ngx-color-picker';
 
 
 import { Dashboard2Module } from './dashboard2/dashboard2.module';
@@ -65,6 +68,9 @@ const PAGES_COMPONENTS = [
     NbBadgeModule,
     NgMultiSelectDropDownModule,
     NgSelectModule, 
+    MatCheckboxModule,
+    MatInputModule,
+    ColorPickerModule,
     
     Dashboard2Module,
     

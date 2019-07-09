@@ -6,17 +6,22 @@
           <ngx-admin-game-demos></ngx-admin-game-demos>
           <button nbButton nbStepperNext>next</button>
         </nb-step>
-        <nb-step [stepControl]="secondForm" label="Second step">
+        <nb-step [stepControl]="secondForm" label="Question">
             <form [formGroup]="secondForm" (ngSubmit)="onSecondSubmit()" class="step-container">
+                <div class="row">  
+                  <div class="col-md-6">
+                  <fieldset>
                   <h5>Question</h5>
-                  <div class="input-group">
-                    <textarea nbInput placeholder="Entet your question" class="form-control" formControlName="secondCtrl"
+                  <div class="browse">
+                  <textarea nbInput placeholder="Entet your question" class="form-control" formControlName="secondCtrl"
                            [ngClass]="{'form-control-danger': secondForm.invalid && (secondForm.dirty || secondForm.touched)}"></textarea>
                   </div>
+                  </fieldset>
                   <fieldset>
-                  <h5>Result Text</h5><div class="browse">
-                                                <input type="text" nbInput fullWidth status="primary" placeholder="Primary">
-                                              </div> 
+                  <h5>Result Text</h5>
+                  <div class="browse">
+                    <input type="text" nbInput fullWidth status="primary" placeholder="Primary">
+                  </div> 
                   </fieldset>
                   <fieldset>
                       <h5>Correct Answer</h5>
@@ -25,33 +30,79 @@
                       </div>
                   </fieldset>
                     <fieldset>
-                        <label>Tip Text</label>
+                        <h5>Tip Text</h5>
                         <div class="browse">
                             <input type="text" nbInput fullWidth status="primary" placeholder="Primary">
                         </div>
                     </fieldset>
-                    <hr/>
-                    <table>
-                      <thead>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <table width="100%">
                         <tr>
-                          <th></th>
-                          <th></th>
+                          <th>Correct</th>
+                          <th (click)="addAns()">Add answer</th>
                         </tr>
-                      </thead>
                     </table>
+                      <div *ngFor="let ans of ans">
+                        <mat-checkbox></mat-checkbox> 
+                        <input nbInput type="text" placeholder="Enter Answer" value="{{ans.name}}">
+                      </div>
+                  </div>
+                </div>
               <button nbButton nbStepperPrevious>prev</button>
               <button nbButton nbStepperNext>next</button>
             </form>
           </nb-step>
-        <nb-step [stepControl]="thirdForm" label="Question">
+        <nb-step [stepControl]="thirdForm" label="Design">
           <form [formGroup]="thirdForm" (ngSubmit)="onThirdSubmit()" class="step-container">
-            <p class="lorem">
-              Things boom shackalack rhoncus yo. In fo shizzle my nizzle gangsta platea dictumst. Check it out pot.
-            </p>
-            <div class="input-group">
-              <input nbInput type="text" placeholder="Enter something" class="form-control" formControlName="thirdCtrl"
-                     [ngClass]="{'form-control-danger': thirdForm.invalid && (thirdForm.dirty || thirdForm.touched)}">
+              <div class="row">  
+                  <div class="col-md-6">
+              <fieldset>
+              <label>Game Part</label>
+              <nb-select placeholder="Select Game Part" [(selected)]="selectedItem">
+                  <nb-option value="0">Option 0</nb-option>
+                  <nb-option value="1">Option 1</nb-option>
+              </nb-select>
+            </fieldset>
+            <fieldset>
+                <label>Force Show</label>
+                <nb-select placeholder="Select Force Show" [(selected)]="selectedItem">
+                    <nb-option value="0">Yes</nb-option>
+                    <nb-option value="1">No</nb-option>
+                </nb-select>
+            </fieldset>
+            <fieldset>
+                <label>Result Style</label>
+                <input nbInput type="text" placeholder="Style Prefix">
+            </fieldset>
+            <fieldset>
+                <label>Font Color</label>
+                <input class="colorPicker" [style.background]="fontColor" [(colorPicker)]="fontColor" 
+                [cpOKButtonClass]= "'btn btn-primary btn-xs'"/>
+            </fieldset>
+            <fieldset>
+                <label>Result Color</label>
+                <input class="colorPicker" [style.background]="resultColor" [(colorPicker)]="resultColor" 
+                [cpOKButtonClass]= "'btn btn-primary btn-xs'"/>
+            </fieldset>
+            <fieldset>
+                <label>Process Color</label>
+                <input class="colorPicker" [style.background]="processColor" [(colorPicker)]="processColor" 
+                [cpOKButtonClass]= "'btn btn-primary btn-xs'"/>
+            </fieldset>
+            <fieldset>
+                <label>Font Family</label>
+                <nb-select placeholder="Select Font Family" [(selected)]="selectedItem">
+                    <nb-option *ngFor="let font of fonts" value="{{font.id}}">{{font.name}}</nb-option>
+                </nb-select>
+            </fieldset>
             </div>
+            <div class="col-md-6">
+
+            </div>
+            </div>
+            
             <button nbButton nbStepperPrevious>prev</button>
             <button nbButton nbStepperNext>Confirm</button>
           </form>

@@ -18,3 +18,28 @@ nb-card-body.medium-card img {
 .header {
     margin-bottom:0px;
 }
+table, th, td {
+    border-collapse: collapse;
+}
+table{
+    width:100%;
+    table-layout: fixed;
+    overflow-wrap: break-word;
+}
+input.input-md.input-rectangle, textarea.form-control.input-md.input-rectangle {
+    width: 90%;
+    margin: 10px;
+}
+button {
+    margin: 5px;
+}
+label {
+    display:inline-block;
+}
+input.colorPicker {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    border-radius: 15px;
+    border: none;
+}
