@@ -28,6 +28,8 @@ export class StepperComponent implements OnInit {
   public fontColor = "#2883e9";
   public resultColor = "#2883e9";
   public processColor = "#2883e9";
+  public submitBtnColor = "#2883e9";
+  public arrowColor = "#2883e9";
   //Font Family
   fonts = [
     {id: 1, name: 'Default'},
@@ -39,6 +41,30 @@ export class StepperComponent implements OnInit {
     {id: 3, name: 'Futura'},
     {id: 3, name: 'Akzidenz-Grotesk BQ'}
   ];
+  bgType = [
+    {id: 1, name: 'Color'},
+    {id: 2, name: 'Image'},
+    {id: 3, name: 'HTML'},
+  ];
+  bgSize = [
+    {id: 1, name:'Cover'},
+    {id: 2, name:'Contain'},
+    {id: 3, name:'Repeat'},
+    {id: 4, name:'Repeat X'},
+    {id: 5, name:'Repeat Y'}
+  ];
+  bgPosition = [
+    {id: 1, name:'Left top'},
+    {id: 2, name:'Left center'},
+    {id: 3, name:'Left bottom'},
+    {id: 4, name:'Right top'},
+    {id: 5, name:'Right center'},
+    {id: 6, name:'Right bottom'},
+    {id: 7, name:'Center top'},
+    {id: 8, name:'Center center'},
+    {id: 9, name:'Center bottom'}
+   
+  ]
 
   constructor(private fb: FormBuilder,private gameService: GameService, public vcRef: ViewContainerRef, private cpService: ColorPickerService) { }
 
