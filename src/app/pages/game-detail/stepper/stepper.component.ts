@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GameService } from '../../../services/game.service';
 import { Game } from '../../../interfaces/game';
+import { } from '../../admin-game-demos/admin-game-demos.component';
 
 @Component({
   selector: 'ngx-stepper',

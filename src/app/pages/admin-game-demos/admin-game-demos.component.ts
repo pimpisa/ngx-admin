@@ -1,4 +1,4 @@
-import { Component, TemplateRef, ViewChild, HostBinding, OnInit } from '@angular/core';
+import { Component, Output, Input, TemplateRef, ViewChild, HostBinding, OnInit } from '@angular/core';
 import {
   NgxPopoverCardComponent, NgxPopoverFormComponent,
   NgxPopoverTabsComponent,
@@ -13,6 +13,7 @@ import { HttpClient} from '@angular/common/http';
 import { GameService } from '../../services/game.service';
 import { Game } from '../../interfaces/game';
 
+
 @Component({
   selector: 'ngx-admin-game-demos',
   templateUrl: './admin-game-demos.component.html',
@@ -23,12 +24,21 @@ export class AdminGameDemosComponent {
   loseResult: string;
   games: Game[] = [];
   displayedGames: string[] = ['id', 'title'];
+  @Output () selectedCard:string;
   
   constructor(private modalService: NgbModal, private gameService: GameService) {}
 
   ngOnInit() {
     this.loadGame();
     
+  }
+  selectCard(value){
+    this.selectedCard = value;
+    console.log("this.selectedCard" + this.selectedCard);
+  }
+
+  getSelected(){
+    return 'cardSelect';
   }
 
   getColorClass(index){

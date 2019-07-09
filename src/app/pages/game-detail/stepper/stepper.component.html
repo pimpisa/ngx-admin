@@ -2,69 +2,47 @@
   <div class="main_title">
     <h2>Edit Question</h2><br/>
     <nb-stepper #stepper>
-        <nb-step [stepControl]="firstForm" label="Intro">
-          <form [formGroup]="firstForm" (ngSubmit)="onFirstSubmit()" class="step-container">
-            <div class="row">
-              <div class="col-md-6">
-                <h5>Choose Game Type</h5>
-                <nb-select class="col-md-6" placeholder="Select Game Type">
-                    <nb-option *ngFor="let g of games | keyvalue;" value="{{g.value}}">{{g.value}}</nb-option>
-                </nb-select>
-              </div>
-              <div class="col-md-6">
-                <h5>Show Game Demo</h5>
-                <button nbButton outline status="danger">OPEN DEMO</button>
-              </div>
-            </div>
-            <h5>Question</h5>
-            <div class="input-group">
-              <input nbInput type="text" placeholder="Enter your name" class="form-control" formControlName="firstCtrl"
-                     [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
-            </div>
-            <fieldset>
-              <label>Result Text</label><div class="browse">
-                                          <input type="text" nbInput fullWidth status="primary" placeholder="Primary">
-                                        </div> 
-            </fieldset>
-            <fieldset>
-                <label>Correct Answer</label>
-                <div class="browse">
-                    <input type="text" nbInput fullWidth status="primary" placeholder="Primary">
-                </div>
-            </fieldset>
-              <fieldset>
-                  <label>Tip Text</label>
-                  <div class="browse">
-                      <input type="text" nbInput fullWidth status="primary" placeholder="Primary">
+        <nb-step label="Intro">
+          <ngx-admin-game-demos></ngx-admin-game-demos>
+          <button nbButton nbStepperNext>next</button>
+        </nb-step>
+        <nb-step [stepControl]="secondForm" label="Second step">
+            <form [formGroup]="secondForm" (ngSubmit)="onSecondSubmit()" class="step-container">
+                  <h5>Question</h5>
+                  <div class="input-group">
+                    <textarea nbInput placeholder="Entet your question" class="form-control" formControlName="secondCtrl"
+                           [ngClass]="{'form-control-danger': secondForm.invalid && (secondForm.dirty || secondForm.touched)}"></textarea>
                   </div>
-              </fieldset>
-              <hr/>
-              <table>
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th></th>
-                  </tr>
-                </thead>
-              </table>
-            <button nbButton nbStepperNext>next</button>
-          </form>
-        </nb-step>
-        <nb-step [stepControl]="secondForm" label="Design">
-          <form [formGroup]="secondForm" (ngSubmit)="onSecondSubmit()" class="step-container">
-            <p class="lorem">
-              Pellentesque we gonna chung tortor.
-              Sizzle pizzle. Fizzle izzle dolor dapibus fo shizzle mah nizzle fo rizzle, mah home g-dizzle tempus tempor.
-              Maurizzle cool nibh owned turpizzle. My shizz fo shizzle tortor.
-            </p>
-            <div class="input-group">
-              <input nbInput type="text" placeholder="Enter favorite movie" class="form-control" formControlName="secondCtrl"
-                     [ngClass]="{'form-control-danger': secondForm.invalid && (secondForm.dirty || secondForm.touched)}">
-            </div>
-            <button nbButton nbStepperPrevious>prev</button>
-            <button nbButton nbStepperNext>next</button>
-          </form>
-        </nb-step>
+                  <fieldset>
+                  <h5>Result Text</h5><div class="browse">
+                                                <input type="text" nbInput fullWidth status="primary" placeholder="Primary">
+                                              </div> 
+                  </fieldset>
+                  <fieldset>
+                      <h5>Correct Answer</h5>
+                      <div class="browse">
+                          <input type="text" nbInput fullWidth status="primary" placeholder="Primary">
+                      </div>
+                  </fieldset>
+                    <fieldset>
+                        <label>Tip Text</label>
+                        <div class="browse">
+                            <input type="text" nbInput fullWidth status="primary" placeholder="Primary">
+                        </div>
+                    </fieldset>
+                    <hr/>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                    </table>
+              <button nbButton nbStepperPrevious>prev</button>
+              <button nbButton nbStepperNext>next</button>
+            </form>
+          </nb-step>
         <nb-step [stepControl]="thirdForm" label="Question">
           <form [formGroup]="thirdForm" (ngSubmit)="onThirdSubmit()" class="step-container">
             <p class="lorem">

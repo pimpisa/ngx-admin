@@ -13,6 +13,9 @@
     box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
     animation: 1.25s ease-in-out 0ms 1 fadein;
 }
+.cardSelect {
+  border: solid 5px #EDE574;
+}
 nb-card.mango {
   border-top: solid 5px #EDE574;
   background: #EDE574 !important;   /* fallback for old browsers */
@@ -111,6 +114,20 @@ nb-card.heart {
 }
 .transparent {
     background-color: transparent;
+}
+nb-card.medium-card {
+  height:150px;
+  margin: 10px;
+  min-width: 10rem;
+}
+nb-card-header.medium-card {
+  height:5px;
+}
+nb-card.medium-card span {
+  font-size: 14px;
+}
+nb-card-body.medium-card img {
+  display: none;
 }
 
 :host {

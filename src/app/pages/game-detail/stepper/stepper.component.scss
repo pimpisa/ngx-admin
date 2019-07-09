@@ -1,3 +1,20 @@
 fieldset {
     padding:0px;
 }
+nb-card.medium-card {
+    height:150px;
+    margin: 10px;
+    min-width: 10rem;
+}
+nb-card-header.medium-card {
+    height:5px;
+}
+nb-card.medium-card span {
+    font-size: 14px;
+}
+nb-card-body.medium-card img {
+    display: none;
+}
+.header {
+    margin-bottom:0px;
+}

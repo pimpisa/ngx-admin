@@ -2,13 +2,13 @@
 <nb-card class="card-container transparent">
   <nb-card-body>
     <!--<nb-card *ngFor="let card of games | keyvalue; let i = index" [size]="'medium'" [ngClass]="getColorClass(i)">-->
-      <nb-card *ngFor="let card of games | keyvalue; let i = index" [size]="'medium'">
+    <nb-card *ngFor="let card of games | keyvalue; let i = index" [size]="'medium'" (click)="selectCard(card.value);getSelected()">
         <nb-card-header>
             <i class="fas fa-info" (click)="openVerticallyCentered(content)"></i>
             <!--<span><i nbPopover="None" nbPopoverTrigger="hover" nbPopoverPlacement="top" class="fas fa-info"></i></span>-->
         </nb-card-header> 
         <nb-card-body>
-         <span><img src="../../../assets/images/How_do_you_feel1.png"></span>
+         <!--<span><img src="../../../assets/images/How_do_you_feel1.png"></span>-->
         </nb-card-body>
         <nb-card-footer>
           <span>{{card.value}}</span>
