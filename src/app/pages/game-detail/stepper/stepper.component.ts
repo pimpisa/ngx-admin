@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, ViewContainerRef, OnInit } from '@angular/core';
+import { Component, TemplateRef, ViewChild, Input, ViewContainerRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GameService } from '../../../services/game.service';
 import { Game } from '../../../interfaces/game';
@@ -6,11 +6,11 @@ import { AdminGameDemosComponent } from '../../admin-game-demos/admin-game-demos
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ColorPickerService, Cmyk } from 'ngx-color-picker';
 import  { GameDetailComponent } from '../game-detail.component';
+import { NbWindowService } from '@nebular/theme';
 
 @Component({
   selector: 'ngx-stepper',
   templateUrl: './stepper.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./stepper.component.scss']
 })
 export class StepperComponent implements OnInit {
@@ -95,11 +95,15 @@ export class StepperComponent implements OnInit {
     {id: 1, name:'Audio'}
   ];
 
+  //@ViewChild('contentTemplate', { static: true }) contentTemplate: TemplateRef<any>;
+  //@ViewChild('disabledEsc', { read: TemplateRef, static: true }) disabledEscTemplate: TemplateRef<HTMLElement>;
 
-  constructor(private fb: FormBuilder,private gameService: GameService, public vcRef: ViewContainerRef, private cpService: ColorPickerService) { }
+  constructor(private fb: FormBuilder,private gameService: GameService, 
+    public vcRef: ViewContainerRef, private cpService: ColorPickerService,
+    private windowService: NbWindowService) { }
 
   ngOnInit() {
-    this.loadGame();
+   // this.loadGame();
     
     this.firstForm = this.fb.group({
       firstCtrl: ['', Validators.required],
@@ -120,6 +124,8 @@ export class StepperComponent implements OnInit {
     });
 
   }
+
+  
 
   toggle() {
     console.log("toggle called");
@@ -146,7 +152,8 @@ export class StepperComponent implements OnInit {
   onThirdSubmit() {
     this.thirdForm.markAsDirty();
   }
-  loadGame(){
+
+  /** loadGame(){
     this.gameService.getGame()
       .subscribe(
         data => {
@@ -155,7 +162,7 @@ export class StepperComponent implements OnInit {
 
         },
         error => console.log(error));
-  }
+  }*/
 
   showIntro(){
     console.log("call show intro");
@@ -163,6 +170,18 @@ export class StepperComponent implements OnInit {
   preview(){
     console.log("preview");
     this.previewGame = !this.previewGame;
+  }
+
+  openWindow(contentTemplate) {
+    this.windowService.open(
+      contentTemplate,
+      {
+        title: 'Preview',
+        context: {
+          text: 'Show Preview',
+        },
+      },
+    );
   }
 
   public onChangeColorHex8(color: string): string {

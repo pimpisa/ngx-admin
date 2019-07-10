@@ -2,14 +2,18 @@
     <div class="main_title">
       <h2>Edit Question</h2><br/>
     </div>
-          <nb-stepper orientation="horizontal">
+    
+           <nb-stepper orientation="horizontal">
             <nb-step [label]="labelOne">
               <ng-template #labelOne>Pick Game</ng-template>
+              <h5>Choose Game Type</h5>
               <ngx-admin-game-demos></ngx-admin-game-demos>
+              <hr/>
               <button nbButton disabled nbStepperNext>prev</button>
               <button nbButton nbStepperNext>next</button>
             </nb-step>
-            <nb-step [label]="labelTwo">
+          
+          <nb-step [label]="labelTwo">
               <ng-template #labelTwo>Question</ng-template>
               <form [formGroup]="secondForm" (ngSubmit)="onSecondSubmit()" class="step-container">
                   <div class="row">
@@ -55,10 +59,11 @@
                     </div>
                   </div>
               </form>
+              <hr/>
               <button nbButton nbStepperPrevious>prev</button>
               <button nbButton nbStepperNext>next</button>
             </nb-step>
-            <nb-step label="Third step">
+            <nb-step label="Design">
                 <form [formGroup]="thirdForm" (ngSubmit)="onThirdSubmit()" class="step-container">
                     <div class="row">
                         <div class="col-md-6">
@@ -158,18 +163,21 @@
                         <input class="colorPicker" [style.background]="arrowColor" [(colorPicker)]="arrowColor"
                         [cpOKButtonClass]= "'btn btn-primary btn-xs'"/>
                     </fieldset>
+                    <hr/>
                     <button nbButton nbStepperPrevious>prev</button>
                     <button nbButton nbStepperNext>next</button>
                   </div>
                   </div>
-                </form>
-              
+                </form>           
             </nb-step>
             <nb-step [label]="labelFour">
               <ng-template #labelFour>Introduction</ng-template>
-              <h5>Do you want to show the Introduction?</h5>
-              <button nbButton (click)="toggle()">Yes</button>
-              <button nbButton (click)="preview()">No</button>
+              <div class="col-md-6 offset-md-3 center">
+                <h5>Do you want to show the Introduction?</h5>
+                <hr/>
+                <button nbButton (click)="toggle()">Yes</button>
+                <button nbButton nbStepperNext>No</button>
+              </div>
               <div *ngIf="intro" class="intro col-6">
                   <button nbButton>Use Default Setting</button>
                   <fieldset>
@@ -209,208 +217,30 @@
                           <nb-option *ngFor="let ins of instrType" value="{{ins.id}}">{{ins.name}}</nb-option>                        
                       </nb-select>
                   </fieldset>
-              </div>
-              <div *ngIf="previewGame" class="preview col-6">
-                preview div
+                  <hr/>
+                  <button nbButton nbStepperPrevious>prev</button>
+                  <button nbButton nbStepperNext>next</button>
               </div>
             </nb-step>
-            <nb-step [label]="labelFive">
-                <ng-template #labelFive>Fifth step</ng-template>
-                <h4>Step content #5</h4>
-                <p class="lorem">
-                  Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
-                  Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
-                  gravida vizzle, dang.
-                </p>
-                <button nbButton nbStepperPrevious>prev</button>
-                <button nbButton nbStepperNext>next</button>
+            <nb-step [label]="Preview">
+                <ng-template #labelFive>Preview</ng-template>
+                <div class="col-md-6 offset-md-3 center">
+                  <h4>You are almost done!</h4>
+                  <button nbButton (click)="openWindow(contentTemplate)">Preview</button><br/>
+                  <hr/>
+                  <button nbButton nbStepperPrevious>prev</button>
+                  <button nbButton nbStepperNext (click)="toggleView()">save</button>
+                </div>
               </nb-step>
           </nb-stepper>
 </div>
 
-<!--<div class="title_wrapper">
-  <div class="main_title">
-    <h2>Edit Question</h2><br/>
-    <nb-stepper #stepper>
-        <nb-step label="Intro">
-          <ngx-admin-game-demos></ngx-admin-game-demos>
-          <button nbButton nbStepperNext>next</button>
-        </nb-step>
-        <nb-step [stepControl]="secondForm" label="Question">
-            <form [formGroup]="secondForm" (ngSubmit)="onSecondSubmit()" class="step-container">
-                <div class="row">  
-                  <div class="col-md-6">
-                  <fieldset>
-                  <h5>Question</h5>
-                  <div class="browse">
-                  <textarea nbInput placeholder="Entet your question" class="form-control" formControlName="secondCtrl"
-                           [ngClass]="{'form-control-danger': secondForm.invalid && (secondForm.dirty || secondForm.touched)}"></textarea>
-                  </div>
-                  </fieldset>
-                  <fieldset>
-                  <h5>Result Text</h5>
-                  <div class="browse">
-                    <input type="text" nbInput fullWidth status="primary" placeholder="Primary">
-                  </div> 
-                  </fieldset>
-                  <fieldset>
-                      <h5>Correct Answer</h5>
-                      <div class="browse">
-                          <input type="text" nbInput fullWidth status="primary" placeholder="Primary">
-                      </div>
-                  </fieldset>
-                    <fieldset>
-                        <h5>Tip Text</h5>
-                        <div class="browse">
-                            <input type="text" nbInput fullWidth status="primary" placeholder="Primary">
-                        </div>
-                    </fieldset>
-                  </div>
-                  
-                  <div class="col-md-6">
-                    <table width="100%">
-                        <tr>
-                          <th>Correct</th>
-                          <th (click)="addAns()">Add answer</th>
-                        </tr>
-                    </table>
-                      <div *ngFor="let ans of ans">
-                        <mat-checkbox></mat-checkbox> 
-                        <input nbInput type="text" placeholder="Enter Answer" value="{{ans.name}}">
-                      </div>
-                  </div>
-                </div>
-              <button nbButton nbStepperPrevious>prev</button>
-              <button nbButton nbStepperNext>next</button>
-            </form>
-          </nb-step>
-        <nb-step [stepControl]="thirdForm" label="Design">
-          <form [formGroup]="thirdForm" (ngSubmit)="onThirdSubmit()" class="step-container">
-              <div class="row">  
-                  <div class="col-md-6">
-              <fieldset>
-              <label>Game Part</label>
-              <nb-select class="col-6 no-pad" placeholder="Select Game Part" [(selected)]="selectedItem">
-                  <nb-option value="0">Option 0</nb-option>
-                  <nb-option value="1">Option 1</nb-option>
-              </nb-select>
-            </fieldset>
-            <fieldset>
-                <label>Force Show</label>
-                <nb-select class="col-6 no-pad" placeholder="Select Force Show" [(selected)]="selectedItem">
-                    <nb-option value="0">Yes</nb-option>
-                    <nb-option value="1">No</nb-option>
-                </nb-select>
-            </fieldset>
-            <fieldset>
-                <label>Result Style</label>
-                <input nbInput type="text" placeholder="Style Prefix">
-            </fieldset>
-            <fieldset>
-                <label>Font Color</label>
-                <input class="colorPicker" [style.background]="fontColor" [(colorPicker)]="fontColor" 
-                [cpOKButtonClass]= "'btn btn-primary btn-xs'"/>
-                <label>Result Color</label>
-                <input class="colorPicker" [style.background]="resultColor" [(colorPicker)]="resultColor" 
-                [cpOKButtonClass]= "'btn btn-primary btn-xs'"/>
-                <label>Process Color</label>
-                <input class="colorPicker" [style.background]="processColor" [(colorPicker)]="processColor" 
-                [cpOKButtonClass]= "'btn btn-primary btn-xs'"/>
-            </fieldset>
-            <fieldset>
-                <label>Font Family</label>
-                <nb-select class="col-6 no-pad" placeholder="Select Font Family" [(selected)]="selectedItem">
-                    <nb-option *ngFor="let font of fonts" value="{{font.id}}">{{font.name}}</nb-option>
-                </nb-select>
-            </fieldset>
-            <fieldset>
-                <label>Background Type</label>
-                <nb-select class="col-6 no-pad" placeholder="Select Font Family" [(selected)]="selectedItem">
-                    <nb-option *ngFor="let bg of bgType" value="{{bg.id}}">{{bg.name}}</nb-option>
-                </nb-select>
-            </fieldset> 
-            <fieldset>
-                <label>Image Url</label>
-                <input nbInput type="text" value="">
-            </fieldset>
-            <fieldset>
-                <label>Image Url(image)</label>
-                <input nbInput type="text" value="">
-            </fieldset>
-            <fieldset>
-                <label>Background Size</label>
-                <nb-select class="col-6 no-pad" placeholder="Select Background Size" [(selected)]="selectedItem">
-                    <nb-option *ngFor="let bg of bgSize" value="{{bg.id}}">{{bg.name}}</nb-option>
-                </nb-select>
-            </fieldset> 
-            <fieldset>
-                <label>Background Position</label>
-                <nb-select class="col-6 no-pad" placeholder="Select Background Position" [(selected)]="selectedItem">
-                    <nb-option *ngFor="let bg of bgPosition" value="{{bg.id}}">{{bg.name}}</nb-option>
-                </nb-select>
-            </fieldset> 
-            <fieldset>
-                <label>Point Value</label>
-                <input nbInput type="text" value="10">
-            </fieldset> 
-            </div>
-            <div class="col-md-6">
-              <h5>Special Design</h5>
-              <fieldset>
-                  <label>Submit Button Color</label>
-                  <input class="colorPicker" [style.background]="submitBtnColor" [(colorPicker)]="submitBtnColor" 
-                  [cpOKButtonClass]= "'btn btn-primary btn-xs'"/>
-              </fieldset>
-              <fieldset>
-                  <label>Submit Button Style</label>
-                  <nb-select class="col-6 no-pad" placeholder="Select Style" [(selected)]="selectedItem">
-                      <nb-option *ngFor="let bg of btnStyle" value="{{bg.id}}">{{bg.name}}</nb-option>
-                  </nb-select>
-              </fieldset> 
-              <fieldset>
-                  <label>Arrow Style</label>
-                  <nb-select class="col-6 no-pad" placeholder="Select Style" [(selected)]="selectedItem">
-                      <nb-option *ngFor="let bg of arrStyle" value="{{bg.id}}">{{bg.name}}</nb-option>
-                  </nb-select>
-              </fieldset> 
-              <fieldset>
-                  <label>Arrow Position</label>
-                  <nb-select class="col-6 no-pad" placeholder="Select Position" [(selected)]="selectedItem">
-                      <nb-option *ngFor="let bg of arrPosition" value="{{bg.id}}">{{bg.name}}</nb-option>
-                  </nb-select>
-              </fieldset> 
-              <fieldset>
-                  <label>Arrow Color</label>
-                  <input class="colorPicker" [style.background]="arrowColor" [(colorPicker)]="arrowColor" 
-                  [cpOKButtonClass]= "'btn btn-primary btn-xs'"/>
-              </fieldset>
-              <button nbButton nbStepperPrevious>prev</button>
-              <button nbButton nbStepperNext>Next</button>
-            </div>
-            </div>
-           
-          </form>
-        </nb-step>
-        <nb-step [stepControl]="fourthForm" label="Introduction">
-            <ng-template #labelFour>Fourth step</ng-template>
-            <h4>Step content #4</h4>
-            <p class="lorem">
-              Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
-              Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
-              gravida vizzle, dang.
-            </p>
-            <button nbButton nbStepperPrevious>prev</button>
-            <button nbButton nbStepperNext>next</button>
-          </nb-step>
-        <nb-step [label]="Introduction">
-          <div class="step-container">
-            <h3>Do you want to have an Introduction?</h3>
-            <button nbButton (click)="showIntro()">Yes</button>
-            <button nbButton (click)="preview()">No</button>
-            <button nbButton nbStepperPrevious>prev</button>
-            <button nbButton nbStepperNext>Confirm</button>
-          </div>
-        </nb-step>
-      </nb-stepper>
-  </div>
-</div> -->
+<ng-template #contentTemplate let-data>
+    <p>Here is the text provided via config:</p>
+  </ng-template>
+  
+  <ng-template #disabledEsc>
+    Disabled close on escape click.
+  </ng-template>
+  
+

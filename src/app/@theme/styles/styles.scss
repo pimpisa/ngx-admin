@@ -272,6 +272,15 @@ ul.pagination a {
 .btn.btn-primary {
   background-color: #849EFE;
 }
+.nb-theme-corporate [nbButton].btn-primary {
+  background-color: #eaedf70d;
+  color: #000;
+  border: 2px solid #73a1ff;
+  min-width: 200px;
+}
+.center {
+  text-align:center;
+}
 //Drag and drop
 .example-box {
   padding: 10px 10px;
@@ -308,7 +317,7 @@ nb-window > nb-card {
   border-radius: 10px !important;
   background: white !important;
   border: none !important;
-  width: 40vh;
+  width: 70vh;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   min-width: 350px;
 }
