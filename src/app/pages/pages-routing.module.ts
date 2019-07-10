@@ -29,6 +29,7 @@ import { GameDetailComponent } from './game-detail/game-detail.component';
 
 
 import { Dashboard2Component } from './dashboard2/dashboard2.component';
+import { AdminPlaningComponent } from './admin-planing/admin-planing.component';
 
 
 const routes: Routes = [{
@@ -43,6 +44,9 @@ const routes: Routes = [{
   },{
     path: 'user-activity',
     component: UserActivityComponent,
+  },{
+    path: 'admin-planing',
+    component: AdminPlaningComponent,
   }
   , {
     path: 'edgage-game',

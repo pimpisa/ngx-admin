@@ -41,11 +41,11 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { ColorPickerModule } from 'ngx-color-picker';
 
-
 import { Dashboard2Module } from './dashboard2/dashboard2.module';
 import { StepperComponent } from './game-detail/stepper/stepper.component';
 import { EditWindowComponent } from './game-detail/edit-window/edit-window.component';
 import { GameQuestComponent } from './game-detail/game-quest/game-quest.component';
+import { AdminPlaningComponent } from './admin-planing/admin-planing.component';
 
 //import { GameDetailComponent } from './admin-games/game-detail.module';
 
@@ -103,6 +103,7 @@ const PAGES_COMPONENTS = [
     StepperComponent,
     EditWindowComponent,
     GameQuestComponent,
+    AdminPlaningComponent,
 
   ]
 })
