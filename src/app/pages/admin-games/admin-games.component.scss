@@ -7,8 +7,9 @@
 
 .example-box {
   margin-top: 15px;
-  border-left: solid 3px#9bd9e4;
+  border-left: none;
   box-shadow: 0 0.5rem 1rem 0 rgba(44, 51, 73, 0.1);
+  border-radius: 15px;
 }
 .example-list{
   min-height:0px;

@@ -38,11 +38,6 @@ export class UserActivityComponent implements OnInit {
         type: 'string',
         filter: false,
       },
-      usage: {
-        title: 'usage',
-        type: 'string',
-        filter: false,
-      },
       last_activity : {
         title: 'last activity',
         filter: false,
