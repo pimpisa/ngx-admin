@@ -1,11 +1,11 @@
-<nb-reveal-card>
+<nb-reveal-card [showToggleButton]="false" [revealed]="revealed"> 
     <nb-card-front>
       <nb-card>
         <nb-card-body>
             <ngx-edit-window></ngx-edit-window>
-            <ngx-game-quest></ngx-game-quest>
-            
+            <ngx-game-quest></ngx-game-quest> 
         </nb-card-body>
+        <i class="fas fa-info" (click)="toggleView()"></i>
       </nb-card>
     </nb-card-front>
     <nb-card-back>
@@ -13,6 +13,7 @@
         <nb-card-body>
             <ngx-stepper></ngx-stepper>
         </nb-card-body>
+        <i class="fas fa-info" (click)="toggleView()"></i> 
       </nb-card>
     </nb-card-back>
   </nb-reveal-card>

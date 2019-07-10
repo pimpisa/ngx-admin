@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, Input } from '@angular/core';
+import { ChangeDetectionStrategy, OnDestroy, Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'ngx-game-detail',
@@ -6,17 +6,20 @@ import { ChangeDetectionStrategy, Component, OnInit, Input } from '@angular/core
   templateUrl: './game-detail.component.html',
   styleUrls: ['./game-detail.component.scss']
 })
-export class GameDetailComponent implements OnInit {
+export class GameDetailComponent implements OnDestroy{
 
+  private alive = true;
   revealed = false;
+  
   
   constructor() { }
 
-  ngOnInit() {
-  }
-
   toggleView() {
     this.revealed = !this.revealed;
+  }
+
+  ngOnDestroy(){
+    this.alive = false;
   }
 
 }

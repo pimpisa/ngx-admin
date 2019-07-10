@@ -15,7 +15,7 @@ import { NbWindowService } from '@nebular/theme';
 })
 export class StepperComponent implements OnInit {
 
-  @Input() revealed = false;
+  @Input() revealed: GameDetailComponent;
   public intro:boolean = false;
   public previewGame:boolean = false;
 
@@ -134,7 +134,7 @@ export class StepperComponent implements OnInit {
 
   toggleView() {
     console.log("toggleview-stepper"+this.revealed);
-    this.revealed = !this.revealed;
+    //this.revealed = !this.revealed;
   } 
 
   addAns(){
