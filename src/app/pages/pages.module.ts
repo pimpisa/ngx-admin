@@ -40,6 +40,7 @@ import { GameDetailComponent } from './game-detail/game-detail.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { FullCalendarModule } from '@fullcalendar/angular'; 
 
 import { Dashboard2Module } from './dashboard2/dashboard2.module';
 import { StepperComponent } from './game-detail/stepper/stepper.component';
@@ -71,6 +72,7 @@ const PAGES_COMPONENTS = [
     MatCheckboxModule,
     MatInputModule,
     ColorPickerModule,
+    FullCalendarModule,
     
     Dashboard2Module,
     
