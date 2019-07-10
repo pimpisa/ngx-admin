@@ -1,4 +1,4 @@
-import { Component, Input, ViewContainerRef, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, ViewContainerRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GameService } from '../../../services/game.service';
 import { Game } from '../../../interfaces/game';
@@ -10,15 +10,20 @@ import  { GameDetailComponent } from '../game-detail.component';
 @Component({
   selector: 'ngx-stepper',
   templateUrl: './stepper.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./stepper.component.scss']
 })
 export class StepperComponent implements OnInit {
 
   @Input() revealed = false;
+  public intro:boolean = false;
+  public previewGame:boolean = false;
 
   firstForm: FormGroup;
   secondForm: FormGroup;
   thirdForm: FormGroup;
+  fourthForm: FormGroup;
+  fifthForm: FormGroup;
 
   //DropDown
   games: Game[] = [];
@@ -33,6 +38,8 @@ export class StepperComponent implements OnInit {
   public processColor = "#2883e9";
   public submitBtnColor = "#2883e9";
   public arrowColor = "#2883e9";
+  public introBgColor = "#2883e9";
+  public introBtnColor = "#2883e9";
   //Font Family
   fonts = [
     {id: 1, name: 'Default'},
@@ -66,8 +73,28 @@ export class StepperComponent implements OnInit {
     {id: 7, name:'Center top'},
     {id: 8, name:'Center center'},
     {id: 9, name:'Center bottom'}
-   
-  ]
+  ];
+  btnStyle = [
+    {id: 1, name:'Rectangle'},
+    {id: 2, name:'Pink Brush'}
+  ];
+  arrwStyle = [
+    {id: 1, name:'Arrow1'},
+    {id: 2, name:'Arrow2'},
+    {id: 3, name:'Circle Fill'},
+    {id: 4, name:'Circle Stoke'}
+  ];
+  arrwPosition = [
+    {id: 1, name:'Middle'},
+    {id: 2, name:'Bottom'}
+  ];
+  instrType = [
+    {id: 1, name:'None'},
+    {id: 1, name:'Image'},
+    {id: 1, name:'Video'},
+    {id: 1, name:'Audio'}
+  ];
+
 
   constructor(private fb: FormBuilder,private gameService: GameService, public vcRef: ViewContainerRef, private cpService: ColorPickerService) { }
 
@@ -85,7 +112,18 @@ export class StepperComponent implements OnInit {
     this.thirdForm = this.fb.group({
       thirdCtrl: ['', Validators.required],
     });
+    this.fourthForm = this.fb.group({
+      fourthCtrl: ['', Validators.required],
+    });
+    this.fifthForm = this.fb.group({
+      fifthCtrl: ['', Validators.required],
+    });
 
+  }
+
+  toggle() {
+    console.log("toggle called");
+    this.intro = !this.intro;
   }
 
   toggleView() {
@@ -117,6 +155,14 @@ export class StepperComponent implements OnInit {
 
         },
         error => console.log(error));
+  }
+
+  showIntro(){
+    console.log("call show intro");
+  }
+  preview(){
+    console.log("preview");
+    this.previewGame = !this.previewGame;
   }
 
   public onChangeColorHex8(color: string): string {

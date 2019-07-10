@@ -1,5 +1,5 @@
 
-<nb-card class="card-container transparent">
+<nb-card class="card-container transparent style1">
   <nb-card-body>
     <!--<nb-card *ngFor="let card of games | keyvalue; let i = index" [size]="'medium'" [ngClass]="getColorClass(i)">-->
     <nb-card *ngFor="let card of games | keyvalue; let i = index" [size]="'medium'" (click)="selectCard(card.value);getSelected()">
