@@ -158,11 +158,11 @@
                   <input class="colorPicker" [style.background]="arrowColor" [(colorPicker)]="arrowColor" 
                   [cpOKButtonClass]= "'btn btn-primary btn-xs'"/>
               </fieldset>
+              <button nbButton nbStepperPrevious>prev</button>
+              <button nbButton nbStepperNext>Confirm</button>
             </div>
             </div>
-            
-            <button nbButton nbStepperPrevious>prev</button>
-            <button nbButton nbStepperNext>Confirm</button>
+           
           </form>
         </nb-step>
         <nb-step [stepControl]="thirdForm" [hidden]="true" label="Question">
