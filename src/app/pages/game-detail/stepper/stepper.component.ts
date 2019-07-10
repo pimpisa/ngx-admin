@@ -1,10 +1,11 @@
-import { Component, ViewContainerRef, OnInit } from '@angular/core';
+import { Component, Input, ViewContainerRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GameService } from '../../../services/game.service';
 import { Game } from '../../../interfaces/game';
 import { AdminGameDemosComponent } from '../../admin-game-demos/admin-game-demos.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ColorPickerService, Cmyk } from 'ngx-color-picker';
+import  { GameDetailComponent } from '../game-detail.component';
 
 @Component({
   selector: 'ngx-stepper',
@@ -12,6 +13,8 @@ import { ColorPickerService, Cmyk } from 'ngx-color-picker';
   styleUrls: ['./stepper.component.scss']
 })
 export class StepperComponent implements OnInit {
+
+  @Input() revealed = false;
 
   firstForm: FormGroup;
   secondForm: FormGroup;
@@ -84,6 +87,12 @@ export class StepperComponent implements OnInit {
     });
 
   }
+
+  toggleView() {
+    console.log("toggleview-stepper"+this.revealed);
+    this.revealed = !this.revealed;
+  } 
+
   addAns(){
     console.log("addAns");
     this.ans.push({id: null,name: ''});

@@ -60,14 +60,14 @@
                   <div class="col-md-6">
               <fieldset>
               <label>Game Part</label>
-              <nb-select placeholder="Select Game Part" [(selected)]="selectedItem">
+              <nb-select class="col-6 no-pad" placeholder="Select Game Part" [(selected)]="selectedItem">
                   <nb-option value="0">Option 0</nb-option>
                   <nb-option value="1">Option 1</nb-option>
               </nb-select>
             </fieldset>
             <fieldset>
                 <label>Force Show</label>
-                <nb-select placeholder="Select Force Show" [(selected)]="selectedItem">
+                <nb-select class="col-6 no-pad" placeholder="Select Force Show" [(selected)]="selectedItem">
                     <nb-option value="0">Yes</nb-option>
                     <nb-option value="1">No</nb-option>
                 </nb-select>
@@ -80,26 +80,22 @@
                 <label>Font Color</label>
                 <input class="colorPicker" [style.background]="fontColor" [(colorPicker)]="fontColor" 
                 [cpOKButtonClass]= "'btn btn-primary btn-xs'"/>
-            </fieldset>
-            <fieldset>
                 <label>Result Color</label>
                 <input class="colorPicker" [style.background]="resultColor" [(colorPicker)]="resultColor" 
                 [cpOKButtonClass]= "'btn btn-primary btn-xs'"/>
-            </fieldset>
-            <fieldset>
                 <label>Process Color</label>
                 <input class="colorPicker" [style.background]="processColor" [(colorPicker)]="processColor" 
                 [cpOKButtonClass]= "'btn btn-primary btn-xs'"/>
             </fieldset>
             <fieldset>
                 <label>Font Family</label>
-                <nb-select placeholder="Select Font Family" [(selected)]="selectedItem">
+                <nb-select class="col-6 no-pad" placeholder="Select Font Family" [(selected)]="selectedItem">
                     <nb-option *ngFor="let font of fonts" value="{{font.id}}">{{font.name}}</nb-option>
                 </nb-select>
             </fieldset>
             <fieldset>
                 <label>Background Type</label>
-                <nb-select placeholder="Select Font Family" [(selected)]="selectedItem">
+                <nb-select class="col-6 no-pad" placeholder="Select Font Family" [(selected)]="selectedItem">
                     <nb-option *ngFor="let bg of bgType" value="{{bg.id}}">{{bg.name}}</nb-option>
                 </nb-select>
             </fieldset> 
@@ -113,13 +109,13 @@
             </fieldset>
             <fieldset>
                 <label>Background Size</label>
-                <nb-select placeholder="Select Background Size" [(selected)]="selectedItem">
+                <nb-select class="col-6 no-pad" placeholder="Select Background Size" [(selected)]="selectedItem">
                     <nb-option *ngFor="let bg of bgSize" value="{{bg.id}}">{{bg.name}}</nb-option>
                 </nb-select>
             </fieldset> 
             <fieldset>
                 <label>Background Position</label>
-                <nb-select placeholder="Select Background Position" [(selected)]="selectedItem">
+                <nb-select class="col-6 no-pad" placeholder="Select Background Position" [(selected)]="selectedItem">
                     <nb-option *ngFor="let bg of bgPosition" value="{{bg.id}}">{{bg.name}}</nb-option>
                 </nb-select>
             </fieldset> 
@@ -137,19 +133,19 @@
               </fieldset>
               <fieldset>
                   <label>Submit Button Style</label>
-                  <nb-select placeholder="Select Background Size" [(selected)]="selectedItem">
+                  <nb-select class="col-6 no-pad" placeholder="Select Background Size" [(selected)]="selectedItem">
                       <nb-option *ngFor="let bg of bgSize" value="{{bg.id}}">{{bg.name}}</nb-option>
                   </nb-select>
               </fieldset> 
               <fieldset>
                   <label>Arrow Style</label>
-                  <nb-select placeholder="Select Background Size" [(selected)]="selectedItem">
+                  <nb-select class="col-6 no-pad" placeholder="Select Background Size" [(selected)]="selectedItem">
                       <nb-option *ngFor="let bg of bgSize" value="{{bg.id}}">{{bg.name}}</nb-option>
                   </nb-select>
               </fieldset> 
               <fieldset>
                   <label>Arrow Middle</label>
-                  <nb-select placeholder="Select Background Size" [(selected)]="selectedItem">
+                  <nb-select class="col-6 no-pad" placeholder="Select Background Size" [(selected)]="selectedItem">
                       <nb-option *ngFor="let bg of bgSize" value="{{bg.id}}">{{bg.name}}</nb-option>
                   </nb-select>
               </fieldset> 

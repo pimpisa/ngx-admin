@@ -129,6 +129,10 @@ nb-card.medium-card span {
 nb-card-body.medium-card img {
   display: none;
 }
+nb-card.medium-card:hover {
+  position: relative;
+  top: -10px;
+}
 
 :host {
   button.with-margins {

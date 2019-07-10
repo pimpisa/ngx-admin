@@ -2,7 +2,7 @@
     <div class="col-md-12">
       <h2>Questions</h2>
       <div cdkDropList class="example-list col-md-10" (cdkDropListDropped)="sort($event)">
-          <div class="example-box" *ngFor="let q of questions" (click)="toggleView();" cdkDrag>{{q.text}}<i class="fas fa-braille"></i></div>
+          <div class="example-box" *ngFor="let q of questions" (click)="toggleView()" cdkDrag>{{q.text}}<i class="fas fa-braille"></i></div>
           </div>   
     </div>
 </div>
