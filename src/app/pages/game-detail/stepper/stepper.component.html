@@ -69,14 +69,14 @@
                         <div class="col-md-6">
                     <fieldset>
                     <label>Game Part</label>
-                    <nb-select class="col-6 no-pad" placeholder="Select Game Part" [(selected)]="selectedItem">
+                    <nb-select class="col-6 no-pad" placeholder="Select Game Part">
                         <nb-option value="0">Option 0</nb-option>
                         <nb-option value="1">Option 1</nb-option>
                     </nb-select>
                   </fieldset>
                   <fieldset>
                       <label>Force Show</label>
-                      <nb-select class="col-6 no-pad" placeholder="Select Force Show" [(selected)]="selectedItem">
+                      <nb-select class="col-6 no-pad" placeholder="Select Force Show">
                           <nb-option value="0">Yes</nb-option>
                           <nb-option value="1">No</nb-option>
                       </nb-select>
@@ -98,13 +98,13 @@
                   </fieldset>
                   <fieldset>
                       <label>Font Family</label>
-                      <nb-select class="col-6 no-pad" placeholder="Select Font Family" [(selected)]="selectedItem">
+                      <nb-select class="col-6 no-pad" placeholder="Select Font Family">
                           <nb-option *ngFor="let font of fonts" value="{{font.id}}">{{font.name}}</nb-option>
                       </nb-select>
                   </fieldset>
                   <fieldset>
                       <label>Background Type</label>
-                      <nb-select class="col-6 no-pad" placeholder="Select Font Family" [(selected)]="selectedItem">
+                      <nb-select class="col-6 no-pad" placeholder="Select Font Family" >
                           <nb-option *ngFor="let bg of bgType" value="{{bg.id}}">{{bg.name}}</nb-option>
                       </nb-select>
                   </fieldset>
@@ -118,13 +118,13 @@
                   </fieldset>
                   <fieldset>
                       <label>Background Size</label>
-                      <nb-select class="col-6 no-pad" placeholder="Select Background Size" [(selected)]="selectedItem">
+                      <nb-select class="col-6 no-pad" placeholder="Select Background Size">
                           <nb-option *ngFor="let bg of bgSize" value="{{bg.id}}">{{bg.name}}</nb-option>
                       </nb-select>
                   </fieldset>
                   <fieldset>
                       <label>Background Position</label>
-                      <nb-select class="col-6 no-pad" placeholder="Select Background Position" [(selected)]="selectedItem">
+                      <nb-select class="col-6 no-pad" placeholder="Select Background Position">
                           <nb-option *ngFor="let bg of bgPosition" value="{{bg.id}}">{{bg.name}}</nb-option>
                       </nb-select>
                   </fieldset>
@@ -142,19 +142,19 @@
                     </fieldset>
                     <fieldset>
                         <label>Submit Button Style</label>
-                        <nb-select class="col-6 no-pad" placeholder="Select Style" [(selected)]="selectedItem">
+                        <nb-select class="col-6 no-pad" placeholder="Select Style">
                             <nb-option *ngFor="let bg of btnStyle" value="{{bg.id}}">{{bg.name}}</nb-option>
                         </nb-select>
                     </fieldset>
                     <fieldset>
                         <label>Arrow Style</label>
-                        <nb-select class="col-6 no-pad" placeholder="Select Style" [(selected)]="selectedItem">
+                        <nb-select class="col-6 no-pad" placeholder="Select Style">
                             <nb-option *ngFor="let bg of arrwStyle" value="{{bg.id}}">{{bg.name}}</nb-option>
                         </nb-select>
                     </fieldset>
                     <fieldset>
                         <label>Arrow Position</label>
-                        <nb-select class="col-6 no-pad" placeholder="Select Position" [(selected)]="selectedItem">
+                        <nb-select class="col-6 no-pad" placeholder="Select Position">
                             <nb-option *ngFor="let bg of arrwPosition" value="{{bg.id}}">{{bg.name}}</nb-option>
                         </nb-select>
                     </fieldset>
@@ -180,13 +180,14 @@
               </div>
               <div *ngIf="intro" class="intro col-6">
                   <button nbButton>Use Default Setting</button>
+
                   <fieldset>
                       <label>Font Color</label>
                       <input nbInput type="text" value="#FFFFFF">
                   </fieldset>
                   <fieldset>
                       <label>Font Family</label>
-                      <nb-select class="col-6 no-pad" placeholder="Select Font Family" [(selected)]="selectedItem">
+                      <nb-select class="col-6 no-pad" placeholder="Select Font Family">
                           <nb-option *ngFor="let font of fonts" value="{{font.id}}">{{font.name}}</nb-option>
                       </nb-select>
                   </fieldset>
@@ -206,14 +207,14 @@
                   </fieldset>
                   <fieldset>
                       <label>Introduction</label>
-                      <nb-select class="col-6 no-pad" placeholder="Select Game Part" [(selected)]="selectedItem">
+                      <nb-select class="col-6 no-pad" placeholder="Select Game Part">
                           <nb-option value="0">None</nb-option>
                           <nb-option value="1">Message</nb-option>
                       </nb-select>
                   </fieldset>
                   <fieldset>
                       <label>Instruction</label>
-                      <nb-select class="col-6 no-pad" placeholder="Select Game Part" [(selected)]="selectedItem">
+                      <nb-select class="col-6 no-pad" placeholder="Select Game Part">
                           <nb-option *ngFor="let ins of instrType" value="{{ins.id}}">{{ins.name}}</nb-option>                        
                       </nb-select>
                   </fieldset>
@@ -222,7 +223,7 @@
                   <button nbButton nbStepperNext>next</button>
               </div>
             </nb-step>
-            <nb-step [label]="Preview">
+            <nb-step [label]="labelFive">
                 <ng-template #labelFive>Preview</ng-template>
                 <div class="col-md-6 offset-md-3 center">
                   <h4>You are almost done!</h4>

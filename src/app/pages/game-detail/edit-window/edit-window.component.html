@@ -25,7 +25,7 @@
 <hr>
 <div class="col-md-6">
 <h5>Access</h5>
-  <nb-select class="col-md-6" placeholder="Select Access">
+  <nb-select class="col-6 no-pad" placeholder="Select Access">
       <nb-option *ngFor="let g of access" value="{{g.id}}">{{g.title}}</nb-option>
   </nb-select>
 </div>
@@ -57,7 +57,7 @@
     </div>
     <div class="col-md-6">
         <h5>Link to</h5>
-        <nb-select class="col-md-6" placeholder="Select Access">
+        <nb-select class="col-6 no-pad" placeholder="Select Access">
             <nb-option *ngFor="let g of links" value="{{g.value}}">{{g.label}}</nb-option>
         </nb-select>
     </div>
